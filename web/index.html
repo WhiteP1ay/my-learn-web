@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Learn — AI 全栈学习进度</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --yellow: #d2991d;
+    --red: #f85149;
+    --purple: #a371f7;
+    --orange: #f0883e;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    padding: 24px 0 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  header h1 { font-size: 22px; font-weight: 600; }
+  header .meta { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+
+  /* Phase Tabs */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--text-dim);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab .badge {
+    display: inline-block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1px 8px;
+    font-size: 11px;
+    margin-left: 6px;
+    color: var(--text-dim);
+  }
+
+  /* Phase Content */
+  .phase-content { display: none; }
+  .phase-content.active { display: block; }
+
+  /* Progress Bar */
+  .progress-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .progress-section .label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .progress-section .label .pct { font-weight: 600; font-size: 18px; color: var(--accent); }
+  .progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-bar .fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+  .fill.green { background: var(--green); }
+  .fill.yellow { background: var(--yellow); }
+  .fill.red { background: var(--red); }
+
+  /* Groups */
+  .group {
+    margin-bottom: 20px;
+  }
+  .group-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Chapter rows */
+  .chapter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: background 0.1s;
+    cursor: pointer;
+  }
+  .chapter-row:hover { background: var(--surface); }
+
+  .mastery-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .mastery-dot.m4 { background: var(--green); }
+  .mastery-dot.m3 { background: var(--accent); }
+  .mastery-dot.m2 { background: var(--yellow); }
+  .mastery-dot.m1 { background: var(--orange); }
+  .mastery-dot.m0 { background: var(--border); }
+
+  .chapter-name { flex: 1; }
+  .chapter-name.reviewable { color: var(--accent); cursor: pointer; }
+  .chapter-name.reviewable:hover { text-decoration: underline; }
+
+  .strategy-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-completed { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-comprehensive { background: rgba(139,148,158,0.1); color: var(--text-dim); }
+  .tag-in_progress { background: rgba(210,153,29,0.15); color: var(--yellow); }
+  .tag-next_up { background: rgba(88,166,255,0.15); color: var(--accent); }
+  .tag-in_project { background: rgba(163,113,247,0.15); color: var(--purple); }
+  .tag-deferred { background: rgba(240,136,62,0.08); color: var(--orange); font-style: italic; }
+  .tag-optional { background: rgba(139,148,158,0.05); color: var(--text-dim); font-style: italic; }
+  .tag-fast_track { background: rgba(163,113,247,0.1); color: var(--purple); }
+
+  /* Copy button */
+  .copy-btn {
+    font-size: 11px;
+    padding: 3px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .chapter-row:hover .copy-btn { opacity: 1; }
+  .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
+  /* Sections */
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 24px;
+  }
+  .section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  /* Review Pool */
+  .review-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    align-items: flex-start;
+  }
+  .review-item:last-child { border-bottom: none; }
+  .review-item .chapter { font-weight: 500; min-width: 140px; flex-shrink: 0; }
+  .review-item .info { color: var(--text-dim); flex: 1; }
+  .review-item .info .gap { color: var(--orange); font-size: 12px; margin-top: 2px; }
+
+  /* Upcoming */
+  .upcoming { color: var(--accent); font-size: 14px; line-height: 2; }
+
+  /* Copy toast */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--green);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s;
+    pointer-events: none;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* Tooltip for note */
+  .note-hint { color: var(--text-dim); font-size: 10px; margin-left: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Learn — AI 全栈学习进度</h1>
+  <div class="meta">
+    <span id="meta-info">加载中…</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<div id="phase-content"></div>
+
+<div class="section" id="review-section">
+  <h3>🔄 可复习池（点击复制命令 → 终端粘贴）</h3>
+  <div id="review-pool"></div>
+</div>
+
+<div class="section">
+  <h3>📋 接下来</h3>
+  <div class="upcoming" id="upcoming-plan"></div>
+</div>
+
+<div class="section">
+  <h3>🅿️ 停车场（按需触发）</h3>
+  <div id="parking-lot"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+//  EMBEDDED DATA — works with file:// protocol
+// ============================================================
+const CURRICULUM = {"phases":[{"id":"phase1","name":"Phase 1: Python + 数据库 + 后端地基","groups":[{"id":"python-core","name":"Python 语言核心精讲","chapters":[{"id":"2","name":"python环境安装","mastery":3,"evidence":"uv init / uv add / pyproject.toml / uv.lock / .venv 三层职责","strategy":"completed"},{"id":"3","name":"python基本语法","mastery":3,"evidence":"iterable/iterator 已 3/4；其余接近完成","status":"in_progress","strategy":"comprehensive"},{"id":"4","name":"容器类型","mastery":2,"evidence":"list/tuple/dict/set 基本语义；还需综合练习","status":"in_progress","strategy":"comprehensive"},{"id":"5","name":"函数","mastery":3,"evidence":"参数绑定 / *args/**kwargs / 可变默认参数 / None 哨兵","strategy":"completed"},{"id":"6","name":"作用域","mastery":3,"evidence":"LEGB / global / nonlocal / 闭包延迟绑定","strategy":"completed"},{"id":"7","name":"lambda表达式","mastery":3,"evidence":"单表达式 / 排序键 / sorted vs list.sort","strategy":"completed"},{"id":"8","name":"类和对象","mastery":3,"evidence":"__init__ / self / 实例属性遮蔽类属性 / dataclass / default_factory","strategy":"completed"},{"id":"9","name":"对象的类型","mastery":3,"evidence":"type vs isinstance / 继承链 / bool 是 int 子类","strategy":"completed"},{"id":"10","name":"对象的创建过程","mastery":0,"strategy":"deferred"},{"id":"11","name":"可调用对象","mastery":0,"strategy":"deferred"},{"id":"12","name":"元类","mastery":0,"strategy":"deferred"},{"id":"13","name":"装饰器","mastery":0,"strategy":"in_project"},{"id":"14","name":"魔术方法","mastery":0,"strategy":"deferred"},{"id":"15","name":"描述符","mastery":0,"strategy":"deferred"},{"id":"16","name":"异常处理","mastery":3,"evidence":"try/except/else/finally / raise / 异常转换 / from","strategy":"completed"},{"id":"17","name":"迭代器与生成器","mastery":0,"strategy":"in_project"},{"id":"18","name":"上下文管理器","mastery":0,"strategy":"in_project"},{"id":"19","name":"ABC","mastery":0,"strategy":"in_project"},{"id":"20","name":"类型标注","mastery":0,"strategy":"next_up"},{"id":"21","name":"模块化","mastery":0,"strategy":"comprehensive"},{"id":"24","name":"事件循环","mastery":0,"strategy":"in_project"},{"id":"25","name":"Future类","mastery":0,"strategy":"in_project"},{"id":"26","name":"协程 Coroutine","mastery":0,"strategy":"in_project"},{"id":"27","name":"异步编程","mastery":0,"strategy":"in_project"},{"id":"28","name":"多线程与多进程","mastery":0,"strategy":"in_project"},{"id":"29","name":"构建发布","mastery":0,"strategy":"in_project"},{"id":"32","name":"断点调试","mastery":0,"strategy":"in_project"}]},{"id":"database","name":"数据库","chapters":[{"id":"db-1","name":"PostgreSQL安装","mastery":0,"strategy":"comprehensive"},{"id":"db-2","name":"DDL","mastery":0,"strategy":"comprehensive"},{"id":"db-3","name":"表间关系","mastery":0,"strategy":"comprehensive"},{"id":"db-4","name":"DML","mastery":0,"strategy":"comprehensive"},{"id":"db-5","name":"事务","mastery":0,"strategy":"comprehensive"},{"id":"db-6","name":"索引","mastery":0,"strategy":"comprehensive"}]},{"id":"fastapi","name":"Python 框架 (FastAPI)","chapters":[{"id":"fw-1","name":"Web服务框架","mastery":0,"strategy":"comprehensive"},{"id":"fw-3","name":"初识SQLAlchemy","mastery":0,"strategy":"comprehensive"},{"id":"fw-4","name":"ORM","mastery":0,"strategy":"comprehensive"},{"id":"fw-6","name":"数据迁移","mastery":0,"strategy":"comprehensive"},{"id":"fw-8","name":"依赖注入","mastery":0,"strategy":"comprehensive"},{"id":"fw-9","name":"统一异常处理","mastery":0,"strategy":"comprehensive"},{"id":"fw-10","name":"中间件","mastery":0,"strategy":"comprehensive"},{"id":"fw-11","name":"测试框架","mastery":0,"strategy":"comprehensive"},{"id":"fw-13","name":"三层架构","mastery":0,"strategy":"comprehensive"},{"id":"fw-14","name":"文件上传","mastery":0,"strategy":"comprehensive"},{"id":"fw-16","name":"长事务和短事务","mastery":0,"strategy":"comprehensive"},{"id":"fw-20","name":"流式响应","mastery":0,"strategy":"comprehensive"},{"id":"fw-21","name":"Docker 部署","mastery":0,"strategy":"comprehensive"},{"id":"fw-23","name":"K8s 部署","mastery":0,"strategy":"comprehensive"},{"id":"fw-24","name":"CI/CD","mastery":0,"strategy":"comprehensive"}]},{"id":"data-tools","name":"数据科学工具（选学）","chapters":[{"id":"dt-2","name":"Jupyter","mastery":0,"strategy":"optional"},{"id":"dt-3","name":"Numpy 核心概念","mastery":0,"strategy":"optional"},{"id":"dt-4","name":"Numpy 数据操作","mastery":0,"strategy":"optional"},{"id":"dt-5","name":"Pandas 数据类型","mastery":0,"strategy":"optional"},{"id":"dt-6","name":"Pandas 数据清洗","mastery":0,"strategy":"optional"}]}]},{"id":"phase2","name":"Phase 2: AI 应用工程","groups":[{"id":"agents","name":"Agents 底层逻辑","chapters":[{"id":"ag-2","name":"AI的分类","mastery":0,"strategy":"comprehensive"},{"id":"ag-3","name":"神经元","mastery":0,"strategy":"comprehensive"},{"id":"ag-4","name":"前向传播","mastery":0,"strategy":"comprehensive"},{"id":"ag-5","name":"梯度下降","mastery":0,"strategy":"comprehensive"},{"id":"ag-6","name":"训练模式和框架","mastery":0,"strategy":"comprehensive"},{"id":"ag-7","name":"词元","mastery":0,"strategy":"comprehensive"},{"id":"ag-8","name":"token统计","mastery":0,"strategy":"comprehensive"},{"id":"ag-9","name":"神经网络的本质","mastery":0,"strategy":"comprehensive"},{"id":"ag-10","name":"词嵌入","mastery":0,"strategy":"comprehensive"},{"id":"ag-11","name":"注意力机制","mastery":0,"strategy":"comprehensive"},{"id":"ag-12","name":"Transformer训练流程","mastery":0,"strategy":"comprehensive"},{"id":"ag-13","name":"推理机制","mastery":0,"strategy":"comprehensive"},{"id":"ag-14","name":"训练阶段","mastery":0,"strategy":"comprehensive"},{"id":"ag-15","name":"Ollama","mastery":0,"strategy":"comprehensive"},{"id":"ag-16","name":"系统提示词","mastery":0,"strategy":"comprehensive"},{"id":"ag-17","name":"会话","mastery":0,"strategy":"comprehensive"},{"id":"ag-18","name":"tools","mastery":0,"strategy":"comprehensive"},{"id":"ag-19","name":"封装tools","mastery":0,"strategy":"comprehensive"}]},{"id":"rag","name":"RAG 知识库开发实战","chapters":[{"id":"rag-1","name":"RAG核心原理","mastery":0,"strategy":"comprehensive"},{"id":"rag-2","name":"token化","mastery":0,"strategy":"comprehensive"},{"id":"rag-3","name":"向量化","mastery":0,"strategy":"comprehensive"},{"id":"rag-4","name":"向量数据库","mastery":0,"strategy":"comprehensive"},{"id":"rag-5","name":"数据切片方案","mastery":0,"strategy":"comprehensive"},{"id":"rag-6","name":"数据清洗策略","mastery":0,"strategy":"comprehensive"},{"id":"rag-7","name":"LlamaIndex框架","mastery":0,"strategy":"comprehensive"},{"id":"rag-14","name":"多源数据接入","mastery":0,"strategy":"comprehensive"},{"id":"rag-15","name":"检索策略优化","mastery":0,"strategy":"comprehensive"},{"id":"rag-16","name":"混合检索","mastery":0,"strategy":"comprehensive"},{"id":"rag-17","name":"Rerank重排序","mastery":0,"strategy":"comprehensive"},{"id":"rag-18","name":"GraphRAG图谱增强","mastery":0,"strategy":"comprehensive"},{"id":"rag-22","name":"RAG质量评估体系","mastery":0,"strategy":"comprehensive"},{"id":"rag-23","name":"FastAPI服务封装","mastery":0,"strategy":"comprehensive"},{"id":"rag-24","name":"生产环境部署","mastery":0,"strategy":"comprehensive"}]},{"id":"langgraph","name":"LangGraph 工作流开发","chapters":[{"id":"lg-1","name":"LangGraph节点","mastery":0,"strategy":"comprehensive"},{"id":"lg-2","name":"State管理","mastery":0,"strategy":"comprehensive"},{"id":"lg-3","name":"CheckPoints","mastery":0,"strategy":"comprehensive"},{"id":"lg-4","name":"ReAct模式","mastery":0,"strategy":"comprehensive"},{"id":"lg-7","name":"Human-in-the-loop","mastery":0,"strategy":"comprehensive"},{"id":"lg-9","name":"短期记忆和长期记忆","mastery":0,"strategy":"comprehensive"},{"id":"lg-13","name":"子图","mastery":0,"strategy":"comprehensive"},{"id":"lg-16","name":"Agent Supervisor","mastery":0,"strategy":"comprehensive"}]},{"id":"fine-tuning","name":"大模型微调实战","chapters":[{"id":"ft-1","name":"基座模型选型","mastery":0,"strategy":"comprehensive"},{"id":"ft-6","name":"unsloth","mastery":0,"strategy":"comprehensive"},{"id":"ft-8","name":"PEFT方案","mastery":0,"strategy":"comprehensive"},{"id":"ft-9","name":"LoRA","mastery":0,"strategy":"comprehensive"},{"id":"ft-10","name":"QLoRA","mastery":0,"strategy":"comprehensive"},{"id":"ft-12","name":"RLHF/DPO对齐","mastery":0,"strategy":"comprehensive"}]},{"id":"optional-ai","name":"可选专项","chapters":[{"id":"opt-dify","name":"Dify 平台实战应用","mastery":0,"strategy":"optional"},{"id":"opt-langchain","name":"LangChain 框架核心","mastery":0,"strategy":"optional"},{"id":"opt-deepagent","name":"DeepAgent 高级应用","mastery":0,"strategy":"optional"}]}]},{"id":"phase3","name":"Phase 3: Java 企业后端（后期专项）","groups":[{"id":"java-lang","name":"Java 语言精讲","chapters":[{"id":"jv-3","name":"Java基础语法","mastery":0,"strategy":"fast_track","note":"TypeScript 经验可加速"},{"id":"jv-4","name":"容器类型","mastery":0,"strategy":"fast_track"},{"id":"jv-5","name":"方法","mastery":0,"strategy":"fast_track"},{"id":"jv-6","name":"Lambda表达式","mastery":0,"strategy":"fast_track"},{"id":"jv-7","name":"Stream API","mastery":0,"strategy":"comprehensive"},{"id":"jv-8","name":"类和对象","mastery":0,"strategy":"fast_track"},{"id":"jv-9","name":"封装、继承和多态","mastery":0,"strategy":"fast_track"},{"id":"jv-10","name":"抽象类和接口","mastery":0,"strategy":"fast_track"},{"id":"jv-12","name":"异常处理","mastery":0,"strategy":"fast_track"},{"id":"jv-14","name":"泛型","mastery":0,"strategy":"comprehensive"},{"id":"jv-15","name":"注解","mastery":0,"strategy":"comprehensive"},{"id":"jv-17","name":"线程基础","mastery":0,"strategy":"comprehensive"}]},{"id":"spring-boot","name":"Spring Boot","chapters":[{"id":"sb-1","name":"Spring基础框架","mastery":0,"strategy":"comprehensive"},{"id":"sb-9","name":"依赖注入","mastery":0,"strategy":"comprehensive","note":"重点——前端 DI 经验可类比"},{"id":"sb-15","name":"AOP面向切面编程","mastery":0,"strategy":"comprehensive"},{"id":"sb-20","name":"Web服务开发","mastery":0,"strategy":"comprehensive"},{"id":"sb-37","name":"JDBC与数据访问","mastery":0,"strategy":"comprehensive"},{"id":"sb-44","name":"ORM (JPA/MyBatis)","mastery":0,"strategy":"comprehensive"},{"id":"sb-66","name":"测试","mastery":0,"strategy":"comprehensive"}]},{"id":"spring-cloud","name":"Spring Cloud 微服务","chapters":[{"id":"sc-1","name":"微服务架构特性","mastery":0,"strategy":"comprehensive"},{"id":"sc-10","name":"Nacos 注册中心","mastery":0,"strategy":"comprehensive"},{"id":"sc-14","name":"OpenFeign 远程调用","mastery":0,"strategy":"comprehensive"},{"id":"sc-30","name":"Gateway 服务网关","mastery":0,"strategy":"comprehensive"},{"id":"sc-35","name":"RocketMQ 消息队列","mastery":0,"strategy":"comprehensive"},{"id":"sc-43","name":"Seata 分布式事务","mastery":0,"strategy":"comprehensive"},{"id":"sc-53","name":"Sentinel 限流熔断","mastery":0,"strategy":"comprehensive"}]},{"id":"middleware","name":"主流中间件与框架","chapters":[{"id":"mw-3","name":"Dubbo RPC框架","mastery":0,"strategy":"comprehensive"},{"id":"mw-8","name":"Netty 网络通信","mastery":0,"strategy":"comprehensive"},{"id":"mw-17","name":"Redis 分布式缓存","mastery":0,"strategy":"comprehensive"},{"id":"mw-25","name":"Elasticsearch 搜索引擎","mastery":0,"strategy":"comprehensive"},{"id":"mw-50","name":"Spring Security 安全","mastery":0,"strategy":"comprehensive"}]}]},{"id":"phase4","name":"Phase 4: 运维与可靠性（贯穿全程）","groups":[{"id":"linux","name":"Linux 运维基础","chapters":[{"id":"lx-1-1","name":"Linux发行版与安装","mastery":0,"strategy":"comprehensive"},{"id":"lx-1-2","name":"SSH与免密登录","mastery":0,"strategy":"comprehensive"},{"id":"lx-2-1","name":"文件系统与权限","mastery":0,"strategy":"comprehensive"},{"id":"lx-2-3","name":"用户、组与权限位","mastery":0,"strategy":"comprehensive"},{"id":"lx-3-1","name":"systemd服务管理","mastery":0,"strategy":"comprehensive"},{"id":"lx-3-2","name":"端口与网络排查","mastery":0,"strategy":"comprehensive"},{"id":"lx-3-3","name":"CPU/内存/磁盘瓶颈定位","mastery":0,"strategy":"comprehensive"},{"id":"lx-3-4","name":"日志检索与时间线还原","mastery":0,"strategy":"comprehensive"},{"id":"lx-4-1","name":"Bash脚本自动化","mastery":0,"strategy":"comprehensive"},{"id":"lx-4-4","name":"Cron定时任务","mastery":0,"strategy":"comprehensive"},{"id":"lx-5-2","name":"防火墙规则","mastery":0,"strategy":"comprehensive"},{"id":"lx-5-4","name":"备份策略与恢复","mastery":0,"strategy":"comprehensive"}]},{"id":"nginx","name":"Nginx 与应用服务部署","chapters":[{"id":"ng-1-1","name":"Nginx安装与启动","mastery":0,"strategy":"comprehensive"},{"id":"ng-1-3","name":"Server与Location匹配","mastery":0,"strategy":"comprehensive"},{"id":"ng-2-1","name":"反向代理与转发","mastery":0,"strategy":"comprehensive"},{"id":"ng-2-4","name":"限流与黑白名单","mastery":0,"strategy":"comprehensive"},{"id":"ng-3-1","name":"负载均衡策略","mastery":0,"strategy":"comprehensive"},{"id":"ng-3-2","name":"健康检查与故障剔除","mastery":0,"strategy":"comprehensive"}]}]}],"meta":{"last_updated":"2026-08-12","project_spine":"AI 客服工单系统","current_phase":"phase1","current_position":"20. 类型标注（运行时边界）","session_count":6,"last_session":"2026-08-06"}};
+
+const STATE = {"current":{"phase":"phase1","knowledge_point":"20. 类型标注（运行时边界）","session":6,"last_session":"2026-08-06","default_duration":"45–60 分钟"},"review_pool":[{"chapter_id":"2","chapter_name":"python环境安装","mastery":3,"max_mastery":4,"last_review":"2026-08-05","gap":"未独立处理版本冲突、解释器不匹配或损坏环境的迁移/排错"},{"chapter_id":"3","chapter_name":"python基本语法·循环","mastery":3,"max_mastery":4,"last_review":"2026-08-03","note":"iterable/iterator 小项"},{"chapter_id":"5","chapter_name":"函数","mastery":3,"max_mastery":4,"last_review":"2026-08-06","gap":"需在 API 中独立设计参数接口并排查真实问题"},{"chapter_id":"6","chapter_name":"作用域","mastery":3,"max_mastery":4,"last_review":"2026-08-06","gap":"需在实际回调/装饰器中排查闭包问题"},{"chapter_id":"7","chapter_name":"lambda表达式","mastery":3,"max_mastery":4,"last_review":"2026-08-06","gap":"需在真实场景中选择 lambda 与命名函数"},{"chapter_id":"8","chapter_name":"类和对象","mastery":3,"max_mastery":4,"last_review":"2026-08-06","gap":"需在 API/领域模型中选型 dataclass vs Pydantic"},{"chapter_id":"9","chapter_name":"对象的类型","mastery":3,"max_mastery":4,"last_review":"2026-08-06","gap":"需在真实输入验证中判断 isinstance 使用策略"},{"chapter_id":"16","chapter_name":"异常处理","mastery":3,"max_mastery":4,"last_review":"2026-08-06","gap":"需在 FastAPI 中设计异常边界与 HTTP 映射"}],"upcoming_plan":["类型标注 → 模块化 → PostgreSQL 安装 → DDL → 表间关系 → FastAPI 起服务"],"blockers":[],"parking_lot":[{"chapter":"装饰器","trigger":"项目中需要路由权限校验或计时器时触发"},{"chapter":"上下文管理器","trigger":"项目中需要资源管理（文件/数据库连接）时触发"},{"chapter":"迭代器与生成器","trigger":"项目中处理流式数据或大文件时触发"},{"chapter":"异步编程","trigger":"FastAPI 起服务后按需教学"}]};
+
+// ============================================================
+//  RENDER
+// ============================================================
+const EL = {
+  meta: document.getElementById('meta-info'),
+  tabs: document.getElementById('tabs'),
+  content: document.getElementById('phase-content'),
+  review: document.getElementById('review-pool'),
+  upcoming: document.getElementById('upcoming-plan'),
+  parking: document.getElementById('parking-lot'),
+  toast: document.getElementById('toast')
+};
+
+function toast(msg) {
+  EL.toast.textContent = msg;
+  EL.toast.classList.add('show');
+  setTimeout(() => EL.toast.classList.remove('show'), 1500);
+}
+
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ 已复制';
+    btn.classList.add('copied');
+    toast('已复制: ' + text);
+    setTimeout(() => {
+      btn.textContent = '复制命令';
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+}
+
+// Strategy → tag CSS class
+function tagClass(s) {
+  const m = {
+    completed: 'tag-completed',
+    comprehensive: 'tag-comprehensive',
+    in_progress: 'tag-in_progress',
+    next_up: 'tag-next_up',
+    in_project: 'tag-in_project',
+    deferred: 'tag-deferred',
+    optional: 'tag-optional',
+    fast_track: 'tag-fast_track'
+  };
+  return m[s] || 'tag-comprehensive';
+}
+
+// Mastery → dot CSS class
+function dotClass(m) {
+  if (m >= 4) return 'm4';
+  if (m === 3) return 'm3';
+  if (m === 2) return 'm2';
+  if (m === 1) return 'm1';
+  return 'm0';
+}
+
+// Strategy → display label
+function strategyLabel(s) {
+  const labels = {
+    completed: '✓ 已完成',
+    comprehensive: '待学习',
+    in_progress: '进行中',
+    next_up: '▶ 下一篇',
+    in_project: '项目中学',
+    deferred: '后置',
+    optional: '选学',
+    fast_track: '可快进'
+  };
+  return labels[s] || s;
+}
+
+// Compute phase stats
+function phaseStats(phase) {
+  let total = 0, completed = 0, inProgress = 0;
+  for (const g of phase.groups) {
+    for (const c of g.chapters) {
+      if (c.strategy === 'deferred') continue;
+      total++;
+      if (c.mastery >= 3) completed++;
+      else if (c.mastery >= 1 || c.status === 'in_progress') inProgress++;
+    }
+  }
+  const mastered = completed;
+  const pct = total ? Math.round((mastered / total) * 100) : 0;
+  return { total, mastered, inProgress, pct };
+}
+
+// Render tabs
+function renderTabs() {
+  EL.tabs.innerHTML = CURRICULUM.phases.map((p, i) => {
+    const s = phaseStats(p);
+    return `<button class="tab${i === 0 ? ' active' : ''}" data-phase="${p.id}">
+      ${p.name.split(':')[0]}
+      <span class="badge">${s.mastered}/${s.total}</span>
+    </button>`;
+  }).join('');
+}
+
+// Render a single phase
+function renderPhase(phase) {
+  const s = phaseStats(phase);
+  const pctClass = s.pct >= 70 ? 'green' : s.pct >= 30 ? 'yellow' : 'red';
+
+  let html = `<div class="progress-section">
+    <div class="label">
+      <span>${s.mastered} / ${s.total} 章已掌握${s.inProgress ? '（' + s.inProgress + ' 进行中）' : ''}</span>
+      <span class="pct">${s.pct}%</span>
+    </div>
+    <div class="progress-bar"><div class="fill ${pctClass}" style="width:${s.pct}%"></div></div>
+  </div>`;
+
+  for (const g of phase.groups) {
+    html += `<div class="group"><div class="group-title">${g.name}</div>`;
+    for (const c of g.chapters) {
+      // Determine if reviewable (mastery >= 3 in review_pool)
+      const inPool = STATE.review_pool.find(r => r.chapter_id === c.id);
+      const reviewable = inPool && c.mastery >= 3;
+      const chClass = reviewable ? 'chapter-name reviewable' : 'chapter-name';
+
+      // Copy command based on strategy
+      let copyCmd = '';
+      if (c.strategy === 'next_up') {
+        copyCmd = '继续学习';
+      } else if (c.strategy === 'comprehensive' || c.strategy === 'fast_track') {
+        copyCmd = `讲 ${g.name} - ${c.name}`;
+      } else if (c.strategy === 'in_project' || c.strategy === 'in_progress') {
+        copyCmd = `讲 ${c.name}`;
+      } else if (reviewable) {
+        copyCmd = `复习 ${c.name}`;
+      } else if (c.strategy === 'completed') {
+        copyCmd = `复习 ${c.name}`;
+      }
+
+      const note = c.note ? `<span class="note-hint">${c.note}</span>` : '';
+
+      html += `<div class="chapter-row" data-id="${c.id}">
+        <span class="mastery-dot ${dotClass(c.mastery)}" title="掌握度 ${c.mastery}/4"></span>
+        <span class="${chClass}">${c.name}${note}</span>
+        <span class="strategy-tag ${tagClass(c.strategy)}">${strategyLabel(c.strategy)}</span>
+        ${copyCmd ? `<button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('${copyCmd.replace(/'/g, "\\'")}', this)">复制命令</button>` : ''}
+      </div>`;
+    }
+    html += '</div>';
+  }
+
+  return html;
+}
+
+// Render review pool
+function renderReview() {
+  if (!STATE.review_pool.length) {
+    EL.review.innerHTML = '<div style="color:var(--text-dim)">暂无待复习章节</div>';
+    return;
+  }
+  EL.review.innerHTML = STATE.review_pool.map(r => {
+    const cmd = `复习 ${r.chapter_name}`;
+    return `<div class="review-item">
+      <div class="chapter">${r.chapter_name}</div>
+      <div class="info">
+        掌握 ${r.mastery}/${r.max_mastery} · 上次 ${r.last_review}
+        ${r.gap ? `<div class="gap">Gap: ${r.gap}</div>` : ''}
+        ${r.note ? `<div style="color:var(--text-dim);font-size:12px">${r.note}</div>` : ''}
+      </div>
+      <button class="copy-btn" style="opacity:1;align-self:center" onclick="copyToClipboard('${cmd}', this)">复制命令</button>
+    </div>`;
+  }).join('');
+}
+
+// Render upcoming plan
+function renderPlan() {
+  EL.upcoming.innerHTML = STATE.upcoming_plan.map(p =>
+    `<div>→ ${p}</div>`
+  ).join('');
+}
+
+// Render parking lot
+function renderParking() {
+  EL.parking.innerHTML = STATE.parking_lot.map(p =>
+    `<div class="review-item">
+      <div class="chapter">${p.chapter}</div>
+      <div class="info">${p.trigger}</div>
+    </div>`
+  ).join('');
+}
+
+// Meta info
+function renderMeta() {
+  const m = CURRICULUM.meta;
+  EL.meta.innerHTML = `📍 ${m.current_position} · Session ${m.session_count} · ${m.last_session} · 项目: ${m.project_spine}`;
+}
+
+// Init
+renderTabs();
+renderMeta();
+
+// Render phase content as separate divs
+let phaseHTML = '';
+for (const p of CURRICULUM.phases) {
+  phaseHTML += `<div class="phase-content${p.id === 'phase1' ? ' active' : ''}" id="phase-${p.id}">${renderPhase(p)}</div>`;
+}
+EL.content.innerHTML = phaseHTML;
+
+renderReview();
+renderPlan();
+renderParking();
+
+// Tab switching
+EL.tabs.addEventListener('click', e => {
+  const tab = e.target.closest('.tab');
+  if (!tab) return;
+  const phaseId = tab.dataset.phase;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.phase-content').forEach(p => p.classList.remove('active'));
+  tab.classList.add('active');
+  const target = document.getElementById(`phase-${phaseId}`);
+  if (target) target.classList.add('active');
+});
+</script>
+</body>
+</html>

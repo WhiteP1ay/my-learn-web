@@ -1,0 +1,97 @@
+{
+  "current": {
+    "phase": "phase1",
+    "knowledge_point": "20. 类型标注（运行时边界）",
+    "session": 6,
+    "last_session": "2026-08-06",
+    "default_duration": "45–60 分钟"
+  },
+  "review_pool": [
+    {
+      "chapter_id": "2",
+      "chapter_name": "python环境安装",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-05",
+      "gap": "未独立处理版本冲突、解释器不匹配或损坏环境的迁移/排错"
+    },
+    {
+      "chapter_id": "3",
+      "chapter_name": "python基本语法·循环",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-03",
+      "note": "iterable/iterator 小项"
+    },
+    {
+      "chapter_id": "5",
+      "chapter_name": "函数",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-06",
+      "gap": "需在 API 中独立设计参数接口并排查真实问题"
+    },
+    {
+      "chapter_id": "6",
+      "chapter_name": "作用域",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-06",
+      "gap": "需在实际回调/装饰器中排查闭包问题"
+    },
+    {
+      "chapter_id": "7",
+      "chapter_name": "lambda表达式",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-06",
+      "gap": "需在真实场景中选择 lambda 与命名函数"
+    },
+    {
+      "chapter_id": "8",
+      "chapter_name": "类和对象",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-06",
+      "gap": "需在 API/领域模型中选型 dataclass vs Pydantic"
+    },
+    {
+      "chapter_id": "9",
+      "chapter_name": "对象的类型",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-06",
+      "gap": "需在真实输入验证中判断 isinstance 使用策略"
+    },
+    {
+      "chapter_id": "16",
+      "chapter_name": "异常处理",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-06",
+      "gap": "需在 FastAPI 中设计异常边界与 HTTP 映射"
+    }
+  ],
+  "upcoming_plan": [
+    "类型标注 → 模块化 → PostgreSQL 安装 → DDL → 表间关系 → FastAPI 起服务"
+  ],
+  "blockers": [],
+  "parking_lot": [
+    {
+      "chapter": "装饰器",
+      "trigger": "项目中需要路由权限校验或计时器时触发"
+    },
+    {
+      "chapter": "上下文管理器",
+      "trigger": "项目中需要资源管理（文件/数据库连接）时触发"
+    },
+    {
+      "chapter": "迭代器与生成器",
+      "trigger": "项目中处理流式数据或大文件时触发"
+    },
+    {
+      "chapter": "异步编程",
+      "trigger": "FastAPI 起服务后按需教学"
+    }
+  ]
+}

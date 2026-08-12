@@ -1,0 +1,1051 @@
+{
+  "phases": [
+    {
+      "id": "phase1",
+      "name": "Phase 1: Python + 数据库 + 后端地基",
+      "groups": [
+        {
+          "id": "python-core",
+          "name": "Python 语言核心精讲",
+          "chapters": [
+            {
+              "id": "2",
+              "name": "python环境安装",
+              "mastery": 3,
+              "evidence": "uv init / uv add / pyproject.toml / uv.lock / .venv 三层职责",
+              "strategy": "completed"
+            },
+            {
+              "id": "3",
+              "name": "python基本语法",
+              "mastery": 3,
+              "evidence": "iterable/iterator 已 3/4；其余接近完成",
+              "status": "in_progress",
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "4",
+              "name": "容器类型",
+              "mastery": 2,
+              "evidence": "list/tuple/dict/set 基本语义；还需综合练习",
+              "status": "in_progress",
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "5",
+              "name": "函数",
+              "mastery": 3,
+              "evidence": "参数绑定 / *args/**kwargs / 可变默认参数 / None 哨兵",
+              "strategy": "completed"
+            },
+            {
+              "id": "6",
+              "name": "作用域",
+              "mastery": 3,
+              "evidence": "LEGB / global / nonlocal / 闭包延迟绑定",
+              "strategy": "completed"
+            },
+            {
+              "id": "7",
+              "name": "lambda表达式",
+              "mastery": 3,
+              "evidence": "单表达式 / 排序键 / sorted vs list.sort",
+              "strategy": "completed"
+            },
+            {
+              "id": "8",
+              "name": "类和对象",
+              "mastery": 3,
+              "evidence": "__init__ / self / 实例属性遮蔽类属性 / dataclass / default_factory",
+              "strategy": "completed"
+            },
+            {
+              "id": "9",
+              "name": "对象的类型",
+              "mastery": 3,
+              "evidence": "type vs isinstance / 继承链 / bool 是 int 子类",
+              "strategy": "completed"
+            },
+            {
+              "id": "10",
+              "name": "对象的创建过程",
+              "mastery": 0,
+              "strategy": "deferred"
+            },
+            {
+              "id": "11",
+              "name": "可调用对象",
+              "mastery": 0,
+              "strategy": "deferred"
+            },
+            {
+              "id": "12",
+              "name": "元类",
+              "mastery": 0,
+              "strategy": "deferred"
+            },
+            {
+              "id": "13",
+              "name": "装饰器",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "14",
+              "name": "魔术方法",
+              "mastery": 0,
+              "strategy": "deferred"
+            },
+            {
+              "id": "15",
+              "name": "描述符",
+              "mastery": 0,
+              "strategy": "deferred"
+            },
+            {
+              "id": "16",
+              "name": "异常处理",
+              "mastery": 3,
+              "evidence": "try/except/else/finally / raise / 异常转换 / from",
+              "strategy": "completed"
+            },
+            {
+              "id": "17",
+              "name": "迭代器与生成器",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "18",
+              "name": "上下文管理器",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "19",
+              "name": "ABC",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "20",
+              "name": "类型标注",
+              "mastery": 0,
+              "strategy": "next_up"
+            },
+            {
+              "id": "21",
+              "name": "模块化",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "24",
+              "name": "事件循环",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "25",
+              "name": "Future类",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "26",
+              "name": "协程 Coroutine",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "27",
+              "name": "异步编程",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "28",
+              "name": "多线程与多进程",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "29",
+              "name": "构建发布",
+              "mastery": 0,
+              "strategy": "in_project"
+            },
+            {
+              "id": "32",
+              "name": "断点调试",
+              "mastery": 0,
+              "strategy": "in_project"
+            }
+          ]
+        },
+        {
+          "id": "database",
+          "name": "数据库",
+          "chapters": [
+            {
+              "id": "db-1",
+              "name": "PostgreSQL安装",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "db-2",
+              "name": "DDL",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "db-3",
+              "name": "表间关系",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "db-4",
+              "name": "DML",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "db-5",
+              "name": "事务",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "db-6",
+              "name": "索引",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "fastapi",
+          "name": "Python 框架 (FastAPI)",
+          "chapters": [
+            {
+              "id": "fw-1",
+              "name": "Web服务框架",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-3",
+              "name": "初识SQLAlchemy",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-4",
+              "name": "ORM",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-6",
+              "name": "数据迁移",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-8",
+              "name": "依赖注入",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-9",
+              "name": "统一异常处理",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-10",
+              "name": "中间件",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-11",
+              "name": "测试框架",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-13",
+              "name": "三层架构",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-14",
+              "name": "文件上传",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-16",
+              "name": "长事务和短事务",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-20",
+              "name": "流式响应",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-21",
+              "name": "Docker 部署",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-23",
+              "name": "K8s 部署",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "fw-24",
+              "name": "CI/CD",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "data-tools",
+          "name": "数据科学工具（选学）",
+          "chapters": [
+            {
+              "id": "dt-2",
+              "name": "Jupyter",
+              "mastery": 0,
+              "strategy": "optional"
+            },
+            {
+              "id": "dt-3",
+              "name": "Numpy 核心概念",
+              "mastery": 0,
+              "strategy": "optional"
+            },
+            {
+              "id": "dt-4",
+              "name": "Numpy 数据操作",
+              "mastery": 0,
+              "strategy": "optional"
+            },
+            {
+              "id": "dt-5",
+              "name": "Pandas 数据类型",
+              "mastery": 0,
+              "strategy": "optional"
+            },
+            {
+              "id": "dt-6",
+              "name": "Pandas 数据清洗",
+              "mastery": 0,
+              "strategy": "optional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase2",
+      "name": "Phase 2: AI 应用工程",
+      "groups": [
+        {
+          "id": "agents",
+          "name": "Agents 底层逻辑",
+          "chapters": [
+            {
+              "id": "ag-2",
+              "name": "AI的分类",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-3",
+              "name": "神经元",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-4",
+              "name": "前向传播",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-5",
+              "name": "梯度下降",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-6",
+              "name": "训练模式和框架",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-7",
+              "name": "词元",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-8",
+              "name": "token统计",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-9",
+              "name": "神经网络的本质",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-10",
+              "name": "词嵌入",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-11",
+              "name": "注意力机制",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-12",
+              "name": "Transformer训练流程",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-13",
+              "name": "推理机制",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-14",
+              "name": "训练阶段",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-15",
+              "name": "Ollama",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-16",
+              "name": "系统提示词",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-17",
+              "name": "会话",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-18",
+              "name": "tools",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ag-19",
+              "name": "封装tools",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "rag",
+          "name": "RAG 知识库开发实战",
+          "chapters": [
+            {
+              "id": "rag-1",
+              "name": "RAG核心原理",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-2",
+              "name": "token化",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-3",
+              "name": "向量化",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-4",
+              "name": "向量数据库",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-5",
+              "name": "数据切片方案",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-6",
+              "name": "数据清洗策略",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-7",
+              "name": "LlamaIndex框架",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-14",
+              "name": "多源数据接入",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-15",
+              "name": "检索策略优化",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-16",
+              "name": "混合检索",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-17",
+              "name": "Rerank重排序",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-18",
+              "name": "GraphRAG图谱增强",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-22",
+              "name": "RAG质量评估体系",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-23",
+              "name": "FastAPI服务封装",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-24",
+              "name": "生产环境部署",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "langgraph",
+          "name": "LangGraph 工作流开发",
+          "chapters": [
+            {
+              "id": "lg-1",
+              "name": "LangGraph节点",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lg-2",
+              "name": "State管理",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lg-3",
+              "name": "CheckPoints",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lg-4",
+              "name": "ReAct模式",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lg-7",
+              "name": "Human-in-the-loop",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lg-9",
+              "name": "短期记忆和长期记忆",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lg-13",
+              "name": "子图",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lg-16",
+              "name": "Agent Supervisor",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "fine-tuning",
+          "name": "大模型微调实战",
+          "chapters": [
+            {
+              "id": "ft-1",
+              "name": "基座模型选型",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ft-6",
+              "name": "unsloth",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ft-8",
+              "name": "PEFT方案",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ft-9",
+              "name": "LoRA",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ft-10",
+              "name": "QLoRA",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ft-12",
+              "name": "RLHF/DPO对齐",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "optional-ai",
+          "name": "可选专项",
+          "chapters": [
+            {
+              "id": "opt-dify",
+              "name": "Dify 平台实战应用",
+              "mastery": 0,
+              "strategy": "optional"
+            },
+            {
+              "id": "opt-langchain",
+              "name": "LangChain 框架核心",
+              "mastery": 0,
+              "strategy": "optional"
+            },
+            {
+              "id": "opt-deepagent",
+              "name": "DeepAgent 高级应用",
+              "mastery": 0,
+              "strategy": "optional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase3",
+      "name": "Phase 3: Java 企业后端（后期专项）",
+      "groups": [
+        {
+          "id": "java-lang",
+          "name": "Java 语言精讲",
+          "chapters": [
+            {
+              "id": "jv-3",
+              "name": "Java基础语法",
+              "mastery": 0,
+              "strategy": "fast_track",
+              "note": "TypeScript 经验可加速"
+            },
+            {
+              "id": "jv-4",
+              "name": "容器类型",
+              "mastery": 0,
+              "strategy": "fast_track"
+            },
+            {
+              "id": "jv-5",
+              "name": "方法",
+              "mastery": 0,
+              "strategy": "fast_track"
+            },
+            {
+              "id": "jv-6",
+              "name": "Lambda表达式",
+              "mastery": 0,
+              "strategy": "fast_track"
+            },
+            {
+              "id": "jv-7",
+              "name": "Stream API",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "jv-8",
+              "name": "类和对象",
+              "mastery": 0,
+              "strategy": "fast_track"
+            },
+            {
+              "id": "jv-9",
+              "name": "封装、继承和多态",
+              "mastery": 0,
+              "strategy": "fast_track"
+            },
+            {
+              "id": "jv-10",
+              "name": "抽象类和接口",
+              "mastery": 0,
+              "strategy": "fast_track"
+            },
+            {
+              "id": "jv-12",
+              "name": "异常处理",
+              "mastery": 0,
+              "strategy": "fast_track"
+            },
+            {
+              "id": "jv-14",
+              "name": "泛型",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "jv-15",
+              "name": "注解",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "jv-17",
+              "name": "线程基础",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "spring-boot",
+          "name": "Spring Boot",
+          "chapters": [
+            {
+              "id": "sb-1",
+              "name": "Spring基础框架",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sb-9",
+              "name": "依赖注入",
+              "mastery": 0,
+              "strategy": "comprehensive",
+              "note": "重点——前端 DI 经验可类比"
+            },
+            {
+              "id": "sb-15",
+              "name": "AOP面向切面编程",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sb-20",
+              "name": "Web服务开发",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sb-37",
+              "name": "JDBC与数据访问",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sb-44",
+              "name": "ORM (JPA/MyBatis)",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sb-66",
+              "name": "测试",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "spring-cloud",
+          "name": "Spring Cloud 微服务",
+          "chapters": [
+            {
+              "id": "sc-1",
+              "name": "微服务架构特性",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sc-10",
+              "name": "Nacos 注册中心",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sc-14",
+              "name": "OpenFeign 远程调用",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sc-30",
+              "name": "Gateway 服务网关",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sc-35",
+              "name": "RocketMQ 消息队列",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sc-43",
+              "name": "Seata 分布式事务",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "sc-53",
+              "name": "Sentinel 限流熔断",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "middleware",
+          "name": "主流中间件与框架",
+          "chapters": [
+            {
+              "id": "mw-3",
+              "name": "Dubbo RPC框架",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "mw-8",
+              "name": "Netty 网络通信",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "mw-17",
+              "name": "Redis 分布式缓存",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "mw-25",
+              "name": "Elasticsearch 搜索引擎",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "mw-50",
+              "name": "Spring Security 安全",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase4",
+      "name": "Phase 4: 运维与可靠性（贯穿全程）",
+      "groups": [
+        {
+          "id": "linux",
+          "name": "Linux 运维基础",
+          "chapters": [
+            {
+              "id": "lx-1-1",
+              "name": "Linux发行版与安装",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-1-2",
+              "name": "SSH与免密登录",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-2-1",
+              "name": "文件系统与权限",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-2-3",
+              "name": "用户、组与权限位",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-3-1",
+              "name": "systemd服务管理",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-3-2",
+              "name": "端口与网络排查",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-3-3",
+              "name": "CPU/内存/磁盘瓶颈定位",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-3-4",
+              "name": "日志检索与时间线还原",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-4-1",
+              "name": "Bash脚本自动化",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-4-4",
+              "name": "Cron定时任务",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-5-2",
+              "name": "防火墙规则",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "lx-5-4",
+              "name": "备份策略与恢复",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        },
+        {
+          "id": "nginx",
+          "name": "Nginx 与应用服务部署",
+          "chapters": [
+            {
+              "id": "ng-1-1",
+              "name": "Nginx安装与启动",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ng-1-3",
+              "name": "Server与Location匹配",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ng-2-1",
+              "name": "反向代理与转发",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ng-2-4",
+              "name": "限流与黑白名单",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ng-3-1",
+              "name": "负载均衡策略",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "ng-3-2",
+              "name": "健康检查与故障剔除",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "last_updated": "2026-08-12",
+    "project_spine": "AI 客服工单系统",
+    "current_phase": "phase1",
+    "current_position": "20. 类型标注（运行时边界）",
+    "session_count": 6,
+    "last_session": "2026-08-06"
+  }
+}

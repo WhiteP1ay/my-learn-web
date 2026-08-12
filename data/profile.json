@@ -1,0 +1,37 @@
+{
+  "name": "朴昊哲",
+  "goal": "从前端开发转型为可独立交付的 AI 全栈工程师",
+  "existing_skills": [
+    "Vue",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "组件架构",
+    "状态管理",
+    "Git 协作",
+    "浏览器端工程",
+    "UI 交付"
+  ],
+  "primary_gaps": [
+    "数据库设计/SQL",
+    "后端架构/并发",
+    "Python 生态",
+    "Java/Spring",
+    "LLM/RAG/Agent",
+    "Linux/运维/安全"
+  ],
+  "priority": [
+    "Python + 数据库基础",
+    "Python 后端工程",
+    "AI 应用工程",
+    "生产部署",
+    "Java 企业后端"
+  ],
+  "preferences": {
+    "language": "中文",
+    "keep_english_terms": true,
+    "use_frontend_analogies": true,
+    "require_evidence": true,
+    "skip_frontend_basics": true
+  }
+}
