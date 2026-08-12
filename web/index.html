@@ -127,7 +127,6 @@
     border-radius: 6px;
     font-size: 13px;
     transition: background 0.1s;
-    cursor: pointer;
   }
   .chapter-row:hover { background: var(--surface); }
 
@@ -179,8 +178,11 @@
     transition: opacity 0.15s;
   }
   .chapter-row:hover .copy-btn { opacity: 1; }
+  @media (hover: none) { .copy-btn { opacity: 0.6; } }
   .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .copy-btn:focus-visible { opacity: 1; outline: 2px solid var(--accent); outline-offset: 2px; }
   .copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
+  .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
   /* Sections */
   .section {
@@ -217,7 +219,7 @@
   /* Copy toast */
   .toast {
     position: fixed;
-    bottom: 20px;
+    bottom: max(20px, env(safe-area-inset-bottom, 20px));
     right: 20px;
     background: var(--green);
     color: #fff;
@@ -265,7 +267,7 @@
   <div id="parking-lot"></div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 // ============================================================
@@ -294,15 +296,23 @@ function toast(msg) {
   setTimeout(() => EL.toast.classList.remove('show'), 1500);
 }
 
+let copyTimer = null;
 function copyToClipboard(text, btn) {
+  if (!navigator.clipboard) {
+    toast('复制失败：浏览器不支持 Clipboard API');
+    return;
+  }
+  clearTimeout(copyTimer);
   navigator.clipboard.writeText(text).then(() => {
     btn.textContent = '✓ 已复制';
     btn.classList.add('copied');
     toast('已复制: ' + text);
-    setTimeout(() => {
+    copyTimer = setTimeout(() => {
       btn.textContent = '复制命令';
       btn.classList.remove('copied');
     }, 1500);
+  }).catch(() => {
+    toast('复制失败，请手动选择文本');
   });
 }
 
@@ -352,8 +362,9 @@ function phaseStats(phase) {
     for (const c of g.chapters) {
       if (c.strategy === 'deferred') continue;
       total++;
-      if (c.mastery >= 3) completed++;
-      else if (c.mastery >= 1 || c.status === 'in_progress') inProgress++;
+      if (c.mastery >= 4) completed++;
+      else if (c.mastery >= 3) completed++;
+      if (c.mastery >= 1 && c.mastery < 3) inProgress++;
     }
   }
   const mastered = completed;
@@ -363,9 +374,12 @@ function phaseStats(phase) {
 
 // Render tabs
 function renderTabs() {
+  EL.tabs.setAttribute('role', 'tablist');
+  EL.tabs.setAttribute('aria-label', '学习阶段');
   EL.tabs.innerHTML = CURRICULUM.phases.map((p, i) => {
     const s = phaseStats(p);
-    return `<button class="tab${i === 0 ? ' active' : ''}" data-phase="${p.id}">
+    return `<button class="tab${i === 0 ? ' active' : ''}" data-phase="${p.id}"
+      role="tab" aria-selected="${i === 0}" aria-controls="phase-${p.id}" id="tab-${p.id}">
       ${p.name.split(':')[0]}
       <span class="badge">${s.mastered}/${s.total}</span>
     </button>`;
@@ -413,7 +427,7 @@ function renderPhase(phase) {
         <span class="mastery-dot ${dotClass(c.mastery)}" title="掌握度 ${c.mastery}/4"></span>
         <span class="${chClass}">${c.name}${note}</span>
         <span class="strategy-tag ${tagClass(c.strategy)}">${strategyLabel(c.strategy)}</span>
-        ${copyCmd ? `<button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('${copyCmd.replace(/'/g, "\\'")}', this)">复制命令</button>` : ''}
+        ${copyCmd ? `<button class="copy-btn" onclick="event.stopPropagation();copyToClipboard('${copyCmd.replace(/'/g, "\\'")}', this)" aria-label="复制命令: ${copyCmd}">复制命令</button>` : ''}
       </div>`;
     }
     html += '</div>';
@@ -480,16 +494,40 @@ renderReview();
 renderPlan();
 renderParking();
 
-// Tab switching
+// Tab switching — click + keyboard
+function activateTab(phaseId) {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.phase-content').forEach(p => p.classList.remove('active'));
+  const tab = document.getElementById(`tab-${phaseId}`);
+  const content = document.getElementById(`phase-${phaseId}`);
+  if (tab) { tab.classList.add('active'); tab.setAttribute('aria-selected', 'true'); }
+  if (content) content.classList.add('active');
+}
+
 EL.tabs.addEventListener('click', e => {
   const tab = e.target.closest('.tab');
   if (!tab) return;
-  const phaseId = tab.dataset.phase;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.phase-content').forEach(p => p.classList.remove('active'));
-  tab.classList.add('active');
-  const target = document.getElementById(`phase-${phaseId}`);
-  if (target) target.classList.add('active');
+  activateTab(tab.dataset.phase);
+});
+
+EL.tabs.addEventListener('keydown', e => {
+  const tabs = [...EL.tabs.querySelectorAll('.tab')];
+  const idx = tabs.indexOf(document.activeElement);
+  if (idx === -1) return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    const next = tabs[(idx + 1) % tabs.length];
+    next.focus();
+    activateTab(next.dataset.phase);
+  } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    const prev = tabs[(idx - 1 + tabs.length) % tabs.length];
+    prev.focus();
+    activateTab(prev.dataset.phase);
+  }
 });
 </script>
 </body>

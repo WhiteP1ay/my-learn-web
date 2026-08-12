@@ -524,6 +524,24 @@
               "strategy": "comprehensive"
             },
             {
+              "id": "rag-8",
+              "name": "连接器",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-9",
+              "name": "索引",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-10",
+              "name": "QueryEngine",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
               "id": "rag-14",
               "name": "多源数据接入",
               "mastery": 0,
@@ -550,6 +568,24 @@
             {
               "id": "rag-18",
               "name": "GraphRAG图谱增强",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-19",
+              "name": "Multi-modal RAG",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-20",
+              "name": "语义路由",
+              "mastery": 0,
+              "strategy": "comprehensive"
+            },
+            {
+              "id": "rag-21",
+              "name": "缓存策略",
               "mastery": 0,
               "strategy": "comprehensive"
             },
@@ -1046,6 +1082,11 @@
     "current_phase": "phase1",
     "current_position": "20. 类型标注（运行时边界）",
     "session_count": 6,
-    "last_session": "2026-08-06"
+    "last_session": "2026-08-06",
+    "known_gaps": [
+      "Phase 4 缺少 Docker/CI/CD、云平台架构、监控告警章节（curriculum.md 未编写）",
+      "Phase 2 缺少 AI Coding 独立章节（curriculum.md 未收录）",
+      "Dify/LangChain/DeepAgent 作为可选专项折叠为单条目，未展开子章节"
+    ]
   }
 }
