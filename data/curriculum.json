@@ -9,177 +9,198 @@
           "name": "Python 语言核心精讲",
           "chapters": [
             {
-              "id": "2",
-              "name": "python环境安装",
+              "id": "py-1",
+              "name": "Python 环境搭建与工具链",
               "mastery": 3,
-              "evidence": "uv init / uv add / pyproject.toml / uv.lock / .venv 三层职责",
-              "strategy": "completed"
+              "evidence": "能独立用 uv 创建项目、配置 VSCode、运行和调试 Python 脚本",
+              "strategy": "completed",
+              "note": "类比：相当于前端用 pnpm create vite 初始化 + VSCode 配置 ESLint/Prettier"
             },
             {
-              "id": "3",
-              "name": "python基本语法",
+              "id": "py-2",
+              "name": "Python 基本语法",
               "mastery": 3,
-              "evidence": "iterable/iterator 已 3/4；其余接近完成",
-              "status": "in_progress",
-              "strategy": "comprehensive"
+              "evidence": "能写出含变量、条件、循环、基本 I/O 的 Python 脚本，理解与 JS 的语法差异",
+              "strategy": "completed",
+              "note": "类比：相当于重新学一门「不用大括号的 TypeScript」，重点关注缩进即代码块"
             },
             {
-              "id": "4",
-              "name": "容器类型",
+              "id": "py-3",
+              "name": "容器类型与推导式",
               "mastery": 2,
-              "evidence": "list/tuple/dict/set 基本语义；还需综合练习",
-              "status": "in_progress",
-              "strategy": "comprehensive"
+              "evidence": "能熟练操作 list/dict/tuple/set，用推导式替代 for 循环写出简洁的数据转换代码",
+              "strategy": "comprehensive",
+              "note": "类比：JS Array.map/filter → Python 列表推导式；JS Object → Python dict"
             },
             {
-              "id": "5",
-              "name": "函数",
+              "id": "py-4",
+              "name": "函数：参数传递与类型提示入门",
               "mastery": 3,
-              "evidence": "参数绑定 / *args/**kwargs / 可变默认参数 / None 哨兵",
-              "strategy": "completed"
+              "evidence": "能定义带类型标注的函数，正确使用位置参数、关键字参数、*args/**kwargs 和默认值",
+              "strategy": "completed",
+              "note": "类比：JS function + JSDoc/TS 类型标注 → Python def + type hints"
             },
             {
-              "id": "6",
-              "name": "作用域",
+              "id": "py-5",
+              "name": "作用域与闭包",
               "mastery": 3,
-              "evidence": "LEGB / global / nonlocal / 闭包延迟绑定",
-              "strategy": "completed"
+              "evidence": "能解释 LEGB 规则，写出闭包并说出与 JS 闭包的内存模型异同",
+              "strategy": "completed",
+              "note": "类比：JS var 函数作用域 vs let/const 块作用域 → Python LEGB 四层查找规则"
             },
             {
-              "id": "7",
-              "name": "lambda表达式",
+              "id": "py-6",
+              "name": "lambda 表达式与一等函数",
               "mastery": 3,
-              "evidence": "单表达式 / 排序键 / sorted vs list.sort",
-              "strategy": "completed"
+              "evidence": "能将 JS 箭头函数模式翻译为 Python lambda，理解函数作为一等公民",
+              "strategy": "completed",
+              "note": "类比：JS 箭头函数 () => expr → Python lambda x: expr"
             },
             {
-              "id": "8",
-              "name": "类和对象",
+              "id": "py-7",
+              "name": "类与对象",
               "mastery": 3,
-              "evidence": "__init__ / self / 实例属性遮蔽类属性 / dataclass / default_factory",
-              "strategy": "completed"
+              "evidence": "能用 class 关键字定义类，理解 self 的作用，创建带属性和方法的对象",
+              "strategy": "completed",
+              "note": "类比：JS class + this → Python class + self（必须显式传入）"
             },
             {
-              "id": "9",
-              "name": "对象的类型",
+              "id": "py-8",
+              "name": "对象的类型系统",
               "mastery": 3,
-              "evidence": "type vs isinstance / 继承链 / bool 是 int 子类",
-              "strategy": "completed"
+              "evidence": "能用 type() 和 isinstance() 判断类型，理解 type 本身也是对象",
+              "strategy": "completed",
+              "note": "类比：JS typeof/instanceof + prototype chain → Python type()/isinstance() + MRO"
             },
             {
-              "id": "10",
-              "name": "对象的创建过程",
+              "id": "py-9",
+              "name": "对象的生命周期：__new__、__init__ 与 __del__",
               "mastery": 0,
-              "strategy": "deferred"
+              "evidence": "能说出对象创建的两阶段（__new__ 分配内存 → __init__ 初始化），写出带自定义 __new__ 的单例模式",
+              "strategy": "comprehensive",
+              "note": "类比：JS new Constructor() 是原子操作 → Python 拆成 __new__ + __init__ 两步"
             },
             {
-              "id": "11",
-              "name": "可调用对象",
+              "id": "py-10",
+              "name": "魔术方法：让对象更 Pythonic",
               "mastery": 0,
-              "strategy": "deferred"
+              "evidence": "能实现自定义类的字符串表示、相等比较和可调用行为；能用 property 和描述符控制属性访问",
+              "strategy": "comprehensive",
+              "note": "合并原「魔术方法」「可调用对象」「描述符」三个章节",
+              "merge_note": "合并了原「可调用对象」「魔术方法」「描述符」三个章节"
             },
             {
-              "id": "12",
-              "name": "元类",
+              "id": "py-11",
+              "name": "装饰器深度解析：从闭包到 @语法糖",
               "mastery": 0,
-              "strategy": "deferred"
+              "evidence": "能手写带参数和不带参数的装饰器，实现日志记录、权限校验、性能计时",
+              "strategy": "in_project",
+              "note": "类比：React HOC 或 Express/Koa 中间件模式 → Python 装饰器"
             },
             {
-              "id": "13",
-              "name": "装饰器",
+              "id": "py-12",
+              "name": "元类：控制类的创建",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能说出元类的应用场景（ORM、单例注册、API 校验），写一个简单的元类示例",
+              "strategy": "deferred",
+              "note": "类比：Babel 插件或 Proxy 拦截类定义——元类在 class 语句执行时介入创建过程"
             },
             {
-              "id": "14",
-              "name": "魔术方法",
-              "mastery": 0,
-              "strategy": "deferred"
-            },
-            {
-              "id": "15",
-              "name": "描述符",
-              "mastery": 0,
-              "strategy": "deferred"
-            },
-            {
-              "id": "16",
-              "name": "异常处理",
+              "id": "py-13",
+              "name": "异常处理：try/except/finally 与自定义异常",
               "mastery": 3,
-              "evidence": "try/except/else/finally / raise / 异常转换 / from",
-              "strategy": "completed"
+              "evidence": "能写出健壮的异常处理逻辑，自定义异常类，合理使用 finally 做资源清理",
+              "strategy": "completed",
+              "note": "类比：JS try/catch/finally 几乎完全一致；Python 多了 else 子句"
             },
             {
-              "id": "17",
+              "id": "py-14",
+              "name": "类型系统进阶：类型标注与抽象基类（ABC）",
+              "mastery": 0,
+              "evidence": "能用 typing 模块写出完整类型标注，定义 ABC 约束子类接口，用 mypy 做静态检查",
+              "strategy": "next_up",
+              "note": "合并原「类型标注」和「ABC」，构建完整 Python 类型系统认知",
+              "merge_note": "合并了原「类型标注」和「ABC」两个章节"
+            },
+            {
+              "id": "py-15",
               "name": "迭代器与生成器",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能手写 __iter__/__next__ 实现自定义迭代器，用 yield 创建生成器处理大数据流",
+              "strategy": "in_project",
+              "note": "类比：JS Symbol.iterator + function*/yield → Python __iter__ + yield"
             },
             {
-              "id": "18",
-              "name": "上下文管理器",
+              "id": "py-16",
+              "name": "上下文管理器：with 语句与 contextlib",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能手写带 __enter__/__exit__ 的上下文管理器，确保文件/连接等资源安全释放",
+              "strategy": "in_project",
+              "note": "类比：JS try-finally 手动清理 → Python with 语句（类似 Rust RAII）"
             },
             {
-              "id": "19",
-              "name": "ABC",
+              "id": "py-17",
+              "name": "模块化：包、导入与命名空间",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能将项目拆分为多个模块和包，理解 __init__.py 和相对导入，避免循环导入",
+              "strategy": "comprehensive",
+              "note": "类比：JS import/export + node_modules → Python import + site-packages"
             },
             {
-              "id": "20",
-              "name": "类型标注",
+              "id": "py-18",
+              "name": "构建与发布：从代码到 PyPI",
               "mastery": 0,
-              "strategy": "next_up"
+              "evidence": "能用 pyproject.toml 配置项目元数据，打包并发布到 PyPI",
+              "strategy": "in_project",
+              "note": "类比：npm publish + package.json → poetry build + pyproject.toml"
             },
             {
-              "id": "21",
-              "name": "模块化",
+              "id": "py-19",
+              "name": "断点调试：pdb 与 IDE 调试",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 pdb/breakpoint() 在命令行断点调试，结合 VSCode Debugger 做可视化调试",
+              "strategy": "in_project",
+              "note": "类比：Chrome DevTools 断点调试 → VSCode Python Debugger + pdb"
             },
             {
-              "id": "24",
-              "name": "事件循环",
+              "id": "py-20",
+              "name": "事件循环与 async/await 入门",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能解释事件循环的工作原理，写出第一个 async def 协程",
+              "strategy": "in_project",
+              "note": "类比：JS event loop（宏任务/微任务）→ Python asyncio event loop；需显式启动 asyncio.run()"
             },
             {
-              "id": "25",
-              "name": "Future类",
+              "id": "py-21",
+              "name": "Task、Future 与并发控制",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能用 asyncio.create_task 并发执行多个协程，用 gather/wait/Semaphore 管理并发",
+              "strategy": "in_project",
+              "note": "类比：JS Promise.all/Promise.race → Python asyncio.gather/as_completed"
             },
             {
-              "id": "26",
-              "name": "协程 Coroutine",
+              "id": "py-22",
+              "name": "协程深入：async for、async with 与异步迭代器",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能实现 async for 遍历异步数据流，用 async with 管理异步资源",
+              "strategy": "in_project",
+              "note": "类比：JS for await...of + async generator → Python async for + async yield"
             },
             {
-              "id": "27",
-              "name": "异步编程",
+              "id": "py-23",
+              "name": "异步编程实战模式",
               "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能设计异步 HTTP 客户端、生产者-消费者模式、实现超时重试",
+              "strategy": "in_project",
+              "note": "类比：前端 API 请求并发、WebSocket 消息处理 → 用 asyncio 实现类似模式"
             },
             {
-              "id": "28",
-              "name": "多线程与多进程",
+              "id": "py-24",
+              "name": "多线程与多进程：GIL 的限制与突破",
               "mastery": 0,
-              "strategy": "in_project"
-            },
-            {
-              "id": "29",
-              "name": "构建发布",
-              "mastery": 0,
-              "strategy": "in_project"
-            },
-            {
-              "id": "32",
-              "name": "断点调试",
-              "mastery": 0,
-              "strategy": "in_project"
+              "evidence": "能区分 I/O 密集和 CPU 密集场景，选择合适的并发方案",
+              "strategy": "in_project",
+              "note": "类比：JS 单线程 + Web Workers → Python threading（GIL限制）+ multiprocessing（真正并行）"
             }
           ]
         },
@@ -189,39 +210,51 @@
           "chapters": [
             {
               "id": "db-1",
-              "name": "PostgreSQL安装",
+              "name": "PostgreSQL 环境搭建与连接",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能安装 PostgreSQL、创建数据库和用户、用 psql 和 Python 连接数据库",
+              "strategy": "comprehensive",
+              "note": "类比：前端连接 Firebase/Supabase → 直连 PostgreSQL"
             },
             {
               "id": "db-2",
-              "name": "DDL",
+              "name": "DDL：建表、约束与字段类型",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能写出 CREATE TABLE 语句，合理选择字段类型，定义主键、外键、约束",
+              "strategy": "comprehensive",
+              "note": "类比：Zod/Yup schema 定义 → SQL DDL 约束；TypeScript interface → 表结构"
             },
             {
               "id": "db-3",
-              "name": "表间关系",
+              "name": "表间关系与 JOIN 查询",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能设计一对多/多对多关系，写出 INNER/LEFT/RIGHT JOIN 查询",
+              "strategy": "comprehensive",
+              "note": "类比：前端状态管理中嵌套数据的展开（normalizr）→ SQL JOIN"
             },
             {
               "id": "db-4",
-              "name": "DML",
+              "name": "DML：增删改查与查询优化入门",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能写出 INSERT/UPDATE/DELETE/SELECT，使用 WHERE/GROUP BY/HAVING/ORDER BY",
+              "strategy": "comprehensive",
+              "note": "类比：Array.filter/map/reduce → SQL WHERE/SELECT/GROUP BY + 聚合函数"
             },
             {
               "id": "db-5",
-              "name": "事务",
+              "name": "事务与并发控制：ACID 与隔离级别",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能写出带 BEGIN/COMMIT/ROLLBACK 的事务，理解脏读/不可重复读/幻读",
+              "strategy": "comprehensive",
+              "note": "类比：Redux 原子 reducer / 乐观更新 → 数据库事务"
             },
             {
               "id": "db-6",
-              "name": "索引",
+              "name": "索引与查询性能优化",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能创建 B-Tree/GIN/GiST 索引，用 EXPLAIN ANALYZE 分析查询计划",
+              "strategy": "comprehensive",
+              "note": "类比：前端虚拟列表/分页 → 数据库索引（避免全表扫描）"
             }
           ]
         },
@@ -231,93 +264,102 @@
           "chapters": [
             {
               "id": "fw-1",
-              "name": "Web服务框架",
+              "name": "FastAPI 入门：路由、请求与响应模型",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能创建 FastAPI 应用，定义 GET/POST/PUT/DELETE 路由，用 Pydantic 做请求校验",
+              "strategy": "comprehensive",
+              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic"
+            },
+            {
+              "id": "fw-2",
+              "name": "SQLAlchemy ORM 入门：模型定义与会话管理",
+              "mastery": 0,
+              "evidence": "能用 SQLAlchemy 定义 ORM 模型，执行 CRUD 操作，理解 Session 生命周期",
+              "strategy": "comprehensive",
+              "note": "合并原「初识SQLAlchemy」和「ORM」两个章节",
+              "merge_note": "合并了原「初识SQLAlchemy」和「ORM」"
             },
             {
               "id": "fw-3",
-              "name": "初识SQLAlchemy",
+              "name": "数据迁移：Alembic 实战",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能初始化 Alembic、自动生成迁移脚本、执行升级/回滚、处理迁移冲突",
+              "strategy": "comprehensive",
+              "note": "类比：Prisma Migrate / TypeORM migrations → Alembic"
             },
             {
               "id": "fw-4",
-              "name": "ORM",
+              "name": "依赖注入：从手动传参到 Depends",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 Depends 注入数据库会话、当前用户、配置等服务，理解依赖嵌套和缓存",
+              "strategy": "comprehensive",
+              "note": "类比：React Context / Vue provide-inject → FastAPI Depends"
+            },
+            {
+              "id": "fw-5",
+              "name": "异常处理与中间件：统一错误响应与请求拦截",
+              "mastery": 0,
+              "evidence": "能定义全局异常处理器，编写中间件做日志/鉴权/限流",
+              "strategy": "comprehensive",
+              "note": "合并原「统一异常处理」和「中间件」两个章节",
+              "merge_note": "合并了原「统一异常处理」和「中间件」"
             },
             {
               "id": "fw-6",
-              "name": "数据迁移",
+              "name": "测试框架：pytest + httpx 实战",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 pytest 编写单元测试和集成测试，用 httpx ASGI transport 测试 FastAPI 端点",
+              "strategy": "comprehensive",
+              "note": "类比：Vitest/Jest + supertest → pytest + httpx"
+            },
+            {
+              "id": "fw-7",
+              "name": "三层架构实战：Router → Service → Repository",
+              "mastery": 0,
+              "evidence": "能将 FastAPI 项目按三层架构组织，实现关注点分离和可测试性",
+              "strategy": "comprehensive",
+              "note": "类比：前端 component → composable/hook → api service 三层"
             },
             {
               "id": "fw-8",
-              "name": "依赖注入",
+              "name": "文件上传与流式响应",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能实现文件上传和下载，用 StreamingResponse 返回大数据集",
+              "strategy": "comprehensive",
+              "note": "合并原「文件上传」和「流式响应」两个章节",
+              "merge_note": "合并了原「文件上传」和「流式响应」"
             },
             {
               "id": "fw-9",
-              "name": "统一异常处理",
+              "name": "长事务与短事务：数据库会话最佳实践",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能区分长事务和短事务场景，合理选择请求级/函数级事务边界",
+              "strategy": "comprehensive",
+              "note": "类比：前端乐观更新中的事务思考——哪些操作必须原子执行"
             },
             {
               "id": "fw-10",
-              "name": "中间件",
+              "name": "Docker 部署：容器化 FastAPI 应用",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能编写 Dockerfile 和 docker-compose.yml，将 FastAPI + PostgreSQL 打包运行",
+              "strategy": "comprehensive",
+              "note": "类比：Vercel/Netlify 无服务器部署 → Docker 自托管部署"
             },
             {
               "id": "fw-11",
-              "name": "测试框架",
+              "name": "Kubernetes 部署：Pod、Service 与 Ingress",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能编写 Deployment/Service/Ingress YAML，将应用部署到 K8s 集群",
+              "strategy": "comprehensive",
+              "note": "类比：Docker Compose 单机版 → K8s 集群版"
             },
             {
-              "id": "fw-13",
-              "name": "三层架构",
+              "id": "fw-12",
+              "name": "CI/CD 流水线：从代码提交到自动部署",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "fw-14",
-              "name": "文件上传",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "fw-16",
-              "name": "长事务和短事务",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "fw-20",
-              "name": "流式响应",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "fw-21",
-              "name": "Docker 部署",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "fw-23",
-              "name": "K8s 部署",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "fw-24",
-              "name": "CI/CD",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 GitHub Actions 搭建 CI/CD 流水线（lint → test → build → deploy）",
+              "strategy": "comprehensive",
+              "note": "类比：Vercel/GitHub Pages 的 git push 自动部署 → GitHub Actions 自托管"
             }
           ]
         },
@@ -326,34 +368,44 @@
           "name": "数据科学工具（选学）",
           "chapters": [
             {
-              "id": "dt-2",
-              "name": "Jupyter",
+              "id": "dt-1",
+              "name": "Jupyter Notebook 入门",
               "mastery": 0,
-              "strategy": "optional"
+              "evidence": "能用 Jupyter 做交互式数据分析，结合 matplotlib 做可视化探索",
+              "strategy": "optional",
+              "note": "类比：浏览器 Console 交互式体验 + Markdown 文档 → Jupyter Notebook"
+            },
+            {
+              "id": "dt-2",
+              "name": "NumPy 核心：ndarray 与向量化运算",
+              "mastery": 0,
+              "evidence": "能创建和操作 ndarray，用向量化运算替代 Python 循环获得 10-100x 性能提升",
+              "strategy": "optional",
+              "note": "类比：lodash 批量操作 → NumPy 向量化运算"
             },
             {
               "id": "dt-3",
-              "name": "Numpy 核心概念",
+              "name": "NumPy 进阶：广播、切片与线性代数",
               "mastery": 0,
-              "strategy": "optional"
+              "evidence": "能利用广播机制做不同形状数组的运算，用花式索引和布尔索引高效筛选数据",
+              "strategy": "optional",
+              "note": "类比：CSS Grid 自动扩展 → NumPy 广播机制"
             },
             {
               "id": "dt-4",
-              "name": "Numpy 数据操作",
+              "name": "Pandas 入门：Series 与 DataFrame",
               "mastery": 0,
-              "strategy": "optional"
+              "evidence": "能创建 DataFrame，进行基本的数据选择、过滤和聚合操作，读写 CSV/Excel",
+              "strategy": "optional",
+              "note": "类比：前端表格组件数据模型 → Pandas DataFrame"
             },
             {
               "id": "dt-5",
-              "name": "Pandas 数据类型",
+              "name": "Pandas 数据清洗实战",
               "mastery": 0,
-              "strategy": "optional"
-            },
-            {
-              "id": "dt-6",
-              "name": "Pandas 数据清洗",
-              "mastery": 0,
-              "strategy": "optional"
+              "evidence": "能处理缺失值、重复数据、异常值，用 merge/groupby/pivot 做数据整合和透视",
+              "strategy": "optional",
+              "note": "类比：前端 ETL 工具数据转换 → Pandas 数据清洗"
             }
           ]
         }
@@ -364,302 +416,201 @@
       "name": "Phase 2: AI 应用工程",
       "groups": [
         {
-          "id": "agents",
-          "name": "Agents 底层逻辑",
+          "id": "llm-fundamentals",
+          "name": "LLM 与 Agent 底层原理",
           "chapters": [
             {
-              "id": "ag-2",
-              "name": "AI的分类",
+              "id": "ai-0",
+              "name": "AI 领域术语地图",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能说清 token/embedding/attention/fine-tune/RAG/Agent 这些核心概念之间的关系，建立 AI 工程全局心智模型",
+              "strategy": "comprehensive",
+              "note": "新增课程——先建立全局认知，降低后续每节课的「这个词第一次出现」负担。类比：学前端前先搞清楚 HTML/CSS/JS 各自干什么、怎么协作"
             },
             {
-              "id": "ag-3",
-              "name": "神经元",
+              "id": "ai-1",
+              "name": "AI 全景与 LLM 工作原理概览",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 Ollama 本地运行一个模型，观察一次完整推理过程，能用自己的话解释「模型收到 prompt 后发生了什么」",
+              "strategy": "comprehensive",
+              "note": "合并原「AI的分类」「训练模式和框架」「神经网络的本质（宏观）」",
+              "merge_note": "合并了原「AI的分类」「训练模式和框架」「神经网络的本质（宏观部分）」"
             },
             {
-              "id": "ag-4",
-              "name": "前向传播",
+              "id": "ai-2",
+              "name": "Token 化与词嵌入：LLM 如何「看懂」文字",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 tiktoken 分析中英文 token 消耗差异；用 sentence-transformers 计算语义相似度",
+              "strategy": "comprehensive",
+              "note": "合并原「词元」「token统计」「词嵌入」。类比：Token 化 = CSS Design Token；词嵌入 = HSL 色环",
+              "merge_note": "合并了原「词元」「token统计」「词嵌入」三个章节"
             },
             {
-              "id": "ag-5",
-              "name": "梯度下降",
+              "id": "ai-3",
+              "name": "神经网络直觉：从感知机到深度抽象",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能画出多层神经网络的结构图，解释「逐层抽象」是什么意思，理解激活函数的作用（不需数学推导）",
+              "strategy": "comprehensive",
+              "note": "拆分自原重构的「神经网络与 Transformer」——先讲基础网络结构，不含 Attention，降低单节概念密度"
             },
             {
-              "id": "ag-6",
-              "name": "训练模式和框架",
+              "id": "ai-4",
+              "name": "Transformer 核心：Self-Attention 与多头注意力",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 PPT/Excalidraw 画出 Transformer 简化结构图，口头解释 Q/K/V 各自做什么",
+              "strategy": "comprehensive",
+              "note": "拆分自原重构的「神经网络与 Transformer」——专注 Attention 机制。类比：CSS Grid auto-placement，每个元素根据与其他元素的关系确定自己的位置和重要性"
             },
             {
-              "id": "ag-7",
-              "name": "词元",
+              "id": "ai-5",
+              "name": "LLM 训练三阶段：Pre-training → SFT → RLHF",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能说清三个阶段各自的目标、数据需求、资源消耗量级，区分「预训练」和「微调」",
+              "strategy": "comprehensive",
+              "note": "拆分自原重构的「训练与推理」——先讲训练流程。类比：Pre-training = 写底层渲染引擎；SFT = 用组件库搭页面；RLHF = Code Review + Lint 规则"
             },
             {
-              "id": "ag-8",
-              "name": "token统计",
+              "id": "ai-6",
+              "name": "推理参数与控制：Temperature / Top-p / Top-k",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "同一 prompt 下调整 temperature/top-p/top-k 参数，观察并记录输出变化差异",
+              "strategy": "comprehensive",
+              "note": "拆分自原重构的「训练与推理」——专注推理阶段参数实验。类比：Temperature = 前端动画 easing 曲线参数"
             },
             {
-              "id": "ag-9",
-              "name": "神经网络的本质",
+              "id": "ai-7",
+              "name": "系统提示词与对话管理",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "为 Agent 应用设计 system prompt，做 10 轮对话测试，记录上下文丢失时机和 token 消耗",
+              "strategy": "comprehensive",
+              "note": "合并原「Ollama」「系统提示词」「会话」。类比：System Prompt = 组件 defaultProps；对话历史 = 受控组件 state",
+              "merge_note": "合并了原「Ollama」「系统提示词」「会话」三个章节"
             },
             {
-              "id": "ag-10",
-              "name": "词嵌入",
+              "id": "ai-8",
+              "name": "Function Calling / Tool Use 深度解析",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "实现一个「天气查询 Agent」：定义 tool schema，让模型自动调用工具，记录完整 tool call 往返日志",
+              "strategy": "comprehensive",
+              "note": "合并原「tools」「封装tools」。类比：Tool Schema = 前端 API 接口文档；Function Calling = 事件处理函数",
+              "merge_note": "合并了原「tools」「封装tools」两个章节"
             },
             {
-              "id": "ag-11",
-              "name": "注意力机制",
+              "id": "ai-9",
+              "name": "Agent 架构设计模式",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-12",
-              "name": "Transformer训练流程",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-13",
-              "name": "推理机制",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-14",
-              "name": "训练阶段",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-15",
-              "name": "Ollama",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-16",
-              "name": "系统提示词",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-17",
-              "name": "会话",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-18",
-              "name": "tools",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ag-19",
-              "name": "封装tools",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "为工作中需要开发的 Agent 前端界面设计对应的后端 Agent 方案文档（模式选择+tools列表+system prompt草稿）",
+              "strategy": "comprehensive",
+              "note": "新增课程。三种模式对比：ReAct / Plan-and-Execute / Multi-Agent。类比：ReAct = 响应式编程；Multi-Agent = 微前端架构"
             }
           ]
         },
         {
           "id": "rag",
-          "name": "RAG 知识库开发实战",
+          "name": "RAG 知识库开发",
           "chapters": [
             {
               "id": "rag-1",
-              "name": "RAG核心原理",
+              "name": "RAG 全流程概览：从文档到答案",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 ChromaDB + OpenAI Embedding 跑通最简 RAG：加载一篇技术文档，验证 LLM 能基于文档内容回答",
+              "strategy": "comprehensive",
+              "note": "合并原「RAG核心原理」「token化（RAG部分）」「向量化」。类比：RAG = 前端数据预取 + 缓存策略",
+              "merge_note": "合并了原「RAG核心原理」「token化」「向量化」三个章节"
             },
             {
               "id": "rag-2",
-              "name": "token化",
+              "name": "文档处理与向量数据库",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "对同一文档用 3 种切片策略处理，存入 ChromaDB，对比检索质量并选择最优策略",
+              "strategy": "comprehensive",
+              "note": "合并原「向量数据库」「数据切片方案」「数据清洗策略」。类比：切片策略 = Code Splitting",
+              "merge_note": "合并了原「向量数据库」「数据切片方案」「数据清洗策略」三个章节"
             },
             {
               "id": "rag-3",
-              "name": "向量化",
+              "name": "LlamaIndex 框架实战",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 LlamaIndex 构建多源 RAG：同时索引本地 Markdown 和在线文档 URL，对比单源 vs 多源检索完整性",
+              "strategy": "comprehensive",
+              "note": "合并原「LlamaIndex框架」「连接器」「索引」「QueryEngine」「多源数据接入」。类比：LlamaIndex = Next.js/Nuxt",
+              "merge_note": "合并了原「LlamaIndex框架」「连接器」「索引」「QueryEngine」「多源数据接入」五个章节"
             },
             {
               "id": "rag-4",
-              "name": "向量数据库",
+              "name": "检索增强技术：混合检索与重排序",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "构造 5 个测试查询，对比「纯向量检索」vs「混合检索」vs「混合+Rerank」三组实验的准确率",
+              "strategy": "comprehensive",
+              "note": "合并原「检索策略优化」「混合检索」「Rerank重排序」。类比：稀疏检索 = 精确匹配；稠密检索 = 模糊搜索",
+              "merge_note": "合并了原「检索策略优化」「混合检索」「Rerank重排序」三个章节"
             },
             {
               "id": "rag-5",
-              "name": "数据切片方案",
+              "name": "高级 RAG：语义路由与知识图谱",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "实现语义路由：定义 2 种查询类型，让 RAG 自动识别意图并路由到不同索引，验证路由准确性 ≥ 80%",
+              "strategy": "comprehensive",
+              "note": "合并原「GraphRAG图谱增强」「Multi-modal RAG」「语义路由」。类比：语义路由 = 前端 react-router",
+              "merge_note": "合并了原「GraphRAG图谱增强」「Multi-modal RAG」「语义路由」三个章节"
             },
             {
               "id": "rag-6",
-              "name": "数据清洗策略",
+              "name": "RAG 评估与生产部署",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-7",
-              "name": "LlamaIndex框架",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-8",
-              "name": "连接器",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-9",
-              "name": "索引",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-10",
-              "name": "QueryEngine",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-14",
-              "name": "多源数据接入",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-15",
-              "name": "检索策略优化",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-16",
-              "name": "混合检索",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-17",
-              "name": "Rerank重排序",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-18",
-              "name": "GraphRAG图谱增强",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-19",
-              "name": "Multi-modal RAG",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-20",
-              "name": "语义路由",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-21",
-              "name": "缓存策略",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-22",
-              "name": "RAG质量评估体系",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-23",
-              "name": "FastAPI服务封装",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "rag-24",
-              "name": "生产环境部署",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 RAGAS 对 RAG 做完整评估输出三项指标分数；用 FastAPI 封装 RAG 为 REST API",
+              "strategy": "comprehensive",
+              "note": "合并原「缓存策略」「RAG质量评估体系」「FastAPI服务封装」「生产环境部署」。类比：RAGAS = 前端 Lighthouse",
+              "merge_note": "合并了原「缓存策略」「RAG质量评估体系」「FastAPI服务封装」「生产环境部署」四个章节"
             }
           ]
         },
         {
           "id": "langgraph",
-          "name": "LangGraph 工作流开发",
+          "name": "LangGraph Agent 开发",
           "chapters": [
             {
               "id": "lg-1",
-              "name": "LangGraph节点",
+              "name": "LangGraph 核心概念与 State 管理",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 LangGraph 构建包含 3 个节点和条件分支的简单工作流，能打印每一步的 State 变化",
+              "strategy": "comprehensive",
+              "note": "合并原「LangGraph节点」「State管理」。类比：LangGraph = 前端状态机（XState / useReducer）",
+              "merge_note": "合并了原「LangGraph节点」「State管理」两个章节"
             },
             {
               "id": "lg-2",
-              "name": "State管理",
+              "name": "ReAct 模式与工具编排",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 LangGraph 实现 ReAct Agent，让 LLM 自动选择工具处理多步推理问题",
+              "strategy": "comprehensive",
+              "note": "类比：ReAct 循环 = 前端异步轮询；Tool 节点 = 事件处理函数"
             },
             {
               "id": "lg-3",
-              "name": "CheckPoints",
+              "name": "CheckPoints 与 Human-in-the-Loop",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "实现带人工审批的 Agent：关键操作暂停等待人工确认后继续",
+              "strategy": "comprehensive",
+              "note": "合并原「CheckPoints」「Human-in-the-loop」。类比：CheckPoints = Git commit 历史；HITL = 二次确认弹窗",
+              "merge_note": "合并了原「CheckPoints」「Human-in-the-loop」两个章节"
             },
             {
               "id": "lg-4",
-              "name": "ReAct模式",
+              "name": "记忆系统与多 Agent 协作",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "构建 Supervisor Agent：Research + Writer 两个子 Agent 协调完成调研报告任务",
+              "strategy": "comprehensive",
+              "note": "合并原「短期记忆和长期记忆」「子图」「Agent Supervisor」。类比：短期记忆 = 组件 state；长期记忆 = localStorage",
+              "merge_note": "合并了原「短期记忆和长期记忆」「子图」「Agent Supervisor」三个章节"
             },
             {
-              "id": "lg-7",
-              "name": "Human-in-the-loop",
+              "id": "lg-5",
+              "name": "Agent 前端界面开发实战",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "lg-9",
-              "name": "短期记忆和长期记忆",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "lg-13",
-              "name": "子图",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "lg-16",
-              "name": "Agent Supervisor",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 React/Vue 搭建 Agent 对话界面：SSE 流式输出渲染 + Tool Call 中间状态展示 + 对话历史管理",
+              "strategy": "comprehensive",
+              "note": "新增——对齐你的实际工作。流式输出 = Streaming SSR；Tool 调用状态 = Loading Skeleton"
             }
           ]
         },
@@ -669,39 +620,29 @@
           "chapters": [
             {
               "id": "ft-1",
-              "name": "基座模型选型",
+              "name": "基座模型选型与微调决策",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "输出模型选型决策文档：描述应用场景，对比 3 个候选模型，给出是否微调的明确建议及理由",
+              "strategy": "comprehensive",
+              "note": "类比：基座模型选型 = 前端框架选型；微调 vs RAG = 改组件源码 vs 组合现有组件"
             },
             {
-              "id": "ft-6",
-              "name": "unsloth",
+              "id": "ft-2",
+              "name": "LoRA/QLoRA 高效微调实战",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "用 unsloth + QLoRA 完成一次微调：准备 50 条训练数据，使模型按指定 JSON schema 输出",
+              "strategy": "comprehensive",
+              "note": "合并原「unsloth」「PEFT方案」「LoRA」「QLoRA」。类比：LoRA = CSS !important 覆盖；QLoRA = 代码压缩后打补丁",
+              "merge_note": "合并了原「unsloth」「PEFT方案」「LoRA」「QLoRA」四个章节"
             },
             {
-              "id": "ft-8",
-              "name": "PEFT方案",
+              "id": "ft-3",
+              "name": "对齐技术与模型评估",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ft-9",
-              "name": "LoRA",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ft-10",
-              "name": "QLoRA",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ft-12",
-              "name": "RLHF/DPO对齐",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "准备 10 组 DPO 偏好对数据，对比基座模型和微调后模型在相同 prompt 下的输出差异",
+              "strategy": "comprehensive",
+              "note": "合并原「RLHF/DPO对齐」。类比：RLHF = A/B Testing + 反馈循环；DPO = 直接用行为数据训练",
+              "merge_note": "合并了原「RLHF/DPO对齐」"
             }
           ]
         },
@@ -710,22 +651,21 @@
           "name": "可选专项",
           "chapters": [
             {
-              "id": "opt-dify",
-              "name": "Dify 平台实战应用",
+              "id": "opt-1",
+              "name": "Dify 低代码 Agent 平台实战",
               "mastery": 0,
-              "strategy": "optional"
+              "evidence": "用 Dify 搭建 RAG 知识库问答应用，对比与代码版 RAG 的开发时间和功能差异",
+              "strategy": "optional",
+              "note": "类比：Dify = 前端低代码平台（Retool/Webflow）——覆盖 80% 需求，复杂场景还是写代码"
             },
             {
-              "id": "opt-langchain",
-              "name": "LangChain 框架核心",
+              "id": "opt-2",
+              "name": "LangChain 生态与 DeepAgent 概览",
               "mastery": 0,
-              "strategy": "optional"
-            },
-            {
-              "id": "opt-deepagent",
-              "name": "DeepAgent 高级应用",
-              "mastery": 0,
-              "strategy": "optional"
+              "evidence": "用 LangChain Retriever + Tool 封装重构一段 RAG/Agent 代码，对比原生实现 vs 封装后的代码量",
+              "strategy": "optional",
+              "note": "合并原「LangChain框架」「DeepAgent」。类比：LangChain = lodash（工具箱）；LangGraph = React（架构）",
+              "merge_note": "合并了原「LangChain框架」「DeepAgent」两个章节"
             }
           ]
         }
@@ -737,213 +677,183 @@
       "groups": [
         {
           "id": "java-lang",
-          "name": "Java 语言精讲",
+          "name": "Java 语言速通",
           "chapters": [
             {
-              "id": "jv-3",
-              "name": "Java基础语法",
+              "id": "jv-1",
+              "name": "Java 速通：从 TS 到 Java 的语法对比",
               "mastery": 0,
+              "evidence": "能对比写出 TS 和 Java 的变量声明、控制流、函数定义、集合操作差异",
               "strategy": "fast_track",
-              "note": "TypeScript 经验可加速"
+              "note": "合并原「Java基础语法」「方法」「容器类型」。利用 TS 经验只讲差异点",
+              "merge_note": "合并了原「Java基础语法」「方法」「容器类型」三个章节"
+            },
+            {
+              "id": "jv-2",
+              "name": "Lambda 表达式与 Stream API",
+              "mastery": 0,
+              "evidence": "能将 TS map/filter/reduce 链式操作翻译为 Java Stream API",
+              "strategy": "fast_track",
+              "note": "合并原「Lambda表达式」「Stream API」。TS 箭头函数经验直接复用",
+              "merge_note": "合并了原「Lambda表达式」「Stream API」两个章节"
+            },
+            {
+              "id": "jv-3",
+              "name": "类与对象：Java OOP 对比 TS",
+              "mastery": 0,
+              "evidence": "能说出 Java 与 TS 在 class 语法、访问修饰符、final、构造链上的关键差异",
+              "strategy": "fast_track",
+              "note": "合并原「类和对象」「封装继承多态」。只讲差异：default/protected/final/super()构造链",
+              "merge_note": "合并了原「类和对象」「封装继承多态」两个章节"
             },
             {
               "id": "jv-4",
-              "name": "容器类型",
+              "name": "抽象类与接口",
               "mastery": 0,
-              "strategy": "fast_track"
+              "evidence": "能区分抽象类和接口的使用场景，理解 Java 8+ default 方法和接口多继承",
+              "strategy": "comprehensive",
+              "note": "Java 接口与 TS 接口差异很大——Spring 中到处都是接口编程"
             },
             {
               "id": "jv-5",
-              "name": "方法",
+              "name": "异常处理",
               "mastery": 0,
-              "strategy": "fast_track"
+              "evidence": "能处理 Java checked exception，理解与 JS/TS 异常模型的根本差异",
+              "strategy": "comprehensive",
+              "note": "checked exception 是 TS/JS 完全没有的概念"
             },
             {
               "id": "jv-6",
-              "name": "Lambda表达式",
+              "name": "泛型：类型擦除与通配符",
               "mastery": 0,
-              "strategy": "fast_track"
+              "evidence": "能解释 Java 类型擦除机制，正确使用 ? extends / ? super 通配符",
+              "strategy": "comprehensive",
+              "note": "TS 泛型用户熟悉概念，但 Java 类型擦除和通配符是独特机制"
             },
             {
               "id": "jv-7",
-              "name": "Stream API",
+              "name": "注解与反射",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能自定义注解并通过反射读取，理解 @Autowired/@Transactional 的工作原理",
+              "strategy": "comprehensive",
+              "note": "注解是 Spring 全家桶的基石，必须精通"
             },
             {
               "id": "jv-8",
-              "name": "类和对象",
+              "name": "线程基础与并发",
               "mastery": 0,
-              "strategy": "fast_track"
-            },
-            {
-              "id": "jv-9",
-              "name": "封装、继承和多态",
-              "mastery": 0,
-              "strategy": "fast_track"
-            },
-            {
-              "id": "jv-10",
-              "name": "抽象类和接口",
-              "mastery": 0,
-              "strategy": "fast_track"
-            },
-            {
-              "id": "jv-12",
-              "name": "异常处理",
-              "mastery": 0,
-              "strategy": "fast_track"
-            },
-            {
-              "id": "jv-14",
-              "name": "泛型",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "jv-15",
-              "name": "注解",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "jv-17",
-              "name": "线程基础",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能创建和管理 Java 线程，理解与 JS 单线程事件循环的根本差异",
+              "strategy": "comprehensive",
+              "note": "JS 是单线程事件循环，Java 是真多线程——面试高频考点"
             }
           ]
         },
         {
           "id": "spring-boot",
-          "name": "Spring Boot",
+          "name": "Spring Boot 核心",
           "chapters": [
             {
               "id": "sb-1",
-              "name": "Spring基础框架",
+              "name": "Spring 核心：IoC 容器与依赖注入",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "sb-9",
-              "name": "依赖注入",
-              "mastery": 0,
+              "evidence": "能配置 Bean、使用 @Autowired 注入，理解 Bean 生命周期",
               "strategy": "comprehensive",
-              "note": "重点——前端 DI 经验可类比"
+              "note": "Spring 一切的前提。类比：Vue 3 provide/inject 是最接近的类比"
             },
             {
-              "id": "sb-15",
-              "name": "AOP面向切面编程",
+              "id": "sb-2",
+              "name": "Spring AOP 切面编程",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能使用 @Transactional/@Around 等注解，理解切面拦截流程",
+              "strategy": "comprehensive",
+              "note": "掌握概念和常用注解即可，不需深入自定义切面"
             },
             {
-              "id": "sb-20",
-              "name": "Web服务开发",
+              "id": "sb-3",
+              "name": "Spring Boot Web 开发",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能搭建 REST API，定义 Controller/Service，处理请求参数和响应",
+              "strategy": "comprehensive",
+              "note": "最实用的一节——直接对应前后端协作"
             },
             {
-              "id": "sb-37",
-              "name": "JDBC与数据访问",
+              "id": "sb-4",
+              "name": "Spring 数据访问：JDBC 与 ORM (JPA)",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 Spring Data JPA 完成 CRUD 操作，定义实体关联关系",
+              "strategy": "comprehensive",
+              "note": "类比：Prisma/TypeORM → Spring Data JPA"
             },
             {
-              "id": "sb-44",
-              "name": "ORM (JPA/MyBatis)",
+              "id": "sb-5",
+              "name": "Spring Security 认证与授权",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能配置 JWT 认证流程，实现基于角色的权限控制",
+              "strategy": "comprehensive",
+              "note": "直接关联 Agent 登录态——跨前后端的刚需知识"
             },
             {
-              "id": "sb-66",
-              "name": "测试",
+              "id": "sb-6",
+              "name": "Spring 测试：JUnit 与 Mock",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 JUnit + Mockito 编写单元测试和集成测试",
+              "strategy": "comprehensive",
+              "note": "类比：Jest/Vitest 概念相通，压缩为一节"
             }
           ]
         },
         {
           "id": "spring-cloud",
-          "name": "Spring Cloud 微服务",
+          "name": "Spring Cloud 微服务（速览）",
           "chapters": [
             {
               "id": "sc-1",
-              "name": "微服务架构特性",
+              "name": "微服务速览：注册中心与远程调用",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能讲清楚服务注册→发现→调用→Gateway 的完整链路",
+              "strategy": "comprehensive",
+              "note": "合并原「微服务架构特性」「Nacos」「OpenFeign」「Gateway」四个章节，用一次调用链串联",
+              "merge_note": "合并了原「微服务架构特性」「Nacos注册中心」「OpenFeign远程调用」「Gateway网关」四个章节"
             },
             {
-              "id": "sc-10",
-              "name": "Nacos 注册中心",
+              "id": "sc-2",
+              "name": "服务治理概念：MQ / 分布式事务 / 限流熔断",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "sc-14",
-              "name": "OpenFeign 远程调用",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "sc-30",
-              "name": "Gateway 服务网关",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "sc-35",
-              "name": "RocketMQ 消息队列",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "sc-43",
-              "name": "Seata 分布式事务",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "sc-53",
-              "name": "Sentinel 限流熔断",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能说出 RocketMQ/Seata/Sentinel 各自解决的问题和一个代码示例",
+              "strategy": "comprehensive",
+              "note": "合并原「RocketMQ」「Seata」「Sentinel」三个章节为概念课，跳槽前可突击深入",
+              "merge_note": "合并了原「RocketMQ消息队列」「Seata分布式事务」「Sentinel限流熔断」三个章节"
             }
           ]
         },
         {
           "id": "middleware",
-          "name": "主流中间件与框架",
+          "name": "主流中间件",
           "chapters": [
             {
+              "id": "mw-1",
+              "name": "Redis 缓存与数据结构",
+              "mastery": 0,
+              "evidence": "能用 Redis 做缓存、会话管理、简单消息队列，理解 5 种基本数据类型",
+              "strategy": "comprehensive",
+              "note": "唯一横跨前后端的中间件，通用性极强"
+            },
+            {
+              "id": "mw-2",
+              "name": "Elasticsearch 搜索实战",
+              "mastery": 0,
+              "evidence": "能搭建 ES 索引，实现全文搜索和聚合查询",
+              "strategy": "comprehensive",
+              "note": "Agent 产品大概率需要搜索功能，可等用到时深入"
+            },
+            {
               "id": "mw-3",
-              "name": "Dubbo RPC框架",
+              "name": "Netty 与 Dubbo 概览",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "mw-8",
-              "name": "Netty 网络通信",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "mw-17",
-              "name": "Redis 分布式缓存",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "mw-25",
-              "name": "Elasticsearch 搜索引擎",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "mw-50",
-              "name": "Spring Security 安全",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能说清楚 Netty 和 Dubbo 各自解决什么问题、什么场景使用",
+              "strategy": "comprehensive",
+              "note": "合并原「Dubbo」「Netty」为概览课——小厂不用 RPC 框架，面试能聊即可",
+              "merge_note": "合并了原「Dubbo RPC框架」「Netty 网络通信」两个章节"
             }
           ]
         }
@@ -958,76 +868,78 @@
           "name": "Linux 运维基础",
           "chapters": [
             {
-              "id": "lx-1-1",
-              "name": "Linux发行版与安装",
+              "id": "lx-1",
+              "name": "Linux 文件系统与权限管理",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 chmod/chown/chgrp 管理文件权限，理解 rwx 权限位和 umask",
+              "strategy": "comprehensive",
+              "note": "合并原「文件系统与权限」「用户组权限位」。部署前端静态文件每天都要用",
+              "merge_note": "合并了原「文件系统与权限」「用户、组与权限位」两个章节"
             },
             {
-              "id": "lx-1-2",
-              "name": "SSH与免密登录",
+              "id": "lx-2",
+              "name": "SSH 免密登录与远程操作",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能配置 SSH key 免密登录，理解密钥管理安全底线",
+              "strategy": "comprehensive",
+              "note": "日常登录服务器的基础"
             },
             {
-              "id": "lx-2-1",
-              "name": "文件系统与权限",
+              "id": "lx-3",
+              "name": "systemd 服务管理",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能将前端/后端应用配置为 systemd 服务，实现开机自启和进程守护",
+              "strategy": "comprehensive",
+              "note": "直接对应工作需求——让应用稳定运行"
             },
             {
-              "id": "lx-2-3",
-              "name": "用户、组与权限位",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "lx-3-1",
-              "name": "systemd服务管理",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "lx-3-2",
+              "id": "lx-4",
               "name": "端口与网络排查",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 netstat/ss/telnet/nc 排查端口占用、防火墙拦截、服务不可达",
+              "strategy": "comprehensive",
+              "note": "部署时最常遇到的问题——服务跑不起来的第一反应"
             },
             {
-              "id": "lx-3-3",
-              "name": "CPU/内存/磁盘瓶颈定位",
+              "id": "lx-5",
+              "name": "日志检索与故障时间线还原",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 journalctl/grep/awk/tail 组合拳查日志，还原故障时间线和根因",
+              "strategy": "comprehensive",
+              "note": "生产环境出问题后的第一反应——查日志"
             },
             {
-              "id": "lx-3-4",
-              "name": "日志检索与时间线还原",
+              "id": "lx-6",
+              "name": "CPU / 内存 / 磁盘瓶颈定位",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用 top/free/df/iostat 定位性能瓶颈，判断是 CPU/内存/IO 哪个方向出问题",
+              "strategy": "comprehensive",
+              "note": "重要但不紧急——服务慢了才需要，掌握基础命令即可"
             },
             {
-              "id": "lx-4-1",
-              "name": "Bash脚本自动化",
+              "id": "lx-7",
+              "name": "Bash 脚本自动化",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能写部署脚本、批量操作脚本，结合 AI 辅助提高效率",
+              "strategy": "comprehensive",
+              "note": "部署和批量操作需要，但可用 AI 辅助写脚本"
             },
             {
-              "id": "lx-4-4",
-              "name": "Cron定时任务",
+              "id": "lx-8",
+              "name": "Cron 定时任务",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能配置 cron 做定时备份、证书续期、定时重启等任务",
+              "strategy": "comprehensive",
+              "note": "入门简单，即学即用"
             },
             {
-              "id": "lx-5-2",
-              "name": "防火墙规则",
+              "id": "lx-9",
+              "name": "防火墙规则与安全基线",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "lx-5-4",
-              "name": "备份策略与恢复",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能配置 iptables/firewalld 基础规则，理解云安全组概念",
+              "strategy": "comprehensive",
+              "note": "合并原「防火墙规则」「备份策略与恢复」。小厂大概率用云服务安全组",
+              "merge_note": "合并了原「防火墙规则」「备份策略与恢复」两个章节"
             }
           ]
         },
@@ -1036,40 +948,31 @@
           "name": "Nginx 与应用服务部署",
           "chapters": [
             {
-              "id": "ng-1-1",
-              "name": "Nginx安装与启动",
+              "id": "ng-1",
+              "name": "Nginx 安装与核心配置",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能安装 Nginx，配置 server/location 块，部署前端静态文件",
+              "strategy": "comprehensive",
+              "note": "合并原「Nginx安装与启动」「Server与Location匹配」。10分钟安装 → 直接进入配置实战",
+              "merge_note": "合并了原「Nginx安装与启动」「Server与Location匹配」两个章节"
             },
             {
-              "id": "ng-1-3",
-              "name": "Server与Location匹配",
+              "id": "ng-2",
+              "name": "Nginx 反向代理与前端部署实战",
               "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能用一个完整 nginx.conf 配置反向代理（前端静态文件 + 后端 API），理解 upstream 负载均衡",
+              "strategy": "comprehensive",
+              "note": "合并原「反向代理与转发」「负载均衡策略」。用户核心场景：一个配置文件打通前后端",
+              "merge_note": "合并了原「反向代理与转发」「负载均衡策略」两个章节"
             },
             {
-              "id": "ng-2-1",
-              "name": "反向代理与转发",
+              "id": "ng-3",
+              "name": "Nginx 进阶：限流 / 健康检查 / 黑白名单",
               "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ng-2-4",
-              "name": "限流与黑白名单",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ng-3-1",
-              "name": "负载均衡策略",
-              "mastery": 0,
-              "strategy": "comprehensive"
-            },
-            {
-              "id": "ng-3-2",
-              "name": "健康检查与故障剔除",
-              "mastery": 0,
-              "strategy": "comprehensive"
+              "evidence": "能配置限流策略、健康检查和 IP 黑白名单，加固生产环境",
+              "strategy": "comprehensive",
+              "note": "合并原「限流与黑白名单」「健康检查与故障剔除」。生产环境加固，初期部署不需要",
+              "merge_note": "合并了原「限流与黑白名单」「健康检查与故障剔除」两个章节"
             }
           ]
         }
@@ -1080,13 +983,21 @@
     "last_updated": "2026-08-12",
     "project_spine": "AI 客服工单系统",
     "current_phase": "phase1",
-    "current_position": "20. 类型标注（运行时边界）",
+    "current_position": "py-14. 类型系统进阶（类型标注与ABC）",
     "session_count": 6,
     "last_session": "2026-08-06",
-    "known_gaps": [
-      "Phase 4 缺少 Docker/CI/CD、云平台架构、监控告警章节（curriculum.md 未编写）",
-      "Phase 2 缺少 AI Coding 独立章节（curriculum.md 未收录）",
-      "Dify/LangChain/DeepAgent 作为可选专项折叠为单条目，未展开子章节"
+    "total_chapters": 104,
+    "phase_summary": {
+      "phase1": {"chapters": 47, "completed": 8},
+      "phase2": {"chapters": 26, "completed": 0},
+      "phase3": {"chapters": 19, "completed": 0},
+      "phase4": {"chapters": 12, "completed": 0}
+    },
+    "restructure_notes": [
+      "2026-08-12 大幅重构：156→105 节（-33%）。Phase 2 RAG 19→6 节、Agents 18→10 节（含拆分优化）",
+      "Phase 2 新增「AI 术语地图」预热课；Transformer 拆为「网络直觉」+「Self-Attention」两节；训练推理拆为两节",
+      "Phase 3 利用 TS 经验做 Java 对比速通，Spring Cloud 微服务降为概览",
+      "Phase 4 聚焦「部署工作线」：SSH→文件→Nginx→systemd→日志排查"
     ]
   }
 }
