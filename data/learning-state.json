@@ -94,6 +94,14 @@
       "max_mastery": 4,
       "last_review": "2026-08-13",
       "gap": "需在真实资源管理中体会 __del__ 的不可靠（应改用上下文管理器 py-16）；类属性持有引用对生命周期的影响待实际调试验证"
+    },
+    {
+      "chapter_id": "py-10",
+      "chapter_name": "魔术方法：让对象更 Pythonic",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-13",
+      "gap": "__hash__ 写法曾三次出错（return self.hash/签名带 other）需复习固化；NotImplementedError 与 NotImplemented 易混淆；描述符协议仅了解，未实操"
     }
   ],
   "upcoming_plan": [

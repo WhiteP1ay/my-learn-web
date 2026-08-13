@@ -83,10 +83,10 @@
             {
               "id": "py-10",
               "name": "魔术方法：让对象更 Pythonic",
-              "mastery": 0,
-              "evidence": "能实现自定义类的字符串表示、相等比较和可调用行为；能用 property 和描述符控制属性访问",
-              "strategy": "comprehensive",
-              "note": "合并原「魔术方法」「可调用对象」「描述符」三个章节；已讲授 2026-08-13，作业待验收",
+              "mastery": 3,
+              "evidence": "独立实现 Money 类：__str__、__eq__/__hash__ 配对（hash 基于 _value）、__lt__ 迁移、__call__ .2f 格式化、@property 非负校验，7 项验证全绿；能解释 hash(self) 无限递归原理与 set 去重两步机制",
+              "strategy": "completed",
+              "note": "已讲授 2026-08-13，作业验收通过 mastery 3；__hash__ 曾三次出错（return self.hash/签名带 other）已纠正；坑：NotImplementedError≠NotImplemented、__lg__ 不存在、f-string .2f",
               "merge_note": "合并了原「可调用对象」「魔术方法」「描述符」三个章节"
             },
             {

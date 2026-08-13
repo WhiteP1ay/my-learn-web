@@ -235,8 +235,8 @@ const DATA = {
             {
               "id": "py-10",
               "name": "魔术方法：让对象更 Pythonic",
-              "mastery": 0,
-              "done": false
+              "mastery": 3,
+              "done": true
             },
             {
               "id": "py-11",
@@ -1015,6 +1015,12 @@ const DATA = {
       "name": "对象的生命周期：__new__、__init__ 与 __del__",
       "last": "2026-08-13",
       "gap": "需在真实资源管理中体会 __del__ 的不可靠（应改用上下文管理器 py-16）；类属性持有引用对生命周期的影响待实际调试验证"
+    },
+    {
+      "id": "py-10",
+      "name": "魔术方法：让对象更 Pythonic",
+      "last": "2026-08-13",
+      "gap": "__hash__ 写法曾三次出错（return self.hash/签名带 other）需复习固化；NotImplementedError 与 NotImplemented 易混淆；描述符协议仅了解，未实操"
     }
   ],
   "meta": {
