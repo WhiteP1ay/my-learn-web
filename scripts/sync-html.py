@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Sync data/*.json → docs/index.html inline DATA object.
 
-Run after updating curriculum.json or learning-state.json to keep the
-GitHub Pages rendering in sync with the data layer.
+Run after updating curriculum.json, learning-state.json, or plans.json
+to keep the GitHub Pages rendering in sync with the data layer.
 """
 
-import json, re, sys
+import json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -16,46 +16,29 @@ def load_json(name):
         return json.load(f)
 
 
-def extract_plans(html):
-    """Extract existing plans from HTML DATA to preserve across syncs."""
-    m = re.search(r'"plans":\s*\{', html)
-    if not m:
-        return {}
-    start = m.start()
-    depth = 0
-    for i in range(start, len(html)):
-        if html[i] == '{': depth += 1
-        elif html[i] == '}':
-            depth -= 1
-            if depth == 0:
-                json_str = '{' + html[start: i+1].split('{', 1)[1]
-                return json.loads(json_str)
+def load_plans():
+    """Load teaching plans from data/plans.json."""
+    p = ROOT / 'data' / 'plans.json'
+    if p.exists():
+        with open(p) as f:
+            return json.load(f)
     return {}
 
 
 def main():
     curriculum = load_json('curriculum.json')
     state = load_json('learning-state.json')
+    plans = load_plans()
 
-    # Read current HTML
-    html_path = ROOT / 'docs' / 'index.html'
-    with open(html_path) as f:
-        html = f.read()
-
-    old_plans = extract_plans(html)
-
-    # Build new chapter name set
+    # Build new chapter name set (to filter plans)
     new_names = set()
     for phase in curriculum['phases']:
         for group in phase['groups']:
             for ch in group['chapters']:
                 new_names.add(ch['name'])
 
-    # Keep plans matching new chapter names
-    kept_plans = {}
-    for name, plan in old_plans.items():
-        if name in new_names:
-            kept_plans[name] = plan
+    # Keep plans matching current chapter names
+    kept_plans = {k: v for k, v in plans.items() if k in new_names}
 
     # Build phases
     PHASE_IDS = {'phase1': 'p1', 'phase2': 'p2', 'phase3': 'p3', 'phase4': 'p4'}
@@ -104,6 +87,10 @@ def main():
     }
 
     new_data_json = json.dumps(new_data, ensure_ascii=False, indent=2)
+    html_path = ROOT / 'docs' / 'index.html'
+    with open(html_path) as f:
+        html = f.read()
+
     new_html = re.sub(
         r'const DATA = \{[\s\S]*?\n\};',
         'const DATA = ' + new_data_json + ';',

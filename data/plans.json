@@ -1,0 +1,1365 @@
+{
+  "Python 环境搭建与工具链": {
+    "o": [
+      "巩固用 uv 创建项目、锁定依赖的完整流程，理解 pyproject.toml 与虚拟环境的协作",
+      "回顾 VSCode Python 插件、解释器选择与 launch.json 断点调试配置",
+      "对照前端 pnpm create vite + ESLint/Prettier，梳理 Python 工具链的对应概念"
+    ],
+    "e": "用 uv 新建一个项目，通过 uv add 引入第三方库（如 rich），编写一个读取命令行参数的脚本，配置 VSCode launch.json 并在关键行打断点，完成一次完整的运行与断点调试流程。",
+    "r": [
+      "https://docs.astral.sh/uv/",
+      "https://docs.python.org/3/tutorial/venv.html",
+      "https://code.visualstudio.com/docs/python/python-tutorial"
+    ],
+    "s": 1
+  },
+  "Python 基本语法": {
+    "o": [
+      "复习 Python 变量、条件、循环与 print/input 基本 I/O 的写法，重点回顾缩进即代码块",
+      "对照 TypeScript 语法，梳理 Python 与 JS 在语法层面的关键差异（缩进、冒号、布尔、None vs null 等）",
+      "巩固能快速写出正确缩进结构、无大括号的小型脚本的能力"
+    ],
+    "e": "不借助大括号、只用缩进写一个脚本：读取用户输入，用 for/while 循环实现一个菜单驱动的交互（如猜数字游戏），并处理常见边界输入。",
+    "r": [
+      "https://docs.python.org/3/tutorial/introduction.html",
+      "https://docs.python.org/3/tutorial/controlflow.html"
+    ],
+    "s": 1
+  },
+  "容器类型与推导式": {
+    "o": [
+      "掌握 list/dict/tuple/set 的创建、增删改查与各自适用场景",
+      "熟练用列表/字典/集合推导式替代 for 循环，写出简洁的数据转换表达式",
+      "对照 JS Array.map/filter 与 Object，迁移组合式数据处理思维"
+    ],
+    "e": "给定一份用户订单 JSON（list of dict），用推导式完成：筛选金额>100 的订单、提取用户 id 去重、按用户聚合消费总额输出一个 dict，尽量用单行推导式表达。",
+    "r": [
+      "https://docs.python.org/3/tutorial/datastructures.html",
+      "https://docs.python.org/3/howto/functional.html#generator-expressions-and-list-comprehensions"
+    ],
+    "s": 1
+  },
+  "函数：参数传递与类型提示入门": {
+    "o": [
+      "复习 def 定义函数、参数默认值与 return 的写法",
+      "巩固位置参数、关键字参数、*args/**kwargs 的调用规则与优先级",
+      "回顾类型提示（type hints）的基础写法与 IDE 补全/静态检查价值"
+    ],
+    "e": "写一个带类型标注的函数，同时支持位置参数、关键字参数、默认值、*args 和 **kwargs，并编写调用示例验证参数绑定顺序正确。",
+    "r": [
+      "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+      "https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions",
+      "https://docs.python.org/3/library/typing.html"
+    ],
+    "s": 1
+  },
+  "作用域与闭包": {
+    "o": [
+      "回顾 LEGB 四层查找规则并能在具体代码中指认变量来源",
+      "巩固闭包的写法与作用，能解释 Python 闭包与 JS 闭包的内存模型异同",
+      "梳理 global/nonlocal 关键字的使用时机与陷阱"
+    ],
+    "e": "写一个闭包计数器工厂，分别在函数内、模块层制造变量遮蔽，用 nonlocal 修改外层变量，并写注释解释每一步遵循的 LEGB 规则。",
+    "r": [
+      "https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces",
+      "https://docs.python.org/3/reference/executionmodel.html"
+    ],
+    "s": 1
+  },
+  "lambda 表达式与一等函数": {
+    "o": [
+      "复习 lambda 表达式语法与常见使用场景（key 排序、filter/map/sorted 回调）",
+      "巩固函数作为一等公民：赋值、传参、作为返回值",
+      "对照 JS 箭头函数，快速翻译常见模式为 Python lambda"
+    ],
+    "e": "用 sorted/max/min 的 key 参数配合 lambda 对一个 dict 列表做多条件排序，并把一个 lambda 作为参数传入自定义高阶函数，验证一等函数能力。",
+    "r": [
+      "https://docs.python.org/3/reference/expressions.html#lambda",
+      "https://docs.python.org/3/howto/functional.html"
+    ],
+    "s": 1
+  },
+  "类与对象": {
+    "o": [
+      "复习 class 定义、__init__ 初始化、实例属性与方法的写法",
+      "巩固 self 必须显式传入的含义，与 JS this 的隐式绑定做对比",
+      "梳理实例属性与类属性的区别及常见踩坑"
+    ],
+    "e": "定义一个 Book 类，含类属性、实例属性、方法，实例化多个对象并观察类属性共享、实例属性独立的行为。",
+    "r": [
+      "https://docs.python.org/3/tutorial/classes.html",
+      "https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables"
+    ],
+    "s": 1
+  },
+  "对象的类型系统": {
+    "o": [
+      "复习 type()/isinstance() 判断类型及两者区别",
+      "巩固一切皆对象、type 本身也是对象的认知",
+      "对照 JS typeof/instanceof/prototype，理解 Python MRO 多继承查找顺序"
+    ],
+    "e": "设计一个小型多继承类层级，用 isinstance/issubclass 判断关系，并用 __mro__ 打印并解释方法解析顺序。",
+    "r": [
+      "https://docs.python.org/3/reference/datamodel.html",
+      "https://docs.python.org/3/library/functions.html#isinstance"
+    ],
+    "s": 1
+  },
+  "对象的生命周期：__new__、__init__ 与 __del__": {
+    "o": [
+      "理解对象创建两阶段：__new__ 分配实例 → __init__ 初始化属性",
+      "掌握 __del__ 的触发时机与不确定性，了解引用计数与垃圾回收",
+      "能写一个带自定义 __new__ 的单例模式"
+    ],
+    "e": "实现一个单例类：重写 __new__ 保证只返回同一个实例，用 __init__ 记录初始化次数，并加 __del__ 打印销毁日志，验证两阶段与单例语义。",
+    "r": [
+      "https://docs.python.org/3/reference/datamodel.html#object.__new__",
+      "https://docs.python.org/3/reference/datamodel.html#object.__del__"
+    ],
+    "s": 1
+  },
+  "魔术方法：让对象更 Pythonic": {
+    "o": [
+      "掌握 __str__/__repr__/__eq__/__hash__ 等常见魔术方法的实现",
+      "理解 __call__ 让实例可调用，与普通方法的区别",
+      "学会用 @property 和描述符协议（__get__/__set__）控制属性访问"
+    ],
+    "e": "实现一个 Money 类：支持字符串表示、相等/大小比较、可调用（如 money() 返回格式化字符串），并用 property 对金额做非负校验。",
+    "r": [
+      "https://docs.python.org/3/reference/datamodel.html#special-method-names",
+      "https://docs.python.org/3/howto/descriptor.html"
+    ],
+    "s": 1
+  },
+  "装饰器深度解析：从闭包到 @语法糖": {
+    "o": [
+      "理解装饰器本质：接受函数返回函数的高阶函数",
+      "能手写带参数与不带参数的装饰器（含 functools.wraps）",
+      "实现日志记录、权限校验、性能计时等真实场景装饰器"
+    ],
+    "e": "写一个可传参数的计时装饰器和权限校验装饰器，应用到多个函数上，观察 wraps 对 __name__/__doc__ 的保留，并输出执行耗时。",
+    "r": [
+      "https://docs.python.org/3/glossary.html#term-decorator",
+      "https://docs.python.org/3/library/functools.html#functools.wraps"
+    ],
+    "s": 1
+  },
+  "元类：控制类的创建": {
+    "o": [
+      "理解元类在 class 语句执行时介入类创建过程",
+      "掌握 __new__/__init__ 型元类与 __prepare__ 的基本用法",
+      "能说出 ORM、单例注册、API 校验等元类应用场景"
+    ],
+    "e": "写一个注册型元类：所有继承该元类的子类自动注册到一个 dict 中，验证类创建时自动登记，并说明一个可能的应用场景。",
+    "r": [
+      "https://docs.python.org/3/reference/datamodel.html#metaclasses",
+      "https://docs.python.org/3/reference/datamodel.html#customizing-class-creation"
+    ],
+    "s": 1
+  },
+  "异常处理：try/except/finally 与自定义异常": {
+    "o": [
+      "复习 try/except/else/finally 的完整语义与执行顺序",
+      "巩固自定义异常类的写法与异常层级设计",
+      "回顾 finally 做资源清理、except 精确捕获的工程实践"
+    ],
+    "e": "定义一个业务异常层级（AppError 基类 + ValidationError 子类），在函数中抛出并用 try/except/else/finally 完整处理，验证各分支执行顺序。",
+    "r": [
+      "https://docs.python.org/3/tutorial/errors.html",
+      "https://docs.python.org/3/reference/compound_stmts.html#the-try-statement"
+    ],
+    "s": 1
+  },
+  "类型系统进阶：类型标注与抽象基类（ABC）": {
+    "o": [
+      "用 typing 模块写出完整类型标注（Optional/Union/Generic/Protocol 等）",
+      "掌握抽象基类 ABC + @abstractmethod 约束子类接口",
+      "用 mypy 做静态类型检查并读懂报错"
+    ],
+    "e": "定义一个 Shape ABC，声明 area() 抽象方法，让 Circle/Rectangle 实现它；给全部代码加完整类型标注并用 mypy 检查通过。",
+    "r": [
+      "https://docs.python.org/3/library/typing.html",
+      "https://docs.python.org/3/library/abc.html",
+      "https://mypy.readthedocs.io/"
+    ],
+    "s": 1
+  },
+  "迭代器与生成器": {
+    "o": [
+      "手写 __iter__/__next__ 实现自定义迭代器",
+      "掌握 yield 生成器与生成器表达式的惰性求值",
+      "理解用生成器处理大数据流以节省内存的优势"
+    ],
+    "e": "实现一个惰性的斐波那契生成器和一个自定义 Range 迭代器，验证惰性求值、无限序列与内存占用差异。",
+    "r": [
+      "https://docs.python.org/3/tutorial/classes.html#iterators",
+      "https://docs.python.org/3/tutorial/classes.html#generators"
+    ],
+    "s": 1
+  },
+  "上下文管理器：with 语句与 contextlib": {
+    "o": [
+      "手写 __enter__/__exit__ 实现上下文管理器",
+      "掌握 contextlib.contextmanager 与 ExitStack 简化写法",
+      "确保文件/连接/锁等资源在异常时也安全释放"
+    ],
+    "e": "实现一个计时上下文管理器和数据库连接上下文管理器，验证正常返回与抛异常两条路径都能触发 __exit__ 清理。",
+    "r": [
+      "https://docs.python.org/3/reference/datamodel.html#context-managers",
+      "https://docs.python.org/3/library/contextlib.html"
+    ],
+    "s": 1
+  },
+  "模块化：包、导入与命名空间": {
+    "o": [
+      "掌握模块与包的组织方式及 __init__.py 的作用",
+      "理解绝对导入与相对导入的区别与适用场景",
+      "能识别并避免循环导入问题"
+    ],
+    "e": "把一个脚本拆成多模块/包（如 core/、utils/、models/），用相对导入组织，验证能从入口正常导入运行且无循环导入。",
+    "r": [
+      "https://docs.python.org/3/tutorial/modules.html",
+      "https://docs.python.org/3/reference/import.html"
+    ],
+    "s": 1
+  },
+  "构建与发布：从代码到 PyPI": {
+    "o": [
+      "用 pyproject.toml 配置项目元数据、依赖与构建后端",
+      "掌握 uv build 打包与发布到 PyPI 的流程",
+      "理解版本号规范与 README/许可证等发布要素"
+    ],
+    "e": "把之前写的工具包用 pyproject.toml 配置元数据，执行构建产出 wheel，并（模拟或真实）发布到 PyPI/私有 index，验证可 pip install。",
+    "r": [
+      "https://packaging.python.org/en/latest/tutorials/packaging-projects/",
+      "https://docs.astral.sh/uv/guides/publish/"
+    ],
+    "s": 1
+  },
+  "断点调试：pdb 与 IDE 调试": {
+    "o": [
+      "掌握 breakpoint()/pdb 的常用命令（n/s/c/p/pp/l）",
+      "用 VSCode Debugger 做断点、监视、条件断点调试",
+      "学会定位运行时错误与检查调用栈"
+    ],
+    "e": "给一段故意含 bug 的递归/循环代码设置断点，用 pdb 和 VSCode Debugger 分别定位问题并修复，记录调试命令。",
+    "r": [
+      "https://docs.python.org/3/library/pdb.html",
+      "https://code.visualstudio.com/docs/python/debugging"
+    ],
+    "s": 1
+  },
+  "事件循环与 async/await 入门": {
+    "o": [
+      "理解事件循环的工作原理与协程、Task 的关系",
+      "掌握 async def/await 语法与 asyncio.run 入口",
+      "对照 JS event loop，理解 Python 需显式启动事件循环"
+    ],
+    "e": "写一个 async def 协程模拟下载任务，用 asyncio.run 启动并观察执行顺序，验证并发与串行的区别。",
+    "r": [
+      "https://docs.python.org/3/library/asyncio.html",
+      "https://docs.python.org/3/library/asyncio-task.html"
+    ],
+    "s": 1
+  },
+  "Task、Future 与并发控制": {
+    "o": [
+      "用 asyncio.create_task 并发执行多个协程",
+      "掌握 gather/wait/as_completed 收集结果与处理异常",
+      "用 Semaphore 限制并发数，理解 Future 与 Task 关系"
+    ],
+    "e": "实现一个并发请求器：批量创建 task，用 Semaphore 限流，用 gather 收集结果并处理单个失败不影响整体。",
+    "r": [
+      "https://docs.python.org/3/library/asyncio-task.html",
+      "https://docs.python.org/3/library/asyncio-sync.html"
+    ],
+    "s": 1
+  },
+  "协程深入：async for、async with 与异步迭代器": {
+    "o": [
+      "实现 async for 遍历异步数据流与异步生成器",
+      "掌握 async with 管理异步资源",
+      "理解异步迭代器/异步上下文管理器的协议"
+    ],
+    "e": "实现一个异步生成器逐条产出数据，配合 async for 消费，并用 async with 管理一个模拟异步连接的上下文管理器。",
+    "r": [
+      "https://docs.python.org/3/reference/compound_stmts.html#async-for",
+      "https://docs.python.org/3/reference/datamodel.html#asynchronous-context-managers"
+    ],
+    "s": 1
+  },
+  "异步编程实战模式": {
+    "o": [
+      "设计异步 HTTP 客户端，用 httpx 做并发请求",
+      "实现生产者-消费者模式与队列（asyncio.Queue）",
+      "实现超时、重试与背压控制"
+    ],
+    "e": "用 asyncio.Queue 实现生产者-消费者模式：生产者产出任务，多个消费者并发处理，加入 asyncio.timeout 超时与重试逻辑。",
+    "r": [
+      "https://docs.python.org/3/library/asyncio-queue.html",
+      "https://docs.python.org/3/library/asyncio-task.html#timeouts"
+    ],
+    "s": 1
+  },
+  "多线程与多进程：GIL 的限制与突破": {
+    "o": [
+      "理解 GIL 对线程的限制及 I/O 密集 vs CPU 密集的区别",
+      "掌握 threading 处理 I/O 密集、multiprocessing 处理 CPU 密集",
+      "用 concurrent.futures 统一线程池/进程池接口"
+    ],
+    "e": "写一个对比实验：用 threading 和 multiprocessing 分别跑 CPU 密集计算，测量耗时差异，再为 I/O 密集任务选线程池，得出结论。",
+    "r": [
+      "https://docs.python.org/3/library/threading.html",
+      "https://docs.python.org/3/library/multiprocessing.html",
+      "https://docs.python.org/3/library/concurrent.futures.html"
+    ],
+    "s": 1
+  },
+  "PostgreSQL 环境搭建与连接": {
+    "o": [
+      "安装 PostgreSQL 并完成基础配置",
+      "创建数据库、用户并授予权限，掌握 psql 基本命令",
+      "用 Python（psycopg）连接数据库并执行查询"
+    ],
+    "e": "安装 PostgreSQL，用 psql 创建数据库和专属用户并授权，再用 Python psycopg 连接、建一张表并插入/查询数据。",
+    "r": [
+      "https://www.postgresql.org/docs/current/tutorial-install.html",
+      "https://www.postgresql.org/docs/current/app-psql.html",
+      "https://www.psycopg.org/psycopg3/docs/"
+    ],
+    "s": 1
+  },
+  "DDL：建表、约束与字段类型": {
+    "o": [
+      "写出 CREATE TABLE 语句并选择合适字段类型",
+      "定义主键、外键、唯一约束、检查约束等",
+      "理解表结构设计与 TypeScript interface/Zod schema 的对应"
+    ],
+    "e": "设计一个电商库的表结构：users/orders/order_items，用 CREATE TABLE 定义字段类型、主外键与约束，并验证约束能拦截非法数据。",
+    "r": [
+      "https://www.postgresql.org/docs/current/ddl.html",
+      "https://www.postgresql.org/docs/current/ddl-constraints.html",
+      "https://www.postgresql.org/docs/current/datatype.html"
+    ],
+    "s": 1
+  },
+  "表间关系与 JOIN 查询": {
+    "o": [
+      "设计一对多、多对多关系并建中间表",
+      "掌握 INNER/LEFT/RIGHT/FULL JOIN 的语义与区别",
+      "理解 JOIN 与前端数据展开（normalizr）的对应"
+    ],
+    "e": "基于 users/orders/order_items 三张表，用各种 JOIN 查询每个用户的订单数、订单明细与商品，验证一对多与多对多关联。",
+    "r": [
+      "https://www.postgresql.org/docs/current/tutorial-join.html",
+      "https://www.postgresql.org/docs/current/queries-table-expressions.html"
+    ],
+    "s": 1
+  },
+  "DML：增删改查与查询优化入门": {
+    "o": [
+      "写出 INSERT/UPDATE/DELETE/SELECT 的完整语法",
+      "掌握 WHERE/GROUP BY/HAVING/ORDER BY 与聚合函数",
+      "对照 Array.filter/map/reduce 理解 SQL 集合操作思维"
+    ],
+    "e": "对订单数据执行增删改查：批量插入、按条件更新、删除，并用 GROUP BY/HAVING 统计各用户消费总额与订单数，验证聚合结果。",
+    "r": [
+      "https://www.postgresql.org/docs/current/dml.html",
+      "https://www.postgresql.org/docs/current/queries.html"
+    ],
+    "s": 1
+  },
+  "事务与并发控制：ACID 与隔离级别": {
+    "o": [
+      "理解 ACID 四个特性及其含义",
+      "掌握 BEGIN/COMMIT/ROLLBACK 的用法",
+      "区分脏读/不可重复读/幻读，理解各隔离级别"
+    ],
+    "e": "写一个转账事务：两个账户间扣款加款要么同时成功要么回滚；再用两个会话模拟不同隔离级别下的脏读/不可重复读现象。",
+    "r": [
+      "https://www.postgresql.org/docs/current/tutorial-transactions.html",
+      "https://www.postgresql.org/docs/current/transaction-iso.html"
+    ],
+    "s": 1
+  },
+  "索引与查询性能优化": {
+    "o": [
+      "创建 B-Tree/GIN/GiST 索引并了解各自适用场景",
+      "用 EXPLAIN ANALYZE 分析查询计划",
+      "识别全表扫描并评估索引收益与代价"
+    ],
+    "e": "造一张十万级数据的表，分别在有/无索引下用 EXPLAIN ANALYZE 对比查询耗时，并为一个 JSON 字段建 GIN 索引验证包含查询加速。",
+    "r": [
+      "https://www.postgresql.org/docs/current/indexes.html",
+      "https://www.postgresql.org/docs/current/using-explain.html"
+    ],
+    "s": 1
+  },
+  "FastAPI 入门：路由、请求与响应模型": {
+    "o": [
+      "创建 FastAPI 应用并定义 GET/POST/PUT/DELETE 路由",
+      "用 Pydantic 模型做请求体校验与响应建模",
+      "理解自动生成 /docs 交互文档的价值"
+    ],
+    "e": "实现一个待办事项 API：定义 Todo Pydantic 模型，实现增删改查路由，用 /docs 测试并验证非法输入返回 422。",
+    "r": [
+      "https://fastapi.tiangolo.com/tutorial/first-steps/",
+      "https://fastapi.tiangolo.com/tutorial/path-params/",
+      "https://fastapi.tiangolo.com/tutorial/body/"
+    ],
+    "s": 1
+  },
+  "SQLAlchemy ORM 入门：模型定义与会话管理": {
+    "o": [
+      "用 SQLAlchemy 定义 ORM 模型并映射到表",
+      "掌握 Session 的创建、提交、回滚与生命周期",
+      "理解 ORM 与原生 SQL、Pydantic 模型的关系"
+    ],
+    "e": "用 SQLAlchemy 定义 User 模型，通过 Session 完成 CRUD，验证 session 的 add/commit/rollback/close 生命周期，并与 Pydantic 响应模型对接。",
+    "r": [
+      "https://docs.sqlalchemy.org/en/20/orm/quickstart.html",
+      "https://docs.sqlalchemy.org/en/20/orm/session_basics.html"
+    ],
+    "s": 1
+  },
+  "数据迁移：Alembic 实战": {
+    "o": [
+      "初始化 Alembic 并配置与数据库的连接",
+      "用 autogenerate 生成迁移脚本并审查",
+      "执行 upgrade/downgrade，处理迁移冲突与顺序"
+    ],
+    "e": "给 SQLAlchemy 模型项目接入 Alembic，改一次模型结构后自动生成迁移，执行 upgrade 和 downgrade 验证可回滚。",
+    "r": [
+      "https://alembic.sqlalchemy.org/en/latest/tutorial.html",
+      "https://alembic.sqlalchemy.org/en/latest/autogenerate.html"
+    ],
+    "s": 1
+  },
+  "依赖注入：从手动传参到 Depends": {
+    "o": [
+      "用 Depends 注入数据库会话、配置等依赖",
+      "理解依赖的嵌套与缓存（use_cache）机制",
+      "将手动传参重构为声明式依赖"
+    ],
+    "e": "实现 get_db 会话依赖、get_current_user 用户依赖，让路由通过 Depends 组合使用，验证依赖嵌套和请求级缓存行为。",
+    "r": [
+      "https://fastapi.tiangolo.com/tutorial/dependencies/",
+      "https://fastapi.tiangolo.com/tutorial/dependencies/sub-dependencies/"
+    ],
+    "s": 1
+  },
+  "异常处理与中间件：统一错误响应与请求拦截": {
+    "o": [
+      "定义全局异常处理器统一错误响应格式",
+      "编写中间件做日志、鉴权、限流",
+      "理解 BaseHTTPMiddleware 与异常处理器的执行顺序"
+    ],
+    "e": "自定义业务异常 + 全局 handler 返回统一 {code, message} 结构，并写一个记录耗时日志的中间件和一个简单限流中间件。",
+    "r": [
+      "https://fastapi.tiangolo.com/tutorial/handling-errors/",
+      "https://fastapi.tiangolo.com/advanced/middleware/"
+    ],
+    "s": 1
+  },
+  "测试框架：pytest + httpx 实战": {
+    "o": [
+      "用 pytest 编写单元测试与 fixture",
+      "用 httpx 的 ASGI transport 测试 FastAPI 端点",
+      "掌握 TestClient 与依赖覆盖（dependency_overrides）"
+    ],
+    "e": "为待办 API 写测试套件：用 pytest fixture 覆盖数据库依赖，用 TestClient 测增删改查，断言状态码与响应体。",
+    "r": [
+      "https://fastapi.tiangolo.com/tutorial/testing/",
+      "https://docs.pytest.org/en/stable/",
+      "https://www.python-httpx.org/async/"
+    ],
+    "s": 1
+  },
+  "三层架构实战：Router → Service → Repository": {
+    "o": [
+      "理解 Router/Service/Repository 三层职责划分",
+      "将业务逻辑、数据访问与路由解耦",
+      "评估分层带来的可测试性与可维护性收益"
+    ],
+    "e": "把已有 FastAPI 项目重构为 Router → Service → Repository 三层，验证各层可独立单元测试、路由层无业务逻辑。",
+    "r": [
+      "https://fastapi.tiangolo.com/tutorial/bigger-applications/",
+      "https://docs.sqlalchemy.org/en/20/orm/session_basics.html"
+    ],
+    "s": 1
+  },
+  "文件上传与流式响应": {
+    "o": [
+      "实现文件上传（UploadFile）与下载（FileResponse）",
+      "用 StreamingResponse 流式返回大数据集",
+      "理解流式响应的内存优势与背压"
+    ],
+    "e": "实现一个文件服务：上传文件保存、下载文件，并做一个用 StreamingResponse 逐块输出大 CSV 的接口，验证内存占用平稳。",
+    "r": [
+      "https://fastapi.tiangolo.com/tutorial/request-files/",
+      "https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse"
+    ],
+    "s": 1
+  },
+  "长事务与短事务：数据库会话最佳实践": {
+    "o": [
+      "区分长事务与短事务的适用场景",
+      "掌握请求级 vs 函数级事务边界的取舍",
+      "设计出避免连接长时间占用的会话管理策略"
+    ],
+    "e": "设计两种场景：一个批量导入需短事务逐批提交，一个跨表操作需单个事务原子提交，分别实现并说明边界选择理由。",
+    "r": [
+      "https://docs.sqlalchemy.org/en/20/orm/session_transaction.html",
+      "https://docs.sqlalchemy.org/en/20/orm/session_basics.html#when-do-i-construct-a-session-when-do-i-commit-it-and-when-do-i-close-it"
+    ],
+    "s": 1
+  },
+  "Docker 部署：容器化 FastAPI 应用": {
+    "o": [
+      "编写 Dockerfile 构建 FastAPI 镜像",
+      "用 docker-compose 编排 FastAPI + PostgreSQL",
+      "掌握多阶段构建、健康检查与数据卷"
+    ],
+    "e": "为 FastAPI 应用写 Dockerfile（多阶段构建），用 docker-compose 编排 app 和 PostgreSQL，跑通 compose up 并验证接口连通。",
+    "r": [
+      "https://docs.docker.com/get-started/",
+      "https://docs.docker.com/compose/gettingstarted/"
+    ],
+    "s": 1
+  },
+  "Kubernetes 部署：Pod、Service 与 Ingress": {
+    "o": [
+      "编写 Deployment/Service/Ingress YAML",
+      "将容器化应用部署到 K8s 集群",
+      "理解 Pod/Service/Ingress 的分工与伸缩"
+    ],
+    "e": "编写 Deployment（含副本与探针）、Service 和 Ingress YAML，部署 FastAPI 应用并验证集群内/外部访问与滚动更新。",
+    "r": [
+      "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/",
+      "https://kubernetes.io/docs/concepts/services-networking/service/",
+      "https://kubernetes.io/docs/concepts/services-networking/ingress/"
+    ],
+    "s": 1
+  },
+  "CI/CD 流水线：从代码提交到自动部署": {
+    "o": [
+      "用 GitHub Actions 搭建 lint → test → build → deploy 流水线",
+      "掌握缓存、环境变量与 Secret 管理",
+      "实现 push 自动触发部署"
+    ],
+    "e": "写一个 GitHub Actions workflow：代码提交后自动运行 ruff/mypy、pytest、docker build 并部署，验证流水线全绿。",
+    "r": [
+      "https://docs.github.com/en/actions",
+      "https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-python"
+    ],
+    "s": 1
+  },
+  "Jupyter Notebook 入门": {
+    "o": [
+      "会用 Jupyter Notebook 做交互式数据分析",
+      "用 matplotlib 做可视化探索",
+      "理解 notebook 的 cell 执行模型与魔法命令"
+    ],
+    "e": "在 Jupyter 中加载一份数据，用 matplotlib 画出趋势图和分布图，并写出带 Markdown 说明的探索报告。",
+    "r": [
+      "https://docs.jupyter.org/en/latest/",
+      "https://matplotlib.org/stable/tutorials/index.html"
+    ],
+    "s": 1
+  },
+  "NumPy 核心：ndarray 与向量化运算": {
+    "o": [
+      "创建与操作 ndarray，理解 shape/dtype",
+      "用向量化运算替代 Python 循环",
+      "感受向量化带来的性能提升"
+    ],
+    "e": "对一份百万级数组分别用 Python 循环和 NumPy 向量化做相同计算，对比耗时，并完成基本的数组创建、切片与运算。",
+    "r": [
+      "https://numpy.org/doc/stable/user/quickstart.html",
+      "https://numpy.org/doc/stable/user/absolute_beginners.html"
+    ],
+    "s": 1
+  },
+  "NumPy 进阶：广播、切片与线性代数": {
+    "o": [
+      "掌握广播机制进行不同形状数组运算",
+      "用花式索引和布尔索引高效筛选数据",
+      "了解基础线性代数运算（dot/matmul）"
+    ],
+    "e": "用广播给不同形状的数组做加减、用布尔索引筛选取值，完成一个矩阵乘法并验证结果与形状规则。",
+    "r": [
+      "https://numpy.org/doc/stable/user/basics.broadcasting.html",
+      "https://numpy.org/doc/stable/user/basics.indexing.html",
+      "https://numpy.org/doc/stable/reference/routines.linalg.html"
+    ],
+    "s": 1
+  },
+  "Pandas 入门：Series 与 DataFrame": {
+    "o": [
+      "创建 DataFrame，理解 Series 与 DataFrame 关系",
+      "进行数据选择、过滤与聚合操作",
+      "读写 CSV/Excel 文件"
+    ],
+    "e": "从 CSV 读入数据，做列选择、条件过滤、分组聚合，并导出为 Excel，验证操作正确。",
+    "r": [
+      "https://pandas.pydata.org/docs/user_guide/10min.html",
+      "https://pandas.pydata.org/docs/user_guide/io.html"
+    ],
+    "s": 1
+  },
+  "Pandas 数据清洗实战": {
+    "o": [
+      "处理缺失值、重复值与异常值",
+      "用 merge/groupby/pivot 做数据整合与透视",
+      "完成一次端到端的数据清洗流程"
+    ],
+    "e": "对一份脏数据（含缺失值、重复行、异常值）做完整清洗，再用 merge/groupby/pivot 生成透视汇总表。",
+    "r": [
+      "https://pandas.pydata.org/docs/user_guide/missing_data.html",
+      "https://pandas.pydata.org/docs/user_guide/merging.html",
+      "https://pandas.pydata.org/docs/user_guide/reshaping.html"
+    ],
+    "s": 1
+  },
+  "AI 领域术语地图": {
+    "o": [
+      "建立 token / embedding / attention / fine-tune / RAG / Agent 六大核心概念之间的关系图，说清谁依赖谁",
+      "能用前端已有概念（组件、状态、缓存、路由、API）给每个 AI 术语各写一句类比，形成迁移锚点",
+      "输出一份属于自己的「AI 工程全局心智模型」文档，后续每节课的新词都能挂到这张图上"
+    ],
+    "e": "用 Excalidraw 画一张「AI 应用工程术语关系图」，把 token → embedding → LLM 推理 → RAG → Agent 的依赖链路标注清楚，每个节点用一句前端类比说明，再录一段 3 分钟口头讲解，要求不看稿讲清这六个词的关系。",
+    "r": [
+      "https://www.anthropic.com/engineering/building-effective-agents",
+      "https://huggingface.co/learn/nlp-course/chapter1/1"
+    ],
+    "s": 1
+  },
+  "AI 全景与 LLM 工作原理概览": {
+    "o": [
+      "用 Ollama 在本地拉取并运行一个模型，完整观察一次推理（从加载模型到生成 token）",
+      "能用自己的话解释「模型收到 prompt 后发生了什么」：tokenize → forward 计算 → 采样 → 逐字解码",
+      "区分生成式/判别式等 AI 分类，理解 LLM 是「自回归地预测下一个 token」这一本质"
+    ],
+    "e": "用 ollama run 拉取并运行一个 7B 级模型，对 3 个不同 prompt 各做一次推理，记录输出；然后写一段「推理流水线」文字说明（类比浏览器收到 HTML 后的解析→渲染流程），并指出每次输出「下一个 token」是在哪个环节被决定的。",
+    "r": [
+      "https://docs.ollama.com/",
+      "https://huggingface.co/learn/nlp-course/chapter1/2"
+    ],
+    "s": 1
+  },
+  "Token 化与词嵌入：LLM 如何「看懂」文字": {
+    "o": [
+      "用 tiktoken 分析同一段中文和英文文本的 token 消耗差异，并据此估算 API 成本",
+      "用 sentence-transformers 计算两句话的语义相似度（余弦相似度），直观感受「向量表示语义」",
+      "理解 embedding 是高维向量、语义相近的文本向量也相近，能解释 token 与 embedding 的区别"
+    ],
+    "e": "写一个脚本：用 tiktoken 统计一段中文 + 英文文本的 token 数并对比成本（类比 CSS Design Token 的原子拆分）；再用 sentence-transformers 对 5 组句子两两计算余弦相似度，输出排序结果，并解释为什么「向量距离」能代替「关键词匹配」表达语义（类比 HSL 色环上的相邻颜色）。",
+    "r": [
+      "https://github.com/openai/tiktoken",
+      "https://sbert.net/docs/"
+    ],
+    "s": 1
+  },
+  "神经网络直觉：从感知机到深度抽象": {
+    "o": [
+      "能画出多层神经网络的结构图（输入层 → 隐藏层 → 输出层），并解释「逐层抽象」的含义",
+      "理解权重、偏置、激活函数各自扮演的角色（不做数学推导，只讲直觉）",
+      "能说明为什么激活函数不能是纯线性的（否则多层退化成一层）"
+    ],
+    "e": "用 Excalidraw 画一个 3 层网络处理手写数字的示意图，标注每一层「抽象出了什么」（边缘 → 笔画 → 数字部件），并写一段文字解释激活函数为什么不能是纯线性（类比「没有 if 分支的代码只能线性堆叠」）。",
+    "r": [
+      "https://huggingface.co/learn/nlp-course/chapter1/3",
+      "https://playground.tensorflow.org/"
+    ],
+    "s": 1
+  },
+  "Transformer 核心：Self-Attention 与多头注意力": {
+    "o": [
+      "能画出 Transformer 的简化结构图（含 encoder/decoder 块、Self-Attention 与 FFN 位置）",
+      "口头解释 Q（查询）/ K（键）/ V（值）各自做什么，以及它们如何算出注意力权重",
+      "理解 self-attention 让每个 token 能关注序列中所有其他 token，从而捕获上下文相关含义"
+    ],
+    "e": "用 PPT 或 Excalidraw 画出 Transformer 简化结构图，并用 2 个例句演示「同一个词在不同上下文里含义如何变化」，配合 Q/K/V 的三句话类比（Q=我要找什么，K=我能提供什么，V=实际内容）做一次口头讲解并录像/录音自检。",
+    "r": [
+      "https://arxiv.org/abs/1706.03762",
+      "https://jalammar.github.io/illustrated-transformer/"
+    ],
+    "s": 1
+  },
+  "LLM 训练三阶段：Pre-training → SFT → RLHF": {
+    "o": [
+      "说清 Pre-training / SFT / RLHF 三个阶段各自的目标、使用的数据、所需的资源量级",
+      "明确区分「预训练」（从零学语言）和「微调」（在基座上适配任务）的本质差异",
+      "理解 RLHF 如何用人类偏好反馈把模型「对齐」到有用、无害、诚实"
+    ],
+    "e": "写一份「训练三阶段对比表」：目标 / 数据来源 / 数据量 / 算力 / 产出五个维度各列，并用「写底层渲染引擎 → 用组件库搭页面 → Code Review + Lint 规则」的类比把三个阶段串讲一遍（文字或录屏均可）。",
+    "r": [
+      "https://huggingface.co/learn/nlp-course/chapter1/4",
+      "https://arxiv.org/abs/2203.02155"
+    ],
+    "s": 1
+  },
+  "推理参数与控制：Temperature / Top-p / Top-k": {
+    "o": [
+      "理解 temperature / top-p / top-k 如何控制采样时的随机性，以及三者如何组合",
+      "在同一 prompt 下调整这三个参数，观察并记录输出在确定性/创造性上的差异",
+      "能说出「低 temperature 更确定但易重复、高 temperature 更有创意但易幻觉」并给出选参建议"
+    ],
+    "e": "用 Ollama 对同一个 prompt 分别跑 temperature 0 / 0.7 / 1.5、top-p 0.5 / 0.9、top-k 1 / 50 共多组实验，整理成对比表格，总结「生成 JSON 用低 temp、头脑风暴用高 temp」的规律（类比动画 easing 曲线：linear 可预测 vs ease-out 有变化）。",
+    "r": [
+      "https://platform.openai.com/docs/api-reference/chat/create",
+      "https://docs.ollama.com/api/generate"
+    ],
+    "s": 1
+  },
+  "系统提示词与对话管理": {
+    "o": [
+      "为 Agent 应用设计结构化 system prompt（角色设定 / 行为边界 / 输出格式约束）",
+      "实现多轮对话的消息数组管理（system / user / assistant 角色轮转，类比受控组件 state）",
+      "能定位上下文窗口溢出的时机，统计每轮 token 消耗，并给出截断或摘要策略"
+    ],
+    "e": "设计一个「技术客服 Agent」的 system prompt，用 Ollama chat API 连续跑 10 轮对话，记录每一轮累计 token 数和「从第几轮开始忘记早期信息」，最后写一段改进建议（滑动窗口 / 摘要压缩，类比虚拟列表只渲染可见项）。",
+    "r": [
+      "https://platform.openai.com/docs/guides/prompt-engineering",
+      "https://docs.ollama.com/api/chat"
+    ],
+    "s": 1
+  },
+  "Function Calling / Tool Use 深度解析": {
+    "o": [
+      "用 JSON Schema 定义 tool schema（函数名、参数类型、描述），让模型能「看懂」有哪些工具",
+      "让模型在合适时机自动发起 tool call，并正确回填工具返回结果继续生成",
+      "记录并理解完整的 tool call 往返日志（请求 → 模型返回调用 → 执行 → 回填 → 最终答案）"
+    ],
+    "e": "实现一个「天气查询 Agent」：定义 get_weather(city) 的 tool schema，用 Ollama 或 OpenAI 的 tool calling 跑通「帮我查北京和上海的天气」这条链路，打印每一轮 tool call 往返日志（类比事件处理函数：schema 是接口文档、调用是 click handler），并验证模型能自己决定先查哪个城市。",
+    "r": [
+      "https://platform.openai.com/docs/guides/function-calling",
+      "https://ollama.com/blog/tool-support"
+    ],
+    "s": 1
+  },
+  "Agent 架构设计模式": {
+    "o": [
+      "对比 ReAct / Plan-and-Execute / Multi-Agent 三种模式的核心差异、循环方式和适用场景",
+      "为真实工作需求写一份 Agent 方案文档：模式选择 + tools 列表 + system prompt 草稿 + 终止条件",
+      "理解「为什么需要明确的终止条件」以及工具列表过大带来的选择困难"
+    ],
+    "e": "挑一个自己工作中的真实场景（如工单自动分类或客服自动回复），产出方案文档：选定一种模式并说明理由、列出 tools 清单、写 system prompt 草稿、定义 loop 终止条件，并各用一句话说明为什么不用另外两种模式（类比选响应式编程 vs 微前端架构的取舍）。",
+    "r": [
+      "https://www.anthropic.com/engineering/building-effective-agents",
+      "https://arxiv.org/abs/2210.03629"
+    ],
+    "s": 1
+  },
+  "RAG 全流程概览：从文档到答案": {
+    "o": [
+      "讲清 RAG 五步流水线：加载 → 切片 → embedding → 检索 → 生成，并理解每步的作用",
+      "用 ChromaDB + embedding 模型跑通一个最简 RAG，把一篇技术文档接入问答",
+      "能验证 LLM 的回答确实来自检索到的文档片段（而不是凭空编造）"
+    ],
+    "e": "用 ChromaDB 存一篇技术文档的向量，实现「加载 → 切片 → 嵌入 → 检索 top-k → 拼进 prompt → 生成」完整流程，问 LLM 几个文档相关问题并检查答案是否引用了正确片段（类比前端「数据预取 + 缓存」，先取相关数据再渲染）。",
+    "r": [
+      "https://docs.trychroma.com/",
+      "https://docs.llamaindex.ai/"
+    ],
+    "s": 1
+  },
+  "文档处理与向量数据库": {
+    "o": [
+      "掌握固定长度、递归字符分割、按标题/结构语义分割等 3 种切片策略及其适用场景",
+      "能把同一文档用不同策略切片并写入 ChromaDB，管理 collection 与元数据",
+      "设计对比实验，用检索质量评估不同切片策略的优劣并选出最优方案"
+    ],
+    "e": "对一篇长文档分别用「固定 500 字符」「递归字符分割」「按标题结构」三种策略切片并存入 ChromaDB 的三个 collection，用 5 个测试 query 检索并对比 top-k 命中质量，写结论说明哪种策略在哪种文档上最好（类比 Code Splitting：chunk 太大会降低复用、太小会增加开销）。",
+    "r": [
+      "https://docs.trychroma.com/",
+      "https://python.langchain.com/docs/how_to/recursive_text_splitter/"
+    ],
+    "s": 1
+  },
+  "LlamaIndex 框架实战": {
+    "o": [
+      "理解 LlamaIndex 的 Document / Node / Index / QueryEngine 抽象层次，能独立构建索引",
+      "同时接入本地 Markdown 和在线 URL 等多源数据，跑通统一检索入口",
+      "对比单源与多源检索的答案完整性差异，并会查看 source_nodes 定位答案来源"
+    ],
+    "e": "用 LlamaIndex 的 SimpleDirectoryReader 索引本地 Markdown 文件 + 一个在线文档 URL，用同一个 query 分别只接单源和同时接多源，对比答案覆盖度，并打印 QueryEngine 返回的 source_nodes 说明答案引用了哪些文档（类比 Next.js/Nuxt：框架帮你串起数据源与渲染层）。",
+    "r": [
+      "https://docs.llamaindex.ai/",
+      "https://docs.llamaindex.ai/en/stable/understanding/"
+    ],
+    "s": 1
+  },
+  "检索增强技术：混合检索与重排序": {
+    "o": [
+      "区分稀疏检索（BM25/关键词精确匹配）与稠密检索（向量语义匹配）的优缺点",
+      "实现混合检索（向量 + BM25 结果融合），理解为什么要两者结合",
+      "用 Rerank 模型对检索结果二次精排，并量化对比准确率提升"
+    ],
+    "e": "构造 5 个测试查询，分别跑「纯向量检索」「混合检索（向量 + BM25 融合）」「混合 + Rerank」三组实验，用准确率/召回做对比表格，并解释 Rerank 为什么能把更相关的排在前面（类比「精确匹配 like 搜索」vs「模糊语义搜索」的双引擎兜底）。",
+    "r": [
+      "https://docs.trychroma.com/",
+      "https://huggingface.co/learn/nlp-course/chapter1/7"
+    ],
+    "s": 1
+  },
+  "高级 RAG：语义路由与知识图谱": {
+    "o": [
+      "实现语义路由：让 RAG 自动识别查询意图并路由到不同的索引/数据源",
+      "了解 GraphRAG 如何用知识图谱的实体-关系补充向量检索的盲区",
+      "设计路由评估，验证意图识别准确率 ≥ 80%"
+    ],
+    "e": "定义「产品咨询」和「故障排查」两类索引，用 embedding 相似度做语义路由（类比 react-router 按路径分发组件），跑 20 条混合查询统计路由准确率并输出混淆矩阵，再简述什么时候该用 GraphRAG 补充实体关系。",
+    "r": [
+      "https://docs.llamaindex.ai/",
+      "https://python.langchain.com/docs/concepts/routing/"
+    ],
+    "s": 1
+  },
+  "RAG 评估与生产部署": {
+    "o": [
+      "用 RAGAS 对 RAG 输出 faithfulness / answer_relevancy / context_precision 三项指标并读懂含义",
+      "把 RAG 用 FastAPI 封装成 REST API，返回答案与引用来源",
+      "理解生产部署要点：embedding 缓存、检索延迟、评估回归"
+    ],
+    "e": "准备 10 组含 ground-truth 的 QA，用 RAGAS 对之前搭建的 RAG 跑完整评估并输出三项指标分数；再用 FastAPI 包一层 /query 接口（返回答案 + 引用片段），用 curl 验证端到端可用（类比 Lighthouse 给页面跑分，把 RAG 质量变成可量化指标）。",
+    "r": [
+      "https://docs.ragas.io/",
+      "https://docs.llamaindex.ai/"
+    ],
+    "s": 1
+  },
+  "LangGraph 核心概念与 State 管理": {
+    "o": [
+      "理解 LangGraph 的图（Graph）、节点（Node）、边（Edge）与 State 四大核心概念",
+      "用 TypedDict 定义 State，构建包含 3 个节点和 1 个条件分支的简单工作流",
+      "能打印每一步的 State 变化，观察数据在图中的流动与更新"
+    ],
+    "e": "用 LangGraph 建一个「评审 → 改写 → 通过则发布 / 不通过则打回」的工作流（≥3 节点 + 1 条件边），用 TypedDict 定义 State，逐节点打印 State 快照，并解释每个节点如何只读/只写自己的字段（类比 useReducer：State 是唯一事实来源，reducer 是节点）。",
+    "r": [
+      "https://langchain-ai.github.io/langgraph/concepts/",
+      "https://langchain-ai.github.io/langgraph/tutorials/"
+    ],
+    "s": 1
+  },
+  "ReAct 模式与工具编排": {
+    "o": [
+      "理解 ReAct 循环 Thought → Action → Observation 的推理-行动交替机制",
+      "用 LangGraph 实现（或使用预构建的）ReAct Agent 接入多个工具",
+      "让 LLM 自动选择工具并完成多步推理问题，记录完整的思考与调用日志"
+    ],
+    "e": "用 LangGraph 的 create_react_agent 接一个「搜索」和一个「计算」工具，跑一个多步问题（如「查北京今天的最高气温并换算成华氏度」），打印每一步的 thought / action / observation 日志，说明模型在哪一步选择了哪个工具以及为什么（类比异步轮询：一次工具调用就是一次 await）。",
+    "r": [
+      "https://arxiv.org/abs/2210.03629",
+      "https://langchain-ai.github.io/langgraph/how-tos/"
+    ],
+    "s": 1
+  },
+  "CheckPoints 与 Human-in-the-Loop": {
+    "o": [
+      "理解 checkpoint 如何持久化图执行的每个状态快照（类比 Git commit 历史），支持恢复与回溯",
+      "用 interrupt 让 Agent 在关键操作处暂停，等待人工审批",
+      "实现人工确认（approve / reject）后继续或中止执行的完整闭环"
+    ],
+    "e": "实现一个「报销审批 Agent」：生成报销单 → interrupt 暂停等待人工确认 → approve 后继续写入数据库。演示中途暂停、检查当前状态、再恢复执行（类比前端二次确认弹窗：敏感操作必须人工点确认才继续）。",
+    "r": [
+      "https://langchain-ai.github.io/langgraph/concepts/persistence/",
+      "https://langchain-ai.github.io/langgraph/concepts/human_in_the_loop/"
+    ],
+    "s": 1
+  },
+  "记忆系统与多 Agent 协作": {
+    "o": [
+      "区分短期记忆（单次对话内 State）与长期记忆（跨会话持久化 Store）的区别与实现方式",
+      "构建 Supervisor 多 Agent 架构：Research + Writer 两个子 Agent 由 Supervisor 统一调度",
+      "理解子图拆分与 Agent 间消息传递，跑通一个完整的多 Agent 协作任务"
+    ],
+    "e": "构建 Supervisor Agent：Research 子 Agent 负责搜集资料、Writer 子 Agent 负责生成调研报告，Supervisor 做路由调度，跑通一个完整任务并打印各 Agent 之间的消息流转（类比微前端：Supervisor 是主应用，子 Agent 是各子应用，通过消息总线通信）。",
+    "r": [
+      "https://langchain-ai.github.io/langgraph/concepts/multi_agent/",
+      "https://langchain-ai.github.io/langgraph/concepts/memory/"
+    ],
+    "s": 1
+  },
+  "Agent 前端界面开发实战": {
+    "o": [
+      "用 React/Vue 搭建一个 Agent 对话界面（消息列表 + 输入框 + 多会话切换）",
+      "实现 SSE 流式输出：后端 StreamingResponse 推流，前端逐字渲染",
+      "展示 Tool Call 中间状态（如「正在查询天气…」）与对话历史管理"
+    ],
+    "e": "搭一个 Vue 或 React 对话页：后端 FastAPI 用 StreamingResponse 推送 SSE，前端用 fetch 流式读取逐字渲染，当模型发起 tool call 时显示「正在查询…」占位状态，并支持多会话历史切换（类比 Streaming SSR + Loading Skeleton，把 AI 过程对用户透明化）。",
+    "r": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events",
+      "https://docs.ollama.com/api/chat"
+    ],
+    "s": 1
+  },
+  "基座模型选型与微调决策": {
+    "o": [
+      "了解主流开源模型（Llama / Qwen / DeepSeek 等）的参数规模、能力与许可证差异",
+      "掌握选型维度：参数量 / 显存需求 / 推理成本 / 中文能力 / 商用许可",
+      "能判断「该用 RAG 还是该微调」，并给出有依据的决策结论"
+    ],
+    "e": "写一份模型选型决策文档：给定「中文客服工单自动分类」场景，对比 3 个候选模型（参数量 / 显存 / 中文效果 / 许可证），并明确给出「RAG 还是微调」的结论与理由（类比前端框架选型：改组件源码=微调，组合现有组件=RAG）。",
+    "r": [
+      "https://huggingface.co/models",
+      "https://ollama.com/library"
+    ],
+    "s": 1
+  },
+  "LoRA/QLoRA 高效微调实战": {
+    "o": [
+      "理解 LoRA 冻结主模型权重、只训练低秩矩阵（增量）从而大幅降低训练成本",
+      "理解 QLoRA 在 4-bit 量化基座上做 LoRA，进一步降低显存门槛",
+      "用 unsloth + QLoRA 跑通一次真实微调，让模型按指定 JSON schema 稳定输出"
+    ],
+    "e": "用 unsloth 对 Llama-3-8B 做一次 QLoRA 微调：准备 50 条「问题 → JSON 结构答案」的训练数据，训练后测试模型是否能稳定按指定 JSON schema 输出，并对比微调前后的输出格式（类比「给组件库打补丁而不改源码」：QLoRA 是压缩后的补丁）。",
+    "r": [
+      "https://docs.unsloth.ai/",
+      "https://arxiv.org/abs/2305.14314"
+    ],
+    "s": 1
+  },
+  "对齐技术与模型评估": {
+    "o": [
+      "理解 RLHF（需单独训练奖励模型）与 DPO（直接用偏好对训练）的区别与联系",
+      "准备 10 组 DPO 偏好对数据（prompt + 被采纳回答 + 被拒绝回答）",
+      "对比基座模型与对齐后模型在相同 prompt 下的输出质量差异"
+    ],
+    "e": "构造 10 组 (prompt, chosen, rejected) 偏好对，用 TRL 的 DPOTrainer 跑一轮对齐训练（小规模 demo），然后对基座模型和对齐后模型跑相同的 10 个 prompt，做输出质量对比表并说明差异来源（类比 A/B Testing：RLHF 靠反馈循环，DPO 直接用行为数据训练）。",
+    "r": [
+      "https://arxiv.org/abs/2305.18290",
+      "https://huggingface.co/docs/trl/"
+    ],
+    "s": 1
+  },
+  "Dify 低代码 Agent 平台实战": {
+    "o": [
+      "用 Dify 搭建一个 RAG 知识库问答应用：上传文档 → 编排 → 发布",
+      "对比低代码版与代码版 RAG 在开发时间、功能灵活度上的差异",
+      "能判断什么场景用低代码快速交付、什么场景必须回到代码"
+    ],
+    "e": "在 Dify 上传一份产品文档建知识库，编排一个 RAG 聊天应用并发布，记录从 0 到可用的耗时；再对照自己之前写的代码版 RAG，写一份「低代码 vs 代码」选型小结（类比 Retool/Webflow：覆盖 80% 需求，复杂定制还是写代码）。",
+    "r": [
+      "https://docs.dify.ai/",
+      "https://docs.dify.ai/en/guides/application-orchestrate"
+    ],
+    "s": 1
+  },
+  "LangChain 生态与 DeepAgent 概览": {
+    "o": [
+      "理解 LangChain（工具箱）/ LangGraph（架构）/ DeepAgent（高层抽象）三者的定位与关系",
+      "用 LangChain 的 Retriever 与 Tool 组件重构一段已有的 RAG/Agent 代码",
+      "对比原生实现与框架封装后的代码量与可读性，形成「何时用框架、何时裸写」的判断"
+    ],
+    "e": "拿前面某节自己写的原生 RAG 代码，用 LangChain 的 Retriever + Tool 组件重构一遍，统计两版代码行数与可读性，写一段结论说明什么情况该引入框架封装、什么情况保持裸写（类比决定是否引入 lodash：封装省代码但增加抽象与依赖）。",
+    "r": [
+      "https://docs.langchain.com/",
+      "https://python.langchain.com/docs/"
+    ],
+    "s": 1
+  },
+  "Java 速通：从 TS 到 Java 的语法对比": {
+    "o": [
+      "能对照写出 TS 与 Java 的变量声明与类型标注差异，理解 Java 强类型、基本类型与包装类型",
+      "能写出 Java 的控制流（if/for/while/switch）和方法定义，说出与 TS 的差异点",
+      "能熟练使用 List/Map/Set 等容器类型，对照 TS 的 Array/Object/Set 完成等价集合操作"
+    ],
+    "e": "用 Java 重写一段已有的 TS 工具函数（含类型声明、控制流、集合遍历），编译运行并对比两种语言的输出一致性",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/index.html",
+      "https://docs.oracle.com/javase/tutorial/collections/index.html"
+    ],
+    "s": 1
+  },
+  "Lambda 表达式与 Stream API": {
+    "o": [
+      "能写出 Java lambda 表达式和函数式接口（Predicate/Function/Consumer），对应 TS 箭头函数",
+      "能将 TS 的 map/filter/reduce 链式调用翻译为 Java Stream 的中间操作与终端操作",
+      "能使用 collect 和 groupingBy 完成分组聚合，理解 Stream 惰性求值与短路"
+    ],
+    "e": "给定一份数据集合，先用 TS 写出 map/filter/reduce 链，再翻译为等价 Java Stream 管道，比对两者结果一致",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html",
+      "https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html"
+    ],
+    "s": 1
+  },
+  "类与对象：Java OOP 对比 TS": {
+    "o": [
+      "能说出 Java 与 TS 在访问修饰符（default/protected）和包级可见性上的关键差异",
+      "能正确使用 final 修饰类、方法、变量，理解 final 与 TS readonly/const 的差异",
+      "能写出 super() 构造链和继承重写规则，理解 Java 方法签名的编译期绑定"
+    ],
+    "e": "把一个 TS class 继承体系改写为 Java，正确使用修饰符、final 和 super() 构造链，编译运行验证行为一致",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/java/javaOO/index.html",
+      "https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html"
+    ],
+    "s": 1
+  },
+  "抽象类与接口": {
+    "o": [
+      "能区分抽象类和接口的使用场景，说出何时用 abstract class、何时用 interface",
+      "能使用 Java 8+ default 方法和 static 方法扩展接口，理解接口多继承规则",
+      "能说明 Java 接口与 TS 接口的本质差异（Java 接口可带实现、是运行时类型）"
+    ],
+    "e": "设计一个支付领域模型，用接口 + default 方法 + 抽象类组合实现多支付渠道，体现接口编程与多继承",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html",
+      "https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html"
+    ],
+    "s": 1
+  },
+  "异常处理": {
+    "o": [
+      "能区分 checked exception 和 unchecked exception，正确处理 checked exception（try/catch/throws）",
+      "能自定义异常类，说出 Java 异常体系（Throwable/Exception/RuntimeException）与 TS 的差异",
+      "能正确使用 try-with-resources 和 finally 做资源清理，理解异常传播链"
+    ],
+    "e": "编写一个文件读写 + 网络调用的程序，正确声明/捕获 checked exception，用 try-with-resources 保证资源释放",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html",
+      "https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html"
+    ],
+    "s": 1
+  },
+  "泛型：类型擦除与通配符": {
+    "o": [
+      "能解释 Java 类型擦除机制，说出 Java 泛型与 TS 泛型（运行时保留）的本质差异",
+      "能正确使用 ? extends T（协变）和 ? super T（逆变）通配符，理解 PECS 原则",
+      "能识别类型擦除带来的限制（不能 new T、不能 instanceof 泛型），写出安全的泛型方法"
+    ],
+    "e": "实现一个泛型 copy 方法，用 PECS 原则处理 List<? extends T> 和 List<? super T>，并验证类型擦除现象",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/java/generics/index.html",
+      "https://docs.oracle.com/javase/tutorial/java/generics/wildcards.html"
+    ],
+    "s": 1
+  },
+  "注解与反射": {
+    "o": [
+      "能定义和使用自定义注解（含元注解 @Retention/@Target），说出注解与 TS decorator 的类比",
+      "能通过反射在运行时读取类/方法/字段上的注解，理解反射核心入口 Class",
+      "能解释 @Autowired/@Transactional 这类框架注解背后的工作原理（注解 + 动态代理）"
+    ],
+    "e": "自定义一个 @Table 注解标注实体类，写反射工具读取类名和注解生成建表 SQL，体会框架注解的底层机制",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/java/annotations/index.html",
+      "https://docs.oracle.com/javase/tutorial/reflect/index.html"
+    ],
+    "s": 1
+  },
+  "线程基础与并发": {
+    "o": [
+      "能用 Thread/Runnable/Callable 创建线程，理解 Java 真多线程与 JS 单线程事件循环的根本差异",
+      "能使用 synchronized 和 volatile 处理共享变量竞态，说出内存可见性与原子性问题",
+      "能使用 ExecutorService 线程池管理并发任务，了解 Future 获取异步结果"
+    ],
+    "e": "编写多线程计数器程序，先暴露竞态问题，再用 synchronized/AtomicInteger 修复，用线程池并发执行并观察结果",
+    "r": [
+      "https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html",
+      "https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html"
+    ],
+    "s": 1
+  },
+  "Spring 核心：IoC 容器与依赖注入": {
+    "o": [
+      "能解释 IoC 与依赖注入的核心思想，对照 Vue provide/inject 理解控制反转",
+      "能用 @Component/@Bean/@Configuration 声明 Bean，用 @Autowired 完成构造器/字段注入",
+      "能说出 Bean 生命周期（实例化→属性注入→初始化→销毁）和 @Scope 作用域"
+    ],
+    "e": "搭建一个 Spring Boot 最小项目，定义多个 Bean 并完成依赖注入，观察 Bean 初始化顺序和作用域差异",
+    "r": [
+      "https://docs.spring.io/spring-framework/reference/core/beans.html",
+      "https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html"
+    ],
+    "s": 1
+  },
+  "Spring AOP 切面编程": {
+    "o": [
+      "能解释 AOP 的概念（切面/切点/通知），理解其通过动态代理实现的原理",
+      "能使用 @Before/@After/@Around 编写日志切面，说出各通知的执行顺序",
+      "能理解 @Transactional 基于 AOP 的事务拦截机制，知道事务失效的常见原因"
+    ],
+    "e": "编写一个 @Around 日志切面，记录方法调用耗时和参数，并观察 @Transactional 注解下的代理行为",
+    "r": [
+      "https://docs.spring.io/spring-framework/reference/core/aop.html",
+      "https://docs.spring.io/spring-framework/reference/data-access/transaction.html"
+    ],
+    "s": 1
+  },
+  "Spring Boot Web 开发": {
+    "o": [
+      "能搭建 Spring Boot Web 项目，用 @RestController + @RequestMapping 定义 REST 端点",
+      "能用 @PathVariable/@RequestParam/@RequestBody 处理请求参数，用 @ResponseBody 返回 JSON",
+      "能按 Controller → Service 分层组织代码，处理全局异常和统一响应格式"
+    ],
+    "e": "实现一个图书管理 REST API（GET/POST/PUT/DELETE），含路径参数、查询参数、请求体校验和统一响应体",
+    "r": [
+      "https://docs.spring.io/spring-boot/reference/web/index.html",
+      "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller.html"
+    ],
+    "s": 1
+  },
+  "Spring 数据访问：JDBC 与 ORM (JPA)": {
+    "o": [
+      "能配置数据源，用 Spring Data JPA 定义 @Entity 实体和 @Repository 接口",
+      "能通过继承 JpaRepository 完成 CRUD 和派生查询，理解方法命名规则",
+      "能定义实体关联关系（@OneToMany/@ManyToOne/@ManyToMany），对照 Prisma/TypeORM 理解"
+    ],
+    "e": "定义 User 和 Order 实体及一对多关联，用 Spring Data JPA 完成增删改查和按条件派生查询",
+    "r": [
+      "https://docs.spring.io/spring-data/jpa/reference/",
+      "https://docs.spring.io/spring-data/jpa/reference/repositories/query-methods.html"
+    ],
+    "s": 1
+  },
+  "Spring Security 认证与授权": {
+    "o": [
+      "能配置 Spring Security 过滤器链，理解认证（Authentication）与授权（Authorization）流程",
+      "能实现基于 JWT 的认证：登录签发 token、请求校验 token、解析用户信息",
+      "能用 @PreAuthorize/@Secured 实现基于角色的权限控制，保护 API 端点"
+    ],
+    "e": "为 REST API 加 JWT 登录 + 角色鉴权（ADMIN/USER），验证不同角色访问受限接口的行为",
+    "r": [
+      "https://docs.spring.io/spring-security/reference/index.html",
+      "https://docs.spring.io/spring-security/reference/servlet/authentication/passwords/jwt.html"
+    ],
+    "s": 1
+  },
+  "Spring 测试：JUnit 与 Mock": {
+    "o": [
+      "能用 JUnit 5 编写单元测试，使用 @Test/@BeforeEach 和断言（assertEquals/assertThat）",
+      "能用 Mockito 创建 mock 对象（@Mock/@InjectMocks），验证方法调用和桩返回值",
+      "能用 @SpringBootTest 编写集成测试，对照 Jest/Vitest 理解测试分层"
+    ],
+    "e": "为 Service 层编写单元测试（mock 掉 Repository），再写一个 @SpringBootTest 集成测试验证 Controller 端点",
+    "r": [
+      "https://docs.spring.io/spring-framework/reference/testing/testcontext-framework.html",
+      "https://junit.org/junit5/docs/current/user-guide/"
+    ],
+    "s": 1
+  },
+  "微服务速览：注册中心与远程调用": {
+    "o": [
+      "能讲清楚微服务架构中服务注册→发现→调用→网关的完整调用链路",
+      "能理解 Nacos 注册中心的作用（服务注册与发现、配置管理），对照前端服务发现理解",
+      "能理解 OpenFeign 声明式远程调用和 Gateway 网关路由/过滤的作用"
+    ],
+    "e": "画一张完整链路图并文字说明：一次请求如何经 Gateway → 注册中心发现 → Feign 调用下游服务，标注各组件职责",
+    "r": [
+      "https://spring.io/projects/spring-cloud",
+      "https://spring.io/projects/spring-cloud-alibaba"
+    ],
+    "s": 1
+  },
+  "服务治理概念：MQ / 分布式事务 / 限流熔断": {
+    "o": [
+      "能说出 RocketMQ 解决异步解耦/削峰填谷问题，理解消息队列核心概念（Producer/Consumer/Topic）",
+      "能说出 Seata 解决分布式事务问题，理解其与单机事务的差异和常用模式",
+      "能说出 Sentinel 解决限流/熔断/降级问题，理解 QPS 限流和熔断降级策略"
+    ],
+    "e": "针对订单支付场景，说明何时引入 MQ 解耦、何时需要分布式事务、如何用 Sentinel 保护下游，各给一段伪代码示例",
+    "r": [
+      "https://rocketmq.apache.org/docs/",
+      "https://sentinelguard.io/en-us/docs/introduction.html"
+    ],
+    "s": 1
+  },
+  "Redis 缓存与数据结构": {
+    "o": [
+      "能使用 Redis 5 种基本数据类型（String/List/Set/Hash/ZSet）及各自的典型场景",
+      "能用 Redis 实现缓存（含 TTL 过期策略）、会话管理和简单消息队列（List/Stream）",
+      "能处理缓存穿透/击穿/雪崩等常见问题，理解 Redis 与数据库的一致性问题"
+    ],
+    "e": "实现一个缓存方案：查询前先读 Redis，未命中再查数据库并回填缓存，设置 TTL，处理缓存击穿",
+    "r": [
+      "https://redis.io/docs/latest/develop/data-types/",
+      "https://redis.io/docs/latest/develop/use/patterns/"
+    ],
+    "s": 1
+  },
+  "Elasticsearch 搜索实战": {
+    "o": [
+      "能搭建 Elasticsearch 索引，理解倒排索引与 mapping 的基本概念",
+      "能用 match/multi_match 实现全文搜索，用 bool 查询组合过滤条件",
+      "能用聚合查询（terms/range/bucket）做统计，理解与 SQL GROUP BY 的对照"
+    ],
+    "e": "导入一批文档数据，创建索引并实现标题+正文全文搜索，加上分类聚合统计，输出搜索结果和聚合桶",
+    "r": [
+      "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html",
+      "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html"
+    ],
+    "s": 1
+  },
+  "Netty 与 Dubbo 概览": {
+    "o": [
+      "能说清楚 Netty 是高性能 NIO 网络框架，理解其 Reactor 线程模型解决 C10K 问题",
+      "能说清楚 Dubbo 是 RPC 框架，理解服务提供者/消费者/注册中心/协议的角色",
+      "能说出 Netty 与 Dubbo 的关系（Dubbo 底层可用 Netty 通信），判断何时用 RPC 框架"
+    ],
+    "e": "写一段文字说明：公司要构建高并发服务间调用，解释为何选 Dubbo + Netty 而不是 HTTP，画出组件关系图",
+    "r": [
+      "https://netty.io/wiki/user-guide.html",
+      "https://dubbo.apache.org/zh-cn/overview/home/"
+    ],
+    "s": 1
+  },
+  "Linux 文件系统与权限管理": {
+    "o": [
+      "能解释 Linux 文件系统层级（FHS），说出 /etc /var /usr /home 等目录用途",
+      "能用 chmod/chown/chgrp 管理文件权限和归属，理解 rwx 权限位对文件/目录的不同含义",
+      "能理解 umask 对新建文件默认权限的影响，正确配置部署目录权限"
+    ],
+    "e": "创建部署目录和文件，为 web 用户配置合适的读写权限，用 chmod/chown 调整并用 ls -l 验证，说明 umask 影响",
+    "r": [
+      "https://man7.org/linux/man-pages/man1/chmod.1.html",
+      "https://man7.org/linux/man-pages/man5/filesystems.5.html"
+    ],
+    "s": 1
+  },
+  "SSH 免密登录与远程操作": {
+    "o": [
+      "能用 ssh-keygen 生成密钥对，配置 authorized_keys 实现免密登录",
+      "能理解公钥/私钥的用途与安全底线（私钥不泄露、权限 600），正确管理多台服务器",
+      "能用 ssh/scp/rsync 进行远程命令执行和文件传输，配置 ~/.ssh/config 简化连接"
+    ],
+    "e": "生成密钥对并配置到服务器实现免密登录，用 scp/rsync 同步部署文件，检查密钥文件权限",
+    "r": [
+      "https://man7.org/linux/man-pages/man1/ssh.1.html",
+      "https://www.ssh.com/academy/ssh/keygen"
+    ],
+    "s": 1
+  },
+  "systemd 服务管理": {
+    "o": [
+      "能编写 systemd unit 文件（[Service] ExecStart/Restart），将应用注册为系统服务",
+      "能用 systemctl start/stop/status/enable 管理服务，实现开机自启和进程守护",
+      "能通过 journalctl -u 查看服务日志，理解 Restart 策略和 Environment 环境变量配置"
+    ],
+    "e": "将一个 Node/Java 后端进程写为 systemd 服务（含环境变量、Restart=always），验证开机自启和崩溃自动拉起",
+    "r": [
+      "https://www.freedesktop.org/software/systemd/man/systemd.service.html",
+      "https://www.freedesktop.org/software/systemd/man/systemctl.html"
+    ],
+    "s": 1
+  },
+  "端口与网络排查": {
+    "o": [
+      "能用 ss/netstat 查看端口监听和连接状态，定位端口占用进程",
+      "能用 telnet/nc 测试服务可达性，区分进程没起来和防火墙拦截两种故障",
+      "能理解 localhost 与 0.0.0.0 监听差异，排查服务起来了但外部访问不到的问题"
+    ],
+    "e": "模拟服务不可达场景，用 ss + nc 定位是端口未监听还是防火墙拦截，并给出修复方案",
+    "r": [
+      "https://man7.org/linux/man-pages/man8/ss.8.html",
+      "https://man7.org/linux/man-pages/man1/nc.1.html"
+    ],
+    "s": 1
+  },
+  "日志检索与故障时间线还原": {
+    "o": [
+      "能用 tail -f / journalctl 实时跟踪日志，用 grep 过滤关键错误关键词",
+      "能用 awk/sed 提取日志字段，按时间排序还原故障时间线",
+      "能组合 journalctl + grep + awk 定位根因，掌握常见日志排查套路"
+    ],
+    "e": "给一段混合日志文件，还原某次故障的时间线：先用 grep 找到错误，再用 awk 提取时间戳排序，定位第一个报错点",
+    "r": [
+      "https://man7.org/linux/man-pages/man1/journalctl.1.html",
+      "https://man7.org/linux/man-pages/man1/grep.1.html"
+    ],
+    "s": 1
+  },
+  "CPU / 内存 / 磁盘瓶颈定位": {
+    "o": [
+      "能用 top/htop 查看 CPU 使用率和进程占用，理解 load average 含义",
+      "能用 free/vmstat 判断内存是否不足或 swap 换页频繁",
+      "能用 df/iostat 判断磁盘空间和 IO 瓶颈，综合判断系统瓶颈方向"
+    ],
+    "e": "针对服务响应变慢场景，依次用 top/free/iostat 采集数据，判断瓶颈是 CPU/内存/IO 哪一类并说明理由",
+    "r": [
+      "https://man7.org/linux/man-pages/man1/top.1.html",
+      "https://man7.org/linux/man-pages/man1/free.1.html"
+    ],
+    "s": 1
+  },
+  "Bash 脚本自动化": {
+    "o": [
+      "能写 Bash 脚本基础（变量/条件/循环/函数），理解 shebang 和脚本执行权限",
+      "能编写部署脚本（拉代码→构建→重启服务），处理错误和参数传递",
+      "能结合 AI 辅助快速生成和校验脚本，理解脚本可读性和 set -e 安全退出"
+    ],
+    "e": "编写一键部署脚本：拉取代码 → 安装依赖 → 构建 → 重启 systemd 服务，含错误检查（set -e）和日志输出",
+    "r": [
+      "https://man7.org/linux/man-pages/man1/bash.1.html",
+      "https://www.gnu.org/software/bash/manual/bash.html"
+    ],
+    "s": 1
+  },
+  "Cron 定时任务": {
+    "o": [
+      "能理解 cron 表达式（分/时/日/月/周）的格式和含义，正确编写定时规则",
+      "能用 crontab -e 添加定时任务，做定时备份、证书续期、定时重启",
+      "能排查 cron 不执行的常见原因（环境变量/路径/权限），配置日志输出"
+    ],
+    "e": "配置 3 个 cron 任务：每天凌晨备份数据库、每周续期证书、每天定时清理日志，并验证执行和日志",
+    "r": [
+      "https://man7.org/linux/man-pages/man5/crontab.5.html",
+      "https://man7.org/linux/man-pages/man1/crontab.1.html"
+    ],
+    "s": 1
+  },
+  "防火墙规则与安全基线": {
+    "o": [
+      "能配置 firewalld/iptables 基础规则，开放/关闭指定端口",
+      "能理解云安全组与主机防火墙的双层防护关系，配置最小权限原则",
+      "能制定基础安全基线（禁用 root 登录、修改 SSH 端口、定期备份），理解备份策略"
+    ],
+    "e": "制定一份服务器安全基线清单并实操：用 firewalld 只开放 22/80/443 端口，禁用密码登录，配置定时备份",
+    "r": [
+      "https://man7.org/linux/man-pages/man8/iptables.8.html",
+      "https://firewalld.org/documentation/"
+    ],
+    "s": 1
+  },
+  "Nginx 安装与核心配置": {
+    "o": [
+      "能安装并启动 Nginx，理解主进程与 worker 进程模型",
+      "能编写 server/location 块，配置 root 和 index 部署前端静态文件",
+      "能理解 location 匹配规则（前缀/正则/精确），用 nginx -t 校验配置"
+    ],
+    "e": "安装 Nginx，配置一个 server 块部署 Vue 打包产物，用 location 处理前端路由（history 模式）并验证",
+    "r": [
+      "https://nginx.org/en/docs/beginners_guide.html",
+      "https://nginx.org/en/docs/http/ngx_http_core_module.html#location"
+    ],
+    "s": 1
+  },
+  "Nginx 反向代理与前端部署实战": {
+    "o": [
+      "能用 proxy_pass 配置反向代理，将 /api 请求转发到后端服务，理解 proxy_set_header",
+      "能写出一个完整 nginx.conf 同时服务前端静态文件和反向代理后端 API（同源部署）",
+      "能配置 upstream 负载均衡，理解轮询/权重/ip_hash 策略"
+    ],
+    "e": "写一个完整 nginx.conf：前端静态文件 + /api 反向代理到后端，配置 upstream 两台后端做轮询，验证跨域问题和负载分发",
+    "r": [
+      "https://nginx.org/en/docs/http/ngx_http_proxy_module.html",
+      "https://nginx.org/en/docs/http/ngx_http_upstream_module.html"
+    ],
+    "s": 1
+  },
+  "Nginx 进阶：限流 / 健康检查 / 黑白名单": {
+    "o": [
+      "能用 limit_req 配置请求限流，用 limit_conn 限制并发连接数",
+      "能配置 IP 黑白名单（allow/deny），拦截恶意访问",
+      "能理解健康检查与故障剔除（结合 upstream 的 fail_timeout/max_fails），加固生产环境"
+    ],
+    "e": "在已有 Nginx 配置上加固：给 /api 加限流、封禁某恶意 IP、配置 upstream 后端故障剔除，用压测工具验证限流生效",
+    "r": [
+      "https://nginx.org/en/docs/http/ngx_http_limit_req_module.html",
+      "https://nginx.org/en/docs/http/ngx_http_access_module.html"
+    ],
+    "s": 1
+  }
+}
