@@ -341,25 +341,61 @@ const DATA = {
             },
             {
               "id": "db-3",
-              "name": "表间关系与 JOIN 查询",
+              "name": "SELECT 查询基础：投影、过滤、排序、分页",
               "mastery": 0,
               "done": false
             },
             {
               "id": "db-4",
-              "name": "DML：增删改查与查询优化入门",
+              "name": "DML：插入、更新与删除",
               "mastery": 0,
               "done": false
             },
             {
               "id": "db-5",
-              "name": "事务与并发控制：ACID 与隔离级别",
+              "name": "表间关系与 JOIN 查询",
               "mastery": 0,
               "done": false
             },
             {
               "id": "db-6",
+              "name": "聚合与分组：GROUP BY / HAVING",
+              "mastery": 0,
+              "done": false
+            },
+            {
+              "id": "db-7",
+              "name": "子查询与 CTE",
+              "mastery": 0,
+              "done": false
+            },
+            {
+              "id": "db-8",
+              "name": "窗口函数：排名、累计与行间对比",
+              "mastery": 0,
+              "done": false
+            },
+            {
+              "id": "db-9",
+              "name": "事务与并发控制：ACID 与隔离级别",
+              "mastery": 0,
+              "done": false
+            },
+            {
+              "id": "db-10",
               "name": "索引与查询性能优化",
+              "mastery": 0,
+              "done": false
+            },
+            {
+              "id": "db-11",
+              "name": "数据库设计范式与反范式",
+              "mastery": 0,
+              "done": false
+            },
+            {
+              "id": "db-12",
+              "name": "PostgreSQL JSONB 与全文搜索",
               "mastery": 0,
               "done": false
             }
@@ -946,7 +982,7 @@ const DATA = {
     }
   ],
   "meta": {
-    "position": "py-14 类型系统进阶 → py-17 模块化 → db-1 PostgreSQL安装 → db-2 DDL → db-3 表间关系 → fw-1 FastAPI起服务",
+    "position": "py-14 类型系统进阶 → py-17 模块化 → db-1 PostgreSQL安装 → db-2 DDL → db-3 SELECT查询基础 → fw-1 FastAPI起服务",
     "project": "AI 客服工单系统"
   },
   "memory": [],
@@ -1305,19 +1341,6 @@ const DATA = {
       "r": [
         "https://www.postgresql.org/docs/current/tutorial-join.html",
         "https://www.postgresql.org/docs/current/queries-table-expressions.html"
-      ],
-      "s": 1
-    },
-    "DML：增删改查与查询优化入门": {
-      "o": [
-        "写出 INSERT/UPDATE/DELETE/SELECT 的完整语法",
-        "掌握 WHERE/GROUP BY/HAVING/ORDER BY 与聚合函数",
-        "对照 Array.filter/map/reduce 理解 SQL 集合操作思维"
-      ],
-      "e": "对订单数据执行增删改查：批量插入、按条件更新、删除，并用 GROUP BY/HAVING 统计各用户消费总额与订单数，验证聚合结果。",
-      "r": [
-        "https://www.postgresql.org/docs/current/dml.html",
-        "https://www.postgresql.org/docs/current/queries.html"
       ],
       "s": 1
     },
@@ -2311,6 +2334,97 @@ const DATA = {
       "r": [
         "https://nginx.org/en/docs/http/ngx_http_limit_req_module.html",
         "https://nginx.org/en/docs/http/ngx_http_access_module.html"
+      ],
+      "s": 1
+    },
+    "SELECT 查询基础：投影、过滤、排序、分页": {
+      "o": [
+        "用 SELECT 指定列做投影，用 WHERE 过滤行",
+        "用 ORDER BY 排序、LIMIT/OFFSET 分页",
+        "理解 NULL 的三值逻辑和 DISTINCT 去重"
+      ],
+      "e": "对订单表完成一系列查询：筛选指定条件的订单、按金额排序、分页取第2页、DISTINCT 去重统计客户所在城市",
+      "r": [
+        "https://www.postgresql.org/docs/current/tutorial-select.html",
+        "https://www.postgresql.org/docs/current/queries-order.html"
+      ],
+      "s": 1
+    },
+    "DML：插入、更新与删除": {
+      "o": [
+        "写 INSERT/UPDATE/DELETE 完成增删改",
+        "掌握批量插入和 ON CONFLICT upsert",
+        "用 RETURNING 返回变更行"
+      ],
+      "e": "实现一个库存扣减流程：批量插入商品、用 ON CONFLICT 处理重复键、更新库存并 RETURNING 变更后的值",
+      "r": [
+        "https://www.postgresql.org/docs/current/dml.html",
+        "https://www.postgresql.org/docs/current/sql-insert.html"
+      ],
+      "s": 1
+    },
+    "聚合与分组：GROUP BY / HAVING": {
+      "o": [
+        "用 COUNT/SUM/AVG/MIN/MAX 做聚合统计",
+        "用 GROUP BY 分组，理解多列分组",
+        "理解 HAVING 与 WHERE 的区别"
+      ],
+      "e": "对订单数据做分组统计：每个客户的订单数和消费总额、HAVING 筛选消费超过阈值的客户、按月统计销售额",
+      "r": [
+        "https://www.postgresql.org/docs/current/tutorial-agg.html",
+        "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP"
+      ],
+      "s": 1
+    },
+    "子查询与 CTE": {
+      "o": [
+        "写标量/行/表子查询",
+        "用 WITH 定义 CTE 命名中间结果",
+        "理解相关子查询的执行逻辑"
+      ],
+      "e": "用 CTE 重构一个复杂查询：先算每个客户的消费总额，再找出消费超过平均值的客户，并写出等价的子查询版本对比可读性",
+      "r": [
+        "https://www.postgresql.org/docs/current/queries-with.html",
+        "https://www.postgresql.org/docs/current/functions-subquery.html"
+      ],
+      "s": 1
+    },
+    "窗口函数：排名、累计与行间对比": {
+      "o": [
+        "用 ROW_NUMBER/RANK/DENSE_RANK 做排名",
+        "用 SUM OVER 做累计和移动平均",
+        "用 LAG/LEAD 做行间对比"
+      ],
+      "e": "对销售数据用窗口函数：每个客户按金额排名、计算累计销售额、用 LAG 算环比增长",
+      "r": [
+        "https://www.postgresql.org/docs/current/tutorial-window.html",
+        "https://www.postgresql.org/docs/current/functions-window.html"
+      ],
+      "s": 1
+    },
+    "数据库设计范式与反范式": {
+      "o": [
+        "理解 1NF/2NF/3NF 的判定标准",
+        "能识别设计中的部分依赖和传递依赖",
+        "理解反范式化的性能权衡"
+      ],
+      "e": "给一个含冗余字段的订单表做范式化拆分，再针对高频查询场景做一次反范式设计，说明两次设计各自的取舍",
+      "r": [
+        "https://www.postgresql.org/docs/current/ddl.html",
+        "https://en.wikipedia.org/wiki/Database_normalization"
+      ],
+      "s": 1
+    },
+    "PostgreSQL JSONB 与全文搜索": {
+      "o": [
+        "用 JSONB 存储和查询半结构化数据",
+        "用 tsvector/tsquery 做全文搜索",
+        "理解 JSONB 的 GIN 索引"
+      ],
+      "e": "建一张含 JSONB 字段的表存商品属性，用 -> 和 @> 查询，再为文本字段建 GIN 索引做全文搜索",
+      "r": [
+        "https://www.postgresql.org/docs/current/datatype-json.html",
+        "https://www.postgresql.org/docs/current/textsearch.html"
       ],
       "s": 1
     }

@@ -73,7 +73,7 @@
     }
   ],
   "upcoming_plan": [
-    "py-14 类型系统进阶 → py-17 模块化 → db-1 PostgreSQL安装 → db-2 DDL → db-3 表间关系 → fw-1 FastAPI起服务"
+    "py-14 类型系统进阶 → py-17 模块化 → db-1 PostgreSQL安装 → db-2 DDL → db-3 SELECT查询基础 → fw-1 FastAPI起服务"
   ],
   "blockers": [],
   "parking_lot": [

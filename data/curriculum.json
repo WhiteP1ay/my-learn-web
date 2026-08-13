@@ -212,7 +212,7 @@
               "id": "db-1",
               "name": "PostgreSQL 环境搭建与连接",
               "mastery": 0,
-              "evidence": "能安装 PostgreSQL、创建数据库和用户、用 psql 和 Python 连接数据库",
+              "evidence": "能安装 PostgreSQL、创建数据库和用户、用 psql 和 Python（psycopg）连接数据库",
               "strategy": "comprehensive",
               "note": "类比：前端连接 Firebase/Supabase → 直连 PostgreSQL"
             },
@@ -220,41 +220,89 @@
               "id": "db-2",
               "name": "DDL：建表、约束与字段类型",
               "mastery": 0,
-              "evidence": "能写出 CREATE TABLE 语句，合理选择字段类型，定义主键、外键、约束",
+              "evidence": "能写出 CREATE TABLE 语句，合理选择字段类型，定义主键、外键、唯一、检查约束",
               "strategy": "comprehensive",
               "note": "类比：Zod/Yup schema 定义 → SQL DDL 约束；TypeScript interface → 表结构"
             },
             {
               "id": "db-3",
-              "name": "表间关系与 JOIN 查询",
+              "name": "SELECT 查询基础：投影、过滤、排序、分页",
               "mastery": 0,
-              "evidence": "能设计一对多/多对多关系，写出 INNER/LEFT/RIGHT JOIN 查询",
+              "evidence": "能用 SELECT/WHERE/ORDER BY/LIMIT/OFFSET 完成查询，理解 NULL 三值逻辑和 DISTINCT 去重",
               "strategy": "comprehensive",
-              "note": "类比：前端状态管理中嵌套数据的展开（normalizr）→ SQL JOIN"
+              "note": "类比：JS Array.filter/sort/slice → SELECT 的 WHERE/ORDER BY/LIMIT"
             },
             {
               "id": "db-4",
-              "name": "DML：增删改查与查询优化入门",
+              "name": "DML：插入、更新与删除",
               "mastery": 0,
-              "evidence": "能写出 INSERT/UPDATE/DELETE/SELECT，使用 WHERE/GROUP BY/HAVING/ORDER BY",
+              "evidence": "能写 INSERT/UPDATE/DELETE，掌握批量插入、ON CONFLICT upsert 和 RETURNING",
               "strategy": "comprehensive",
-              "note": "类比：Array.filter/map/reduce → SQL WHERE/SELECT/GROUP BY + 聚合函数"
+              "note": "类比：前端 state 的增删改操作 → SQL DML"
             },
             {
               "id": "db-5",
+              "name": "表间关系与 JOIN 查询",
+              "mastery": 0,
+              "evidence": "能设计一对多/多对多关系，写出 INNER/LEFT/RIGHT/FULL JOIN 查询",
+              "strategy": "comprehensive",
+              "note": "类比：前端状态管理嵌套数据展开（normalizr）→ SQL JOIN"
+            },
+            {
+              "id": "db-6",
+              "name": "聚合与分组：GROUP BY / HAVING",
+              "mastery": 0,
+              "evidence": "能用 GROUP BY/HAVING 和 COUNT/SUM/AVG/MIN/MAX 做分组统计，理解 HAVING 与 WHERE 的区别",
+              "strategy": "comprehensive",
+              "note": "类比：JS Array.reduce 分组 → SQL GROUP BY"
+            },
+            {
+              "id": "db-7",
+              "name": "子查询与 CTE",
+              "mastery": 0,
+              "evidence": "能写标量/行/表子查询和 WITH CTE，理解相关子查询的执行逻辑",
+              "strategy": "comprehensive",
+              "note": "类比：把复杂逻辑拆成命名中间变量 → CTE 命名中间结果"
+            },
+            {
+              "id": "db-8",
+              "name": "窗口函数：排名、累计与行间对比",
+              "mastery": 0,
+              "evidence": "能用 ROW_NUMBER/RANK/LAG/LEAD/SUM OVER 做排名、累计和行间对比",
+              "strategy": "comprehensive",
+              "note": "类比：前端表格组件的排序/分组计算 → 窗口函数"
+            },
+            {
+              "id": "db-9",
               "name": "事务与并发控制：ACID 与隔离级别",
               "mastery": 0,
-              "evidence": "能写出带 BEGIN/COMMIT/ROLLBACK 的事务，理解脏读/不可重复读/幻读",
+              "evidence": "能写 BEGIN/COMMIT/ROLLBACK 事务，理解脏读/不可重复读/幻读和隔离级别",
               "strategy": "comprehensive",
               "note": "类比：Redux 原子 reducer / 乐观更新 → 数据库事务"
             },
             {
-              "id": "db-6",
+              "id": "db-10",
               "name": "索引与查询性能优化",
               "mastery": 0,
-              "evidence": "能创建 B-Tree/GIN/GiST 索引，用 EXPLAIN ANALYZE 分析查询计划",
+              "evidence": "能创建 B-Tree/GIN 索引，用 EXPLAIN ANALYZE 分析查询计划并优化慢查询",
               "strategy": "comprehensive",
-              "note": "类比：前端虚拟列表/分页 → 数据库索引（避免全表扫描）"
+              "note": "类比：前端虚拟列表/分页 → 数据库索引避免全表扫描"
+            },
+            {
+              "id": "db-11",
+              "name": "数据库设计范式与反范式",
+              "mastery": 0,
+              "evidence": "能判断表设计是否满足 1NF/2NF/3NF，理解反范式化的性能权衡",
+              "strategy": "comprehensive",
+              "note": "类比：前端组件拆分（单一职责）→ 范式；性能冗余 → 反范式"
+            },
+            {
+              "id": "db-12",
+              "name": "PostgreSQL JSONB 与全文搜索",
+              "mastery": 0,
+              "evidence": "能用 JSONB 存储和查询半结构化数据，用 tsvector/tsquery 做全文搜索",
+              "strategy": "comprehensive",
+              "note": "类比：前端 JSON 数据 + 搜索框 → PostgreSQL JSONB + 全文搜索"
             }
           ]
         },
@@ -986,18 +1034,31 @@
     "current_position": "py-14. 类型系统进阶（类型标注与ABC）",
     "session_count": 6,
     "last_session": "2026-08-06",
-    "total_chapters": 104,
+    "total_chapters": 110,
     "phase_summary": {
-      "phase1": {"chapters": 47, "completed": 8},
-      "phase2": {"chapters": 26, "completed": 0},
-      "phase3": {"chapters": 19, "completed": 0},
-      "phase4": {"chapters": 12, "completed": 0}
+      "phase1": {
+        "chapters": 53,
+        "completed": 8
+      },
+      "phase2": {
+        "chapters": 26,
+        "completed": 0
+      },
+      "phase3": {
+        "chapters": 19,
+        "completed": 0
+      },
+      "phase4": {
+        "chapters": 12,
+        "completed": 0
+      }
     },
     "restructure_notes": [
       "2026-08-12 大幅重构：156→105 节（-33%）。Phase 2 RAG 19→6 节、Agents 18→10 节（含拆分优化）",
       "Phase 2 新增「AI 术语地图」预热课；Transformer 拆为「网络直觉」+「Self-Attention」两节；训练推理拆为两节",
       "Phase 3 利用 TS 经验做 Java 对比速通，Spring Cloud 微服务降为概览",
-      "Phase 4 聚焦「部署工作线」：SSH→文件→Nginx→systemd→日志排查"
+      "Phase 4 聚焦「部署工作线」：SSH→文件→Nginx→systemd→日志排查",
+      "数据库课程 6→12 章：补充 SELECT基础/聚合分组/子查询CTE/窗口函数/范式/JSONB全文搜索"
     ]
   }
 }
