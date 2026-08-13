@@ -93,9 +93,8 @@
   }
   .mastery-bar .cell {
     width: 10px; height: 10px; border-radius: 2px;
-    background: #f85149;
+    background: #484f58;
   }
-  .mastery-bar .cell.filled { background: var(--green); }
 
   .btn {
     font-size: 11px; padding: 2px 8px; border: 1px solid var(--border);
@@ -2382,8 +2381,12 @@ for (const p of DATA.phases) {
       const plan = DATA.plans[c.name];
       const hasPlan = plan && (plan.o || plan.m);
       const m = c.mastery || 0;
+      const fillColors = ['', '#f85149', '#d2991d', '#a3e635', '#3fb950'];
       let cells = '';
-      for (let i = 0; i < 4; i++) cells += `<span class="cell${i < m ? ' filled' : ''}"></span>`;
+      for (let i = 0; i < 4; i++) {
+        if (i < m) cells += '<span class="cell" style="background:' + fillColors[m] + '"></span>';
+        else cells += '<span class="cell"></span>';
+      }
       // Merge note row
       if (plan && plan.m) continue;
       html += `<div class="row" data-chapter="${c.name}" onclick="togglePlan(this)">
