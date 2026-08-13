@@ -88,17 +88,14 @@
   .name { flex: 1; }
   .name.done { color: var(--green); }
 
-  .status {
-    font-size: 11px; padding: 1px 6px; border-radius: 3px; flex-shrink: 0;
+  .mastery-bar {
+    display: flex; gap: 3px; align-items: center; flex-shrink: 0;
   }
-  .status-done { background: rgba(63,185,80,0.12); color: var(--green); }
-  .status-learning { background: rgba(210,153,29,0.12); color: #d2991d; }
-  .status-todo { color: var(--text-dim); }
-  .mastery-num {
-    font-size: 11px; color: var(--text-dim); flex-shrink: 0;
-    min-width: 26px; text-align: right;
-    font-variant-numeric: tabular-nums;
+  .mastery-bar .cell {
+    width: 10px; height: 10px; border-radius: 2px;
+    background: #f85149;
   }
+  .mastery-bar .cell.filled { background: var(--green); }
 
   .btn {
     font-size: 11px; padding: 2px 8px; border: 1px solid var(--border);
@@ -2385,14 +2382,13 @@ for (const p of DATA.phases) {
       const plan = DATA.plans[c.name];
       const hasPlan = plan && (plan.o || plan.m);
       const m = c.mastery || 0;
-      const stateLabel = m >= 3 ? '已学习' : (m >= 1 ? '学习中' : '未学习');
-      const stateCls = m >= 3 ? 'status-done' : (m >= 1 ? 'status-learning' : 'status-todo');
+      let cells = '';
+      for (let i = 0; i < 4; i++) cells += `<span class="cell${i < m ? ' filled' : ''}"></span>`;
       // Merge note row
       if (plan && plan.m) continue;
       html += `<div class="row" data-chapter="${c.name}" onclick="togglePlan(this)">
         <span class="name ${c.done?'done':''}">${c.name}</span>
-        <span class="status ${stateCls}">${stateLabel}</span>
-        <span class="mastery-num">${m}/4</span>
+        <span class="mastery-bar" title="熟练度 ${m}/4">${cells}</span>
         <button class="btn" onclick="event.stopPropagation();copy('${cmd}',this)" aria-label="${cmd}">复制</button>
       </div>`;
       if (hasPlan) {
