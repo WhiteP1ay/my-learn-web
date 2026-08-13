@@ -91,8 +91,10 @@
   .status {
     font-size: 11px; padding: 1px 6px; border-radius: 3px; flex-shrink: 0;
   }
-  .status-done { background: rgba(63,185,80,0.12); color: var(--green); }
-  .status-todo { color: var(--text-dim); }
+  .mastery-0 { color: var(--text-dim); }
+  .mastery-1, .mastery-2 { color: #d2991d; background: rgba(210,153,29,0.12); }
+  .mastery-3 { color: var(--accent); background: rgba(88,166,255,0.12); }
+  .mastery-4 { color: var(--green); background: rgba(63,185,80,0.12); }
 
   .btn {
     font-size: 11px; padding: 2px 8px; border: 1px solid var(--border);
@@ -179,121 +181,145 @@ const DATA = {
             {
               "id": "py-1",
               "name": "Python 环境搭建与工具链",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-2",
               "name": "Python 基本语法",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-3",
               "name": "容器类型与推导式",
+              "mastery": 2,
               "done": false
             },
             {
               "id": "py-4",
               "name": "函数：参数传递与类型提示入门",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-5",
               "name": "作用域与闭包",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-6",
               "name": "lambda 表达式与一等函数",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-7",
               "name": "类与对象",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-8",
               "name": "对象的类型系统",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-9",
               "name": "对象的生命周期：__new__、__init__ 与 __del__",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-10",
               "name": "魔术方法：让对象更 Pythonic",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-11",
               "name": "装饰器深度解析：从闭包到 @语法糖",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-12",
               "name": "元类：控制类的创建",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-13",
               "name": "异常处理：try/except/finally 与自定义异常",
+              "mastery": 3,
               "done": true
             },
             {
               "id": "py-14",
               "name": "类型系统进阶：类型标注与抽象基类（ABC）",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-15",
               "name": "迭代器与生成器",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-16",
               "name": "上下文管理器：with 语句与 contextlib",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-17",
               "name": "模块化：包、导入与命名空间",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-18",
               "name": "构建与发布：从代码到 PyPI",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-19",
               "name": "断点调试：pdb 与 IDE 调试",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-20",
               "name": "事件循环与 async/await 入门",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-21",
               "name": "Task、Future 与并发控制",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-22",
               "name": "协程深入：async for、async with 与异步迭代器",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-23",
               "name": "异步编程实战模式",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "py-24",
               "name": "多线程与多进程：GIL 的限制与突破",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -304,31 +330,37 @@ const DATA = {
             {
               "id": "db-1",
               "name": "PostgreSQL 环境搭建与连接",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "db-2",
               "name": "DDL：建表、约束与字段类型",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "db-3",
               "name": "表间关系与 JOIN 查询",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "db-4",
               "name": "DML：增删改查与查询优化入门",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "db-5",
               "name": "事务与并发控制：ACID 与隔离级别",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "db-6",
               "name": "索引与查询性能优化",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -339,61 +371,73 @@ const DATA = {
             {
               "id": "fw-1",
               "name": "FastAPI 入门：路由、请求与响应模型",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-2",
               "name": "SQLAlchemy ORM 入门：模型定义与会话管理",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-3",
               "name": "数据迁移：Alembic 实战",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-4",
               "name": "依赖注入：从手动传参到 Depends",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-5",
               "name": "异常处理与中间件：统一错误响应与请求拦截",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-6",
               "name": "测试框架：pytest + httpx 实战",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-7",
               "name": "三层架构实战：Router → Service → Repository",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-8",
               "name": "文件上传与流式响应",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-9",
               "name": "长事务与短事务：数据库会话最佳实践",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-10",
               "name": "Docker 部署：容器化 FastAPI 应用",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-11",
               "name": "Kubernetes 部署：Pod、Service 与 Ingress",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "fw-12",
               "name": "CI/CD 流水线：从代码提交到自动部署",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -404,26 +448,31 @@ const DATA = {
             {
               "id": "dt-1",
               "name": "Jupyter Notebook 入门",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "dt-2",
               "name": "NumPy 核心：ndarray 与向量化运算",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "dt-3",
               "name": "NumPy 进阶：广播、切片与线性代数",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "dt-4",
               "name": "Pandas 入门：Series 与 DataFrame",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "dt-5",
               "name": "Pandas 数据清洗实战",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -440,51 +489,61 @@ const DATA = {
             {
               "id": "ai-0",
               "name": "AI 领域术语地图",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-1",
               "name": "AI 全景与 LLM 工作原理概览",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-2",
               "name": "Token 化与词嵌入：LLM 如何「看懂」文字",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-3",
               "name": "神经网络直觉：从感知机到深度抽象",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-4",
               "name": "Transformer 核心：Self-Attention 与多头注意力",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-5",
               "name": "LLM 训练三阶段：Pre-training → SFT → RLHF",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-6",
               "name": "推理参数与控制：Temperature / Top-p / Top-k",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-7",
               "name": "系统提示词与对话管理",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-8",
               "name": "Function Calling / Tool Use 深度解析",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ai-9",
               "name": "Agent 架构设计模式",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -495,31 +554,37 @@ const DATA = {
             {
               "id": "rag-1",
               "name": "RAG 全流程概览：从文档到答案",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "rag-2",
               "name": "文档处理与向量数据库",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "rag-3",
               "name": "LlamaIndex 框架实战",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "rag-4",
               "name": "检索增强技术：混合检索与重排序",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "rag-5",
               "name": "高级 RAG：语义路由与知识图谱",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "rag-6",
               "name": "RAG 评估与生产部署",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -530,26 +595,31 @@ const DATA = {
             {
               "id": "lg-1",
               "name": "LangGraph 核心概念与 State 管理",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lg-2",
               "name": "ReAct 模式与工具编排",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lg-3",
               "name": "CheckPoints 与 Human-in-the-Loop",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lg-4",
               "name": "记忆系统与多 Agent 协作",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lg-5",
               "name": "Agent 前端界面开发实战",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -560,16 +630,19 @@ const DATA = {
             {
               "id": "ft-1",
               "name": "基座模型选型与微调决策",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ft-2",
               "name": "LoRA/QLoRA 高效微调实战",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ft-3",
               "name": "对齐技术与模型评估",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -580,11 +653,13 @@ const DATA = {
             {
               "id": "opt-1",
               "name": "Dify 低代码 Agent 平台实战",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "opt-2",
               "name": "LangChain 生态与 DeepAgent 概览",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -601,41 +676,49 @@ const DATA = {
             {
               "id": "jv-1",
               "name": "Java 速通：从 TS 到 Java 的语法对比",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "jv-2",
               "name": "Lambda 表达式与 Stream API",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "jv-3",
               "name": "类与对象：Java OOP 对比 TS",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "jv-4",
               "name": "抽象类与接口",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "jv-5",
               "name": "异常处理",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "jv-6",
               "name": "泛型：类型擦除与通配符",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "jv-7",
               "name": "注解与反射",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "jv-8",
               "name": "线程基础与并发",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -646,31 +729,37 @@ const DATA = {
             {
               "id": "sb-1",
               "name": "Spring 核心：IoC 容器与依赖注入",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "sb-2",
               "name": "Spring AOP 切面编程",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "sb-3",
               "name": "Spring Boot Web 开发",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "sb-4",
               "name": "Spring 数据访问：JDBC 与 ORM (JPA)",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "sb-5",
               "name": "Spring Security 认证与授权",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "sb-6",
               "name": "Spring 测试：JUnit 与 Mock",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -681,11 +770,13 @@ const DATA = {
             {
               "id": "sc-1",
               "name": "微服务速览：注册中心与远程调用",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "sc-2",
               "name": "服务治理概念：MQ / 分布式事务 / 限流熔断",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -696,16 +787,19 @@ const DATA = {
             {
               "id": "mw-1",
               "name": "Redis 缓存与数据结构",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "mw-2",
               "name": "Elasticsearch 搜索实战",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "mw-3",
               "name": "Netty 与 Dubbo 概览",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -722,46 +816,55 @@ const DATA = {
             {
               "id": "lx-1",
               "name": "Linux 文件系统与权限管理",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-2",
               "name": "SSH 免密登录与远程操作",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-3",
               "name": "systemd 服务管理",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-4",
               "name": "端口与网络排查",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-5",
               "name": "日志检索与故障时间线还原",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-6",
               "name": "CPU / 内存 / 磁盘瓶颈定位",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-7",
               "name": "Bash 脚本自动化",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-8",
               "name": "Cron 定时任务",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "lx-9",
               "name": "防火墙规则与安全基线",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -772,16 +875,19 @@ const DATA = {
             {
               "id": "ng-1",
               "name": "Nginx 安装与核心配置",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ng-2",
               "name": "Nginx 反向代理与前端部署实战",
+              "mastery": 0,
               "done": false
             },
             {
               "id": "ng-3",
               "name": "Nginx 进阶：限流 / 健康检查 / 黑白名单",
+              "mastery": 0,
               "done": false
             }
           ]
@@ -873,9 +979,6 @@ const DATA = {
       ],
       "s": 2,
       "n": "端口排查 + 防火墙合并"
-    },
-    "防火墙": {
-      "m": "端口与网络排查"
     }
   }
 };
@@ -921,14 +1024,12 @@ const tabs = document.getElementById('tabs');
 const panels = document.getElementById('panels');
 const tabDefs = [
   ...DATA.phases.map(p => ({ id: p.id, name: p.name, badge: (s => `${s.done}/${s.total}`)(stats(p)) })),
-  { id: 'review', name: '复习池', badge: String(DATA.review_pool.length) },
   { id: 'memory', name: '记忆', badge: String(DATA.memory.length) }
 ];
 
 let html = '';
 tabDefs.forEach((t, i) => {
-  const warn = t.id === 'p3' ? ' <span style="font-size:10px;color:#f85149">未完善</span>' : '';
-  tabs.innerHTML += `<button class="tab${i===0?' active':''}" data-id="${t.id}" role="tab" aria-selected="${i===0}">${t.name} <span class="badge">${t.badge}</span>${warn}</button>`;
+  tabs.innerHTML += `<button class="tab${i===0?' active':''}" data-id="${t.id}" role="tab" aria-selected="${i===0}">${t.name} <span class="badge">${t.badge}</span></button>`;
 });
 
 // Render phase panels
@@ -945,12 +1046,13 @@ for (const p of DATA.phases) {
       const cmd = c.done ? `复习 ${c.id} ${c.name}` : `讲 ${c.id} ${c.name}`;
       const plan = DATA.plans[c.name];
       const hasPlan = plan && (plan.o || plan.m);
+      const m = c.mastery || 0;
+      const mLabel = ['未学','入门','学习中','已掌握','精通'][m] || '未学';
       // Merge note row
       if (plan && plan.m) continue;
       html += `<div class="row" data-chapter="${c.name}" onclick="togglePlan(this)">
-        <span class="dot ${c.done?'done':'todo'}"></span>
         <span class="name ${c.done?'done':''}">${c.name}</span>
-        <span class="status ${c.done?'status-done':'status-todo'}">${c.done?'已完成':'未学习'}</span>
+        <span class="status mastery-${m}">${mLabel}</span>
         <button class="btn" onclick="event.stopPropagation();copy('${cmd}',this)" aria-label="${cmd}">复制</button>
       </div>`;
       if (hasPlan) {
@@ -966,21 +1068,6 @@ for (const p of DATA.phases) {
   }
   html += '</div>';
 }
-
-// Review panel
-html += `<div class="content" id="panel-review">
-  <div class="progress-section"><div class="label">
-    <span>掌握后待复习（点击按钮复制命令，终端粘贴执行）</span>
-    <span class="pct">${DATA.review_pool.length}</span>
-  </div></div>`;
-for (const r of DATA.review_pool) {
-  html += `<div class="review-item">
-    <span class="chap">${r.name}</span>
-    <span class="gap">${r.last}${r.gap ? ' · '+r.gap : ''}</span>
-    <button class="btn" onclick="copy('复习 ${r.id} ${r.name}',this)" aria-label="复习 ${r.name}">复制</button>
-  </div>`;
-}
-html += '</div>';
 
 // Memory panel
 html += `<div class="content" id="panel-memory">`;

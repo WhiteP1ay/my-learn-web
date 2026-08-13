@@ -72,6 +72,7 @@ def main():
                 gd['chapters'].append({
                     'id': ch['id'],
                     'name': ch['name'],
+                    'mastery': ch.get('mastery', 0),
                     'done': ch.get('mastery', 0) >= 3
                 })
             pd['groups'].append(gd)
