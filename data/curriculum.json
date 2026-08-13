@@ -494,8 +494,8 @@
             {
               "id": "ai-0",
               "name": "AI 领域术语地图",
-              "mastery": 0,
-              "evidence": "能说清 token/embedding/attention/fine-tune/RAG/Agent 这些核心概念之间的关系，建立 AI 工程全局心智模型",
+              "mastery": 2,
+              "evidence": "概念层 token/embedding/agent 理解准确，RAG 三步流程清晰；但 fine-tune vs RAG 适用边界未建立（场景题将「报价单格式」误归为 RAG+function calling），attention 掌握待验证，关系复述未完成",
               "strategy": "comprehensive",
               "note": "新增课程——先建立全局认知，降低后续每节课的「这个词第一次出现」负担。类比：学前端前先搞清楚 HTML/CSS/JS 各自干什么、怎么协作"
             },

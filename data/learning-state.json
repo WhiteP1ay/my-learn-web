@@ -8,6 +8,14 @@
   },
   "review_pool": [
     {
+      "chapter_id": "ai-0",
+      "chapter_name": "AI 领域术语地图",
+      "mastery": 2,
+      "max_mastery": 4,
+      "last_review": "2026-08-13",
+      "gap": "fine-tune vs RAG 边界未建立；attention 机制待验证；关系复述未完成"
+    },
+    {
       "chapter_id": "py-1",
       "chapter_name": "Python 环境搭建与工具链",
       "mastery": 3,
