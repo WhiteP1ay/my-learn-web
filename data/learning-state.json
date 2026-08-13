@@ -10,10 +10,10 @@
     {
       "chapter_id": "ai-0",
       "chapter_name": "AI 领域术语地图",
-      "mastery": 2,
+      "mastery": 3,
       "max_mastery": 4,
       "last_review": "2026-08-13",
-      "gap": "fine-tune vs RAG 边界未建立；attention 机制待验证；关系复述未完成"
+      "gap": "attention 机制掌握待验证；完整关系复述未做（其余概念及 prompt/fine-tune/RAG 边界判断已达标）"
     },
     {
       "chapter_id": "py-1",

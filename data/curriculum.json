@@ -494,8 +494,8 @@
             {
               "id": "ai-0",
               "name": "AI 领域术语地图",
-              "mastery": 2,
-              "evidence": "概念层 token/embedding/agent 理解准确，RAG 三步流程清晰；但 fine-tune vs RAG 适用边界未建立（场景题将「报价单格式」误归为 RAG+function calling），attention 掌握待验证，关系复述未完成",
+              "mastery": 3,
+              "evidence": "token/embedding/RAG/Agent 概念理解准确，RAG 检索环节清晰；对 prompt/fine-tune/RAG 边界有敏锐判断——主动指出「输出格式」属 prompt 范畴而非 fine-tune，纠正了教学示例的范畴错误。attention 机制经讲解掌握待验证，完整关系复述未做",
               "strategy": "comprehensive",
               "note": "新增课程——先建立全局认知，降低后续每节课的「这个词第一次出现」负担。类比：学前端前先搞清楚 HTML/CSS/JS 各自干什么、怎么协作"
             },
