@@ -24,6 +24,14 @@
       "note": "iterable/iterator 小项"
     },
     {
+      "chapter_id": "py-3",
+      "chapter_name": "容器类型与推导式",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-13",
+      "note": "待固化：^ vs **、dict 用 o[\"key\"] 非 o.key、{} 看冒号分字典/集合、聚合累加用 result.get 非 o.get"
+    },
+    {
       "chapter_id": "py-4",
       "chapter_name": "函数：参数传递与类型提示入门",
       "mastery": 3,

@@ -27,7 +27,7 @@
             {
               "id": "py-3",
               "name": "容器类型与推导式",
-              "mastery": 2,
+              "mastery": 3,
               "evidence": "能熟练操作 list/dict/tuple/set，用推导式替代 for 循环写出简洁的数据转换代码",
               "strategy": "comprehensive",
               "note": "类比：JS Array.map/filter → Python 列表推导式；JS Object → Python dict"
