@@ -42,12 +42,11 @@ def main():
 
     # Build phases
     PHASE_IDS = {'phase1': 'p1', 'phase2': 'p2', 'phase3': 'p3', 'phase4': 'p4'}
+    PHASE_SHORT_NAMES = {'phase1': 'Python 后端', 'phase2': 'AI 工程', 'phase3': 'Java 企业', 'phase4': '运维'}
     phases = []
     for phase in curriculum['phases']:
         pid = PHASE_IDS.get(phase['id'], phase['id'])
-        name = phase['name']
-        for prefix in ['Phase 1: ', 'Phase 2: ', 'Phase 3: ', 'Phase 4: ']:
-            name = name.replace(prefix, '')
+        name = PHASE_SHORT_NAMES.get(phase['id'], phase['name'])
         pd = {'id': pid, 'name': name, 'groups': []}
         for group in phase['groups']:
             gd = {'name': group['name'], 'chapters': []}
