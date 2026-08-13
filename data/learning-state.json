@@ -118,10 +118,6 @@
   "blockers": [],
   "parking_lot": [
     {
-      "chapter": "py-11 装饰器",
-      "trigger": "项目中需要路由权限校验或计时器时触发"
-    },
-    {
       "chapter": "py-16 上下文管理器",
       "trigger": "项目中需要资源管理（文件/数据库连接）时触发"
     },

@@ -95,7 +95,7 @@
               "mastery": 0,
               "evidence": "能手写带参数和不带参数的装饰器，实现日志记录、权限校验、性能计时",
               "strategy": "in_project",
-              "note": "类比：React HOC 或 Express/Koa 中间件模式 → Python 装饰器"
+              "note": "已讲授 2026-08-13，作业待验收（timer带参/require_role/wraps观察）。类比：React HOC 或 Express/Koa 中间件模式 → Python 装饰器。课堂实证：max_retry(3) 重试装饰器独立完成并跑通三测试；曾把 greet 写成 greet(name)（函数对象vs调用）、try..catch 术语、time 当第三方包——py-13 异常处理 mastery 虚高需复习"
             },
             {
               "id": "py-12",
