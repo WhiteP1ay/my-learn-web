@@ -75,9 +75,9 @@
             {
               "id": "py-9",
               "name": "对象的生命周期：__new__、__init__ 与 __del__",
-              "mastery": 0,
-              "evidence": "能说出对象创建的两阶段（__new__ 分配内存 → __init__ 初始化），写出带自定义 __new__ 的单例模式",
-              "strategy": "comprehensive",
+              "mastery": 3,
+              "evidence": "独立写出带 __new__ 的单例并跑通（a is b True、__init__ 执行两次、__del__ 一次），理解 __new__ 返回非本类实例则 __init__ 跳过，能用引用计数解释 __del__ 触发时机（含类属性持有引用导致 del 名字不销毁的细节）",
+              "strategy": "completed",
               "note": "类比：JS new Constructor() 是原子操作 → Python 拆成 __new__ + __init__ 两步"
             },
             {
