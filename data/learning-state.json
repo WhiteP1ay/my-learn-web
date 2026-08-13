@@ -8,6 +8,14 @@
   },
   "review_pool": [
     {
+      "chapter_id": "ai-1",
+      "chapter_name": "AI 全景与 LLM 工作原理概览",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-13",
+      "gap": "需在真实 agent 前端场景迁移（流式渲染/参数调优/排查输出差异）；attention 细节留 ai-4；同一 prompt 两次的随机性对比实验未做"
+    },
+    {
       "chapter_id": "ai-0",
       "chapter_name": "AI 领域术语地图",
       "mastery": 3,
