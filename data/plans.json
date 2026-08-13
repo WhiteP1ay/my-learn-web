@@ -1439,5 +1439,44 @@
       "https://www.postgresql.org/docs/current/textsearch.html"
     ],
     "s": 1
+  },
+  "存储过程、函数与触发器": {
+    "o": [
+      "区分存储过程、函数和触发器的区别",
+      "能写一个存储函数处理业务逻辑",
+      "理解何时用存储过程 vs 应用层逻辑"
+    ],
+    "e": "写一个存储函数计算订单金额，再写一个触发器在插入订单时自动更新库存，对比用 ORM 在应用层实现的差异",
+    "r": [
+      "https://www.postgresql.org/docs/current/plpgsql.html",
+      "https://www.postgresql.org/docs/current/sql-createfunction.html"
+    ],
+    "s": 1
+  },
+  "连接池与 pgBouncer": {
+    "o": [
+      "理解 PostgreSQL 每连接一进程的限制和连接池的意义",
+      "配置 pgBouncer 并理解 session/transaction 模式",
+      "用连接池解决高并发连接数耗尽问题"
+    ],
+    "e": "部署 pgBouncer 连接池，用压测工具对比有/无连接池时 FastAPI + PostgreSQL 的连接数和并发表现",
+    "r": [
+      "https://www.pgbouncer.org/usage.html",
+      "https://www.postgresql.org/docs/current/runtime-config-connection.html"
+    ],
+    "s": 1
+  },
+  "主从复制与读写分离": {
+    "o": [
+      "理解主从复制（流复制）的原理和配置",
+      "实现读写分离架构",
+      "理解高可用和故障切换的基本概念"
+    ],
+    "e": "配置一主一从的流复制，验证从库能实时同步数据，并写一个简单的读写分离路由逻辑",
+    "r": [
+      "https://www.postgresql.org/docs/current/warm-standby.html",
+      "https://www.postgresql.org/docs/current/high-availability.html"
+    ],
+    "s": 1
   }
 }

@@ -303,6 +303,30 @@
               "evidence": "能用 JSONB 存储和查询半结构化数据，用 tsvector/tsquery 做全文搜索",
               "strategy": "comprehensive",
               "note": "类比：前端 JSON 数据 + 搜索框 → PostgreSQL JSONB + 全文搜索"
+            },
+            {
+              "id": "db-13",
+              "name": "存储过程、函数与触发器",
+              "mastery": 0,
+              "evidence": "能写一个存储函数处理业务逻辑，理解存储过程/函数/触发器的区别和适用场景",
+              "strategy": "comprehensive",
+              "note": "类比：前端把重复逻辑抽成函数 → 存储过程把 SQL 逻辑存进数据库；现代应用多放应用层，了解能力边界即可"
+            },
+            {
+              "id": "db-14",
+              "name": "连接池与 pgBouncer",
+              "mastery": 0,
+              "evidence": "能配置 pgBouncer 连接池，理解 session/transaction 模式，解决高并发下连接数耗尽",
+              "strategy": "comprehensive",
+              "note": "类比：前端 HTTP keep-alive 连接复用 → pgBouncer 复用数据库连接；生产部署必踩的坑"
+            },
+            {
+              "id": "db-15",
+              "name": "主从复制与读写分离",
+              "mastery": 0,
+              "evidence": "能配置 PostgreSQL 流复制，理解主从架构、读写分离和高可用",
+              "strategy": "comprehensive",
+              "note": "类比：前端 CDN 缓存读多写少 → 主从复制读写分离"
             }
           ]
         },
@@ -1034,10 +1058,10 @@
     "current_position": "py-14. 类型系统进阶（类型标注与ABC）",
     "session_count": 6,
     "last_session": "2026-08-06",
-    "total_chapters": 110,
+    "total_chapters": 113,
     "phase_summary": {
       "phase1": {
-        "chapters": 53,
+        "chapters": 56,
         "completed": 8
       },
       "phase2": {
@@ -1058,7 +1082,8 @@
       "Phase 2 新增「AI 术语地图」预热课；Transformer 拆为「网络直觉」+「Self-Attention」两节；训练推理拆为两节",
       "Phase 3 利用 TS 经验做 Java 对比速通，Spring Cloud 微服务降为概览",
       "Phase 4 聚焦「部署工作线」：SSH→文件→Nginx→systemd→日志排查",
-      "数据库课程 6→12 章：补充 SELECT基础/聚合分组/子查询CTE/窗口函数/范式/JSONB全文搜索"
+      "数据库课程 6→12 章：补充 SELECT基础/聚合分组/子查询CTE/窗口函数/范式/JSONB全文搜索",
+      "数据库再加 3 章：存储过程/连接池pgBouncer/主从复制"
     ]
   }
 }
