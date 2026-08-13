@@ -31,7 +31,13 @@
   .tabs {
     display: flex; gap: 4px; margin-bottom: 20px;
     border-bottom: 1px solid var(--border); overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
+  .tabs::-webkit-scrollbar { height: 4px; }
+  .tabs::-webkit-scrollbar-track { background: transparent; }
+  .tabs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+  .tabs::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
   .tab {
     padding: 8px 16px; cursor: pointer; border: none; background: none;
     color: var(--text-dim); font-size: 13px; font-weight: 500;
@@ -936,7 +942,7 @@ for (const p of DATA.phases) {
   for (const g of p.groups) {
     html += `<div class="group"><div class="group-title">${g.name}</div>`;
     for (const c of g.chapters) {
-      const cmd = c.done ? `复习 ${c.name}` : `讲 ${g.name} - ${c.name}`;
+      const cmd = c.done ? `复习 ${c.id} ${c.name}` : `讲 ${c.id} ${c.name}`;
       const plan = DATA.plans[c.name];
       const hasPlan = plan && (plan.o || plan.m);
       // Merge note row
@@ -971,7 +977,7 @@ for (const r of DATA.review_pool) {
   html += `<div class="review-item">
     <span class="chap">${r.name}</span>
     <span class="gap">${r.last}${r.gap ? ' · '+r.gap : ''}</span>
-    <button class="btn" onclick="copy('复习 ${r.name}',this)" aria-label="复习 ${r.name}">复制</button>
+    <button class="btn" onclick="copy('复习 ${r.id} ${r.name}',this)" aria-label="复习 ${r.name}">复制</button>
   </div>`;
 }
 html += '</div>';
