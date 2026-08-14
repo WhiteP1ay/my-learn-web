@@ -55,7 +55,8 @@ def main():
                     'id': ch['id'],
                     'name': ch['name'],
                     'mastery': ch.get('mastery', 0),
-                    'done': ch.get('mastery', 0) >= 3
+                    'done': ch.get('mastery', 0) >= 3,
+                    'note': ch.get('note', '')
                 })
             pd['groups'].append(gd)
         phases.append(pd)

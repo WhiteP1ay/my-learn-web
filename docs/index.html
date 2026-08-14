@@ -95,6 +95,12 @@
     width: 10px; height: 10px; border-radius: 2px;
     background: #484f58;
   }
+  .pill-wait {
+    font-size: 10px; color: #d2991d;
+    border: 1px solid #d2991d; border-radius: 4px;
+    padding: 0 4px; margin-left: 6px;
+    vertical-align: middle; white-space: nowrap; flex-shrink: 0;
+  }
 
   .btn {
     font-size: 11px; padding: 2px 8px; border: 1px solid var(--border);
@@ -182,145 +188,169 @@ const DATA = {
               "id": "py-1",
               "name": "Python 环境搭建与工具链",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：相当于前端用 pnpm create vite 初始化 + VSCode 配置 ESLint/Prettier"
             },
             {
               "id": "py-2",
               "name": "Python 基本语法",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：相当于重新学一门「不用大括号的 TypeScript」，重点关注缩进即代码块"
             },
             {
               "id": "py-3",
               "name": "容器类型与推导式",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS Array.map/filter → Python 列表推导式；JS Object → Python dict"
             },
             {
               "id": "py-4",
               "name": "函数：参数传递与类型提示入门",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS function + JSDoc/TS 类型标注 → Python def + type hints"
             },
             {
               "id": "py-5",
               "name": "作用域与闭包",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS var 函数作用域 vs let/const 块作用域 → Python LEGB 四层查找规则"
             },
             {
               "id": "py-6",
               "name": "lambda 表达式与一等函数",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS 箭头函数 () => expr → Python lambda x: expr"
             },
             {
               "id": "py-7",
               "name": "类与对象",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS class + this → Python class + self（必须显式传入）"
             },
             {
               "id": "py-8",
               "name": "对象的类型系统",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS typeof/instanceof + prototype chain → Python type()/isinstance() + MRO"
             },
             {
               "id": "py-9",
               "name": "对象的生命周期：__new__、__init__ 与 __del__",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS new Constructor() 是原子操作 → Python 拆成 __new__ + __init__ 两步"
             },
             {
               "id": "py-10",
               "name": "魔术方法：让对象更 Pythonic",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "已讲授 2026-08-13，作业验收通过 mastery 3；__hash__ 曾三次出错（return self.hash/签名带 other）已纠正；坑：NotImplementedError≠NotImplemented、__lg__ 不存在、f-string .2f"
             },
             {
               "id": "py-11",
               "name": "装饰器深度解析：从闭包到 @语法糖",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "已讲授 2026-08-13，作业待验收（timer带参/require_role/wraps观察）。类比：React HOC 或 Express/Koa 中间件模式 → Python 装饰器。课堂实证：max_retry(3) 重试装饰器独立完成并跑通三测试；曾把 greet 写成 greet(name)（函数对象vs调用）、try..catch 术语、time 当第三方包——py-13 异常处理 mastery 虚高需复习"
             },
             {
               "id": "py-12",
               "name": "元类：控制类的创建",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Babel 插件或 Proxy 拦截类定义——元类在 class 语句执行时介入创建过程"
             },
             {
               "id": "py-13",
               "name": "异常处理：try/except/finally 与自定义异常",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "类比：JS try/catch/finally 几乎完全一致；Python 多了 else 子句"
             },
             {
               "id": "py-14",
               "name": "类型系统进阶：类型标注与抽象基类（ABC）",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「类型标注」和「ABC」，构建完整 Python 类型系统认知"
             },
             {
               "id": "py-15",
               "name": "迭代器与生成器",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS Symbol.iterator + function*/yield → Python __iter__ + yield"
             },
             {
               "id": "py-16",
               "name": "上下文管理器：with 语句与 contextlib",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS try-finally 手动清理 → Python with 语句（类似 Rust RAII）"
             },
             {
               "id": "py-17",
               "name": "模块化：包、导入与命名空间",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS import/export + node_modules → Python import + site-packages"
             },
             {
               "id": "py-18",
               "name": "构建与发布：从代码到 PyPI",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：npm publish + package.json → poetry build + pyproject.toml"
             },
             {
               "id": "py-19",
               "name": "断点调试：pdb 与 IDE 调试",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Chrome DevTools 断点调试 → VSCode Python Debugger + pdb"
             },
             {
               "id": "py-20",
               "name": "事件循环与 async/await 入门",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS event loop（宏任务/微任务）→ Python asyncio event loop；需显式启动 asyncio.run()"
             },
             {
               "id": "py-21",
               "name": "Task、Future 与并发控制",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS Promise.all/Promise.race → Python asyncio.gather/as_completed"
             },
             {
               "id": "py-22",
               "name": "协程深入：async for、async with 与异步迭代器",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS for await...of + async generator → Python async for + async yield"
             },
             {
               "id": "py-23",
               "name": "异步编程实战模式",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端 API 请求并发、WebSocket 消息处理 → 用 asyncio 实现类似模式"
             },
             {
               "id": "py-24",
               "name": "多线程与多进程：GIL 的限制与突破",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS 单线程 + Web Workers → Python threading（GIL限制）+ multiprocessing（真正并行）"
             }
           ]
         },
@@ -331,91 +361,106 @@ const DATA = {
               "id": "db-1",
               "name": "PostgreSQL 环境搭建与连接",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端连接 Firebase/Supabase → 直连 PostgreSQL"
             },
             {
               "id": "db-2",
               "name": "DDL：建表、约束与字段类型",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Zod/Yup schema 定义 → SQL DDL 约束；TypeScript interface → 表结构"
             },
             {
               "id": "db-3",
               "name": "SELECT 查询基础：投影、过滤、排序、分页",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS Array.filter/sort/slice → SELECT 的 WHERE/ORDER BY/LIMIT"
             },
             {
               "id": "db-4",
               "name": "DML：插入、更新与删除",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端 state 的增删改操作 → SQL DML"
             },
             {
               "id": "db-5",
               "name": "表间关系与 JOIN 查询",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端状态管理嵌套数据展开（normalizr）→ SQL JOIN"
             },
             {
               "id": "db-6",
               "name": "聚合与分组：GROUP BY / HAVING",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：JS Array.reduce 分组 → SQL GROUP BY"
             },
             {
               "id": "db-7",
               "name": "子查询与 CTE",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：把复杂逻辑拆成命名中间变量 → CTE 命名中间结果"
             },
             {
               "id": "db-8",
               "name": "窗口函数：排名、累计与行间对比",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端表格组件的排序/分组计算 → 窗口函数"
             },
             {
               "id": "db-9",
               "name": "事务与并发控制：ACID 与隔离级别",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Redux 原子 reducer / 乐观更新 → 数据库事务"
             },
             {
               "id": "db-10",
               "name": "索引与查询性能优化",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端虚拟列表/分页 → 数据库索引避免全表扫描"
             },
             {
               "id": "db-11",
               "name": "数据库设计范式与反范式",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端组件拆分（单一职责）→ 范式；性能冗余 → 反范式"
             },
             {
               "id": "db-12",
               "name": "PostgreSQL JSONB 与全文搜索",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端 JSON 数据 + 搜索框 → PostgreSQL JSONB + 全文搜索"
             },
             {
               "id": "db-13",
               "name": "存储过程、函数与触发器",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端把重复逻辑抽成函数 → 存储过程把 SQL 逻辑存进数据库；现代应用多放应用层，了解能力边界即可"
             },
             {
               "id": "db-14",
               "name": "连接池与 pgBouncer",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端 HTTP keep-alive 连接复用 → pgBouncer 复用数据库连接；生产部署必踩的坑"
             },
             {
               "id": "db-15",
               "name": "主从复制与读写分离",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端 CDN 缓存读多写少 → 主从复制读写分离"
             }
           ]
         },
@@ -426,73 +471,85 @@ const DATA = {
               "id": "fw-1",
               "name": "FastAPI 入门：路由、请求与响应模型",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic"
             },
             {
               "id": "fw-2",
               "name": "SQLAlchemy ORM 入门：模型定义与会话管理",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「初识SQLAlchemy」和「ORM」两个章节"
             },
             {
               "id": "fw-3",
               "name": "数据迁移：Alembic 实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Prisma Migrate / TypeORM migrations → Alembic"
             },
             {
               "id": "fw-4",
               "name": "依赖注入：从手动传参到 Depends",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：React Context / Vue provide-inject → FastAPI Depends"
             },
             {
               "id": "fw-5",
               "name": "异常处理与中间件：统一错误响应与请求拦截",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「统一异常处理」和「中间件」两个章节"
             },
             {
               "id": "fw-6",
               "name": "测试框架：pytest + httpx 实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Vitest/Jest + supertest → pytest + httpx"
             },
             {
               "id": "fw-7",
               "name": "三层架构实战：Router → Service → Repository",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端 component → composable/hook → api service 三层"
             },
             {
               "id": "fw-8",
               "name": "文件上传与流式响应",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「文件上传」和「流式响应」两个章节"
             },
             {
               "id": "fw-9",
               "name": "长事务与短事务：数据库会话最佳实践",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端乐观更新中的事务思考——哪些操作必须原子执行"
             },
             {
               "id": "fw-10",
               "name": "Docker 部署：容器化 FastAPI 应用",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Vercel/Netlify 无服务器部署 → Docker 自托管部署"
             },
             {
               "id": "fw-11",
               "name": "Kubernetes 部署：Pod、Service 与 Ingress",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Docker Compose 单机版 → K8s 集群版"
             },
             {
               "id": "fw-12",
               "name": "CI/CD 流水线：从代码提交到自动部署",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Vercel/GitHub Pages 的 git push 自动部署 → GitHub Actions 自托管"
             }
           ]
         },
@@ -503,31 +560,36 @@ const DATA = {
               "id": "dt-1",
               "name": "Jupyter Notebook 入门",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：浏览器 Console 交互式体验 + Markdown 文档 → Jupyter Notebook"
             },
             {
               "id": "dt-2",
               "name": "NumPy 核心：ndarray 与向量化运算",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：lodash 批量操作 → NumPy 向量化运算"
             },
             {
               "id": "dt-3",
               "name": "NumPy 进阶：广播、切片与线性代数",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：CSS Grid 自动扩展 → NumPy 广播机制"
             },
             {
               "id": "dt-4",
               "name": "Pandas 入门：Series 与 DataFrame",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端表格组件数据模型 → Pandas DataFrame"
             },
             {
               "id": "dt-5",
               "name": "Pandas 数据清洗实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：前端 ETL 工具数据转换 → Pandas 数据清洗"
             }
           ]
         }
@@ -544,61 +606,71 @@ const DATA = {
               "id": "ai-0",
               "name": "AI 领域术语地图",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "新增课程——先建立全局认知，降低后续每节课的「这个词第一次出现」负担。类比：学前端前先搞清楚 HTML/CSS/JS 各自干什么、怎么协作"
             },
             {
               "id": "ai-1",
               "name": "AI 全景与 LLM 工作原理概览",
               "mastery": 3,
-              "done": true
+              "done": true,
+              "note": "合并原「AI的分类」「训练模式和框架」「神经网络的本质（宏观）」；已讲授 2026-08-13，作业验收通过 mastery 3"
             },
             {
               "id": "ai-2",
               "name": "Token 化与词嵌入：LLM 如何「看懂」文字",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「词元」「token统计」「词嵌入」。类比：Token 化 = CSS Design Token；词嵌入 = HSL 色环"
             },
             {
               "id": "ai-3",
               "name": "神经网络直觉：从感知机到深度抽象",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "拆分自原重构的「神经网络与 Transformer」——先讲基础网络结构，不含 Attention，降低单节概念密度"
             },
             {
               "id": "ai-4",
               "name": "Transformer 核心：Self-Attention 与多头注意力",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "拆分自原重构的「神经网络与 Transformer」——专注 Attention 机制。类比：CSS Grid auto-placement，每个元素根据与其他元素的关系确定自己的位置和重要性"
             },
             {
               "id": "ai-5",
               "name": "LLM 训练三阶段：Pre-training → SFT → RLHF",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "拆分自原重构的「训练与推理」——先讲训练流程。类比：Pre-training = 写底层渲染引擎；SFT = 用组件库搭页面；RLHF = Code Review + Lint 规则"
             },
             {
               "id": "ai-6",
               "name": "推理参数与控制：Temperature / Top-p / Top-k",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "拆分自原重构的「训练与推理」——专注推理阶段参数实验。类比：Temperature = 前端动画 easing 曲线参数"
             },
             {
               "id": "ai-7",
               "name": "系统提示词与对话管理",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「Ollama」「系统提示词」「会话」。类比：System Prompt = 组件 defaultProps；对话历史 = 受控组件 state"
             },
             {
               "id": "ai-8",
               "name": "Function Calling / Tool Use 深度解析",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「tools」「封装tools」。类比：Tool Schema = 前端 API 接口文档；Function Calling = 事件处理函数"
             },
             {
               "id": "ai-9",
               "name": "Agent 架构设计模式",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "新增课程。三种模式对比：ReAct / Plan-and-Execute / Multi-Agent。类比：ReAct = 响应式编程；Multi-Agent = 微前端架构"
             }
           ]
         },
@@ -609,37 +681,43 @@ const DATA = {
               "id": "rag-1",
               "name": "RAG 全流程概览：从文档到答案",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「RAG核心原理」「token化（RAG部分）」「向量化」。类比：RAG = 前端数据预取 + 缓存策略"
             },
             {
               "id": "rag-2",
               "name": "文档处理与向量数据库",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「向量数据库」「数据切片方案」「数据清洗策略」。类比：切片策略 = Code Splitting"
             },
             {
               "id": "rag-3",
               "name": "LlamaIndex 框架实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「LlamaIndex框架」「连接器」「索引」「QueryEngine」「多源数据接入」。类比：LlamaIndex = Next.js/Nuxt"
             },
             {
               "id": "rag-4",
               "name": "检索增强技术：混合检索与重排序",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「检索策略优化」「混合检索」「Rerank重排序」。类比：稀疏检索 = 精确匹配；稠密检索 = 模糊搜索"
             },
             {
               "id": "rag-5",
               "name": "高级 RAG：语义路由与知识图谱",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「GraphRAG图谱增强」「Multi-modal RAG」「语义路由」。类比：语义路由 = 前端 react-router"
             },
             {
               "id": "rag-6",
               "name": "RAG 评估与生产部署",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「缓存策略」「RAG质量评估体系」「FastAPI服务封装」「生产环境部署」。类比：RAGAS = 前端 Lighthouse"
             }
           ]
         },
@@ -650,31 +728,36 @@ const DATA = {
               "id": "lg-1",
               "name": "LangGraph 核心概念与 State 管理",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「LangGraph节点」「State管理」。类比：LangGraph = 前端状态机（XState / useReducer）"
             },
             {
               "id": "lg-2",
               "name": "ReAct 模式与工具编排",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：ReAct 循环 = 前端异步轮询；Tool 节点 = 事件处理函数"
             },
             {
               "id": "lg-3",
               "name": "CheckPoints 与 Human-in-the-Loop",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「CheckPoints」「Human-in-the-loop」。类比：CheckPoints = Git commit 历史；HITL = 二次确认弹窗"
             },
             {
               "id": "lg-4",
               "name": "记忆系统与多 Agent 协作",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「短期记忆和长期记忆」「子图」「Agent Supervisor」。类比：短期记忆 = 组件 state；长期记忆 = localStorage"
             },
             {
               "id": "lg-5",
               "name": "Agent 前端界面开发实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "新增——对齐你的实际工作。流式输出 = Streaming SSR；Tool 调用状态 = Loading Skeleton"
             }
           ]
         },
@@ -685,19 +768,22 @@ const DATA = {
               "id": "ft-1",
               "name": "基座模型选型与微调决策",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：基座模型选型 = 前端框架选型；微调 vs RAG = 改组件源码 vs 组合现有组件"
             },
             {
               "id": "ft-2",
               "name": "LoRA/QLoRA 高效微调实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「unsloth」「PEFT方案」「LoRA」「QLoRA」。类比：LoRA = CSS !important 覆盖；QLoRA = 代码压缩后打补丁"
             },
             {
               "id": "ft-3",
               "name": "对齐技术与模型评估",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「RLHF/DPO对齐」。类比：RLHF = A/B Testing + 反馈循环；DPO = 直接用行为数据训练"
             }
           ]
         },
@@ -708,13 +794,15 @@ const DATA = {
               "id": "opt-1",
               "name": "Dify 低代码 Agent 平台实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Dify = 前端低代码平台（Retool/Webflow）——覆盖 80% 需求，复杂场景还是写代码"
             },
             {
               "id": "opt-2",
               "name": "LangChain 生态与 DeepAgent 概览",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「LangChain框架」「DeepAgent」。类比：LangChain = lodash（工具箱）；LangGraph = React（架构）"
             }
           ]
         }
@@ -731,49 +819,57 @@ const DATA = {
               "id": "jv-1",
               "name": "Java 速通：从 TS 到 Java 的语法对比",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「Java基础语法」「方法」「容器类型」。利用 TS 经验只讲差异点"
             },
             {
               "id": "jv-2",
               "name": "Lambda 表达式与 Stream API",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「Lambda表达式」「Stream API」。TS 箭头函数经验直接复用"
             },
             {
               "id": "jv-3",
               "name": "类与对象：Java OOP 对比 TS",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「类和对象」「封装继承多态」。只讲差异：default/protected/final/super()构造链"
             },
             {
               "id": "jv-4",
               "name": "抽象类与接口",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "Java 接口与 TS 接口差异很大——Spring 中到处都是接口编程"
             },
             {
               "id": "jv-5",
               "name": "异常处理",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "checked exception 是 TS/JS 完全没有的概念"
             },
             {
               "id": "jv-6",
               "name": "泛型：类型擦除与通配符",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "TS 泛型用户熟悉概念，但 Java 类型擦除和通配符是独特机制"
             },
             {
               "id": "jv-7",
               "name": "注解与反射",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "注解是 Spring 全家桶的基石，必须精通"
             },
             {
               "id": "jv-8",
               "name": "线程基础与并发",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "JS 是单线程事件循环，Java 是真多线程——面试高频考点"
             }
           ]
         },
@@ -784,37 +880,43 @@ const DATA = {
               "id": "sb-1",
               "name": "Spring 核心：IoC 容器与依赖注入",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "Spring 一切的前提。类比：Vue 3 provide/inject 是最接近的类比"
             },
             {
               "id": "sb-2",
               "name": "Spring AOP 切面编程",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "掌握概念和常用注解即可，不需深入自定义切面"
             },
             {
               "id": "sb-3",
               "name": "Spring Boot Web 开发",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "最实用的一节——直接对应前后端协作"
             },
             {
               "id": "sb-4",
               "name": "Spring 数据访问：JDBC 与 ORM (JPA)",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Prisma/TypeORM → Spring Data JPA"
             },
             {
               "id": "sb-5",
               "name": "Spring Security 认证与授权",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "直接关联 Agent 登录态——跨前后端的刚需知识"
             },
             {
               "id": "sb-6",
               "name": "Spring 测试：JUnit 与 Mock",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "类比：Jest/Vitest 概念相通，压缩为一节"
             }
           ]
         },
@@ -825,13 +927,15 @@ const DATA = {
               "id": "sc-1",
               "name": "微服务速览：注册中心与远程调用",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「微服务架构特性」「Nacos」「OpenFeign」「Gateway」四个章节，用一次调用链串联"
             },
             {
               "id": "sc-2",
               "name": "服务治理概念：MQ / 分布式事务 / 限流熔断",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「RocketMQ」「Seata」「Sentinel」三个章节为概念课，跳槽前可突击深入"
             }
           ]
         },
@@ -842,19 +946,22 @@ const DATA = {
               "id": "mw-1",
               "name": "Redis 缓存与数据结构",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "唯一横跨前后端的中间件，通用性极强"
             },
             {
               "id": "mw-2",
               "name": "Elasticsearch 搜索实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "Agent 产品大概率需要搜索功能，可等用到时深入"
             },
             {
               "id": "mw-3",
               "name": "Netty 与 Dubbo 概览",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「Dubbo」「Netty」为概览课——小厂不用 RPC 框架，面试能聊即可"
             }
           ]
         }
@@ -871,55 +978,64 @@ const DATA = {
               "id": "lx-1",
               "name": "Linux 文件系统与权限管理",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「文件系统与权限」「用户组权限位」。部署前端静态文件每天都要用"
             },
             {
               "id": "lx-2",
               "name": "SSH 免密登录与远程操作",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "日常登录服务器的基础"
             },
             {
               "id": "lx-3",
               "name": "systemd 服务管理",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "直接对应工作需求——让应用稳定运行"
             },
             {
               "id": "lx-4",
               "name": "端口与网络排查",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "部署时最常遇到的问题——服务跑不起来的第一反应"
             },
             {
               "id": "lx-5",
               "name": "日志检索与故障时间线还原",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "生产环境出问题后的第一反应——查日志"
             },
             {
               "id": "lx-6",
               "name": "CPU / 内存 / 磁盘瓶颈定位",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "重要但不紧急——服务慢了才需要，掌握基础命令即可"
             },
             {
               "id": "lx-7",
               "name": "Bash 脚本自动化",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "部署和批量操作需要，但可用 AI 辅助写脚本"
             },
             {
               "id": "lx-8",
               "name": "Cron 定时任务",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "入门简单，即学即用"
             },
             {
               "id": "lx-9",
               "name": "防火墙规则与安全基线",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「防火墙规则」「备份策略与恢复」。小厂大概率用云服务安全组"
             }
           ]
         },
@@ -930,19 +1046,22 @@ const DATA = {
               "id": "ng-1",
               "name": "Nginx 安装与核心配置",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「Nginx安装与启动」「Server与Location匹配」。10分钟安装 → 直接进入配置实战"
             },
             {
               "id": "ng-2",
               "name": "Nginx 反向代理与前端部署实战",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「反向代理与转发」「负载均衡策略」。用户核心场景：一个配置文件打通前后端"
             },
             {
               "id": "ng-3",
               "name": "Nginx 进阶：限流 / 健康检查 / 黑白名单",
               "mastery": 0,
-              "done": false
+              "done": false,
+              "note": "合并原「限流与黑白名单」「健康检查与故障剔除」。生产环境加固，初期部署不需要"
             }
           ]
         }
@@ -2590,8 +2709,9 @@ for (const p of DATA.phases) {
       }
       // Merge note row
       if (plan && plan.m) continue;
+      const pending = (c.note && c.note.indexOf('作业待验收') >= 0) ? '<span class="pill-wait">作业待验收</span>' : '';
       html += `<div class="row" data-chapter="${c.name}" onclick="togglePlan(this)">
-        <span class="name ${c.done?'done':''}">${c.name}</span>
+        <span class="name ${c.done?'done':''}">${c.name}${pending}</span>
         <span class="mastery-bar" title="熟练度 ${m}/4">${cells}</span>
         <button class="btn" onclick="event.stopPropagation();copy('${cmd}',this)" aria-label="${cmd}">复制</button>
       </div>`;
