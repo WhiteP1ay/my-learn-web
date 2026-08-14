@@ -257,9 +257,9 @@ const DATA = {
             {
               "id": "py-11",
               "name": "装饰器深度解析：从闭包到 @语法糖",
-              "mastery": 0,
-              "done": false,
-              "note": "已讲授 2026-08-13，作业待验收（timer带参/require_role/wraps观察）。类比：React HOC 或 Express/Koa 中间件模式 → Python 装饰器。课堂实证：max_retry(3) 重试装饰器独立完成并跑通三测试；曾把 greet 写成 greet(name)（函数对象vs调用）、try..catch 术语、time 当第三方包——py-13 异常处理 mastery 虚高需复习"
+              "mastery": 3,
+              "done": true,
+              "note": "已讲授并验收 2026-08-13 mastery 3。课堂坑：函数对象vs调用 greet(name)、try..catch 术语、time 当第三方包、计时 start 放错层导致耗时递增、@wraps 误写 @wraps（装饰器工厂必须传参）、测试数据让目标分支不可达。py-13 异常处理 mastery 虚高需复习"
             },
             {
               "id": "py-12",
@@ -1132,8 +1132,14 @@ const DATA = {
     {
       "id": "py-13",
       "name": "异常处理",
-      "last": "2026-08-06",
-      "gap": "需在 FastAPI 中设计异常边界与 HTTP 映射"
+      "last": "2026-08-13",
+      "gap": "py-11 装饰器实战暴露：try/except 语法生疏（说成 try..catch、else 子句语义混用），mastery 从 3 下调至 2，需专项复习；FastAPI 异常边界与 HTTP 映射待做"
+    },
+    {
+      "id": "py-11",
+      "name": "装饰器深度解析：从闭包到 @语法糖",
+      "last": "2026-08-13",
+      "gap": "需在真实后端场景迁移：FastAPI 路由鉴权装饰器、日志/计时中间件；@wraps(fn) 与 @wraps 的区分待固化"
     },
     {
       "id": "py-9",
