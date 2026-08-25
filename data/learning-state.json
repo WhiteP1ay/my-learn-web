@@ -116,8 +116,8 @@
       "chapter_name": "魔术方法：让对象更 Pythonic",
       "mastery": 3,
       "max_mastery": 4,
-      "last_review": "2026-08-13",
-      "gap": "__hash__ 写法曾三次出错（return self.hash/签名带 other）需复习固化；NotImplementedError 与 NotImplemented 易混淆；描述符协议仅了解，未实操"
+      "last_review": "2026-08-25",
+      "gap": "2026-08-25 复习 5 题错 1：raise NotImplementedError vs return NotImplemented 仍混淆（选成 raise NotImplemented），口诀「raise 跟异常类，return 跟哨兵对象」需固化；__hash__ 写法曾三次出错需复习；描述符协议仅了解，未实操"
     }
   ],
   "upcoming_plan": [
