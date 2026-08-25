@@ -119,7 +119,7 @@
               "mastery": 0,
               "evidence": "能用 typing 模块写出完整类型标注，定义 ABC 约束子类接口，用 mypy 做静态检查",
               "strategy": "next_up",
-              "note": "合并原「类型标注」和「ABC」，构建完整 Python 类型系统认知",
+              "note": "合并原「类型标注」和「ABC」，构建完整 Python 类型系统认知。已讲授 2026-08-25 第一讲：类型标注不参与运行时（mypy 是 Python 的 tsc）、容器标注现代写法（list[int]、int | float，3.10+）、TypedDict（dict 的 interface，访问仍用方括号）、class 继承语法；作业 average_score（list[Student] -> float）修正待验收；待讲：mypy 实战、ABC",
               "merge_note": "合并了原「类型标注」和「ABC」两个章节"
             },
             {
