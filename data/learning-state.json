@@ -1,12 +1,20 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "py-14. 类型系统进阶（类型标注与ABC）",
-    "session": 7,
-    "last_session": "2026-08-25",
+    "knowledge_point": "py-17. 模块化：包、导入与命名空间",
+    "session": 8,
+    "last_session": "2026-08-31",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "py-14",
+      "chapter_name": "类型系统进阶：类型标注与抽象基类（ABC）",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-31",
+      "gap": "需在实际项目（FastAPI 领域模型/Repository 接口）中独立设计 ABC 接口；ABC vs Protocol 的选择判断待实战验证；register() 动态注册未实操"
+    },
     {
       "chapter_id": "ai-1",
       "chapter_name": "AI 全景与 LLM 工作原理概览",

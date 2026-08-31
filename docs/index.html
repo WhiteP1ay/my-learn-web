@@ -278,9 +278,9 @@ const DATA = {
             {
               "id": "py-14",
               "name": "类型系统进阶：类型标注与抽象基类（ABC）",
-              "mastery": 0,
-              "done": false,
-              "note": "合并原「类型标注」和「ABC」，构建完整 Python 类型系统认知。已讲授 2026-08-25：第一讲（类型标注不参与运行时、list[int] 现代写法、TypedDict、class 继承语法）+ 第二讲（mypy 实战：uv add --dev mypy、报错格式、IDE 实时检查配 Pyrefly default 模式）。作业 average_score 验收通过（用户自跑对照实验：float 通过/int 报错，理解漏 list[...] 连锁推断链）。待讲：ABC"
+              "mastery": 3,
+              "done": true,
+              "note": "合并原「类型标注」和「ABC」，构建完整 Python 类型系统认知。已讲授 2026-08-25：第一讲（类型标注不参与运行时、list[int] 现代写法、TypedDict、class 继承语法）+ 第二讲（mypy 实战：uv add --dev mypy、报错格式、IDE 实时检查配 Pyrefly default 模式）。作业 average_score 验收通过（用户自跑对照实验：float 通过/int 报错，理解漏 list[...] 连锁推断链）。待讲：ABC 2026-08-31 第三讲 ABC 完成：唯一模板（ABC+@abstractmethod）、创建时 TypeError 拦截（实测验证）、具体方法+抽象方法共存（模板方法模式）。作业 Shape ABC（Circle/Rectangle 实现 area()）验收通过，mypy 0 错。mastery 3。"
             },
             {
               "id": "py-15",
@@ -1069,6 +1069,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "py-14",
+      "name": "类型系统进阶：类型标注与抽象基类（ABC）",
+      "last": "2026-08-31",
+      "gap": "需在实际项目（FastAPI 领域模型/Repository 接口）中独立设计 ABC 接口；ABC vs Protocol 的选择判断待实战验证；register() 动态注册未实操"
+    },
     {
       "id": "ai-1",
       "name": "AI 全景与 LLM 工作原理概览",
