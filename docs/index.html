@@ -299,9 +299,9 @@ const DATA = {
             {
               "id": "py-17",
               "name": "模块化：包、导入与命名空间",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：JS import/export + node_modules → Python import + site-packages"
+              "mastery": 3,
+              "done": true,
+              "note": "类比：JS import/export + node_modules → Python import + site-packages 2026-08-31 讲授完成：模块/包/__init__.py re-export+__all__（list[str]名字清单机制）、相对导入规则（脚本无父包 vs python -m）、__name__守卫、循环导入（a/b 互相 import 实测踩坑，延迟导入修复且用户主动改 b.py 而非照抄模板）。作业 shop 包验收通过，mypy 0 错。mastery 3。"
             },
             {
               "id": "py-18",
@@ -1069,6 +1069,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "py-17",
+      "name": "模块化：包、导入与命名空间",
+      "last": "2026-08-31",
+      "gap": "TYPE_CHECKING 块未实操；真实项目（FastAPI 多包结构）中组织导入待实战验证；循环导入的架构级解法（抽公共模块）未实操"
+    },
     {
       "id": "py-14",
       "name": "类型系统进阶：类型标注与抽象基类（ABC）",

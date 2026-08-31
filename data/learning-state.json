@@ -1,12 +1,20 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "py-17. 模块化：包、导入与命名空间",
-    "session": 8,
+    "knowledge_point": "db-1. PostgreSQL 环境搭建与连接",
+    "session": 9,
     "last_session": "2026-08-31",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "py-17",
+      "chapter_name": "模块化：包、导入与命名空间",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-31",
+      "gap": "TYPE_CHECKING 块未实操；真实项目（FastAPI 多包结构）中组织导入待实战验证；循环导入的架构级解法（抽公共模块）未实操"
+    },
     {
       "chapter_id": "py-14",
       "chapter_name": "类型系统进阶：类型标注与抽象基类（ABC）",
