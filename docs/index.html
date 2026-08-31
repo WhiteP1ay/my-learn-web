@@ -360,9 +360,9 @@ const DATA = {
             {
               "id": "db-1",
               "name": "PostgreSQL 环境搭建与连接",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：前端连接 Firebase/Supabase → 直连 PostgreSQL"
+              "mastery": 3,
+              "done": true,
+              "note": "类比：前端连接 Firebase/Supabase → 直连 PostgreSQL 2026-08-31 完成（Docker 方式）：brew 系统安装被用户否决，改 Docker 容器 pg-shop（宿主5433→容器5432，卷pgdata）。学习要点：PG无root（角色模型）、psql -p是端口不是密码（vs MySQL）、psycopg3默认autocommit=False必须commit否则回滚（实战踩坑：未commit全丢）、uv add vs uv pip install、脚本幂等性（CREATE TABLE重跑DuplicateTable）。作业：shop_db/shop_user 建库授权+psycopg建表products插2行查询，验证落盘成功。mastery 3。"
             },
             {
               "id": "db-2",
@@ -1069,6 +1069,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "db-1",
+      "name": "PostgreSQL 环境搭建与连接",
+      "last": "2026-08-31",
+      "gap": "事务边界（commit/rollback）需在真实写路径中固化；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上；psql 交互模式常用命令未系统过一遍"
+    },
     {
       "id": "py-17",
       "name": "模块化：包、导入与命名空间",

@@ -1,12 +1,20 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "db-1. PostgreSQL 环境搭建与连接",
-    "session": 9,
+    "knowledge_point": "db-2. DDL：建表、约束与字段类型",
+    "session": 10,
     "last_session": "2026-08-31",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "db-1",
+      "chapter_name": "PostgreSQL 环境搭建与连接",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-31",
+      "gap": "事务边界（commit/rollback）需在真实写路径中固化；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上；psql 交互模式常用命令未系统过一遍"
+    },
     {
       "chapter_id": "py-17",
       "chapter_name": "模块化：包、导入与命名空间",
