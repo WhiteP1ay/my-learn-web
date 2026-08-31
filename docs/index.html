@@ -367,9 +367,9 @@ const DATA = {
             {
               "id": "db-2",
               "name": "DDL：建表、约束与字段类型",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：Zod/Yup schema 定义 → SQL DDL 约束；TypeScript interface → 表结构"
+              "mastery": 3,
+              "done": true,
+              "note": "类比：Zod/Yup schema 定义 → SQL DDL 约束；TypeScript interface → 表结构 2026-08-31 完成（DBeaver GUI 实操）：五大约束（PRIMARY KEY/UNIQUE/NOT NULL/CHECK/FOREIGN KEY）、错误码 23505/23514/23503、外键父子关系与 ON DELETE 三策略（RESTRICT 默认/CASCADE/SET NULL，orders.user_id 保持 RESTRICT、order_items.order_id 改 CASCADE 实测联动删除）、TIMESTAMPTZ 存 UTC、SQL 引号规则（单引号值/双引号标识符）、大小写三规则（关键字不敏感/未引号标识符折叠小写/字符串值敏感）、NUMERIC(p,s) 参数含义、ALTER TABLE 改约束。作业 users/orders/order_items 三表全约束验证拦截成功。mastery 3。"
             },
             {
               "id": "db-3",
@@ -1069,6 +1069,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "db-2",
+      "name": "DDL：建表、约束与字段类型",
+      "last": "2026-08-31",
+      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；DBeaver 日常操作习惯待养成"
+    },
     {
       "id": "db-1",
       "name": "PostgreSQL 环境搭建与连接",

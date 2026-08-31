@@ -1,12 +1,20 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "db-2. DDL：建表、约束与字段类型",
-    "session": 10,
+    "knowledge_point": "db-3. SELECT 查询基础：投影、过滤、排序、分页",
+    "session": 11,
     "last_session": "2026-08-31",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "db-2",
+      "chapter_name": "DDL：建表、约束与字段类型",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-08-31",
+      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；DBeaver 日常操作习惯待养成"
+    },
     {
       "chapter_id": "db-1",
       "chapter_name": "PostgreSQL 环境搭建与连接",
