@@ -1,12 +1,20 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "db-3. SELECT 查询基础：投影、过滤、排序、分页",
-    "session": 11,
-    "last_session": "2026-08-31",
+    "knowledge_point": "db-4. DML：插入、更新与删除",
+    "session": 12,
+    "last_session": "2026-09-01",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "db-3",
+      "chapter_name": "SELECT 查询基础：投影、过滤、排序、分页",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-09-01",
+      "gap": "首次独立写综合查询漏日期过滤条件（需求逐条核对待固化）；ORDER BY 多列 + desc 作用域已理解未实战；NULL 语义在真实业务查询中的判断待积累；深 offset 分页性能问题留给 db-10"
+    },
     {
       "chapter_id": "db-2",
       "chapter_name": "DDL：建表、约束与字段类型",
@@ -153,7 +161,7 @@
     }
   ],
   "upcoming_plan": [
-    "py-14 类型系统进阶 → py-17 模块化 → db-1 PostgreSQL安装 → db-2 DDL → db-3 SELECT查询基础 → fw-1 FastAPI起服务"
+    "db-4 DML → db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务"
   ],
   "blockers": [],
   "parking_lot": [

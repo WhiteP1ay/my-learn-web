@@ -374,9 +374,9 @@ const DATA = {
             {
               "id": "db-3",
               "name": "SELECT 查询基础：投影、过滤、排序、分页",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：JS Array.filter/sort/slice → SELECT 的 WHERE/ORDER BY/LIMIT"
+              "mastery": 3,
+              "done": true,
+              "note": "类比：JS Array.filter/sort/slice → SELECT 的 WHERE/ORDER BY/LIMIT。2026-09-01 讲授完成：冷写作暴露 sort by 发明语法（SQL 是 order by 带列名）；子句顺序铁律（and 不能跨子句）；NULL 三值逻辑（is null/is not null、or is null 补回）；半开区间日期过滤（>= 月初 and < 下月月初）；limit/offset 分页公式（第N页=offset (N-1)*size）。坑：首次独立写验收题漏 created_at 条件（88 混入 7 月订单），提示后自修——需求逐条核对待固化。seed 数据：8 用户 4 城市、15 订单跨 7-8 月、gift_card price NULL"
             },
             {
               "id": "db-4",
@@ -1070,6 +1070,12 @@ const DATA = {
   ],
   "review_pool": [
     {
+      "id": "db-3",
+      "name": "SELECT 查询基础：投影、过滤、排序、分页",
+      "last": "2026-09-01",
+      "gap": "首次独立写综合查询漏日期过滤条件（需求逐条核对待固化）；ORDER BY 多列 + desc 作用域已理解未实战；NULL 语义在真实业务查询中的判断待积累；深 offset 分页性能问题留给 db-10"
+    },
+    {
       "id": "db-2",
       "name": "DDL：建表、约束与字段类型",
       "last": "2026-08-31",
@@ -1179,7 +1185,7 @@ const DATA = {
     }
   ],
   "meta": {
-    "position": "py-14 类型系统进阶 → py-17 模块化 → db-1 PostgreSQL安装 → db-2 DDL → db-3 SELECT查询基础 → fw-1 FastAPI起服务",
+    "position": "db-4 DML → db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务",
     "project": "AI 客服工单系统"
   },
   "memory": [],

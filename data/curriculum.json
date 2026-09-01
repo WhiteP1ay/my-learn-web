@@ -227,10 +227,10 @@
             {
               "id": "db-3",
               "name": "SELECT 查询基础：投影、过滤、排序、分页",
-              "mastery": 0,
-              "evidence": "能用 SELECT/WHERE/ORDER BY/LIMIT/OFFSET 完成查询，理解 NULL 三值逻辑和 DISTINCT 去重",
-              "strategy": "comprehensive",
-              "note": "类比：JS Array.filter/sort/slice → SELECT 的 WHERE/ORDER BY/LIMIT"
+              "mastery": 3,
+              "evidence": "独立写出投影+WHERE+ORDER BY+LIMIT/OFFSET 组合查询：8月订单金额>=50降序分页取第2页（99.9/76.5/67.8），半开区间日期过滤正确；多列排序预测正确；DISTINCT 城市去重正确；理解 NULL 三值逻辑并主动追问「查非50怎么办」的 or is null 语义",
+              "strategy": "completed",
+              "note": "类比：JS Array.filter/sort/slice → SELECT 的 WHERE/ORDER BY/LIMIT。2026-09-01 讲授完成：冷写作暴露 sort by 发明语法（SQL 是 order by 带列名）；子句顺序铁律（and 不能跨子句）；NULL 三值逻辑（is null/is not null、or is null 补回）；半开区间日期过滤（>= 月初 and < 下月月初）；limit/offset 分页公式（第N页=offset (N-1)*size）。坑：首次独立写验收题漏 created_at 条件（88 混入 7 月订单），提示后自修——需求逐条核对待固化。seed 数据：8 用户 4 城市、15 订单跨 7-8 月、gift_card price NULL"
             },
             {
               "id": "db-4",
