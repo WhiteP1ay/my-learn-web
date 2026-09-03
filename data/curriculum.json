@@ -235,10 +235,10 @@
             {
               "id": "db-4",
               "name": "DML：插入、更新与删除",
-              "mastery": 3,
-              "evidence": "独立实战六个点：单行 INSERT（显式列清单、不手填 id）、批量 INSERT（多括号一条语句）、RETURNING（id=37 返回自动生成值非 user_id）、UPDATE（where 定位影响 1 行）、DELETE（id 定位影响 1 行）、ON CONFLICT upsert（先加 products_name_key 唯一约束，tomato 5.00→6.00 走 update 分支、行数不变）。概念钉死：timestamptz 存 UTC 显示随时区（实测 DBeaver +0800 vs psql UTC）、显式列清单=具名传参、AND 优先级高于 OR 需括号分组、set 列=列-N 原子更新。约束命名规律（表_列_key/fkey/pkey/check）",
+              "mastery": 4,
+              "evidence": "独立实战六个点：单行 INSERT（显式列清单、不手填 id）、批量 INSERT（多括号一条语句）、RETURNING（id=37 返回自动生成值非 user_id）、UPDATE（where 定位影响 1 行）、DELETE（id 定位影响 1 行）、ON CONFLICT upsert（先加 products_name_key 唯一约束，tomato 5.00→6.00 走 update 分支、行数不变）。概念钉死：timestamptz 存 UTC 显示随时区（实测 DBeaver +0800 vs psql UTC）、显式列清单=具名传参、AND 优先级高于 OR 需括号分组、set 列=列-N 原子更新、excluded 非保留字而是 ON CONFLICT 内置别名（裸列名=旧行/excluded=新数据）。作业验收通过 2026-09-03 mastery 4：库存扣减全流程（加 stock 列、tomato/bread 初始化、两次原子扣减 10→8→6 中间态实证、批量 upsert 双分支——tomato 旧 id 3 update 6.90 + cheese 新 id 16 insert）",
               "strategy": "completed",
-              "note": "已讲授 2026-09-03，mastery 3。坑记录：验证多行时用逗号拼条件（SQL where 一次判断一行，跨行用 OR 组或 IN）；预测 RETURNING 返回把 user_id 当 id（returning 返回真实列值含数据库生成的）；把本地时间 15:49 说成 UTC（存 UTC 显示随时区，DBeaver 显示 +0800）。作业待验收：库存扣减流程（加 stock 列→初始化→原子扣减两次→批量 upsert 混合 update/insert），验收通过升 mastery 4。类比：前端 state 增删改 → SQL DML"
+              "note": "已讲授 2026-09-03，作业验收通过 mastery 4。坑记录：验证多行时用逗号拼条件（SQL where 一次判断一行，跨行用 OR 组或 IN）；预测 RETURNING 返回把 user_id 当 id（returning 返回真实列值含数据库生成的）；把本地时间 15:49 说成 UTC（存 UTC 显示随时区，DBeaver 显示 +0800）；DBeaver Ctrl+Enter 只执行光标行、Alt+X 才执行全部——多语句「不生效」先查执行方式；批量 upsert 一条语句两个 values 撞同一行会报 cannot affect row a second time（勿写重复冲突键）。类比：前端 state 增删改 → SQL DML"
             },
             {
               "id": "db-5",

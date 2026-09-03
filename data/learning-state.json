@@ -10,11 +10,11 @@
     {
       "chapter_id": "db-4",
       "chapter_name": "DML：插入、更新与删除",
-      "mastery": 3,
+      "mastery": 4,
       "max_mastery": 4,
       "last_review": "2026-09-03",
-      "note": "作业待验收：库存扣减流程（加 stock 列、初始化、原子扣减两次验证递减、批量 upsert 混合 update/insert + returning）",
-      "gap": "综合迁移作业未验收；验证多行曾用逗号拼条件（已纠正 OR 括号组）；无括号依赖 AND 优先级是隐患（已教括号分组模板）；事务边界在 DML 写路径的 GUI 直觉已固化（autocommit ON），psycopg 通道需 commit 待 fw 阶段实战"
+      "note": "2026-09-03 作业验收通过 mastery 4：库存扣减全流程跑通（含中间态 10→8→6 实证）",
+      "gap": "DBeaver 执行方式坑已固化（Ctrl+Enter 只跑光标行，多语句用 Alt+X）；excluded 伪行/非保留字已理解；批量 upsert 同语句重复冲突键会报 cannot affect row a second time；psycopg 通道 commit 待 fw 阶段实战"
     },
     {
       "chapter_id": "db-3",
