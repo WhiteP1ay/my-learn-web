@@ -381,9 +381,9 @@ const DATA = {
             {
               "id": "db-4",
               "name": "DML：插入、更新与删除",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：前端 state 的增删改操作 → SQL DML"
+              "mastery": 3,
+              "done": true,
+              "note": "已讲授 2026-09-03，mastery 3。坑记录：验证多行时用逗号拼条件（SQL where 一次判断一行，跨行用 OR 组或 IN）；预测 RETURNING 返回把 user_id 当 id（returning 返回真实列值含数据库生成的）；把本地时间 15:49 说成 UTC（存 UTC 显示随时区，DBeaver 显示 +0800）。作业待验收：库存扣减流程（加 stock 列→初始化→原子扣减两次→批量 upsert 混合 update/insert），验收通过升 mastery 4。类比：前端 state 增删改 → SQL DML"
             },
             {
               "id": "db-5",
@@ -1070,22 +1070,28 @@ const DATA = {
   ],
   "review_pool": [
     {
+      "id": "db-4",
+      "name": "DML：插入、更新与删除",
+      "last": "2026-09-03",
+      "gap": "综合迁移作业未验收；验证多行曾用逗号拼条件（已纠正 OR 括号组）；无括号依赖 AND 优先级是隐患（已教括号分组模板）；事务边界在 DML 写路径的 GUI 直觉已固化（autocommit ON），psycopg 通道需 commit 待 fw 阶段实战"
+    },
+    {
       "id": "db-3",
       "name": "SELECT 查询基础：投影、过滤、排序、分页",
-      "last": "2026-09-01",
-      "gap": "首次独立写综合查询漏日期过滤条件（需求逐条核对待固化）；ORDER BY 多列 + desc 作用域已理解未实战；NULL 语义在真实业务查询中的判断待积累；深 offset 分页性能问题留给 db-10"
+      "last": "2026-09-03",
+      "gap": "2026-09-03 热身重测通过：8月订单>=50 第2页写全对（含日期半开区间，7条符合、第2页 67.80/58.00），上次漏日期条件已修复。深 offset 分页性能问题留给 db-10；NULL 语义真实业务判断待积累"
     },
     {
       "id": "db-2",
       "name": "DDL：建表、约束与字段类型",
       "last": "2026-08-31",
-      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；DBeaver 日常操作习惯待养成"
+      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；2026-09-03 补了 ALTER TABLE ADD CONSTRAINT unique + 约束命名规律（表_列_key/fkey/pkey/check）"
     },
     {
       "id": "db-1",
       "name": "PostgreSQL 环境搭建与连接",
       "last": "2026-08-31",
-      "gap": "事务边界（commit/rollback）需在真实写路径中固化；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上；psql 交互模式常用命令未系统过一遍"
+      "gap": "事务边界在真实写路径固化中：GUI/psql 默认 autocommit ON，psycopg3 默认 False 必须 commit（db-4 已对照，代码通道待 fw 实战）；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上"
     },
     {
       "id": "py-17",
@@ -1185,7 +1191,7 @@ const DATA = {
     }
   ],
   "meta": {
-    "position": "db-4 DML → db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务",
+    "position": "db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务",
     "project": "AI 客服工单系统"
   },
   "memory": [],

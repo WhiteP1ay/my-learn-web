@@ -1,19 +1,28 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "db-4. DML：插入、更新与删除",
-    "session": 12,
-    "last_session": "2026-09-01",
+    "knowledge_point": "db-5. 表间关系与 JOIN 查询",
+    "session": 13,
+    "last_session": "2026-09-03",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "db-4",
+      "chapter_name": "DML：插入、更新与删除",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-09-03",
+      "note": "作业待验收：库存扣减流程（加 stock 列、初始化、原子扣减两次验证递减、批量 upsert 混合 update/insert + returning）",
+      "gap": "综合迁移作业未验收；验证多行曾用逗号拼条件（已纠正 OR 括号组）；无括号依赖 AND 优先级是隐患（已教括号分组模板）；事务边界在 DML 写路径的 GUI 直觉已固化（autocommit ON），psycopg 通道需 commit 待 fw 阶段实战"
+    },
     {
       "chapter_id": "db-3",
       "chapter_name": "SELECT 查询基础：投影、过滤、排序、分页",
       "mastery": 3,
       "max_mastery": 4,
-      "last_review": "2026-09-01",
-      "gap": "首次独立写综合查询漏日期过滤条件（需求逐条核对待固化）；ORDER BY 多列 + desc 作用域已理解未实战；NULL 语义在真实业务查询中的判断待积累；深 offset 分页性能问题留给 db-10"
+      "last_review": "2026-09-03",
+      "gap": "2026-09-03 热身重测通过：8月订单>=50 第2页写全对（含日期半开区间，7条符合、第2页 67.80/58.00），上次漏日期条件已修复。深 offset 分页性能问题留给 db-10；NULL 语义真实业务判断待积累"
     },
     {
       "chapter_id": "db-2",
@@ -21,7 +30,7 @@
       "mastery": 3,
       "max_mastery": 4,
       "last_review": "2026-08-31",
-      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；DBeaver 日常操作习惯待养成"
+      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；2026-09-03 补了 ALTER TABLE ADD CONSTRAINT unique + 约束命名规律（表_列_key/fkey/pkey/check）"
     },
     {
       "chapter_id": "db-1",
@@ -29,7 +38,7 @@
       "mastery": 3,
       "max_mastery": 4,
       "last_review": "2026-08-31",
-      "gap": "事务边界（commit/rollback）需在真实写路径中固化；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上；psql 交互模式常用命令未系统过一遍"
+      "gap": "事务边界在真实写路径固化中：GUI/psql 默认 autocommit ON，psycopg3 默认 False 必须 commit（db-4 已对照，代码通道待 fw 实战）；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上"
     },
     {
       "chapter_id": "py-17",
@@ -161,7 +170,7 @@
     }
   ],
   "upcoming_plan": [
-    "db-4 DML → db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务"
+    "db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务"
   ],
   "blockers": [],
   "parking_lot": [
