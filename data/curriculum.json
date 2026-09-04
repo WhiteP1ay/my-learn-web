@@ -246,7 +246,7 @@
               "mastery": 0,
               "evidence": "能设计一对多/多对多关系，写出 INNER/LEFT/RIGHT/FULL JOIN 查询",
               "strategy": "comprehensive",
-              "note": "类比：前端状态管理嵌套数据展开（normalizr）→ SQL JOIN"
+              "note": "已讲授第一讲 2026-09-04：INNER/LEFT JOIN 语义实证掌握（含 N+1 动机、按键匹配不按名——两个 A 重名坑自发现、INNER 对称性 FROM/JOIN 顺序无关、LEFT+is null 反连接揪孤儿、8 月过滤+join 组合题独立完成 12 行全对）。坑复发：独立任务又漏 8 月日期条件（第二次，db-3 后重犯），自纠成功——出组合题时须逐条核对需求条件。待下轮：三表 JOIN（order_items 中间表多对多）、RIGHT/FULL 一句话已带过。orders 表金额列实际叫 total 非 amount；orders id 从 18 起（序列烧号），无 id=5，出题前先查真实数据。类比：前端状态管理嵌套数据展开（normalizr）→ SQL JOIN"
             },
             {
               "id": "db-6",
