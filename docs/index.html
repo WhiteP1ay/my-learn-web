@@ -148,6 +148,17 @@
     font-style: italic;
     padding: 4px 0;
   }
+  .plan-detail .chapter-note {
+    background: rgba(127,127,127,0.08);
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin: 4px 0 2px;
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    max-height: 15em;
+    overflow-y: auto;
+  }
   .plan-detail a { color: var(--accent); text-decoration: none; }
   .plan-detail a:hover { text-decoration: underline; }
 
@@ -2758,12 +2769,16 @@ for (const p of DATA.phases) {
         <button class="btn" onclick="event.stopPropagation();copy('${cmd}',this)" aria-label="${cmd}">复制</button>
       </div>`;
       if (hasPlan) {
-        html += `<div class="plan-detail"><span class="section-label">📋 学习目标 · ${plan.s}课时${plan.n?` · ${plan.n}`:''}</span><br>`;
-        for (const o of plan.o) html += `• ${o}<br>`;
-        html += `<br><span class="section-label">🏋 练习</span><br>${plan.e}<br>`;
-        html += `<br><span class="section-label">📚 来源</span><br>`;
-        for (const r of plan.r) html += `<a href="${r.startsWith('http')?r:'https://'+r}" target="_blank">${r}</a><br>`;
-        html += `</div>`;
+        html += '<div class="plan-detail">';
+        if (c.note && c.note.trim()) {
+          html += '<span class="section-label">📝 教学记录</span><div class="chapter-note">' + c.note + '</div><br>';
+        }
+        html += '<span class="section-label">📋 学习目标 · ' + plan.s + '课时' + (plan.n ? ' · ' + plan.n : '') + '</span><br>';
+        for (const o of plan.o) html += '• ' + o + '<br>';
+        html += '<br><span class="section-label">🏋 练习</span><br>' + plan.e + '<br>';
+        html += '<br><span class="section-label">📚 来源</span><br>';
+        for (const r of plan.r) html += '<a href="' + (r.startsWith('http') ? r : 'https://' + r) + '" target="_blank">' + r + '</a><br>';
+        html += '</div>';
       }
     }
     html += '</div>';
