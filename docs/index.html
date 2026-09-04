@@ -399,9 +399,9 @@ const DATA = {
             {
               "id": "db-5",
               "name": "表间关系与 JOIN 查询",
-              "mastery": 0,
-              "done": false,
-              "note": "已讲授第一讲 2026-09-04：INNER/LEFT JOIN 语义实证掌握（含 N+1 动机、按键匹配不按名——两个 A 重名坑自发现、INNER 对称性 FROM/JOIN 顺序无关、LEFT+is null 反连接揪孤儿、8 月过滤+join 组合题独立完成 12 行全对）。坑复发：独立任务又漏 8 月日期条件（第二次，db-3 后重犯），自纠成功——出组合题时须逐条核对需求条件。待下轮：三表 JOIN（order_items 中间表多对多）、RIGHT/FULL 一句话已带过。orders 表金额列实际叫 total 非 amount；orders id 从 18 起（序列烧号），无 id=5，出题前先查真实数据。类比：前端状态管理嵌套数据展开（normalizr）→ SQL JOIN"
+              "mastery": 3,
+              "done": true,
+              "note": "已授两讲 2026-09-04，作业验收通过 mastery 3。第一讲：INNER/LEFT 语义实证（N+1 动机、拼键不拼名——两个 A 重名坑自发现、INNER 对称性、LEFT+is null 反连接、8 月过滤组合题）。第二讲：中间表多对多（为何不数组——引用约束/反查/带属性/并发写）、三表链逐段拼接、NULL 传染、行数统一心智（左表每行×匹配数；多侧膨胀、order_items×products 一对一不膨胀）、基数 0..n 语义、DataGrip 基数标记。坑记录：①独立任务又漏 8 月日期条件（第二次，db-3 后重犯）自纠成功；②预测题又违反「极小数据」原则（8 用户 19 订单让他心算展开，用户直接炸毛『滚吧我不想预测』）——预测题只能配 2-3 行数据或改核对执行顺序，第三次犯就要写进铁律；③orders 金额列叫 total 非 amount、orders id 从 18 起无 id=5——出题前先查真实数据。RIGHT/FULL 仅带过未实操，设计多对多 schema 未从零验证（留 db-11）。类比：normalizr 拍平反向展开 → SQL JOIN"
             },
             {
               "id": "db-6",
@@ -1080,6 +1080,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "db-5",
+      "name": "表间关系与 JOIN 查询",
+      "last": "2026-09-04",
+      "gap": "RIGHT/FULL 仅带过未实操；从零设计多对多中间表未验证（db-11 补）；4 表链大数据量下的性能直觉待实战"
+    },
     {
       "id": "db-4",
       "name": "DML：插入、更新与删除",

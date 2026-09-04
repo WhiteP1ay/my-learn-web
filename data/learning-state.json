@@ -1,12 +1,21 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "db-5. 表间关系与 JOIN 查询",
-    "session": 13,
+    "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
+    "session": 14,
     "last_session": "2026-09-04",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "db-5",
+      "chapter_name": "表间关系与 JOIN 查询",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-09-04",
+      "note": "2026-09-04 两讲完成作业验收 mastery 3：4 表链 LEFT JOIN 23 行全对（杨乐 NULL 行理解正确）；行数规则/反连接/多对多中间表实证掌握",
+      "gap": "RIGHT/FULL 仅带过未实操；从零设计多对多中间表未验证（db-11 补）；4 表链大数据量下的性能直觉待实战"
+    },
     {
       "chapter_id": "db-4",
       "chapter_name": "DML：插入、更新与删除",
