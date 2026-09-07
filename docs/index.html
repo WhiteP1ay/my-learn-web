@@ -303,9 +303,9 @@ const DATA = {
             {
               "id": "py-16",
               "name": "上下文管理器：with 语句与 contextlib",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：JS try-finally 手动清理 → Python with 语句（类似 Rust RAII）"
+              "mastery": 3,
+              "done": true,
+              "note": "已讲授 2026-09-07（parking lot 提前，用户主动点课）：with=自动收尾心智模型（正常/异常两路径都调 __exit__）；__exit__ 三参数 exc_type 是错误类（print 显示 <class 'ValueError'>）非实例，exc_val 才是实例；return False/None 不吞异常 vs True 吞。作业验收通过：类版 Timer（__enter__ 记录/__exit__ 打印耗时，第一次手写即跑通）；contextmanager 函数版 timer_fn.py（try/yield/finally 结构正确，理解 yield 是 __enter__/__exit__ 分界线）；异常路径验证（raise 后 __exit__ 照执行、Traceback 照抛）；psycopg3 with 实测语义（正常 commit+close、异常 rollback+close，出块 conn.closed=True）；db.py with 版连库跑通输出 (10,) True。mastery 3。"
             },
             {
               "id": "py-17",
@@ -1080,6 +1080,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "py-16",
+      "name": "上下文管理器：with 语句与 contextlib",
+      "last": "2026-09-07",
+      "gap": "contextlib.suppress/closing/ExitStack 未讲；with 多资源未练；__enter__ 返回非 self 句柄的场景未实操；真实 FastAPI 连接管理待 fw 阶段实战"
+    },
     {
       "id": "db-5",
       "name": "表间关系与 JOIN 查询",

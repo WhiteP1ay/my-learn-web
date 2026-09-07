@@ -2,11 +2,20 @@
   "current": {
     "phase": "phase1",
     "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
-    "session": 14,
-    "last_session": "2026-09-04",
+    "session": 15,
+    "last_session": "2026-09-07",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "py-16",
+      "chapter_name": "上下文管理器：with 语句与 contextlib",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-09-07",
+      "note": "2026-09-07 专题课完成（parking lot 提前，用户主动点课）：类版 Timer + contextmanager 函数版 + 异常路径验证 + psycopg3 with 语义（commit/rollback/close）独立跑通",
+      "gap": "contextlib.suppress/closing/ExitStack 未讲；with 多资源未练；__enter__ 返回非 self 句柄的场景未实操；真实 FastAPI 连接管理待 fw 阶段实战"
+    },
     {
       "chapter_id": "db-5",
       "chapter_name": "表间关系与 JOIN 查询",
@@ -183,10 +192,6 @@
   ],
   "blockers": [],
   "parking_lot": [
-    {
-      "chapter": "py-16 上下文管理器",
-      "trigger": "项目中需要资源管理（文件/数据库连接）时触发"
-    },
     {
       "chapter": "py-15 迭代器与生成器",
       "trigger": "项目中处理流式数据或大文件时触发"
