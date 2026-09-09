@@ -1106,7 +1106,7 @@
   },
   {
    "id": "phase5",
-   "name": "Phase 5: Web3 与智能合约开发（可选支线）",
+   "name": "Web3 全栈",
    "groups": [
     {
      "id": "web3",
@@ -1114,67 +1114,75 @@
      "chapters": [
       {
        "id": "w3-1",
-       "name": "密码学与区块链地基：哈希、签名与共识",
+       "name": "区块链密码学与钱包原理",
        "mastery": 0,
-       "evidence": "能解释哈希、公私钥签名、共识机制在链上各解决什么问题",
-       "strategy": "optional",
-       "note": "对照学习者 BTC 自托管实操：助记词→私钥→地址的派生链即 BIP32/39；哈希链把区块串成链"
+       "evidence": "能从助记词讲清 BIP32/39/44 派生链，用 ethers.js 从同一助记词派生地址并完成签名/验签，能指出与 Sparrow m/84'/0'/0' 的对应关系",
+       "strategy": "comprehensive",
+       "note": "对照学习者 BTC 自托管实操：助记词=主密码、派生路径=命名空间。哈希 SHA-256 vs Keccak、ECDSA 签名、地址生成、UTXO vs 账户模型差异"
       },
       {
        "id": "w3-2",
-       "name": "以太坊生态：账户、Gas 与交易生命周期",
+       "name": "以太坊交易机制：账户、Gas 与生命周期",
        "mastery": 0,
-       "evidence": "能区分 EOA 与合约账户，说清一笔交易从签名到上链的完整路径与 Gas 计费",
-       "strategy": "optional",
-       "note": "类比：前端 API 调用按次计费 → 链上每步操作按 Gas 计费；以太坊世界状态 = 分布式状态机"
+       "evidence": "能区分 EOA 与合约账户，说清交易 nonce→签名→mempool→验证→上链全流程，能读 receipt 分析 gasUsed/effectiveGasPrice 并解释失败交易资金去向",
+       "strategy": "comprehensive",
+       "note": "类比：交易=HTTP 请求、Gas=执行费、nonce=请求序号防重放。本地 Hardhat node 实测一笔成功一笔 gas 不足的失败交易"
       },
       {
        "id": "w3-3",
-       "name": "Solidity 基础：类型、状态变量与函数",
+       "name": "Solidity 基础语法（对照 TypeScript）",
        "mastery": 0,
-       "evidence": "能对照 TS 写出带可见性/修饰符的 Solidity 合约骨架",
-       "strategy": "optional",
-       "note": "类比：TS 强类型+public/private → Solidity visibility；storage/memory 是全新心智（状态落盘 vs 临时）"
+       "evidence": "对照 TS 写出 Solidity 类型/函数/状态变量代码，解释 storage/memory/calldata 三数据位置的落盘差异，能说明状态变量为何永久上链",
+       "strategy": "comprehensive",
+       "note": "类比：TS class 字段=内存变量，Solidity 状态变量=数据库行；public/private/internal/external 对照 TS 可见性逐一对齐差异"
       },
       {
        "id": "w3-4",
-       "name": "合约实战：ERC-20 与部署",
+       "name": "Solidity 进阶：mapping、事件与错误处理",
        "mastery": 0,
-       "evidence": "能独立写一个 ERC-20 合约并部署到本地链/测试网验证转账",
-       "strategy": "optional",
-       "note": "标准代币合约是 Solidity 的 Hello World+；mapping 即哈希表心智"
+       "evidence": "会用 mapping 实现键值账本，用 event 记录链上行为（含 indexed 供前端过滤），能用 require/revert/assert 设防并解释三者语义差异",
+       "strategy": "comprehensive",
+       "note": "类比：mapping=dict/哈希表、event=结构化日志（前端可订阅）、require=参数校验闸门、revert=抛异常回滚。对照 JS console/throw 心智"
       },
       {
        "id": "w3-5",
-       "name": "Hardhat：本地链、部署脚本与测试",
+       "name": "ERC-20 标准与代币合约实战",
        "mastery": 0,
-       "evidence": "能用 Hardhat 起本地链、写部署脚本、用测试覆盖合约关键路径",
-       "strategy": "optional",
-       "note": "类比：Vite 工程化 → Hardhat；chai 断言 = vitest 心智平移"
+       "evidence": "能读懂 ERC-20 标准接口，从零实现 transfer/approve/transferFrom 双账本机制并解释 approve 两步授权的安全设计动机",
+       "strategy": "comprehensive",
+       "note": "类比：approve/transferFrom=代扣授权协议（微信代扣），避免合约直接转走用户余额。不用 OpenZeppelin，手写全量逻辑"
       },
       {
        "id": "w3-6",
-       "name": "DApp 前端：ethers.js 与钱包连接",
+       "name": "Hardhat 工程化与合约测试",
        "mastery": 0,
-       "evidence": "能用 ethers.js + MetaMask 做钱包连接、读链上状态、发起签名交易",
-       "strategy": "optional",
-       "note": "学习者老本行：React 组件 + ethers.js；登录态=钱包签名而非 session"
+       "evidence": "能用 Hardhat 建项目、写部署脚本、用 chai 断言覆盖成功与失败路径，用 console.log 调试合约，理解与 Vite 工程化的对应",
+       "strategy": "comprehensive",
+       "note": "类比：Vite 工程化→Hardhat；chai 断言=vitest 心智平移。测试跑通一键命令，覆盖 transfer/approve/transferFrom 正反路径"
       },
       {
        "id": "w3-7",
-       "name": "DeFi 剖析：AMM、借贷与质押",
+       "name": "DApp 前端：ethers.js 与钱包连接",
        "mastery": 0,
-       "evidence": "能讲清 AMM x*y=k 做市原理，读懂 Uniswap V2 核心合约关键函数",
-       "strategy": "optional",
-       "note": "概念+代码双轨：先理解协议设计再进合约读源码"
+       "evidence": "能用 React 实现 MetaMask 连接、账户与链切换监听、读链上余额、发起签名交易、订阅合约事件驱动 UI 更新",
+       "strategy": "comprehensive",
+       "note": "类比：axios→ethers、session→钱包签名、SSE/WebSocket→合约事件监听。学习者前端主场，直接复用 React 组件心智"
       },
       {
        "id": "w3-8",
-       "name": "智能合约安全：重入、溢出与审计清单",
+       "name": "DeFi 核心协议：AMM 与借贷原理",
        "mastery": 0,
-       "evidence": "能解释重入攻击原理并写出修复方案，列出部署前安全检查清单",
-       "strategy": "optional",
-       "note": "学开发必配安全课；经典案例：DAO 重入、整数溢出"
+       "evidence": "能解释 AMM x*y=k 做市、滑点与无常损失，读懂 Uniswap V2 Pair 的 mint/burn/swap 核心函数，能讲清借贷协议的抵押与清算资金流",
+       "strategy": "comprehensive",
+       "note": "概念+源码双轨：先理解协议设计意图，再进 Uniswap V2 core 读关键函数，画一次 swap 储备变化含 0.3% 手续费"
+      },
+      {
+       "id": "w3-9",
+       "name": "智能合约安全与审计",
+       "mastery": 0,
+       "evidence": "能复现重入攻击（DAO 事件原理）并用 Checks-Effects-Interactions 模式修复验证攻击失效，能列出部署前检查清单（重入/溢出/权限/预言机）",
+       "strategy": "comprehensive",
+       "note": "学开发必配安全认知。写含漏洞合约演示攻击 + CEI 修复版对比测试，产出个人合约部署前检查清单"
       }
      ]
     }
@@ -1188,7 +1196,7 @@
   "current_position": "db-6. 聚合与分组：GROUP BY / HAVING",
   "session_count": 19,
   "last_session": "2026-09-09",
-  "total_chapters": 127,
+  "total_chapters": 128,
   "phase_summary": {
    "phase1": {
     "chapters": 62,
@@ -1207,7 +1215,7 @@
     "completed": 0
    },
    "phase5": {
-    "chapters": 8,
+    "chapters": 9,
     "completed": 0
    }
   },
@@ -1218,7 +1226,8 @@
    "Phase 4 聚焦「部署工作线」：SSH→文件→Nginx→systemd→日志排查",
    "数据库课程 6→12 章：补充 SELECT基础/聚合分组/子查询CTE/窗口函数/范式/JSONB全文搜索",
    "数据库再加 3 章：存储过程/连接池pgBouncer/主从复制",
-   "2026-09-09 规划扩充（用户提出）：Phase 1 新增「MongoDB 文档数据库」组 db-16~21 共 6 节（含 Mongoose/Node 实操），排在 FastAPI 组后不阻塞主线；新增 Phase 5「Web3 与智能合约开发」w3-1~8 共 8 节可选支线，挂 parking lot 随时可提前点课"
+   "2026-09-09 规划扩充（用户提出）：Phase 1 新增「MongoDB 文档数据库」组 db-16~21 共 6 节（含 Mongoose/Node 实操），排在 FastAPI 组后；新增「Web3 全栈」Phase，9 节完整开发线",
+   "2026-09-09 Web3 线修订：用户否决「Phase5...(可选)」命名与泛泛课纲。Tab 更名「Web3 全栈」，章节重设计 9 节（原 8 节），Solidity 拆为完整语言序列（基础语法/进阶/ERC-20 实战）+ Hardhat 工程化 + DApp 前端 + DeFi 源码 + 合约安全，全部配可验收产出"
   ]
  }
 }

@@ -1559,115 +1559,141 @@
   ],
   "s": 1
  },
- "密码学与区块链地基：哈希、签名与共识": {
+ "区块链密码学与钱包原理": {
   "o": [
-   "理解哈希函数性质（单向/抗碰撞）与 Merkle 树",
-   "理解公私钥签名如何证明所有权",
-   "理解 PoW/PoS 共识解决什么问题",
-   "用自托管实操反推：助记词→私钥→地址的派生链"
+   "理解哈希性质（单向/抗碰撞）与 SHA-256 vs Keccak 差异",
+   "理解 ECDSA 公私钥签名如何证明所有权",
+   "掌握 BIP32 分层派生/BIP39 助记词/BIP44 路径，对照 Sparrow m/84'/0'/0'",
+   "区分 UTXO 与账户模型"
   ],
-  "e": "用自己的 Sparrow 钱包地址反推解释：助记词如何派生出私钥与地址、签名交易如何证明你拥有该地址，画出一张从助记词到链上交易签名的链路图。",
+  "e": "用 ethers.js（v6）从一个测试助记词派生 3 个不同路径的地址并验证地址不同；对一段消息签名，再用 recoverAddress 还原签名者地址；写出你的 Sparrow 钱包地址对应的派生路径含义。",
   "r": [
-   "https://github.com/bitcoinbook/bitcoinbook",
-   "https://ethereum.org/en/developers/docs/intro-to-ethereum/",
-   "https://en.bitcoin.it/wiki/Secp256k1"
+   "https://github.com/ethereumjs/ethereumjs-monorepo",
+   "https://docs.ethers.org/v6/api/wallet/",
+   "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+   "https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki"
   ],
-  "s": 1
+  "s": 2
  },
- "以太坊生态：账户、Gas 与交易生命周期": {
+ "以太坊交易机制：账户、Gas 与生命周期": {
   "o": [
    "区分 EOA 与合约账户的行为差异",
-   "说清交易从签名→广播→验证→上链的完整路径",
-   "理解 Gas 计费模型：为什么每步操作都花钱"
+   "说清交易 nonce→签名→广播→mempool→验证→上链全流程",
+   "理解 Gas 计费：gasLimit/gasPrice/gasUsed 与失败交易资金去向"
   ],
-  "e": "画出「一笔 ETH 转账从钱包到确认」的全链路图，标注每个环节由谁执行、消耗什么、失败时资金去哪，口述一遍完整流程。",
+  "e": "起 Hardhat node 本地链，用 ethers 发一笔 ETH 转账，读 tx receipt 分析 gasUsed/effectiveGasPrice 与 logs；再人为构造一笔 gasLimit 不足的交易，观察失败并解释 gas 消耗与资金去向。",
   "r": [
-   "https://ethereum.org/en/developers/docs/accounts/",
+   "https://ethereum.org/en/developers/docs/transactions/",
    "https://ethereum.org/en/developers/docs/gas/",
-   "https://ethereum.org/en/developers/docs/transactions/"
+   "https://ethereum.org/en/developers/docs/accounts/",
+   "https://hardhat.org/hardhat-network/docs/overview"
   ],
-  "s": 1
+  "s": 2
  },
- "Solidity 基础：类型、状态变量与函数": {
+ "Solidity 基础语法（对照 TypeScript）": {
   "o": [
-   "对照 TS 掌握 Solidity 基础类型与 mapping/array",
-   "理解状态变量（链上存储）与局部变量的区别",
-   "掌握 visibility（public/private/external/internal）与 view/pure 修饰符"
+   "对照 TS 掌握 Solidity 值类型与引用类型",
+   "理解状态变量（链上存储）vs 局部变量的落盘差异",
+   "掌握 storage/memory/calldata 三数据位置",
+   "掌握 visibility（public/private/internal/external）与 view/pure"
   ],
-  "e": "写一个 Counter 合约（count 状态变量 + increment/get 函数），对比 TS class 翻译每一处差异：状态持久化在哪、谁有权限改、函数怎么被外部调用。",
+  "e": "写一个 Counter 合约（count 状态变量 + increment/reset/get 函数），逐行对照 TS class 翻译差异：状态持久化在哪、谁有权限调、view 函数为何不花 gas 也能被外部读。部署到本地链从两个账户验证可见性。",
   "r": [
    "https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html",
    "https://docs.soliditylang.org/en/latest/types.html",
-   "https://docs.soliditylang.org/en/latest/contracts.html"
+   "https://docs.soliditylang.org/en/latest/contracts.html",
+   "https://docs.soliditylang.org/en/latest/storage-layout.html"
   ],
   "s": 2
  },
- "合约实战：ERC-20 与部署": {
+ "Solidity 进阶：mapping、事件与错误处理": {
   "o": [
-   "理解 ERC-20 标准接口：totalSupply/balanceOf/transfer/approve/transferFrom",
-   "用 mapping 实现余额账本",
-   "把合约部署到本地链并用脚本交互"
+   "用 mapping 实现键值账本（对照 dict/哈希表）",
+   "用 struct 组织复合数据",
+   "用 event + indexed 记录链上行为供前端订阅",
+   "掌握 require/revert/assert 语义差异并正确设防"
   ],
-  "e": "从零写一个 ERC-20 代币合约（含 transfer/approve/transferFrom），部署到 Hardhat 本地链，写脚本验证两账户间转账后余额变化正确。",
+  "e": "写一个 Vault 合约：mapping 记录每地址余额，deposit/withdraw 更新余额并 emit Deposit/Withdraw 事件（含 indexed 地址参数），require 校验余额不足与重复操作，部署后从两个账户存款取款并订阅事件验证。",
+  "r": [
+   "https://docs.soliditylang.org/en/latest/types.html#mapping-types",
+   "https://docs.soliditylang.org/en/latest/contracts.html#events",
+   "https://docs.soliditylang.org/en/latest/control-structures.html#error-handling-assert-require-revert-and-exceptions"
+  ],
+  "s": 2
+ },
+ "ERC-20 标准与代币合约实战": {
+  "o": [
+   "读懂 ERC-20 标准接口：totalSupply/balanceOf/transfer/approve/transferFrom/allowance",
+   "理解 approve→transferFrom 两步授权的安全设计动机",
+   "用 mapping 实现双账本（balances/allowances）"
+  ],
+  "e": "不用 OpenZeppelin，从零手写 MyToken 合约实现 ERC-20 全接口；部署后写脚本验证：transfer 成功/余额不足 revert、approve 授权、transferFrom 代扣三步全流程，并解释为什么标准不直接允许合约划走用户余额。",
   "r": [
    "https://eips.ethereum.org/EIPS/eip-20",
-   "https://docs.openzeppelin.com/contracts/5.x/erc20",
    "https://docs.soliditylang.org/en/latest/solidity-by-example.html"
   ],
-  "s": 2
+  "s": 3
  },
- "Hardhat：本地链、部署脚本与测试": {
+ "Hardhat 工程化与合约测试": {
   "o": [
    "理解 Hardhat 在合约开发中的角色（Vite 对应物）",
-   "会写部署脚本并用 console.log 调试",
-   "用 chai 写单元测试覆盖关键路径"
+   "会写部署脚本并管理多网络配置",
+   "用 chai 写单元测试覆盖成功与失败路径",
+   "用 console.log 调试合约执行"
   ],
-  "e": "建 Hardhat 项目，部署自写的 ERC-20，用 chai 测试 transfer 成功/余额不足失败两条路径，跑通全部测试并解释每条断言验证了什么。",
+  "e": "建 Hardhat 项目集成上一节 MyToken，写 4 条以上测试：transfer 成功、余额不足 revert、approve 授权、transferFrom 超额 revert，全部跑通；演示 console.log 定位一次失败交易。",
   "r": [
    "https://hardhat.org/hardhat-runner/docs/getting-started",
-   "https://hardhat.org/hardhat-runner/docs/guides/test-contracts"
+   "https://hardhat.org/hardhat-runner/docs/guides/test-contracts",
+   "https://hardhat.org/hardhat-network/docs/overview"
   ],
   "s": 2
  },
  "DApp 前端：ethers.js 与钱包连接": {
   "o": [
-   "理解 ethers.js 的 Provider/Signer/Contract 三件套",
-   "实现 MetaMask 连接与账户切换",
-   "读取链上状态并发起签名交易"
+   "理解 ethers.js Provider/Signer/Contract 三件套职责",
+   "实现 MetaMask 连接、账户与链切换监听",
+   "读链上状态并发起签名交易",
+   "订阅合约事件驱动 UI 更新"
   ],
-  "e": "用 React 写一个最小 DApp：连接 MetaMask 显示账户地址与 ETH 余额，调用自己部署的 ERC-20 的 balanceOf 读余额，发起一次 transfer 并监听确认。",
+  "e": "用 React 写最小 DApp：连接 MetaMask 显示账户/链/ETH 余额，调用自己部署的 MyToken 的 balanceOf 读余额，执行一次 transfer 并在交易确认后通过事件监听自动刷新 UI（含 loading 与错误态）。",
   "r": [
    "https://docs.ethers.org/v6/getting-started/",
+   "https://docs.ethers.org/v6/api/providers/",
    "https://docs.metamask.io/wallet/how-to/connect/",
    "https://docs.ethers.org/v6/api/contract/"
   ],
-  "s": 2
+  "s": 3
  },
- "DeFi 剖析：AMM、借贷与质押": {
+ "DeFi 核心协议：AMM 与借贷原理": {
   "o": [
    "理解 AMM x*y=k 恒定乘积做市原理与滑点来源",
-   "读懂 Uniswap V2 Pair 合约核心函数（mint/burn/swap）",
-   "了解借贷/质押协议的基本资金流"
+   "读懂 Uniswap V2 Pair 的 mint/burn/swap 核心函数",
+   "理解 0.3% 手续费去向与无常损失",
+   "了解借贷协议抵押、利率与清算的资金流"
   ],
-  "e": "读 Uniswap V2 Pair 合约的 swap 函数，画出一次 swap 的资金流与储备变化（含手续费），解释为什么大额交易滑点更高。",
+  "e": "读 Uniswap V2 core 的 Pair 合约，画出一次 swap 前后储备变化（含手续费进入流动性池），口述为什么大额交易滑点更高、什么是无常损失；画出借贷协议从抵押到清算的完整资金流。",
   "r": [
    "https://uniswap.org/whitepaper.pdf",
+   "https://github.com/Uniswap/v2-core",
    "https://docs.uniswap.org/contracts/v2/reference/smart-contracts/pair",
-   "https://github.com/Uniswap/v2-core"
+   "https://docs.aave.com/developers/getting-started/readme"
   ],
   "s": 2
  },
- "智能合约安全：重入、溢出与审计清单": {
+ "智能合约安全与审计": {
   "o": [
    "理解重入攻击原理（DAO 事件）与 CEI 修复模式",
    "理解整数溢出与 Solidity 0.8 内置检查",
-   "能列出部署前安全自查清单"
+   "识别权限漏洞与 tx.origin 风险",
+   "列出部署前安全检查清单"
   ],
-  "e": "复现一个含重入漏洞的取款合约并演示攻击，再用 Checks-Effects-Interactions 模式修复并验证攻击失效，输出一份自己的合约部署前检查清单。",
+  "e": "写一个含重入漏洞的取款合约并用攻击合约演示资金被抽干，再用 Checks-Effects-Interactions 模式修复并测试验证攻击失效；输出一份自己的合约部署前检查清单（重入/溢出/权限/预言机/随机数）。",
   "r": [
    "https://docs.soliditylang.org/en/latest/security-considerations.html",
    "https://swcregistry.io/",
-   "https://consensys.github.io/smart-contract-best-practices/"
+   "https://consensys.github.io/smart-contract-best-practices/",
+   "https://solidity-by-example.org/hacks/re-entrancy/"
   ],
   "s": 2
  }
