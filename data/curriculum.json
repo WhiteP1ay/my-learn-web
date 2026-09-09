@@ -1109,80 +1109,154 @@
    "name": "Web3 全栈",
    "groups": [
     {
-     "id": "web3",
-     "name": "Web3 开发",
+     "id": "web3-chain-lang",
+     "name": "链与合约语言",
      "chapters": [
       {
        "id": "w3-1",
        "name": "区块链密码学与钱包原理",
        "mastery": 0,
-       "evidence": "能从助记词讲清 BIP32/39/44 派生链，用 ethers.js 从同一助记词派生地址并完成签名/验签，能指出与 Sparrow m/84'/0'/0' 的对应关系",
+       "evidence": "能从助记词讲清 BIP32/39/44 派生链，用 viem 从同一助记词派生地址并完成签名/验签，指出与 Sparrow m/84'/0'/0' 的对应关系",
        "strategy": "comprehensive",
-       "note": "对照学习者 BTC 自托管实操：助记词=主密码、派生路径=命名空间。哈希 SHA-256 vs Keccak、ECDSA 签名、地址生成、UTXO vs 账户模型差异"
+       "note": "对照 BTC 自托管实操：助记词=主密码、派生路径=命名空间。哈希 SHA-256 vs Keccak、ECDSA、地址生成、UTXO vs 账户模型。全栈统一 viem 工具链"
       },
       {
        "id": "w3-2",
        "name": "以太坊交易机制：账户、Gas 与生命周期",
        "mastery": 0,
-       "evidence": "能区分 EOA 与合约账户，说清交易 nonce→签名→mempool→验证→上链全流程，能读 receipt 分析 gasUsed/effectiveGasPrice 并解释失败交易资金去向",
+       "evidence": "能区分 EOA 与合约账户，说清交易 nonce→签名→mempool→验证→上链全流程，能读 receipt 分析 gasUsed/effectiveGasPrice，解释失败交易资金去向",
        "strategy": "comprehensive",
-       "note": "类比：交易=HTTP 请求、Gas=执行费、nonce=请求序号防重放。本地 Hardhat node 实测一笔成功一笔 gas 不足的失败交易"
+       "note": "类比：交易=HTTP 请求、Gas=执行费、nonce=请求序号防重放。本地链实测一笔成功 + 一笔 gas 不足失败"
       },
       {
        "id": "w3-3",
-       "name": "Solidity 基础语法（对照 TypeScript）",
+       "name": "Solidity 基础（对照 TypeScript）：类型、状态变量与可见性",
        "mastery": 0,
-       "evidence": "对照 TS 写出 Solidity 类型/函数/状态变量代码，解释 storage/memory/calldata 三数据位置的落盘差异，能说明状态变量为何永久上链",
+       "evidence": "对照 TS 写出 Solidity 类型/函数/状态变量代码，解释 storage/memory/calldata 落盘差异，说明状态变量为何永久上链",
        "strategy": "comprehensive",
-       "note": "类比：TS class 字段=内存变量，Solidity 状态变量=数据库行；public/private/internal/external 对照 TS 可见性逐一对齐差异"
+       "note": "类比：TS class 字段=内存变量，Solidity 状态变量=数据库行。visibility 逐一对齐 TS 差异"
       },
       {
        "id": "w3-4",
-       "name": "Solidity 进阶：mapping、事件与错误处理",
+       "name": "Solidity 进阶：mapping、struct、事件与错误处理",
        "mastery": 0,
-       "evidence": "会用 mapping 实现键值账本，用 event 记录链上行为（含 indexed 供前端过滤），能用 require/revert/assert 设防并解释三者语义差异",
+       "evidence": "用 mapping+struct 实现账本，用 event（含 indexed）记录链上行为供前端订阅，用 require/revert/assert 设防并解释三者差异",
        "strategy": "comprehensive",
-       "note": "类比：mapping=dict/哈希表、event=结构化日志（前端可订阅）、require=参数校验闸门、revert=抛异常回滚。对照 JS console/throw 心智"
+       "note": "类比：mapping=dict、event=结构化日志、require=参数校验闸门、revert=抛异常回滚。作业 Vault 合约"
       },
       {
        "id": "w3-5",
-       "name": "ERC-20 标准与代币合约实战",
+       "name": "Solidity 中级：modifier、payable、继承与底层调用",
        "mastery": 0,
-       "evidence": "能读懂 ERC-20 标准接口，从零实现 transfer/approve/transferFrom 双账本机制并解释 approve 两步授权的安全设计动机",
+       "evidence": "能写 onlyOwner 类 modifier、payable 收币函数、合约继承体系，做 call/delegatecall 对照实验并解释存储布局差异与代理原理的关系",
        "strategy": "comprehensive",
-       "note": "类比：approve/transferFrom=代扣授权协议（微信代扣），避免合约直接转走用户余额。不用 OpenZeppelin，手写全量逻辑"
-      },
+       "note": "批评吸收：modifier/payable/继承/call/delegatecall 是收币合约与代理机制的日常武器。fallback/receive 一并覆盖"
+      }
+     ]
+    },
+    {
+     "id": "web3-contracts",
+     "name": "合约工程化与测试网",
+     "chapters": [
       {
        "id": "w3-6",
-       "name": "Hardhat 工程化与合约测试",
+       "name": "ERC-20 手写：标准接口与双账本",
        "mastery": 0,
-       "evidence": "能用 Hardhat 建项目、写部署脚本、用 chai 断言覆盖成功与失败路径，用 console.log 调试合约，理解与 Vite 工程化的对应",
+       "evidence": "不用 OpenZeppelin 从零实现 ERC-20 全接口，跑通 transfer/approve/transferFrom，解释 approve 两步授权的安全设计动机",
        "strategy": "comprehensive",
-       "note": "类比：Vite 工程化→Hardhat；chai 断言=vitest 心智平移。测试跑通一键命令，覆盖 transfer/approve/transferFrom 正反路径"
+       "note": "手写第一遍=理解原理（双账本 balances/allowances），下一节再用 OZ 重写=工程化范式。两步授权类比代扣协议"
       },
       {
        "id": "w3-7",
-       "name": "DApp 前端：ethers.js 与钱包连接",
+       "name": "OpenZeppelin 工程化：标准库重写与安全组件",
        "mastery": 0,
-       "evidence": "能用 React 实现 MetaMask 连接、账户与链切换监听、读链上余额、发起签名交易、订阅合约事件驱动 UI 更新",
+       "evidence": "用 OpenZeppelin 重写 ERC-20，正确使用 Ownable/ReentrancyGuard，能对比手写版与库版的差异并说明为何生产用库",
        "strategy": "comprehensive",
-       "note": "类比：axios→ethers、session→钱包签名、SSE/WebSocket→合约事件监听。学习者前端主场，直接复用 React 组件心智"
+       "note": "批评吸收：行业标准库是工程化范式不是可选项。OZ 合约=经审计的轮子，别重复造"
       },
       {
        "id": "w3-8",
-       "name": "DeFi 核心协议：AMM 与借贷原理",
+       "name": "代理升级与 NFT：UUPS + ERC-721",
        "mastery": 0,
-       "evidence": "能解释 AMM x*y=k 做市、滑点与无常损失，读懂 Uniswap V2 Pair 的 mint/burn/swap 核心函数，能讲清借贷协议的抵押与清算资金流",
+       "evidence": "能部署 UUPS 可升级合约并完成逻辑升级验证，理解 ERC-1967 存储槽与 delegatecall 的关系；能写 ERC-721 铸 NFT 并解释与 ERC-20 的差异",
        "strategy": "comprehensive",
-       "note": "概念+源码双轨：先理解协议设计意图，再进 Uniswap V2 core 读关键函数，画一次 swap 储备变化含 0.3% 手续费"
+       "note": "批评吸收：代理升级=合约可维护性的行业标配；ERC-1967 存储槽、UUPS vs Transparent、ERC-721/1155 标准接口"
       },
       {
        "id": "w3-9",
+       "name": "Foundry 实战：测试、cheatcodes 与 fuzz",
+       "mastery": 0,
+       "evidence": "用 forge 建项目，用 Solidity 写测试覆盖合约正反路径，用 cheatcodes 模拟账户/时间/存储，跑通一次 fuzz 测试",
+       "strategy": "comprehensive",
+       "note": "批评吸收：2026 主流工具是 Foundry 不是 Hardhat——Solidity 写测试、速度快、fuzz 内建。forge test/script/cast 三件套"
+      },
+      {
+       "id": "w3-10",
+       "name": "测试网部署与验证：Sepolia 全流程",
+       "mastery": 0,
+       "evidence": "领 Sepolia faucet，用 forge script 部署合约到测试网，Etherscan 源码验证通过，能在浏览器上交互调用",
+       "strategy": "comprehensive",
+       "note": "批评吸收：只在本地区块链跑=没上过线。测试网+浏览器验证是部署闭环，验证后源码公开可读"
+      }
+     ]
+    },
+    {
+     "id": "web3-fullstack",
+     "name": "DApp 全栈与读路径",
+     "chapters": [
+      {
+       "id": "w3-11",
+       "name": "viem/wagmi 前端：连接、读状态与交易",
+       "mastery": 0,
+       "evidence": "用 React + wagmi 实现钱包连接/账户链监听/读链上状态/发签名交易，用 viem 客户端直接查询，订阅事件驱动 UI 更新",
+       "strategy": "comprehensive",
+       "note": "批评吸收：主流栈是 viem/wagmi 非 ethers+裸接 MetaMask。wagmi hooks=React 数据流心智平移，viem=类型安全 RPC 客户端"
+      },
+      {
+       "id": "w3-12",
+       "name": "事件索引与读模型：链上事件落 PostgreSQL",
+       "mastery": 0,
+       "evidence": "写一个索引器订阅合约事件并落 PostgreSQL 读模型，处理确认数与链重组（延迟确认+回滚补偿），前端通过自建 API 查询而非直查 RPC",
+       "strategy": "comprehensive",
+       "note": "批评吸收：全栈后半截=写路径走链、读路径走自己的库。索引器=链上 CDC→PG，直接复用数据库主线技能；确认数=最终性，重组=回滚补偿"
+      },
+      {
+       "id": "w3-13",
+       "name": "链上应用架构：写路径与读路径分离",
+       "mastery": 0,
+       "evidence": "能为一类链上应用画出完整架构（合约写/索引读/API/前端），说明私钥与签名服务的边界，判断何时该上链何时该落库",
+       "strategy": "comprehensive",
+       "note": "CQRS 心智：写走链（共识保证）、读走库（性能/聚合）。后端签名的私钥管理是生产安全分水岭"
+      }
+     ]
+    },
+    {
+     "id": "web3-capstone",
+     "name": "协议、安全与作品",
+     "chapters": [
+      {
+       "id": "w3-14",
+       "name": "DeFi 最小实现：自写 AMM",
+       "mastery": 0,
+       "evidence": "从零实现 xy=k 最小 AMM（addLiquidity/removeLiquidity/swap/手续费），forge 测试覆盖流动性添加与兑换路径，能解释滑点与无常损失来源",
+       "strategy": "comprehensive",
+       "note": "批评吸收：从读 Uniswap V2 升级为自己实现最小协议；V2 源码降为对照参考。理解=能写出来"
+      },
+      {
+       "id": "w3-15",
        "name": "智能合约安全与审计",
        "mastery": 0,
-       "evidence": "能复现重入攻击（DAO 事件原理）并用 Checks-Effects-Interactions 模式修复验证攻击失效，能列出部署前检查清单（重入/溢出/权限/预言机）",
+       "evidence": "复现重入攻击并用 CEI 修复验证，跑 slither 静态检查并读懂报告，能列出部署前检查清单（重入/溢出/权限/预言机/随机数）",
        "strategy": "comprehensive",
-       "note": "学开发必配安全认知。写含漏洞合约演示攻击 + CEI 修复版对比测试，产出个人合约部署前检查清单"
+       "note": "重入（DAO 事件）/溢出/权限/tx.origin/预言机。工具化审计：slither 静态分析 + 手工清单"
+      },
+      {
+       "id": "w3-16",
+       "name": "测试网毕业作品：可升级合约 + 索引 + wagmi 前端",
+       "mastery": 0,
+       "evidence": "独立交付一个链上功能：UUPS 可升级合约 + 事件索引器落 PG + wagmi 前端，部署 Sepolia 附验证链接，README 含架构图与部署步骤",
+       "strategy": "comprehensive",
+       "note": "批评吸收：一个作品把全部串起来，交付标准=别人能按 README 复现。候选方向：可升级 NFT 市场 / 带索引的 AMM 前端 / 链上记账本"
       }
      ]
     }
@@ -1196,7 +1270,7 @@
   "current_position": "db-6. 聚合与分组：GROUP BY / HAVING",
   "session_count": 19,
   "last_session": "2026-09-09",
-  "total_chapters": 128,
+  "total_chapters": 135,
   "phase_summary": {
    "phase1": {
     "chapters": 62,
@@ -1215,7 +1289,7 @@
     "completed": 0
    },
    "phase5": {
-    "chapters": 9,
+    "chapters": 16,
     "completed": 0
    }
   },
@@ -1226,8 +1300,8 @@
    "Phase 4 聚焦「部署工作线」：SSH→文件→Nginx→systemd→日志排查",
    "数据库课程 6→12 章：补充 SELECT基础/聚合分组/子查询CTE/窗口函数/范式/JSONB全文搜索",
    "数据库再加 3 章：存储过程/连接池pgBouncer/主从复制",
-   "2026-09-09 规划扩充（用户提出）：Phase 1 新增「MongoDB 文档数据库」组 db-16~21 共 6 节（含 Mongoose/Node 实操），排在 FastAPI 组后；新增「Web3 全栈」Phase，9 节完整开发线",
-   "2026-09-09 Web3 线修订：用户否决「Phase5...(可选)」命名与泛泛课纲。Tab 更名「Web3 全栈」，章节重设计 9 节（原 8 节），Solidity 拆为完整语言序列（基础语法/进阶/ERC-20 实战）+ Hardhat 工程化 + DApp 前端 + DeFi 源码 + 合约安全，全部配可验收产出"
+   "2026-09-09 课程扩充（用户提出）：Phase 1 新增「MongoDB 文档数据库」组 db-16~21 共 6 节（含 Mongoose/Node 实操），排在 FastAPI 组后",
+   "2026-09-09 Web3 线最终版（用户否决泛泛课纲与可选标注，Tab 定名「Web3 全栈」，吸收专业批评重排为 16 节 4 组）：组A 链与合约语言 w3-1~5（补 Solidity 中级 modifier/payable/继承/delegatecall）；组B 合约工程化 w3-6~10（OZ 工程化/代理升级 UUPS+NFT/Foundry/Sepolia 验证）；组C DApp 全栈 w3-11~13（viem/wagmi、事件索引落 PG、写读路径分离）；组D 协议安全作品 w3-14~16（自写 AMM/审计/测试网毕业作品）。目标=能独立交付链上功能"
   ]
  }
 }

@@ -1130,70 +1130,134 @@ const DATA = {
       "name": "Web3 全栈",
       "groups": [
         {
-          "name": "Web3 开发",
+          "name": "链与合约语言",
           "chapters": [
             {
               "id": "w3-1",
               "name": "区块链密码学与钱包原理",
               "mastery": 0,
               "done": false,
-              "note": "对照学习者 BTC 自托管实操：助记词=主密码、派生路径=命名空间。哈希 SHA-256 vs Keccak、ECDSA 签名、地址生成、UTXO vs 账户模型差异"
+              "note": "对照 BTC 自托管实操：助记词=主密码、派生路径=命名空间。哈希 SHA-256 vs Keccak、ECDSA、地址生成、UTXO vs 账户模型。全栈统一 viem 工具链"
             },
             {
               "id": "w3-2",
               "name": "以太坊交易机制：账户、Gas 与生命周期",
               "mastery": 0,
               "done": false,
-              "note": "类比：交易=HTTP 请求、Gas=执行费、nonce=请求序号防重放。本地 Hardhat node 实测一笔成功一笔 gas 不足的失败交易"
+              "note": "类比：交易=HTTP 请求、Gas=执行费、nonce=请求序号防重放。本地链实测一笔成功 + 一笔 gas 不足失败"
             },
             {
               "id": "w3-3",
-              "name": "Solidity 基础语法（对照 TypeScript）",
+              "name": "Solidity 基础（对照 TypeScript）：类型、状态变量与可见性",
               "mastery": 0,
               "done": false,
-              "note": "类比：TS class 字段=内存变量，Solidity 状态变量=数据库行；public/private/internal/external 对照 TS 可见性逐一对齐差异"
+              "note": "类比：TS class 字段=内存变量，Solidity 状态变量=数据库行。visibility 逐一对齐 TS 差异"
             },
             {
               "id": "w3-4",
-              "name": "Solidity 进阶：mapping、事件与错误处理",
+              "name": "Solidity 进阶：mapping、struct、事件与错误处理",
               "mastery": 0,
               "done": false,
-              "note": "类比：mapping=dict/哈希表、event=结构化日志（前端可订阅）、require=参数校验闸门、revert=抛异常回滚。对照 JS console/throw 心智"
+              "note": "类比：mapping=dict、event=结构化日志、require=参数校验闸门、revert=抛异常回滚。作业 Vault 合约"
             },
             {
               "id": "w3-5",
-              "name": "ERC-20 标准与代币合约实战",
+              "name": "Solidity 中级：modifier、payable、继承与底层调用",
               "mastery": 0,
               "done": false,
-              "note": "类比：approve/transferFrom=代扣授权协议（微信代扣），避免合约直接转走用户余额。不用 OpenZeppelin，手写全量逻辑"
-            },
+              "note": "批评吸收：modifier/payable/继承/call/delegatecall 是收币合约与代理机制的日常武器。fallback/receive 一并覆盖"
+            }
+          ]
+        },
+        {
+          "name": "合约工程化与测试网",
+          "chapters": [
             {
               "id": "w3-6",
-              "name": "Hardhat 工程化与合约测试",
+              "name": "ERC-20 手写：标准接口与双账本",
               "mastery": 0,
               "done": false,
-              "note": "类比：Vite 工程化→Hardhat；chai 断言=vitest 心智平移。测试跑通一键命令，覆盖 transfer/approve/transferFrom 正反路径"
+              "note": "手写第一遍=理解原理（双账本 balances/allowances），下一节再用 OZ 重写=工程化范式。两步授权类比代扣协议"
             },
             {
               "id": "w3-7",
-              "name": "DApp 前端：ethers.js 与钱包连接",
+              "name": "OpenZeppelin 工程化：标准库重写与安全组件",
               "mastery": 0,
               "done": false,
-              "note": "类比：axios→ethers、session→钱包签名、SSE/WebSocket→合约事件监听。学习者前端主场，直接复用 React 组件心智"
+              "note": "批评吸收：行业标准库是工程化范式不是可选项。OZ 合约=经审计的轮子，别重复造"
             },
             {
               "id": "w3-8",
-              "name": "DeFi 核心协议：AMM 与借贷原理",
+              "name": "代理升级与 NFT：UUPS + ERC-721",
               "mastery": 0,
               "done": false,
-              "note": "概念+源码双轨：先理解协议设计意图，再进 Uniswap V2 core 读关键函数，画一次 swap 储备变化含 0.3% 手续费"
+              "note": "批评吸收：代理升级=合约可维护性的行业标配；ERC-1967 存储槽、UUPS vs Transparent、ERC-721/1155 标准接口"
             },
             {
               "id": "w3-9",
+              "name": "Foundry 实战：测试、cheatcodes 与 fuzz",
+              "mastery": 0,
+              "done": false,
+              "note": "批评吸收：2026 主流工具是 Foundry 不是 Hardhat——Solidity 写测试、速度快、fuzz 内建。forge test/script/cast 三件套"
+            },
+            {
+              "id": "w3-10",
+              "name": "测试网部署与验证：Sepolia 全流程",
+              "mastery": 0,
+              "done": false,
+              "note": "批评吸收：只在本地区块链跑=没上过线。测试网+浏览器验证是部署闭环，验证后源码公开可读"
+            }
+          ]
+        },
+        {
+          "name": "DApp 全栈与读路径",
+          "chapters": [
+            {
+              "id": "w3-11",
+              "name": "viem/wagmi 前端：连接、读状态与交易",
+              "mastery": 0,
+              "done": false,
+              "note": "批评吸收：主流栈是 viem/wagmi 非 ethers+裸接 MetaMask。wagmi hooks=React 数据流心智平移，viem=类型安全 RPC 客户端"
+            },
+            {
+              "id": "w3-12",
+              "name": "事件索引与读模型：链上事件落 PostgreSQL",
+              "mastery": 0,
+              "done": false,
+              "note": "批评吸收：全栈后半截=写路径走链、读路径走自己的库。索引器=链上 CDC→PG，直接复用数据库主线技能；确认数=最终性，重组=回滚补偿"
+            },
+            {
+              "id": "w3-13",
+              "name": "链上应用架构：写路径与读路径分离",
+              "mastery": 0,
+              "done": false,
+              "note": "CQRS 心智：写走链（共识保证）、读走库（性能/聚合）。后端签名的私钥管理是生产安全分水岭"
+            }
+          ]
+        },
+        {
+          "name": "协议、安全与作品",
+          "chapters": [
+            {
+              "id": "w3-14",
+              "name": "DeFi 最小实现：自写 AMM",
+              "mastery": 0,
+              "done": false,
+              "note": "批评吸收：从读 Uniswap V2 升级为自己实现最小协议；V2 源码降为对照参考。理解=能写出来"
+            },
+            {
+              "id": "w3-15",
               "name": "智能合约安全与审计",
               "mastery": 0,
               "done": false,
-              "note": "学开发必配安全认知。写含漏洞合约演示攻击 + CEI 修复版对比测试，产出个人合约部署前检查清单"
+              "note": "重入（DAO 事件）/溢出/权限/tx.origin/预言机。工具化审计：slither 静态分析 + 手工清单"
+            },
+            {
+              "id": "w3-16",
+              "name": "测试网毕业作品：可升级合约 + 索引 + wagmi 前端",
+              "mastery": 0,
+              "done": false,
+              "note": "批评吸收：一个作品把全部串起来，交付标准=别人能按 README 复现。候选方向：可升级 NFT 市场 / 带索引的 AMM 前端 / 链上记账本"
             }
           ]
         }
@@ -2926,43 +2990,43 @@ const DATA = {
     },
     "区块链密码学与钱包原理": {
       "o": [
-        "理解哈希性质（单向/抗碰撞）与 SHA-256 vs Keccak 差异",
+        "理解哈希性质与 SHA-256 vs Keccak 差异",
         "理解 ECDSA 公私钥签名如何证明所有权",
-        "掌握 BIP32 分层派生/BIP39 助记词/BIP44 路径，对照 Sparrow m/84'/0'/0'",
+        "掌握 BIP32/BIP39/BIP44，对照 Sparrow m/84'/0'/0'",
         "区分 UTXO 与账户模型"
       ],
-      "e": "用 ethers.js（v6）从一个测试助记词派生 3 个不同路径的地址并验证地址不同；对一段消息签名，再用 recoverAddress 还原签名者地址；写出你的 Sparrow 钱包地址对应的派生路径含义。",
+      "e": "用 viem 从一个测试助记词派生 3 个不同路径的地址并验证互不相同；对消息签名再用 verifyMessage 还原签名者；写出 Sparrow 钱包地址对应派生路径的含义。",
       "r": [
-        "https://github.com/ethereumjs/ethereumjs-monorepo",
-        "https://docs.ethers.org/v6/api/wallet/",
+        "https://docs.viem.sh/",
         "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
-        "https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki"
+        "https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki",
+        "https://ethereum.org/en/developers/docs/accounts/"
       ],
       "s": 2
     },
     "以太坊交易机制：账户、Gas 与生命周期": {
       "o": [
-        "区分 EOA 与合约账户的行为差异",
+        "区分 EOA 与合约账户",
         "说清交易 nonce→签名→广播→mempool→验证→上链全流程",
-        "理解 Gas 计费：gasLimit/gasPrice/gasUsed 与失败交易资金去向"
+        "理解 gasLimit/gasPrice/gasUsed 与失败交易资金去向"
       ],
-      "e": "起 Hardhat node 本地链，用 ethers 发一笔 ETH 转账，读 tx receipt 分析 gasUsed/effectiveGasPrice 与 logs；再人为构造一笔 gasLimit 不足的交易，观察失败并解释 gas 消耗与资金去向。",
+      "e": "起本地链（anvil），用 viem 发一笔 ETH 转账，读 receipt 分析 gasUsed/effectiveGasPrice/logs；再构造一笔 gas 不足的交易观察失败，解释 gas 消耗与资金去向。",
       "r": [
         "https://ethereum.org/en/developers/docs/transactions/",
         "https://ethereum.org/en/developers/docs/gas/",
-        "https://ethereum.org/en/developers/docs/accounts/",
-        "https://hardhat.org/hardhat-network/docs/overview"
+        "https://book.getfoundry.sh/anvil/",
+        "https://ethereum.org/en/developers/docs/accounts/"
       ],
       "s": 2
     },
-    "Solidity 基础语法（对照 TypeScript）": {
+    "Solidity 基础（对照 TypeScript）：类型、状态变量与可见性": {
       "o": [
-        "对照 TS 掌握 Solidity 值类型与引用类型",
-        "理解状态变量（链上存储）vs 局部变量的落盘差异",
-        "掌握 storage/memory/calldata 三数据位置",
-        "掌握 visibility（public/private/internal/external）与 view/pure"
+        "对照 TS 掌握值类型与引用类型",
+        "理解状态变量 vs 局部变量落盘差异",
+        "掌握 storage/memory/calldata 数据位置",
+        "掌握 visibility 与 view/pure"
       ],
-      "e": "写一个 Counter 合约（count 状态变量 + increment/reset/get 函数），逐行对照 TS class 翻译差异：状态持久化在哪、谁有权限调、view 函数为何不花 gas 也能被外部读。部署到本地链从两个账户验证可见性。",
+      "e": "写 Counter 合约（count + increment/reset/get），逐行对照 TS class 翻译差异：状态持久化在哪、谁有权限调、view 为何外部读不花 gas。部署本地链从两账户验证可见性。",
       "r": [
         "https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html",
         "https://docs.soliditylang.org/en/latest/types.html",
@@ -2971,14 +3035,13 @@ const DATA = {
       ],
       "s": 2
     },
-    "Solidity 进阶：mapping、事件与错误处理": {
+    "Solidity 进阶：mapping、struct、事件与错误处理": {
       "o": [
-        "用 mapping 实现键值账本（对照 dict/哈希表）",
-        "用 struct 组织复合数据",
-        "用 event + indexed 记录链上行为供前端订阅",
-        "掌握 require/revert/assert 语义差异并正确设防"
+        "用 mapping+struct 组织链上数据",
+        "用 event+indexed 记录行为供前端订阅",
+        "掌握 require/revert/assert 差异并正确设防"
       ],
-      "e": "写一个 Vault 合约：mapping 记录每地址余额，deposit/withdraw 更新余额并 emit Deposit/Withdraw 事件（含 indexed 地址参数），require 校验余额不足与重复操作，部署后从两个账户存款取款并订阅事件验证。",
+      "e": "写 Vault 合约：mapping+struct 账本，deposit/withdraw 更新余额并 emit 事件（indexed 地址），require 校验余额不足；部署后两账户存款取款并订阅事件验证。",
       "r": [
         "https://docs.soliditylang.org/en/latest/types.html#mapping-types",
         "https://docs.soliditylang.org/en/latest/contracts.html#events",
@@ -2986,81 +3049,189 @@ const DATA = {
       ],
       "s": 2
     },
-    "ERC-20 标准与代币合约实战": {
+    "Solidity 中级：modifier、payable、继承与底层调用": {
       "o": [
-        "读懂 ERC-20 标准接口：totalSupply/balanceOf/transfer/approve/transferFrom/allowance",
-        "理解 approve→transferFrom 两步授权的安全设计动机",
-        "用 mapping 实现双账本（balances/allowances）"
+        "写 modifier（onlyOwner 等）并理解执行顺序",
+        "用 payable 接收 ETH，理解 msg.value",
+        "建立合约继承体系，理解 override",
+        "做 call/delegatecall 对照实验，理解存储布局与代理原理"
       ],
-      "e": "不用 OpenZeppelin，从零手写 MyToken 合约实现 ERC-20 全接口；部署后写脚本验证：transfer 成功/余额不足 revert、approve 授权、transferFrom 代扣三步全流程，并解释为什么标准不直接允许合约划走用户余额。",
+      "e": "写一个含 onlyOwner modifier + payable deposit/withdraw 的合约；再写两个合约演示继承与 override；最后做 call vs delegatecall 对照实验，解释为何 delegatecall 下被调合约的存储槽会写进调用者——这是代理升级的地基。",
+      "r": [
+        "https://docs.soliditylang.org/en/latest/contracts.html#function-modifiers",
+        "https://docs.soliditylang.org/en/latest/contracts.html#inheritance",
+        "https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html#delegatecall-and-libraries",
+        "https://solidity-by-example.org/delegatecall/"
+      ],
+      "s": 3
+    },
+    "ERC-20 手写：标准接口与双账本": {
+      "o": [
+        "读懂 ERC-20 接口：totalSupply/balanceOf/transfer/approve/transferFrom/allowance",
+        "理解 approve→transferFrom 两步授权安全动机",
+        "用 mapping 实现 balances/allowances 双账本"
+      ],
+      "e": "不用 OpenZeppelin 从零手写 MyToken 全接口；部署后写脚本验证 transfer 成功/余额不足 revert、approve、transferFrom 代扣三步，解释为什么标准不直接允许合约划走余额。",
       "r": [
         "https://eips.ethereum.org/EIPS/eip-20",
         "https://docs.soliditylang.org/en/latest/solidity-by-example.html"
       ],
       "s": 3
     },
-    "Hardhat 工程化与合约测试": {
+    "OpenZeppelin 工程化：标准库重写与安全组件": {
       "o": [
-        "理解 Hardhat 在合约开发中的角色（Vite 对应物）",
-        "会写部署脚本并管理多网络配置",
-        "用 chai 写单元测试覆盖成功与失败路径",
-        "用 console.log 调试合约执行"
+        "理解 OZ 为何是生产标准（审计过的轮子）",
+        "用 OZ 重写 ERC-20 并正确初始化",
+        "使用 Ownable/ReentrancyGuard 安全组件"
       ],
-      "e": "建 Hardhat 项目集成上一节 MyToken，写 4 条以上测试：transfer 成功、余额不足 revert、approve 授权、transferFrom 超额 revert，全部跑通；演示 console.log 定位一次失败交易。",
+      "e": "用 @openzeppelin/contracts 重写上一节的 MyToken，加 Ownable（mint 仅 owner）与 ReentrancyGuard（防重入），forge 测试验证权限与安全路径，对比手写版与库版差异。",
       "r": [
-        "https://hardhat.org/hardhat-runner/docs/getting-started",
-        "https://hardhat.org/hardhat-runner/docs/guides/test-contracts",
-        "https://hardhat.org/hardhat-network/docs/overview"
+        "https://docs.openzeppelin.com/contracts/5.x/",
+        "https://docs.openzeppelin.com/contracts/5.x/access-control",
+        "https://docs.openzeppelin.com/contracts/5.x/api/security"
       ],
       "s": 2
     },
-    "DApp 前端：ethers.js 与钱包连接": {
+    "代理升级与 NFT：UUPS + ERC-721": {
       "o": [
-        "理解 ethers.js Provider/Signer/Contract 三件套职责",
-        "实现 MetaMask 连接、账户与链切换监听",
-        "读链上状态并发起签名交易",
-        "订阅合约事件驱动 UI 更新"
+        "理解为什么需要代理：合约不可变，升级=换逻辑地址",
+        "理解 ERC-1967 存储槽与 delegatecall 的关系",
+        "掌握 UUPS 升级模式与 owner 权限",
+        "写 ERC-721 并理解与 ERC-20 的差异"
       ],
-      "e": "用 React 写最小 DApp：连接 MetaMask 显示账户/链/ETH 余额，调用自己部署的 MyToken 的 balanceOf 读余额，执行一次 transfer 并在交易确认后通过事件监听自动刷新 UI（含 loading 与错误态）。",
+      "e": "部署 UUPS 可升级合约（v1 无某功能→v2 加功能，升级后同地址行为变化），验证升级前后存储保留；用 OZ ERC721 写 NFT 合约并铸一个 token，解释 tokenId 与 ownerOf 模型。",
       "r": [
-        "https://docs.ethers.org/v6/getting-started/",
-        "https://docs.ethers.org/v6/api/providers/",
-        "https://docs.metamask.io/wallet/how-to/connect/",
-        "https://docs.ethers.org/v6/api/contract/"
+        "https://docs.openzeppelin.com/contracts/5.x/api/proxy",
+        "https://eips.ethereum.org/EIPS/eip-1967",
+        "https://eips.ethereum.org/EIPS/eip-721",
+        "https://docs.openzeppelin.com/contracts/5.x/erc721"
       ],
       "s": 3
     },
-    "DeFi 核心协议：AMM 与借贷原理": {
+    "Foundry 实战：测试、cheatcodes 与 fuzz": {
       "o": [
-        "理解 AMM x*y=k 恒定乘积做市原理与滑点来源",
-        "读懂 Uniswap V2 Pair 的 mint/burn/swap 核心函数",
-        "理解 0.3% 手续费去向与无常损失",
-        "了解借贷协议抵押、利率与清算的资金流"
+        "理解 Foundry 为何是主流（Solidity 写测试、速度快、fuzz 内建）",
+        "用 forge init/install/test/script 工作流",
+        "用 cheatcodes 模拟账户/时间/存储（vm.prank/warp/store）",
+        "跑通 fuzz 测试并读懂 counterexample"
       ],
-      "e": "读 Uniswap V2 core 的 Pair 合约，画出一次 swap 前后储备变化（含手续费进入流动性池），口述为什么大额交易滑点更高、什么是无常损失；画出借贷协议从抵押到清算的完整资金流。",
+      "e": "forge 建项目，把 ERC-20/Vault 测试从 JS 栈迁移到 Solidity 测试：覆盖成功与失败路径、vm.prank 模拟非 owner 调用、对 transfer 参数做一次 fuzz 并分析失败样例。",
       "r": [
-        "https://uniswap.org/whitepaper.pdf",
-        "https://github.com/Uniswap/v2-core",
-        "https://docs.uniswap.org/contracts/v2/reference/smart-contracts/pair",
-        "https://docs.aave.com/developers/getting-started/readme"
+        "https://book.getfoundry.sh/",
+        "https://book.getfoundry.sh/forge/tests",
+        "https://book.getfoundry.sh/cheatcodes/",
+        "https://book.getfoundry.sh/forge/fuzz-testing"
+      ],
+      "s": 3
+    },
+    "测试网部署与验证：Sepolia 全流程": {
+      "o": [
+        "理解测试网角色与 faucet 领取",
+        "用 forge script 配置多网络部署",
+        "Etherscan 源码验证与浏览器交互"
+      ],
+      "e": "领 Sepolia 测试 ETH，forge script 部署 ERC-20 到 Sepolia，Etherscan 验证源码，浏览器里完成一次 transfer 并确认状态变化；理解真实测试网与本地的差异（确认时间/gas 价格波动）。",
+      "r": [
+        "https://book.getfoundry.sh/forge/deploying",
+        "https://docs.etherscan.io/",
+        "https://sepoliafaucet.com/",
+        "https://book.getfoundry.sh/cast/"
+      ],
+      "s": 3
+    },
+    "viem/wagmi 前端：连接、读状态与交易": {
+      "o": [
+        "理解 viem（类型安全客户端）与 wagmi（React hooks）分工",
+        "实现钱包连接与账户/链切换监听",
+        "读链上状态并发起签名交易",
+        "订阅合约事件驱动 UI 更新"
+      ],
+      "e": "用 React + wagmi 写 DApp：连接钱包显示账户/链/余额，读 Sepolia 上自己部署的 ERC-20 的 balanceOf，执行 transfer 并在确认后通过事件刷新 UI（loading/错误态完整）。",
+      "r": [
+        "https://wagmi.sh/react/getting-started",
+        "https://viem.sh/docs/getting-started",
+        "https://wagmi.sh/react/hooks/useReadContract",
+        "https://wagmi.sh/react/hooks/useWatchContractEvent"
+      ],
+      "s": 3
+    },
+    "事件索引与读模型：链上事件落 PostgreSQL": {
+      "o": [
+        "理解为什么需要索引器：直查 RPC 无法聚合/历史查询/跨合约关联",
+        "订阅合约事件并解析成结构化数据",
+        "落 PostgreSQL 读模型并处理幂等",
+        "处理确认数与链重组（延迟确认+回滚补偿）"
+      ],
+      "e": "为 Sepolia 上的 ERC-20 写索引器：从起始块扫描 Transfer 事件落 PG（address/token/value/block/tx），支持增量同步；前端改为查自建 API 而非直查 RPC；实现 N 块确认延迟与重组回滚逻辑。",
+      "r": [
+        "https://viem.sh/docs/actions/public/watchContractEvent",
+        "https://www.postgresql.org/docs/current/",
+        "https://ethereum.org/en/developers/docs/apis/backend/",
+        "https://thegraph.com/docs/en/"
+      ],
+      "s": 3
+    },
+    "链上应用架构：写路径与读路径分离": {
+      "o": [
+        "理解 CQRS：写走链（共识保证）读走库（性能/聚合）",
+        "判断业务状态哪些上链哪些落库",
+        "理解后端签名与私钥管理的安全边界"
+      ],
+      "e": "为「链上记账本」设计完整架构：哪些状态在合约（余额/转账权威）、哪些在 PG（用户资料/聚合报表）、索引器如何桥接、后端何时需要持有私钥签名；画出架构图并口头答辩每个决策。",
+      "r": [
+        "https://ethereum.org/en/developers/docs/apis/backend/",
+        "https://martinfowler.com/bliki/CQRS.html",
+        "https://docs.openzeppelin.com/defender/v2/",
+        "https://ethereum.org/en/security/"
       ],
       "s": 2
     },
+    "DeFi 最小实现：自写 AMM": {
+      "o": [
+        "理解 x*y=k 恒定乘积做市数学",
+        "实现 addLiquidity/removeLiquidity/swap 与手续费",
+        "用测试验证价格滑点与流动性变化",
+        "理解无常损失来源"
+      ],
+      "e": "从零写 MinimalAMM：两代币池，addLiquidity 按比例注资发 LP 份额，swap 按 xy=k 执行收 0.3% 手续费，forge 测试覆盖添加/兑换/价格变化；对照 Uniswap V2 源码指出自己实现的差距。",
+      "r": [
+        "https://uniswap.org/whitepaper.pdf",
+        "https://github.com/Uniswap/v2-core/blob/master/contracts/UniswapV2Pair.sol",
+        "https://solidity-by-example.org/defi/amm/"
+      ],
+      "s": 4
+    },
     "智能合约安全与审计": {
       "o": [
-        "理解重入攻击原理（DAO 事件）与 CEI 修复模式",
-        "理解整数溢出与 Solidity 0.8 内置检查",
-        "识别权限漏洞与 tx.origin 风险",
-        "列出部署前安全检查清单"
+        "复现重入攻击（DAO 事件）并用 CEI 修复",
+        "理解 0.8 内置溢出检查与历史溢出漏洞",
+        "识别权限/tx.origin/预言机/随机数风险",
+        "用 slither 静态检查并读懂报告"
       ],
-      "e": "写一个含重入漏洞的取款合约并用攻击合约演示资金被抽干，再用 Checks-Effects-Interactions 模式修复并测试验证攻击失效；输出一份自己的合约部署前检查清单（重入/溢出/权限/预言机/随机数）。",
+      "e": "写含重入漏洞的取款合约+攻击合约演示资金抽干，CEI 模式修复并测试验证失效；对自写合约跑 slither 并修正发现项；输出部署前检查清单。",
       "r": [
         "https://docs.soliditylang.org/en/latest/security-considerations.html",
         "https://swcregistry.io/",
-        "https://consensys.github.io/smart-contract-best-practices/",
+        "https://github.com/crytic/slither",
         "https://solidity-by-example.org/hacks/re-entrancy/"
       ],
-      "s": 2
+      "s": 3
+    },
+    "测试网毕业作品：可升级合约 + 索引 + wagmi 前端": {
+      "o": [
+        "独立完成从合约到前端的垂直切片",
+        "用 UUPS 可升级模式交付可维护合约",
+        "索引器落 PG 支撑读路径",
+        "交付标准：别人能按 README 复现"
+      ],
+      "e": "自选方向交付到 Sepolia：UUPS 可升级合约（如 NFT 市场/链上记账本/带索引 AMM 前端）+ 事件索引器落 PostgreSQL + wagmi React 前端；附 Etherscan 验证链接、架构图、部署与运行 README。",
+      "r": [
+        "https://docs.openzeppelin.com/contracts/5.x/api/proxy",
+        "https://wagmi.sh/",
+        "https://book.getfoundry.sh/",
+        "https://viem.sh/"
+      ],
+      "s": 5
     }
   }
 };
