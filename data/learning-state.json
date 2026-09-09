@@ -2,11 +2,20 @@
  "current": {
   "phase": "phase1",
   "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
-  "session": 16,
+  "session": 17,
   "last_session": "2026-09-09",
   "default_duration": "45–60 分钟"
  },
  "review_pool": [
+  {
+   "chapter_id": "py-18",
+   "chapter_name": "构建与发布：从代码到 PyPI",
+   "mastery": 2,
+   "max_mastery": 4,
+   "last_review": "2026-09-09",
+   "note": "2026-09-09 fast_track 演示过全流程（demo-pkg），无独立实操",
+   "gap": "未亲手 build/publish；无 PyPI 账号；[project.scripts] 未自己写；真实发布场景待补"
+  },
   {
    "chapter_id": "py-15",
    "chapter_name": "迭代器与生成器",

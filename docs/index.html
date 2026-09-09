@@ -317,9 +317,9 @@ const DATA = {
             {
               "id": "py-18",
               "name": "构建与发布：从代码到 PyPI",
-              "mastery": 0,
+              "mastery": 2,
               "done": false,
-              "note": "类比：npm publish + package.json → poetry build + pyproject.toml"
+              "note": "2026-09-09 fast_track 快速过（用户判断简单主动提速）：[build-system] 构建后端（uv_build/hatchling/setuptools）、src-layout vs flat-layout（learn-py 实测 build 失败：多顶层模块 setuptools 拒绝）、uv build 产出 sdist+wheel（py3-none-any 标签语义）、wheel 本地安装验证、[project.scripts] 命令生成（demo-hello）、uv publish + TestPyPI + PEP 440。演示包 ~/aini/learn/demo-pkg/。mastery 2，发布实操待真实场景"
             },
             {
               "id": "py-19",
@@ -1080,6 +1080,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "py-18",
+      "name": "构建与发布：从代码到 PyPI",
+      "last": "2026-09-09",
+      "gap": "未亲手 build/publish；无 PyPI 账号；[project.scripts] 未自己写；真实发布场景待补"
+    },
     {
       "id": "py-15",
       "name": "迭代器与生成器",
