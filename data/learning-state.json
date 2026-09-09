@@ -224,8 +224,10 @@
   }
  ],
  "upcoming_plan": [
-  "db-6 聚合 GROUP BY/HAVING → db-7 子查询/CTE → db-8 窗口函数（SQL 主线）→ fw-1 FastAPI 起服务",
-  "db-16~21 MongoDB 组排在 FastAPI 组后（课程大纲补充，不插队当前主线）"
+  "db-6 GROUP BY → db-9 事务（提前）→ db-7 CTE → db-8 窗口 → py-21/22/23 压缩异步 → fw-1 FastAPI（作业带 pytest）",
+  "fw-s1 配置密钥 → fw-2/3 ORM+迁移 → fw-4 Depends → fw-s2 JWT → fw-5/6/7 → fw-s4 后台任务 → fw-10 Compose → fw-s3 Redis → fw-s5 VPS",
+  "MongoDB 改 Beanie/Motor，排 FastAPI 之后；数据科学保留，排 Mongo 之后不插队",
+  "db-13/14/15、fw-11 K8s、py-12 元类、ai-3、rag-5、ft-2/ft-3、mw-3 deferred"
  ],
  "blockers": [],
  "parking_lot": [

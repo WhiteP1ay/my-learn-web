@@ -41,8 +41,14 @@ def main():
     kept_plans = {k: v for k, v in plans.items() if k in new_names}
 
     # Build phases
-    PHASE_IDS = {'phase1': 'p1', 'phase2': 'p2', 'phase3': 'p3', 'phase4': 'p4'}
-    PHASE_SHORT_NAMES = {'phase1': 'Python 后端', 'phase2': 'AI 工程', 'phase3': 'Java 企业', 'phase4': '运维'}
+    PHASE_IDS = {'phase1': 'p1', 'phase2': 'p2', 'phase3': 'p3', 'phase4': 'p4', 'phase5': 'phase5'}
+    PHASE_SHORT_NAMES = {
+        'phase1': 'Python 后端',
+        'phase2': 'AI 工程',
+        'phase3': 'Java 企业',
+        'phase4': '运维',
+        'phase5': 'Web3 全栈',
+    }
     phases = []
     for phase in curriculum['phases']:
         pid = PHASE_IDS.get(phase['id'], phase['id'])
