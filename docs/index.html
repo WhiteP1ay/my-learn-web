@@ -296,9 +296,9 @@ const DATA = {
             {
               "id": "py-15",
               "name": "迭代器与生成器",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：JS Symbol.iterator + function*/yield → Python __iter__ + yield"
+              "mastery": 3,
+              "done": true,
+              "note": "2026-09-09 专题课完成（parking lot 提前，用户主动点课）：迭代协议三件套（iter/next/StopIteration）+ 手写 CountDown list 倒序变体独立完成；yield 反直觉点（调用不执行/单程票/next 与 list 共享状态）预测两次踩坑后理解；fib_gen 返工后通过——教训：状态推进必须 yield 在前，先算后 yield 导致特判补洞、补洞 off-by-one（多 yield 一个 1）"
             },
             {
               "id": "py-16",
@@ -1080,6 +1080,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "py-15",
+      "name": "迭代器与生成器",
+      "last": "2026-09-09",
+      "gap": "单程票口头测错一次（next+list 混用，自称看错题未正面复验）；生成器表达式 (x for x in ..) 只讲未实操；大文件/大数据流惰性省内存场景未实操；异步生成器留给后续"
+    },
     {
       "id": "py-16",
       "name": "上下文管理器：with 语句与 contextlib",

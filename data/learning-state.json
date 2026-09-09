@@ -1,204 +1,209 @@
 {
-  "current": {
-    "phase": "phase1",
-    "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
-    "session": 15,
-    "last_session": "2026-09-07",
-    "default_duration": "45–60 分钟"
+ "current": {
+  "phase": "phase1",
+  "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
+  "session": 16,
+  "last_session": "2026-09-09",
+  "default_duration": "45–60 分钟"
+ },
+ "review_pool": [
+  {
+   "chapter_id": "py-15",
+   "chapter_name": "迭代器与生成器",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-09-09",
+   "note": "2026-09-09 专题课完成（parking lot 提前主动点课）：手写迭代器/无限流生成器+enumerate+break 截断独立跑通，惰性原理能解释",
+   "gap": "单程票口头测错一次（next+list 混用，自称看错题未正面复验）；生成器表达式 (x for x in ..) 只讲未实操；大文件/大数据流惰性省内存场景未实操；异步生成器留给后续"
   },
-  "review_pool": [
-    {
-      "chapter_id": "py-16",
-      "chapter_name": "上下文管理器：with 语句与 contextlib",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-09-07",
-      "note": "2026-09-07 专题课完成（parking lot 提前，用户主动点课）：类版 Timer + contextmanager 函数版 + 异常路径验证 + psycopg3 with 语义（commit/rollback/close）独立跑通",
-      "gap": "contextlib.suppress/closing/ExitStack 未讲；with 多资源未练；__enter__ 返回非 self 句柄的场景未实操；真实 FastAPI 连接管理待 fw 阶段实战"
-    },
-    {
-      "chapter_id": "db-5",
-      "chapter_name": "表间关系与 JOIN 查询",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-09-04",
-      "note": "2026-09-04 两讲完成作业验收 mastery 3：4 表链 LEFT JOIN 23 行全对（杨乐 NULL 行理解正确）；行数规则/反连接/多对多中间表实证掌握",
-      "gap": "RIGHT/FULL 仅带过未实操；从零设计多对多中间表未验证（db-11 补）；4 表链大数据量下的性能直觉待实战"
-    },
-    {
-      "chapter_id": "db-4",
-      "chapter_name": "DML：插入、更新与删除",
-      "mastery": 4,
-      "max_mastery": 4,
-      "last_review": "2026-09-03",
-      "note": "2026-09-03 作业验收通过 mastery 4：库存扣减全流程跑通（含中间态 10→8→6 实证）",
-      "gap": "DBeaver 执行方式坑已固化（Ctrl+Enter 只跑光标行，多语句用 Alt+X）；excluded 伪行/非保留字已理解；批量 upsert 同语句重复冲突键会报 cannot affect row a second time；psycopg 通道 commit 待 fw 阶段实战"
-    },
-    {
-      "chapter_id": "db-3",
-      "chapter_name": "SELECT 查询基础：投影、过滤、排序、分页",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-09-03",
-      "gap": "2026-09-03 热身重测通过：8月订单>=50 第2页写全对（含日期半开区间，7条符合、第2页 67.80/58.00），上次漏日期条件已修复。深 offset 分页性能问题留给 db-10；NULL 语义真实业务判断待积累"
-    },
-    {
-      "chapter_id": "db-2",
-      "chapter_name": "DDL：建表、约束与字段类型",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-31",
-      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；2026-09-03 补了 ALTER TABLE ADD CONSTRAINT unique + 约束命名规律（表_列_key/fkey/pkey/check）"
-    },
-    {
-      "chapter_id": "db-1",
-      "chapter_name": "PostgreSQL 环境搭建与连接",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-31",
-      "gap": "事务边界在真实写路径固化中：GUI/psql 默认 autocommit ON，psycopg3 默认 False 必须 commit（db-4 已对照，代码通道待 fw 实战）；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上"
-    },
-    {
-      "chapter_id": "py-17",
-      "chapter_name": "模块化：包、导入与命名空间",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-31",
-      "gap": "TYPE_CHECKING 块未实操；真实项目（FastAPI 多包结构）中组织导入待实战验证；循环导入的架构级解法（抽公共模块）未实操"
-    },
-    {
-      "chapter_id": "py-14",
-      "chapter_name": "类型系统进阶：类型标注与抽象基类（ABC）",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-31",
-      "gap": "需在实际项目（FastAPI 领域模型/Repository 接口）中独立设计 ABC 接口；ABC vs Protocol 的选择判断待实战验证；register() 动态注册未实操"
-    },
-    {
-      "chapter_id": "ai-1",
-      "chapter_name": "AI 全景与 LLM 工作原理概览",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-13",
-      "gap": "需在真实 agent 前端场景迁移（流式渲染/参数调优/排查输出差异）；attention 细节留 ai-4；同一 prompt 两次的随机性对比实验未做"
-    },
-    {
-      "chapter_id": "ai-0",
-      "chapter_name": "AI 领域术语地图",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-13",
-      "gap": "attention 机制掌握待验证；完整关系复述未做（其余概念及 prompt/fine-tune/RAG 边界判断已达标）"
-    },
-    {
-      "chapter_id": "py-1",
-      "chapter_name": "Python 环境搭建与工具链",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-05",
-      "gap": "未独立处理版本冲突、解释器不匹配或损坏环境的迁移/排错"
-    },
-    {
-      "chapter_id": "py-2",
-      "chapter_name": "Python 基本语法·循环",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-03",
-      "note": "iterable/iterator 小项"
-    },
-    {
-      "chapter_id": "py-3",
-      "chapter_name": "容器类型与推导式",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-13",
-      "note": "待固化：^ vs **、dict 用 o[\"key\"] 非 o.key、{} 看冒号分字典/集合、聚合累加用 result.get 非 o.get"
-    },
-    {
-      "chapter_id": "py-4",
-      "chapter_name": "函数：参数传递与类型提示入门",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-06",
-      "gap": "需在 API 中独立设计参数接口并排查真实问题"
-    },
-    {
-      "chapter_id": "py-5",
-      "chapter_name": "作用域与闭包",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-06",
-      "gap": "需在实际回调/装饰器中排查闭包问题"
-    },
-    {
-      "chapter_id": "py-6",
-      "chapter_name": "lambda 表达式与一等函数",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-06",
-      "gap": "需在真实场景中选择 lambda 与命名函数"
-    },
-    {
-      "chapter_id": "py-7",
-      "chapter_name": "类与对象",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-06",
-      "gap": "需在 API/领域模型中选型 dataclass vs Pydantic"
-    },
-    {
-      "chapter_id": "py-8",
-      "chapter_name": "对象的类型系统",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-06",
-      "gap": "需在真实输入验证中判断 isinstance 使用策略"
-    },
-    {
-      "chapter_id": "py-13",
-      "chapter_name": "异常处理",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-25",
-      "gap": "2026-08-25 复习：try/except 主体独立写出（ZeroDivisionError 具体捕获）语法恢复，提回 3；测试行 safe_divide(2 / 0) 暴露参数先求值语义（传参前先算表达式）；else/finally 语义仍未验证；FastAPI 异常边界与 HTTP 映射待做"
-    },
-    {
-      "chapter_id": "py-11",
-      "chapter_name": "装饰器深度解析：从闭包到 @语法糖",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-13",
-      "gap": "需在真实后端场景迁移：FastAPI 路由鉴权装饰器、日志/计时中间件；@wraps(fn) 与 @wraps 的区分待固化"
-    },
-    {
-      "chapter_id": "py-9",
-      "chapter_name": "对象的生命周期：__new__、__init__ 与 __del__",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-13",
-      "gap": "需在真实资源管理中体会 __del__ 的不可靠（应改用上下文管理器 py-16）；类属性持有引用对生命周期的影响待实际调试验证"
-    },
-    {
-      "chapter_id": "py-10",
-      "chapter_name": "魔术方法：让对象更 Pythonic",
-      "mastery": 3,
-      "max_mastery": 4,
-      "last_review": "2026-08-25",
-      "gap": "2026-08-25 复习 5 题错 1：raise NotImplementedError vs return NotImplemented 仍混淆（选成 raise NotImplemented），口诀「raise 跟异常类，return 跟哨兵对象」需固化；__hash__ 写法曾三次出错需复习；描述符协议仅了解，未实操"
-    }
-  ],
-  "upcoming_plan": [
-    "db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务"
-  ],
-  "blockers": [],
-  "parking_lot": [
-    {
-      "chapter": "py-15 迭代器与生成器",
-      "trigger": "项目中处理流式数据或大文件时触发"
-    },
-    {
-      "chapter": "py-20 事件循环",
-      "trigger": "FastAPI 起服务后按需教学"
-    }
-  ]
+  {
+   "chapter_id": "py-16",
+   "chapter_name": "上下文管理器：with 语句与 contextlib",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-09-07",
+   "note": "2026-09-07 专题课完成（parking lot 提前，用户主动点课）：类版 Timer + contextmanager 函数版 + 异常路径验证 + psycopg3 with 语义（commit/rollback/close）独立跑通",
+   "gap": "contextlib.suppress/closing/ExitStack 未讲；with 多资源未练；__enter__ 返回非 self 句柄的场景未实操；真实 FastAPI 连接管理待 fw 阶段实战"
+  },
+  {
+   "chapter_id": "db-5",
+   "chapter_name": "表间关系与 JOIN 查询",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-09-04",
+   "note": "2026-09-04 两讲完成作业验收 mastery 3：4 表链 LEFT JOIN 23 行全对（杨乐 NULL 行理解正确）；行数规则/反连接/多对多中间表实证掌握",
+   "gap": "RIGHT/FULL 仅带过未实操；从零设计多对多中间表未验证（db-11 补）；4 表链大数据量下的性能直觉待实战"
+  },
+  {
+   "chapter_id": "db-4",
+   "chapter_name": "DML：插入、更新与删除",
+   "mastery": 4,
+   "max_mastery": 4,
+   "last_review": "2026-09-03",
+   "note": "2026-09-03 作业验收通过 mastery 4：库存扣减全流程跑通（含中间态 10→8→6 实证）",
+   "gap": "DBeaver 执行方式坑已固化（Ctrl+Enter 只跑光标行，多语句用 Alt+X）；excluded 伪行/非保留字已理解；批量 upsert 同语句重复冲突键会报 cannot affect row a second time；psycopg 通道 commit 待 fw 阶段实战"
+  },
+  {
+   "chapter_id": "db-3",
+   "chapter_name": "SELECT 查询基础：投影、过滤、排序、分页",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-09-03",
+   "gap": "2026-09-03 热身重测通过：8月订单>=50 第2页写全对（含日期半开区间，7条符合、第2页 67.80/58.00），上次漏日期条件已修复。深 offset 分页性能问题留给 db-10；NULL 语义真实业务判断待积累"
+  },
+  {
+   "chapter_id": "db-2",
+   "chapter_name": "DDL：建表、约束与字段类型",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-31",
+   "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；2026-09-03 补了 ALTER TABLE ADD CONSTRAINT unique + 约束命名规律（表_列_key/fkey/pkey/check）"
+  },
+  {
+   "chapter_id": "db-1",
+   "chapter_name": "PostgreSQL 环境搭建与连接",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-31",
+   "gap": "事务边界在真实写路径固化中：GUI/psql 默认 autocommit ON，psycopg3 默认 False 必须 commit（db-4 已对照，代码通道待 fw 实战）；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上"
+  },
+  {
+   "chapter_id": "py-17",
+   "chapter_name": "模块化：包、导入与命名空间",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-31",
+   "gap": "TYPE_CHECKING 块未实操；真实项目（FastAPI 多包结构）中组织导入待实战验证；循环导入的架构级解法（抽公共模块）未实操"
+  },
+  {
+   "chapter_id": "py-14",
+   "chapter_name": "类型系统进阶：类型标注与抽象基类（ABC）",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-31",
+   "gap": "需在实际项目（FastAPI 领域模型/Repository 接口）中独立设计 ABC 接口；ABC vs Protocol 的选择判断待实战验证；register() 动态注册未实操"
+  },
+  {
+   "chapter_id": "ai-1",
+   "chapter_name": "AI 全景与 LLM 工作原理概览",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-13",
+   "gap": "需在真实 agent 前端场景迁移（流式渲染/参数调优/排查输出差异）；attention 细节留 ai-4；同一 prompt 两次的随机性对比实验未做"
+  },
+  {
+   "chapter_id": "ai-0",
+   "chapter_name": "AI 领域术语地图",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-13",
+   "gap": "attention 机制掌握待验证；完整关系复述未做（其余概念及 prompt/fine-tune/RAG 边界判断已达标）"
+  },
+  {
+   "chapter_id": "py-1",
+   "chapter_name": "Python 环境搭建与工具链",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-05",
+   "gap": "未独立处理版本冲突、解释器不匹配或损坏环境的迁移/排错"
+  },
+  {
+   "chapter_id": "py-2",
+   "chapter_name": "Python 基本语法·循环",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-03",
+   "note": "iterable/iterator 小项"
+  },
+  {
+   "chapter_id": "py-3",
+   "chapter_name": "容器类型与推导式",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-13",
+   "note": "待固化：^ vs **、dict 用 o[\"key\"] 非 o.key、{} 看冒号分字典/集合、聚合累加用 result.get 非 o.get"
+  },
+  {
+   "chapter_id": "py-4",
+   "chapter_name": "函数：参数传递与类型提示入门",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-06",
+   "gap": "需在 API 中独立设计参数接口并排查真实问题"
+  },
+  {
+   "chapter_id": "py-5",
+   "chapter_name": "作用域与闭包",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-06",
+   "gap": "需在实际回调/装饰器中排查闭包问题"
+  },
+  {
+   "chapter_id": "py-6",
+   "chapter_name": "lambda 表达式与一等函数",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-06",
+   "gap": "需在真实场景中选择 lambda 与命名函数"
+  },
+  {
+   "chapter_id": "py-7",
+   "chapter_name": "类与对象",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-06",
+   "gap": "需在 API/领域模型中选型 dataclass vs Pydantic"
+  },
+  {
+   "chapter_id": "py-8",
+   "chapter_name": "对象的类型系统",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-06",
+   "gap": "需在真实输入验证中判断 isinstance 使用策略"
+  },
+  {
+   "chapter_id": "py-13",
+   "chapter_name": "异常处理",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-25",
+   "gap": "2026-08-25 复习：try/except 主体独立写出（ZeroDivisionError 具体捕获）语法恢复，提回 3；测试行 safe_divide(2 / 0) 暴露参数先求值语义（传参前先算表达式）；else/finally 语义仍未验证；FastAPI 异常边界与 HTTP 映射待做"
+  },
+  {
+   "chapter_id": "py-11",
+   "chapter_name": "装饰器深度解析：从闭包到 @语法糖",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-13",
+   "gap": "需在真实后端场景迁移：FastAPI 路由鉴权装饰器、日志/计时中间件；@wraps(fn) 与 @wraps 的区分待固化"
+  },
+  {
+   "chapter_id": "py-9",
+   "chapter_name": "对象的生命周期：__new__、__init__ 与 __del__",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-13",
+   "gap": "需在真实资源管理中体会 __del__ 的不可靠（应改用上下文管理器 py-16）；类属性持有引用对生命周期的影响待实际调试验证"
+  },
+  {
+   "chapter_id": "py-10",
+   "chapter_name": "魔术方法：让对象更 Pythonic",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-08-25",
+   "gap": "2026-08-25 复习 5 题错 1：raise NotImplementedError vs return NotImplemented 仍混淆（选成 raise NotImplemented），口诀「raise 跟异常类，return 跟哨兵对象」需固化；__hash__ 写法曾三次出错需复习；描述符协议仅了解，未实操"
+  }
+ ],
+ "upcoming_plan": [
+  "db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务"
+ ],
+ "blockers": [],
+ "parking_lot": [
+  {
+   "chapter": "py-20 事件循环",
+   "trigger": "FastAPI 起服务后按需教学"
+  }
+ ]
 }
