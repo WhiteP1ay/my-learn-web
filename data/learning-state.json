@@ -2,11 +2,20 @@
  "current": {
   "phase": "phase1",
   "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
-  "session": 18,
+  "session": 19,
   "last_session": "2026-09-09",
   "default_duration": "45–60 分钟"
  },
  "review_pool": [
+  {
+   "chapter_id": "py-20",
+   "chapter_name": "事件循环与 async/await 入门",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-09-09",
+   "note": "2026-09-09 提前点课完成：事件循环心智（奶茶店比喻）、阻塞 vs 让出、gather 语义、JS/Python 启动语义差异",
+   "gap": "真实异步 IO 库未实操（httpx/aiohttp/asyncpg 换 requests/psycopg2）；create_task fire-and-forget 未练；FastAPI async endpoint 实战待 fw 阶段"
+  },
   {
    "chapter_id": "py-19",
    "chapter_name": "断点调试：pdb 与 IDE 调试",
@@ -218,10 +227,5 @@
   "db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务"
  ],
  "blockers": [],
- "parking_lot": [
-  {
-   "chapter": "py-20 事件循环",
-   "trigger": "FastAPI 起服务后按需教学"
-  }
- ]
+ "parking_lot": []
 }

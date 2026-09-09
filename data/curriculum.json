@@ -165,10 +165,10 @@
       {
        "id": "py-20",
        "name": "事件循环与 async/await 入门",
-       "mastery": 0,
+       "mastery": 3,
        "evidence": "能解释事件循环的工作原理，写出第一个 async def 协程",
-       "strategy": "in_project",
-       "note": "类比：JS event loop（宏任务/微任务）→ Python asyncio event loop；需显式启动 asyncio.run()"
+       "strategy": "completed",
+       "note": "2026-09-09 提前点课（parking lot 原定 FastAPI 后）：核心差异=JS 事件循环宿主内置 vs Python asyncio 标准库需显式启动。三实验教学（同步/伪异步 time.sleep/真异步 asyncio.sleep 2s vs 2s vs 1s）+ 完成顺序=等待完成时间非代码顺序（A2s B1s B 先完成）。课堂追问高质量：async/await 配对规则（await 只能在 async def，async def 可无 await 但无意义）、JS 创建即启动 vs Python 创建不启动（先创建后 await 在 Python 串行 3s！必须 gather/create_task 显式调度）、开工令≠完工等待（作业缺 await 致 CancelledError 实战踩坑后理解）。作业 async_quiz.py 三任务 1/2/3s gather 并发 3s 跑通。mastery 3"
       },
       {
        "id": "py-21",
