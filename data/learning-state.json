@@ -224,8 +224,15 @@
   }
  ],
  "upcoming_plan": [
-  "db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务"
+  "db-6 聚合 GROUP BY/HAVING → db-7 子查询/CTE → db-8 窗口函数（SQL 主线）→ fw-1 FastAPI 起服务",
+  "db-16~21 MongoDB 组排在 FastAPI 组后（课程大纲补充，不插队当前主线）"
  ],
  "blockers": [],
- "parking_lot": []
+ "parking_lot": [
+  {
+   "id": "phase5-web3",
+   "title": "Web3 与智能合约开发线（w3-1~w3-8，8 节可选支线）",
+   "note": "2026-09-09 用户主动提出加入课程并选开发路线。排 Phase 5 最后，此处挂起：想学随时提前点课（先例：py-15/16/20 parking lot 提前）。前提：先完成 Python 事件循环/后端基础，Solidity 与 TS 差异讲解"
+  }
+ ]
 }

@@ -565,6 +565,53 @@ const DATA = {
           ]
         },
         {
+          "name": "MongoDB 文档数据库",
+          "chapters": [
+            {
+              "id": "db-16",
+              "name": "MongoDB 与文档模型入门",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：PostgreSQL 表/行+强 schema → MongoDB 集合/文档+无 schema；_id 主键；Docker 起 mongod。放在 FastAPI 主线后：先用 PostgreSQL 建立存储心智，再开文档模型对照"
+            },
+            {
+              "id": "db-17",
+              "name": "MongoDB 查询：条件、投影与排序分页",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：SQL SELECT WHERE/ORDER BY/LIMIT → find({条件},{投影}).sort().skip().limit()"
+            },
+            {
+              "id": "db-18",
+              "name": "MongoDB 聚合管道：$match/$group/$lookup",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：GROUP BY → $group；JOIN → $lookup；HAVING → 管道后置 $match；管道阶段 = 子句顺序铁律的文档版"
+            },
+            {
+              "id": "db-19",
+              "name": "MongoDB 索引与 explain",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：db-10 PostgreSQL B-Tree 心智直接平移"
+            },
+            {
+              "id": "db-20",
+              "name": "Mongoose ODM：Schema、校验与 populate",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：Prisma/TypeORM schema → Mongoose Schema；学习者前端/Node 生态主场，TS 类型标注经验直接复用"
+            },
+            {
+              "id": "db-21",
+              "name": "MongoDB 事务、副本集与选型决策",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：对照 db-9 ACID 事务看 Mongo 的取舍；选型判断=什么时候该用非关系存储"
+            }
+          ]
+        },
+        {
           "name": "数据科学工具（选学）",
           "chapters": [
             {
@@ -1077,6 +1124,73 @@ const DATA = {
           ]
         }
       ]
+    },
+    {
+      "id": "phase5",
+      "name": "Phase 5: Web3 与智能合约开发（可选支线）",
+      "groups": [
+        {
+          "name": "Web3 开发",
+          "chapters": [
+            {
+              "id": "w3-1",
+              "name": "密码学与区块链地基：哈希、签名与共识",
+              "mastery": 0,
+              "done": false,
+              "note": "对照学习者 BTC 自托管实操：助记词→私钥→地址的派生链即 BIP32/39；哈希链把区块串成链"
+            },
+            {
+              "id": "w3-2",
+              "name": "以太坊生态：账户、Gas 与交易生命周期",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：前端 API 调用按次计费 → 链上每步操作按 Gas 计费；以太坊世界状态 = 分布式状态机"
+            },
+            {
+              "id": "w3-3",
+              "name": "Solidity 基础：类型、状态变量与函数",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：TS 强类型+public/private → Solidity visibility；storage/memory 是全新心智（状态落盘 vs 临时）"
+            },
+            {
+              "id": "w3-4",
+              "name": "合约实战：ERC-20 与部署",
+              "mastery": 0,
+              "done": false,
+              "note": "标准代币合约是 Solidity 的 Hello World+；mapping 即哈希表心智"
+            },
+            {
+              "id": "w3-5",
+              "name": "Hardhat：本地链、部署脚本与测试",
+              "mastery": 0,
+              "done": false,
+              "note": "类比：Vite 工程化 → Hardhat；chai 断言 = vitest 心智平移"
+            },
+            {
+              "id": "w3-6",
+              "name": "DApp 前端：ethers.js 与钱包连接",
+              "mastery": 0,
+              "done": false,
+              "note": "学习者老本行：React 组件 + ethers.js；登录态=钱包签名而非 session"
+            },
+            {
+              "id": "w3-7",
+              "name": "DeFi 剖析：AMM、借贷与质押",
+              "mastery": 0,
+              "done": false,
+              "note": "概念+代码双轨：先理解协议设计再进合约读源码"
+            },
+            {
+              "id": "w3-8",
+              "name": "智能合约安全：重入、溢出与审计清单",
+              "mastery": 0,
+              "done": false,
+              "note": "学开发必配安全课；经典案例：DAO 重入、整数溢出"
+            }
+          ]
+        }
+      ]
     }
   ],
   "review_pool": [
@@ -1238,7 +1352,7 @@ const DATA = {
     }
   ],
   "meta": {
-    "position": "db-5 JOIN → db-6 聚合 → fw-1 FastAPI起服务",
+    "position": "db-6 聚合 GROUP BY/HAVING → db-7 子查询/CTE → db-8 窗口函数（SQL 主线）→ fw-1 FastAPI 起服务",
     "project": "AI 客服工单系统"
   },
   "memory": [],
@@ -2722,6 +2836,198 @@ const DATA = {
         "https://www.postgresql.org/docs/current/high-availability.html"
       ],
       "s": 1
+    },
+    "MongoDB 与文档模型入门": {
+      "o": [
+        "理解集合/文档与表/行的对应关系，知道无 schema 约束的代价与收益",
+        "掌握 _id 主键、嵌入式文档与引用两种建模方式",
+        "用 Docker 跑起 MongoDB 并用 mongosh/驱动完成 CRUD"
+      ],
+      "e": "用 Docker 启动 MongoDB，把 shop 的 products 数据以文档形式插入一个集合，用 mongosh 完成 insert/find/update/delete 四种操作并验证结果。",
+      "r": [
+        "https://www.mongodb.com/docs/manual/introduction/",
+        "https://www.mongodb.com/docs/manual/crud/",
+        "https://hub.docker.com/_/mongo"
+      ],
+      "s": 1
+    },
+    "MongoDB 查询：条件、投影与排序分页": {
+      "o": [
+        "掌握 find() 条件查询与 $gt/$gte/$in/$regex 等操作符",
+        "理解投影控制返回字段，sort/skip/limit 分页组合"
+      ],
+      "e": "在 products 集合上写四类查询：价格范围、品类 IN、名称正则、投影+排序分页，与 db-3 的 SQL 版逐条对照输出。",
+      "r": [
+        "https://www.mongodb.com/docs/manual/tutorial/query-documents/",
+        "https://www.mongodb.com/docs/manual/reference/operator/query/"
+      ],
+      "s": 1
+    },
+    "MongoDB 聚合管道：$match/$group/$lookup": {
+      "o": [
+        "理解聚合管道 = 有序阶段数组，每阶段输出喂给下阶段",
+        "掌握 $match/$group/$project/$sort/$limit 完成分组统计",
+        "用 $lookup 做跨集合关联，对照 SQL JOIN"
+      ],
+      "e": "用聚合管道复现 db-6 的分组统计题（按品类统计销量/金额），再用 $lookup 关联 orders 与 order_items 复现 db-5 的场景，逐段标注对应 SQL 子句。",
+      "r": [
+        "https://www.mongodb.com/docs/manual/aggregation/",
+        "https://www.mongodb.com/docs/manual/reference/operator/aggregation-pipeline/"
+      ],
+      "s": 2
+    },
+    "MongoDB 索引与 explain": {
+      "o": [
+        "理解 B-Tree 索引在 MongoDB 与 PostgreSQL 中的一致性",
+        "能用 explain 对比有无索引的执行代价",
+        "了解 TTL 索引做自动过期"
+      ],
+      "e": "往集合插入数万条数据，对比无索引/单字段索引/复合索引三种情况下 explain 的 scanned 数量与耗时，输出结论。",
+      "r": [
+        "https://www.mongodb.com/docs/manual/indexes/",
+        "https://www.mongodb.com/docs/manual/reference/explain-results/"
+      ],
+      "s": 1
+    },
+    "Mongoose ODM：Schema、校验与 populate": {
+      "o": [
+        "理解 ODM = Prisma/TypeORM 在 Node 生态的对应物",
+        "能用 Schema 定义字段类型、必填/枚举校验与默认值",
+        "用 populate 实现引用关联查询"
+      ],
+      "e": "用 Mongoose 定义 users/products/orders 三个 Schema（含校验与引用），插入数据后用 populate 查出一张订单含用户与商品明细的完整文档。",
+      "r": [
+        "https://mongoosejs.com/docs/guide.html",
+        "https://mongoosejs.com/docs/populate.html",
+        "https://mongoosejs.com/docs/validation.html"
+      ],
+      "s": 2
+    },
+    "MongoDB 事务、副本集与选型决策": {
+      "o": [
+        "理解 MongoDB 多文档事务的支持范围与代价（4.0+）",
+        "理解副本集（replica set）的高可用原理",
+        "能按业务场景判断选 MongoDB 还是 PostgreSQL"
+      ],
+      "e": "给出 5 个业务场景（订单系统/用户行为日志/商品评论/社交关系/配置中心），逐个给出存储选型与理由，重点说明关系 vs 文档模型的判断依据。",
+      "r": [
+        "https://www.mongodb.com/docs/manual/core/transactions/",
+        "https://www.mongodb.com/docs/manual/replication/",
+        "https://www.mongodb.com/docs/manual/use-cases/"
+      ],
+      "s": 1
+    },
+    "密码学与区块链地基：哈希、签名与共识": {
+      "o": [
+        "理解哈希函数性质（单向/抗碰撞）与 Merkle 树",
+        "理解公私钥签名如何证明所有权",
+        "理解 PoW/PoS 共识解决什么问题",
+        "用自托管实操反推：助记词→私钥→地址的派生链"
+      ],
+      "e": "用自己的 Sparrow 钱包地址反推解释：助记词如何派生出私钥与地址、签名交易如何证明你拥有该地址，画出一张从助记词到链上交易签名的链路图。",
+      "r": [
+        "https://github.com/bitcoinbook/bitcoinbook",
+        "https://ethereum.org/en/developers/docs/intro-to-ethereum/",
+        "https://en.bitcoin.it/wiki/Secp256k1"
+      ],
+      "s": 1
+    },
+    "以太坊生态：账户、Gas 与交易生命周期": {
+      "o": [
+        "区分 EOA 与合约账户的行为差异",
+        "说清交易从签名→广播→验证→上链的完整路径",
+        "理解 Gas 计费模型：为什么每步操作都花钱"
+      ],
+      "e": "画出「一笔 ETH 转账从钱包到确认」的全链路图，标注每个环节由谁执行、消耗什么、失败时资金去哪，口述一遍完整流程。",
+      "r": [
+        "https://ethereum.org/en/developers/docs/accounts/",
+        "https://ethereum.org/en/developers/docs/gas/",
+        "https://ethereum.org/en/developers/docs/transactions/"
+      ],
+      "s": 1
+    },
+    "Solidity 基础：类型、状态变量与函数": {
+      "o": [
+        "对照 TS 掌握 Solidity 基础类型与 mapping/array",
+        "理解状态变量（链上存储）与局部变量的区别",
+        "掌握 visibility（public/private/external/internal）与 view/pure 修饰符"
+      ],
+      "e": "写一个 Counter 合约（count 状态变量 + increment/get 函数），对比 TS class 翻译每一处差异：状态持久化在哪、谁有权限改、函数怎么被外部调用。",
+      "r": [
+        "https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html",
+        "https://docs.soliditylang.org/en/latest/types.html",
+        "https://docs.soliditylang.org/en/latest/contracts.html"
+      ],
+      "s": 2
+    },
+    "合约实战：ERC-20 与部署": {
+      "o": [
+        "理解 ERC-20 标准接口：totalSupply/balanceOf/transfer/approve/transferFrom",
+        "用 mapping 实现余额账本",
+        "把合约部署到本地链并用脚本交互"
+      ],
+      "e": "从零写一个 ERC-20 代币合约（含 transfer/approve/transferFrom），部署到 Hardhat 本地链，写脚本验证两账户间转账后余额变化正确。",
+      "r": [
+        "https://eips.ethereum.org/EIPS/eip-20",
+        "https://docs.openzeppelin.com/contracts/5.x/erc20",
+        "https://docs.soliditylang.org/en/latest/solidity-by-example.html"
+      ],
+      "s": 2
+    },
+    "Hardhat：本地链、部署脚本与测试": {
+      "o": [
+        "理解 Hardhat 在合约开发中的角色（Vite 对应物）",
+        "会写部署脚本并用 console.log 调试",
+        "用 chai 写单元测试覆盖关键路径"
+      ],
+      "e": "建 Hardhat 项目，部署自写的 ERC-20，用 chai 测试 transfer 成功/余额不足失败两条路径，跑通全部测试并解释每条断言验证了什么。",
+      "r": [
+        "https://hardhat.org/hardhat-runner/docs/getting-started",
+        "https://hardhat.org/hardhat-runner/docs/guides/test-contracts"
+      ],
+      "s": 2
+    },
+    "DApp 前端：ethers.js 与钱包连接": {
+      "o": [
+        "理解 ethers.js 的 Provider/Signer/Contract 三件套",
+        "实现 MetaMask 连接与账户切换",
+        "读取链上状态并发起签名交易"
+      ],
+      "e": "用 React 写一个最小 DApp：连接 MetaMask 显示账户地址与 ETH 余额，调用自己部署的 ERC-20 的 balanceOf 读余额，发起一次 transfer 并监听确认。",
+      "r": [
+        "https://docs.ethers.org/v6/getting-started/",
+        "https://docs.metamask.io/wallet/how-to/connect/",
+        "https://docs.ethers.org/v6/api/contract/"
+      ],
+      "s": 2
+    },
+    "DeFi 剖析：AMM、借贷与质押": {
+      "o": [
+        "理解 AMM x*y=k 恒定乘积做市原理与滑点来源",
+        "读懂 Uniswap V2 Pair 合约核心函数（mint/burn/swap）",
+        "了解借贷/质押协议的基本资金流"
+      ],
+      "e": "读 Uniswap V2 Pair 合约的 swap 函数，画出一次 swap 的资金流与储备变化（含手续费），解释为什么大额交易滑点更高。",
+      "r": [
+        "https://uniswap.org/whitepaper.pdf",
+        "https://docs.uniswap.org/contracts/v2/reference/smart-contracts/pair",
+        "https://github.com/Uniswap/v2-core"
+      ],
+      "s": 2
+    },
+    "智能合约安全：重入、溢出与审计清单": {
+      "o": [
+        "理解重入攻击原理（DAO 事件）与 CEI 修复模式",
+        "理解整数溢出与 Solidity 0.8 内置检查",
+        "能列出部署前安全自查清单"
+      ],
+      "e": "复现一个含重入漏洞的取款合约并演示攻击，再用 Checks-Effects-Interactions 模式修复并验证攻击失效，输出一份自己的合约部署前检查清单。",
+      "r": [
+        "https://docs.soliditylang.org/en/latest/security-considerations.html",
+        "https://swcregistry.io/",
+        "https://consensys.github.io/smart-contract-best-practices/"
+      ],
+      "s": 2
     }
   }
 };
