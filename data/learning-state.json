@@ -2,11 +2,20 @@
  "current": {
   "phase": "phase1",
   "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
-  "session": 17,
+  "session": 18,
   "last_session": "2026-09-09",
   "default_duration": "45–60 分钟"
  },
  "review_pool": [
+  {
+   "chapter_id": "py-19",
+   "chapter_name": "断点调试：pdb 与 IDE 调试",
+   "mastery": 3,
+   "max_mastery": 4,
+   "last_review": "2026-09-09",
+   "note": "2026-09-09 快速过：VSCode debugger 为主武器，pdb 基本命令概念到手",
+   "gap": "pdb 命令行未独立跑通完整流程；条件断点/post-mortem 未实操；容器/服务器环境实战待真实场景"
+  },
   {
    "chapter_id": "py-18",
    "chapter_name": "构建与发布：从代码到 PyPI",
