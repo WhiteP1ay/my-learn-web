@@ -298,7 +298,7 @@ const DATA = {
               "name": "补充：Protocol 与 Annotated / TypedDict",
               "mastery": 0,
               "done": false,
-              "note": "2026-09-09 补充。原 py-14 偏 ABC；生产 Python 更常用 Protocol + Annotated。不单独拉长语言主线，跟 FastAPI 第一周一起验收。"
+              "note": "2026-09-14 第一讲 Protocol 完成：结构化子类型心智（不继承、mypy 现场比对方法形状）；用户自己提出「EmailNotifier 没跟 Notifier 建立任何关联」的正确疑问，已用 TS implements 缺失点破；纠错两处（Protocol 体内误加 @abstractmethod、误写继承），返工后模板干净；实际跑通 Protocol + 两个无继承实现 + list[Notifier] 广播函数，mypy 0 错；踩中「函数参数没用、发硬编码字符串」的老毛病（同 SQL 漏条件同源），自查环节要盯输出核对。待讲：Annotated（FastAPI/Pydantic 元数据）、TypedDict/Literal 描述 JSON 与 tool 参数、@runtime_checkable 只查属性不查签名。"
             },
             {
               "id": "py-15",
