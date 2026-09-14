@@ -296,9 +296,9 @@ const DATA = {
             {
               "id": "py-s1",
               "name": "补充：Protocol 与 Annotated / TypedDict",
-              "mastery": 0,
+              "mastery": 2,
               "done": false,
-              "note": "2026-09-14 第一讲 Protocol 完成：结构化子类型心智（不继承、mypy 现场比对方法形状）；用户自己提出「EmailNotifier 没跟 Notifier 建立任何关联」的正确疑问，已用 TS implements 缺失点破；纠错两处（Protocol 体内误加 @abstractmethod、误写继承），返工后模板干净；实际跑通 Protocol + 两个无继承实现 + list[Notifier] 广播函数，mypy 0 错；踩中「函数参数没用、发硬编码字符串」的老毛病（同 SQL 漏条件同源），自查环节要盯输出核对。待讲：Annotated（FastAPI/Pydantic 元数据）、TypedDict/Literal 描述 JSON 与 tool 参数、@runtime_checkable 只查属性不查签名。"
+              "note": "2026-09-14 三块全部讲过。Protocol：结构化子类型心智已建立，独立写出 Protocol+无继承实现+list[Notifier] 广播，mypy 0 错（这一块 mastery 3）；他两次追问「关联在哪」（TS 的 implements 缺失点已用 tsc 实测纠正：TS 也不强制 implements），已用「判断挂在标注所在位置」统一解释 Protocol/TypedDict 两处。Annotated：能写 PositiveAmount + get_type_hints(include_extras) + __metadata__/__origin__，独立完成。TypedDict：由我直接写答案示范（他要求「别让我猜」），他自己写时栽在 JS 裸键习惯 {title: \"Book\"} 与 from abc_warmup 乱 import。待补：@runtime_checkable 只查属性不查签名（未实操）、total=False/NotRequired、Pydantic 运行时校验对照（json.loads 返回 Any 的破口已演示）。"
             },
             {
               "id": "py-15",
@@ -1377,6 +1377,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "py-s1",
+      "name": "补充：Protocol 与 Annotated / TypedDict",
+      "last": "2026-09-14",
+      "gap": "@runtime_checkable 未实操；total=False/NotRequired 未讲；TypedDict 独立书写仍会犯 JS 裸键 {title: \"x\"}；json.loads → Any 的校验破口只演示未实战（Pydantic 阶段补）"
+    },
     {
       "id": "py-20",
       "name": "事件循环与 async/await 入门",

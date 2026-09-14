@@ -8,6 +8,15 @@
  },
  "review_pool": [
   {
+   "chapter_id": "py-s1",
+   "chapter_name": "补充：Protocol 与 Annotated / TypedDict",
+   "mastery": 2,
+   "max_mastery": 4,
+   "last_review": "2026-09-14",
+   "note": "2026-09-14 一次课讲完三块：Protocol（mastery 3，独立跑通）、Annotated、TypedDict（后两块由我示范后完成）",
+   "gap": "@runtime_checkable 未实操；total=False/NotRequired 未讲；TypedDict 独立书写仍会犯 JS 裸键 {title: \"x\"}；json.loads → Any 的校验破口只演示未实战（Pydantic 阶段补）"
+  },
+  {
    "chapter_id": "py-20",
    "chapter_name": "事件循环与 async/await 入门",
    "mastery": 3,
