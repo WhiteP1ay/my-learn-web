@@ -413,9 +413,9 @@ const DATA = {
             {
               "id": "db-6",
               "name": "聚合与分组：GROUP BY / HAVING",
-              "mastery": 0,
+              "mastery": 2,
               "done": false,
-              "note": "类比：JS Array.reduce 分组 → SQL GROUP BY"
+              "note": "2026-09-17 讲完 GROUP BY + HAVING。GROUP BY 唯一模板（分组键+聚合函数／select 只能放分组键或聚合函数，附 PG 报错原文）讲通，第一题「按商品算总件数+总金额」独立跑对（10 行，逐行核对一致）。HAVING 位置/语法/order by 全对，但表达式三次摔在同一处：sum(price) 当金额（应为 sum(quantity*price)）、改两处漏第三处（having 没改）。分组键坑已点破：库里两个用户都叫 A，按 name 分组把他俩并成一组（290.70），要带 id。教学教训：需求描述太抽象（『算两样东西』）他当场没读懂，改为「每行是什么／按什么分组／每行输出什么」三段式。未来复习重点：需求→SQL 的翻译漏环（语义错，非语法错），非提示组合题验证。"
             },
             {
               "id": "db-7",
@@ -1377,6 +1377,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "db-6",
+      "name": "聚合与分组：GROUP BY / HAVING",
+      "last": "2026-09-17",
+      "gap": "需求→SQL 翻译漏环（把 price 当金额、只改两处漏 having）；count(*) vs count(列) 的 NULL 差异未讲；count(distinct)、string_agg、group by 多列组合未练；聚合与 JOIN 的膨胀交互（一对多先分组再接）未验；非提示组合题待复验"
+    },
     {
       "id": "py-s1",
       "name": "补充：Protocol 与 Annotated / TypedDict",

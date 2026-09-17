@@ -1,12 +1,21 @@
 {
  "current": {
   "phase": "phase1",
-  "knowledge_point": "db-6. 聚合与分组：GROUP BY / HAVING",
-  "session": 19,
-  "last_session": "2026-09-09",
+  "knowledge_point": "db-9. 事务与并发控制：ACID 与隔离级别",
+  "session": 21,
+  "last_session": "2026-09-17",
   "default_duration": "45–60 分钟"
  },
  "review_pool": [
+  {
+   "chapter_id": "db-6",
+   "chapter_name": "聚合与分组：GROUP BY / HAVING",
+   "mastery": 2,
+   "max_mastery": 4,
+   "last_review": "2026-09-17",
+   "note": "2026-09-17 讲完。GROUP BY 首题独立跑对；HAVING 语法对但表达式错两次 + 改一半一次，纠正后跑对",
+   "gap": "需求→SQL 翻译漏环（把 price 当金额、只改两处漏 having）；count(*) vs count(列) 的 NULL 差异未讲；count(distinct)、string_agg、group by 多列组合未练；聚合与 JOIN 的膨胀交互（一对多先分组再接）未验；非提示组合题待复验"
+  },
   {
    "chapter_id": "py-s1",
    "chapter_name": "补充：Protocol 与 Annotated / TypedDict",
