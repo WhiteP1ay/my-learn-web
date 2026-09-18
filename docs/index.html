@@ -415,7 +415,7 @@ const DATA = {
               "name": "聚合与分组：GROUP BY / HAVING",
               "mastery": 2,
               "done": false,
-              "note": "2026-09-17 讲完 GROUP BY + HAVING。GROUP BY 唯一模板（分组键+聚合函数／select 只能放分组键或聚合函数，附 PG 报错原文）讲通，第一题「按商品算总件数+总金额」独立跑对（10 行，逐行核对一致）。HAVING 位置/语法/order by 全对，但表达式三次摔在同一处：sum(price) 当金额（应为 sum(quantity*price)）、改两处漏第三处（having 没改）。分组键坑已点破：库里两个用户都叫 A，按 name 分组把他俩并成一组（290.70），要带 id。教学教训：需求描述太抽象（『算两样东西』）他当场没读懂，改为「每行是什么／按什么分组／每行输出什么」三段式。未来复习重点：需求→SQL 的翻译漏环（语义错，非语法错），非提示组合题验证。"
+              "note": "2026-09-17 讲完 GROUP BY + HAVING。GROUP BY 唯一模板（分组键+聚合函数／select 只能放分组键或聚合函数，附 PG 报错原文）讲通，第一题「按商品算总件数+总金额」独立跑对（10 行，逐行核对一致）。HAVING 位置/语法/order by 全对，但表达式三次摔在同一处：sum(price) 当金额（应为 sum(quantity*price)）、改两处漏第三处（having 没改）。分组键坑已点破：库里两个用户都叫 A，按 name 分组把他俩并成一组（290.70），要带 id。教学教训：需求描述太抽象（『算两样东西』）他当场没读懂，改为「每行是什么／按什么分组／每行输出什么」三段式。未来复习重点：需求→SQL 的翻译漏环（语义错，非语法错），非提示组合题验证。 2026-09-18 复验：多条件组合题（日期过滤 + having 金额）第三次漏掉日期条件（db-3、db-5、本次同一病根），纠正后自纠正确；group by 主键函数依赖疑点已澄清。"
             },
             {
               "id": "db-7",
@@ -434,9 +434,9 @@ const DATA = {
             {
               "id": "db-9",
               "name": "事务与并发控制：ACID 与隔离级别",
-              "mastery": 0,
+              "mastery": 2,
               "done": false,
-              "note": "类比：Redux 原子 reducer / 乐观更新 → 数据库事务 2026-09-09：提前，GROUP BY 之后立刻上，不要等进 FastAPI 才补事务。"
+              "note": "类比：Redux 原子 reducer / 乐观更新 → 数据库事务。2026-09-18 已讲授，mastery 2（理论能解释，实操未完整跑通）。丢失更新与三个读异常做了双会话实测；四档级别按用户要求压成五句话收尾，未深入。用户质疑本节深度，决定转 FastAPI 主线。作业（下单事务）待验收。"
             },
             {
               "id": "db-10",
@@ -490,7 +490,7 @@ const DATA = {
               "name": "FastAPI 入门：路由、请求与响应模型",
               "mastery": 0,
               "done": false,
-              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic 2026-09-09：第一周作业就必须带 pytest，不必等 fw-6 才写测试。"
+              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic 2026-09-09：第一周作业就必须带 pytest，不必等 fw-6 才写测试。 2026-09-18：下一节，用户决定从数据库主线切到后端主线。"
             },
             {
               "id": "fw-s1",
@@ -1547,7 +1547,7 @@ const DATA = {
     }
   ],
   "meta": {
-    "position": "db-6 GROUP BY → db-9 事务（提前）→ db-7 CTE → db-8 窗口 → py-21/22/23 压缩异步 → fw-1 FastAPI（作业带 pytest）",
+    "position": "fw-1 FastAPI（首周作业带 pytest）→ fw-s1 配置密钥 → fw-2/3 ORM+迁移 → fw-4 Depends → fw-s2 JWT → fw-5/6/7 → fw-s4 后台任务 → fw-10 Compose → fw-s3 Redis → fw-s5 VPS",
     "project": "AI 客服工单系统"
   },
   "memory": [],
