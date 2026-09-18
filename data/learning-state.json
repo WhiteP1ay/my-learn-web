@@ -10,11 +10,11 @@
     {
       "chapter_id": "db-6",
       "chapter_name": "聚合与分组：GROUP BY / HAVING",
-      "mastery": 2,
+      "mastery": 3,
       "max_mastery": 4,
       "last_review": "2026-09-17",
-      "note": "2026-09-17 讲完。GROUP BY 首题独立跑对；HAVING 语法对但表达式错两次 + 改一半一次，纠正后跑对",
-      "gap": "需求→SQL 翻译漏环（把 price 当金额、只改两处漏 having）；count(*) vs count(列) 的 NULL 差异未讲；count(distinct)、string_agg、group by 多列组合未练；聚合与 JOIN 的膨胀交互（一对多先分组再接）未验；非提示组合题待复验"
+      "note": "2026-09-17 讲完。GROUP BY 结构与分组键独立写对；HAVING 位置语法正确。表达式错误成串（sum(price) 当金额、改两处漏第三处）当场纠正",
+      "gap": "需求→SQL 翻译漏环（第三次，db-3/db-5/db-6 同一病根）；表达式多改漏改；count(*) vs count(列) NULL 差异未讲；count(distinct)/string_agg 未练；聚合与 JOIN 膨胀未验；复验门禁：无提示多条件组合题一次不漏"
     },
     {
       "chapter_id": "py-s1",
