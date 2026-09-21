@@ -1,12 +1,21 @@
 {
   "current": {
     "phase": "phase1",
-    "knowledge_point": "fw-1. FastAPI 入门：路由、请求与响应模型",
-    "session": 22,
+    "knowledge_point": "fw-s1. 补充：pydantic-settings 与密钥管理",
+    "session": 23,
     "last_session": "2026-09-21",
     "default_duration": "45–60 分钟"
   },
   "review_pool": [
+    {
+      "chapter_id": "fw-1",
+      "chapter_name": "FastAPI 入门：路由、请求与响应模型",
+      "mastery": 3,
+      "max_mastery": 4,
+      "last_review": "2026-09-21",
+      "note": "2026-09-21 当堂验收通过。独立完成 Todo CRUD + pytest 5 项自动化测试全绿。掌握 model_dump()、字典解构合并与 update",
+      "gap": "JS 字典字面量惯性（key 漏写引号变成内置函数 id()）；Pydantic 实例需 model_dump() 后方可传给 dict.update；真实 DB 替换内存列表（留待 fw-2）"
+    },
     {
       "chapter_id": "db-6",
       "chapter_name": "聚合与分组：GROUP BY / HAVING",

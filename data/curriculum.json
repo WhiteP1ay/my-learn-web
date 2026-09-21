@@ -345,10 +345,10 @@
             {
               "id": "fw-1",
               "name": "FastAPI 入门：路由、请求与响应模型",
-              "mastery": 0,
-              "evidence": "能创建 FastAPI 应用，定义 GET/POST/PUT/DELETE 路由，用 Pydantic 做请求校验",
+              "mastery": 3,
+              "evidence": "独立完成 Todo 内存 CRUD API（增删改查/单查/404 处理），掌握 Pydantic model_dump()、字典解构与 update，通过 pytest 5 项自动化测试",
               "strategy": "comprehensive",
-              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic。2026-09-09：第一周作业就必须带 pytest，不必等 fw-6 才写测试。2026-09-21：已讲授核心概念（路由、Path/Query/Body/response_model 与 TestClient），作业待验收（Todo CRUD + pytest）。"
+              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic。2026-09-21 当堂验收通过，mastery 3。踩坑固化：Python 字典 key 漏引号会误求值为内置函数 id()；Pydantic 实例需 model_dump() 后方可 update。"
             },
             {
               "id": "fw-s1",

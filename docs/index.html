@@ -488,9 +488,9 @@ const DATA = {
             {
               "id": "fw-1",
               "name": "FastAPI 入门：路由、请求与响应模型",
-              "mastery": 0,
-              "done": false,
-              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic。2026-09-09：第一周作业就必须带 pytest，不必等 fw-6 才写测试。2026-09-21：已讲授核心概念（路由、Path/Query/Body/response_model 与 TestClient），作业待验收（Todo CRUD + pytest）。"
+              "mastery": 3,
+              "done": true,
+              "note": "类比：Express/Koa 路由 + Zod 校验 → FastAPI 路由 + Pydantic。2026-09-21 当堂验收通过，mastery 3。踩坑固化：Python 字典 key 漏引号会误求值为内置函数 id()；Pydantic 实例需 model_dump() 后方可 update。"
             },
             {
               "id": "fw-s1",
@@ -1377,6 +1377,12 @@ const DATA = {
     }
   ],
   "review_pool": [
+    {
+      "id": "fw-1",
+      "name": "FastAPI 入门：路由、请求与响应模型",
+      "last": "2026-09-21",
+      "gap": "JS 字典字面量惯性（key 漏写引号变成内置函数 id()）；Pydantic 实例需 model_dump() 后方可传给 dict.update；真实 DB 替换内存列表（留待 fw-2）"
+    },
     {
       "id": "db-6",
       "name": "聚合与分组：GROUP BY / HAVING",
