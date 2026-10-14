@@ -921,10 +921,10 @@
             {
               "id": "jv-2",
               "name": "Lambda 表达式与 Stream API",
-              "mastery": 0,
-              "evidence": "能将 TS map/filter/reduce 链式操作翻译为 Java Stream API",
+              "mastery": 3,
+              "evidence": "独立写出 Stream 过滤/映射/reduce 管道，理解惰性求值、目标类型推导与 groupingBy 分组映射",
               "strategy": "fast_track",
-              "note": "合并原「Lambda表达式」「Stream API」。TS 箭头函数经验直接复用",
+              "note": "2026-10-14 掌握：完成 Lambda、惰性求值检验与 orders 电商大单折后总额计算验收",
               "merge_note": "合并了原「Lambda表达式」「Stream API」两个章节"
             },
             {
