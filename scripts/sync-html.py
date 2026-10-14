@@ -67,16 +67,6 @@ def main():
             pd['groups'].append(gd)
         phases.append(pd)
 
-    # Review pool
-    review_pool = []
-    for item in state.get('review_pool', []):
-        review_pool.append({
-            'id': item['chapter_id'],
-            'name': item.get('chapter_name', ''),
-            'last': item.get('last_review', ''),
-            'gap': item.get('gap', '')
-        })
-
     # Meta
     upcoming = state.get('upcoming_plan', [''])
     meta = {
@@ -86,7 +76,6 @@ def main():
 
     new_data = {
         'phases': phases,
-        'review_pool': review_pool,
         'meta': meta,
         'memory': [],
         'plans': kept_plans
@@ -107,7 +96,7 @@ def main():
         f.write(new_html)
 
     total = sum(len(g['chapters']) for p in phases for g in p['groups'])
-    print(f"Synced: {total} chapters, {len(review_pool)} reviews, {len(kept_plans)} plans")
+    print(f"Synced: {total} chapters, {len(kept_plans)} plans")
 
 
 if __name__ == '__main__':

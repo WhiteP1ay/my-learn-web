@@ -17,7 +17,7 @@ Hermes Agent 读取 `data/` 下的文件，根据课程安排和当前进度执�
 my-learn-web/
 ├── data/                    ← Agent 读写的数据层（JSON）
 │   ├── curriculum.json      # 课程大纲：Phase → Group → Chapter
-│   ├── learning-state.json  # 学习进度、复习池、停车场、upcoming plan
+│   ├── learning-state.json  # 学习进度、停车场、upcoming plan
 │   └── profile.json         # 学习者画像（已有技能、偏好、目标）
 ├── docs/
 │   └── index.html           # 可视化看板（内联 CSS/JS，零依赖）
@@ -72,7 +72,7 @@ my-learn-web/
 | 策略 | 含义 | Agent 行为 |
 |------|------|-----------|
 | `comprehensive` | 完整教学 | 系统讲解 + 练习 + 验证 evidence |
-| `completed` | 已学完 | 跳过，可出现在复习池 |
+| `completed` | 已学完 | 跳过 |
 | `fast_track` | 速通 | 利用已有知识对比差异，快速过 |
 | `in_project` | 项目中学 | 不单独讲，在项目遇到时即时教学 |
 | `deferred` | 延后 | 暂时不学 |
@@ -88,7 +88,7 @@ my-learn-web/
 
 ### learning-state.json
 
-当前学习状态，驱动 UI 展示和 Agent 教学决策。
+当前学习状态，驱动 UI 展示和 Agent 教学决策。没有复习池，也不要新建。学习者自己点名某一章时才复习。
 
 ```jsonc
 {
@@ -97,15 +97,6 @@ my-learn-web/
     "knowledge_point": "py-14. 类型系统进阶（类型标注与ABC）",
     "session": 6                      // 已完成课时数
   },
-  "review_pool": [                    // 掌握度 3/4 的章节，需定期复习
-    {
-      "chapter_id": "py-1",
-      "chapter_name": "Python 环境搭建与工具链",
-      "mastery": 3,
-      "max_mastery": 4,
-      "gap": "未独立处理版本冲突..."  // 还差什么达到 4
-    }
-  ],
   "upcoming_plan": [                  // 接下来要学的章节 ID
     "py-14 → py-17 → db-1 → db-2 → db-3 → fw-1"
   ],
@@ -142,7 +133,7 @@ my-learn-web/
 ```
 1. 读取 data/profile.json      → 了解学习者背景和偏好
 2. 读取 data/curriculum.json   → 找到 current_position 对应的章节
-3. 读取 data/learning-state.json → 了解复习池和停车场
+3. 读取 data/learning-state.json → 了解当前进度和停车场
 4. 执行教学（45-60 分钟）:
    a. 根据 strategy 决定教学方式
    b. 用前端类比解释概念（profile.preferences.use_frontend_analogies）
@@ -150,7 +141,7 @@ my-learn-web/
    d. 记录到 session（session_search 可回顾历史）
 5. 更新数据:
    a. curriculum.json: 更新 mastery 和 strategy
-   b. learning-state.json: 更新 current、session、review_pool
+   b. learning-state.json: 更新 current、session、upcoming_plan、parking_lot
    c. docs/index.html: 同步内联 DATA（使 GitHub Pages 反映最新进度）
 6. git commit + push
 ```

@@ -113,16 +113,6 @@
   .btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
   .btn:focus-visible { opacity: 1; outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  .review-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 8px 10px; border-radius: 6px; font-size: 13px;
-    border-bottom: 1px solid var(--border);
-  }
-  .review-item:last-child { border-bottom: none; }
-  .review-item .chap { font-weight: 500; min-width: 100px; }
-  .review-item .gap { color: var(--text-dim); font-size: 12px; flex: 1; }
-  .review-item .btn { opacity: 1; }
-
   /* Expandable plan */
   .row { cursor: pointer; }
   .plan-detail {
@@ -214,7 +204,7 @@ const DATA = {
               "name": "容器类型与推导式",
               "mastery": 3,
               "done": true,
-              "note": "类比：JS Array.map/filter → Python 列表推导式；JS Object → Python dict 2026-08-31 状态修复：该章早已学完（mastery 3，复习池 8-13 复习），curriculum 未同步，现标记 completed。待固化项保留在复习池。"
+              "note": "类比：JS Array.map/filter → Python 列表推导式；JS Object → Python dict。2026-08-31 状态修复：该章早已学完（mastery 3），curriculum 未同步，现标记 completed。"
             },
             {
               "id": "py-4",
@@ -270,7 +260,7 @@ const DATA = {
               "name": "装饰器深度解析：从闭包到 @语法糖",
               "mastery": 3,
               "done": true,
-              "note": "已讲授并验收 2026-08-13 mastery 3。课堂坑：函数对象vs调用 greet(name)、try..catch 术语、time 当第三方包、计时 start 放错层导致耗时递增、@wraps 误写 @wraps（装饰器工厂必须传参）、测试数据让目标分支不可达。py-13 异常处理 mastery 虚高需复习"
+              "note": "已讲授并验收 2026-08-13 mastery 3。课堂坑：函数对象vs调用 greet(name)、try..catch 术语、time 当第三方包、计时 start 放错层导致耗时递增、@wraps 误写 @wraps（装饰器工厂必须传参）、测试数据让目标分支不可达。"
             },
             {
               "id": "py-12",
@@ -415,7 +405,7 @@ const DATA = {
               "name": "聚合与分组：GROUP BY / HAVING",
               "mastery": 3,
               "done": true,
-              "note": "2026-09-17 讲完 GROUP BY + HAVING。2026-09-18 复验：多条件组合题漏掉日期条件（第三次同类），纠正后自纠正确；按用户主张回调为 3（漏条件不属本节考点，且与 db-3/db-5 评分口径保持一致），表达式多改漏改记入 gap，复习时用无提示组合题复验。"
+              "note": "2026-09-17 讲完 GROUP BY + HAVING。2026-09-18 复验：多条件组合题漏掉日期条件（第三次同类），纠正后自纠正确；按用户主张回调为 3（漏条件不属本节考点，且与 db-3/db-5 评分口径保持一致），表达式多改漏改。"
             },
             {
               "id": "db-7",
@@ -1376,182 +1366,6 @@ const DATA = {
       ]
     }
   ],
-  "review_pool": [
-    {
-      "id": "fw-1",
-      "name": "FastAPI 入门：路由、请求与响应模型",
-      "last": "2026-09-21",
-      "gap": "JS 字典字面量惯性（key 漏写引号变成内置函数 id()）；Pydantic 实例需 model_dump() 后方可传给 dict.update；真实 DB 替换内存列表（留待 fw-2）"
-    },
-    {
-      "id": "db-6",
-      "name": "聚合与分组：GROUP BY / HAVING",
-      "last": "2026-09-17",
-      "gap": "需求→SQL 翻译漏环（第三次，db-3/db-5/db-6 同一病根）；表达式多改漏改；count(*) vs count(列) NULL 差异未讲；count(distinct)/string_agg 未练；聚合与 JOIN 膨胀未验；复验门禁：无提示多条件组合题一次不漏"
-    },
-    {
-      "id": "py-s1",
-      "name": "补充：Protocol 与 Annotated / TypedDict",
-      "last": "2026-09-14",
-      "gap": "@runtime_checkable 未实操；total=False/NotRequired 未讲；TypedDict 独立书写仍会犯 JS 裸键 {title: \"x\"}；json.loads → Any 的校验破口只演示未实战（Pydantic 阶段补）"
-    },
-    {
-      "id": "py-20",
-      "name": "事件循环与 async/await 入门",
-      "last": "2026-09-09",
-      "gap": "真实异步 IO 库未实操（httpx/aiohttp/asyncpg 换 requests/psycopg2）；create_task fire-and-forget 未练；FastAPI async endpoint 实战待 fw 阶段"
-    },
-    {
-      "id": "py-19",
-      "name": "断点调试：pdb 与 IDE 调试",
-      "last": "2026-09-09",
-      "gap": "pdb 命令行未独立跑通完整流程；条件断点/post-mortem 未实操；容器/服务器环境实战待真实场景"
-    },
-    {
-      "id": "py-18",
-      "name": "构建与发布：从代码到 PyPI",
-      "last": "2026-09-09",
-      "gap": "未亲手 build/publish；无 PyPI 账号；[project.scripts] 未自己写；真实发布场景待补"
-    },
-    {
-      "id": "py-15",
-      "name": "迭代器与生成器",
-      "last": "2026-09-09",
-      "gap": "单程票口头测错一次（next+list 混用，自称看错题未正面复验）；生成器表达式 (x for x in ..) 只讲未实操；大文件/大数据流惰性省内存场景未实操；异步生成器留给后续"
-    },
-    {
-      "id": "py-16",
-      "name": "上下文管理器：with 语句与 contextlib",
-      "last": "2026-09-07",
-      "gap": "contextlib.suppress/closing/ExitStack 未讲；with 多资源未练；__enter__ 返回非 self 句柄的场景未实操；真实 FastAPI 连接管理待 fw 阶段实战"
-    },
-    {
-      "id": "db-5",
-      "name": "表间关系与 JOIN 查询",
-      "last": "2026-09-04",
-      "gap": "RIGHT/FULL 仅带过未实操；从零设计多对多中间表未验证（db-11 补）；4 表链大数据量下的性能直觉待实战"
-    },
-    {
-      "id": "db-4",
-      "name": "DML：插入、更新与删除",
-      "last": "2026-09-03",
-      "gap": "DBeaver 执行方式坑已固化（Ctrl+Enter 只跑光标行，多语句用 Alt+X）；excluded 伪行/非保留字已理解；批量 upsert 同语句重复冲突键会报 cannot affect row a second time；psycopg 通道 commit 待 fw 阶段实战"
-    },
-    {
-      "id": "db-3",
-      "name": "SELECT 查询基础：投影、过滤、排序、分页",
-      "last": "2026-09-03",
-      "gap": "2026-09-03 热身重测通过：8月订单>=50 第2页写全对（含日期半开区间，7条符合、第2页 67.80/58.00），上次漏日期条件已修复。深 offset 分页性能问题留给 db-10；NULL 语义真实业务判断待积累"
-    },
-    {
-      "id": "db-2",
-      "name": "DDL：建表、约束与字段类型",
-      "last": "2026-08-31",
-      "gap": "SET NULL 未实操；复合主键/联合唯一未练习；真实迁移（Alembic）前 ALTER TABLE 经验待积累；2026-09-03 补了 ALTER TABLE ADD CONSTRAINT unique + 约束命名规律（表_列_key/fkey/pkey/check）"
-    },
-    {
-      "id": "db-1",
-      "name": "PostgreSQL 环境搭建与连接",
-      "last": "2026-08-31",
-      "gap": "事务边界在真实写路径固化中：GUI/psql 默认 autocommit ON，psycopg3 默认 False 必须 commit（db-4 已对照，代码通道待 fw 实战）；Alembic 迁移（fw-3）前 CREATE TABLE 幂等处理待用上"
-    },
-    {
-      "id": "py-17",
-      "name": "模块化：包、导入与命名空间",
-      "last": "2026-08-31",
-      "gap": "TYPE_CHECKING 块未实操；真实项目（FastAPI 多包结构）中组织导入待实战验证；循环导入的架构级解法（抽公共模块）未实操"
-    },
-    {
-      "id": "py-14",
-      "name": "类型系统进阶：类型标注与抽象基类（ABC）",
-      "last": "2026-08-31",
-      "gap": "需在实际项目（FastAPI 领域模型/Repository 接口）中独立设计 ABC 接口；ABC vs Protocol 的选择判断待实战验证；register() 动态注册未实操"
-    },
-    {
-      "id": "ai-1",
-      "name": "AI 全景与 LLM 工作原理概览",
-      "last": "2026-08-13",
-      "gap": "需在真实 agent 前端场景迁移（流式渲染/参数调优/排查输出差异）；attention 细节留 ai-4；同一 prompt 两次的随机性对比实验未做"
-    },
-    {
-      "id": "ai-0",
-      "name": "AI 领域术语地图",
-      "last": "2026-08-13",
-      "gap": "attention 机制掌握待验证；完整关系复述未做（其余概念及 prompt/fine-tune/RAG 边界判断已达标）"
-    },
-    {
-      "id": "py-1",
-      "name": "Python 环境搭建与工具链",
-      "last": "2026-08-05",
-      "gap": "未独立处理版本冲突、解释器不匹配或损坏环境的迁移/排错"
-    },
-    {
-      "id": "py-2",
-      "name": "Python 基本语法·循环",
-      "last": "2026-08-03",
-      "gap": ""
-    },
-    {
-      "id": "py-3",
-      "name": "容器类型与推导式",
-      "last": "2026-08-13",
-      "gap": ""
-    },
-    {
-      "id": "py-4",
-      "name": "函数：参数传递与类型提示入门",
-      "last": "2026-08-06",
-      "gap": "需在 API 中独立设计参数接口并排查真实问题"
-    },
-    {
-      "id": "py-5",
-      "name": "作用域与闭包",
-      "last": "2026-08-06",
-      "gap": "需在实际回调/装饰器中排查闭包问题"
-    },
-    {
-      "id": "py-6",
-      "name": "lambda 表达式与一等函数",
-      "last": "2026-08-06",
-      "gap": "需在真实场景中选择 lambda 与命名函数"
-    },
-    {
-      "id": "py-7",
-      "name": "类与对象",
-      "last": "2026-08-06",
-      "gap": "需在 API/领域模型中选型 dataclass vs Pydantic"
-    },
-    {
-      "id": "py-8",
-      "name": "对象的类型系统",
-      "last": "2026-08-06",
-      "gap": "需在真实输入验证中判断 isinstance 使用策略"
-    },
-    {
-      "id": "py-13",
-      "name": "异常处理",
-      "last": "2026-08-25",
-      "gap": "2026-08-25 复习：try/except 主体独立写出（ZeroDivisionError 具体捕获）语法恢复，提回 3；测试行 safe_divide(2 / 0) 暴露参数先求值语义（传参前先算表达式）；else/finally 语义仍未验证；FastAPI 异常边界与 HTTP 映射待做"
-    },
-    {
-      "id": "py-11",
-      "name": "装饰器深度解析：从闭包到 @语法糖",
-      "last": "2026-08-13",
-      "gap": "需在真实后端场景迁移：FastAPI 路由鉴权装饰器、日志/计时中间件；@wraps(fn) 与 @wraps 的区分待固化"
-    },
-    {
-      "id": "py-9",
-      "name": "对象的生命周期：__new__、__init__ 与 __del__",
-      "last": "2026-08-13",
-      "gap": "需在真实资源管理中体会 __del__ 的不可靠（应改用上下文管理器 py-16）；类属性持有引用对生命周期的影响待实际调试验证"
-    },
-    {
-      "id": "py-10",
-      "name": "魔术方法：让对象更 Pythonic",
-      "last": "2026-08-25",
-      "gap": "2026-08-25 复习 5 题错 1：raise NotImplementedError vs return NotImplemented 仍混淆（选成 raise NotImplemented），口诀「raise 跟异常类，return 跟哨兵对象」需固化；__hash__ 写法曾三次出错需复习；描述符协议仅了解，未实操"
-    }
-  ],
   "meta": {
     "position": "fw-1 FastAPI（首周作业带 pytest）→ fw-s1 配置密钥 → fw-2/3 ORM+迁移 → fw-4 Depends → fw-s2 JWT → fw-5/6/7 → fw-s4 后台任务 → fw-10 Compose → fw-s3 Redis → fw-s5 VPS",
     "project": "AI 客服工单系统"
@@ -1574,7 +1388,7 @@ const DATA = {
     },
     "Python 基本语法": {
       "o": [
-        "复习 Python 变量、条件、循环与 print/input 基本 I/O 的写法，重点回顾缩进即代码块",
+        "写出 Python 变量、条件、循环与 print/input 基本 I/O，重点是缩进即代码块",
         "对照 TypeScript 语法，梳理 Python 与 JS 在语法层面的关键差异（缩进、冒号、布尔、None vs null 等）",
         "巩固能快速写出正确缩进结构、无大括号的小型脚本的能力"
       ],
@@ -1600,7 +1414,7 @@ const DATA = {
     },
     "函数：参数传递与类型提示入门": {
       "o": [
-        "复习 def 定义函数、参数默认值与 return 的写法",
+        "写出 def 定义函数、参数默认值与 return",
         "巩固位置参数、关键字参数、*args/**kwargs 的调用规则与优先级",
         "回顾类型提示（type hints）的基础写法与 IDE 补全/静态检查价值"
       ],
@@ -1627,7 +1441,7 @@ const DATA = {
     },
     "lambda 表达式与一等函数": {
       "o": [
-        "复习 lambda 表达式语法与常见使用场景（key 排序、filter/map/sorted 回调）",
+        "写出 lambda 表达式，并用于 key 排序、filter/map/sorted 回调",
         "巩固函数作为一等公民：赋值、传参、作为返回值",
         "对照 JS 箭头函数，快速翻译常见模式为 Python lambda"
       ],
@@ -1640,7 +1454,7 @@ const DATA = {
     },
     "类与对象": {
       "o": [
-        "复习 class 定义、__init__ 初始化、实例属性与方法的写法",
+        "写出 class 定义、__init__、实例属性与方法",
         "巩固 self 必须显式传入的含义，与 JS this 的隐式绑定做对比",
         "梳理实例属性与类属性的区别及常见踩坑"
       ],
@@ -1653,7 +1467,7 @@ const DATA = {
     },
     "对象的类型系统": {
       "o": [
-        "复习 type()/isinstance() 判断类型及两者区别",
+        "用 type()/isinstance() 判断类型，并说明两者区别",
         "巩固一切皆对象、type 本身也是对象的认知",
         "对照 JS typeof/instanceof/prototype，理解 Python MRO 多继承查找顺序"
       ],
@@ -1718,7 +1532,7 @@ const DATA = {
     },
     "异常处理：try/except/finally 与自定义异常": {
       "o": [
-        "复习 try/except/else/finally 的完整语义与执行顺序",
+        "写出 try/except/else/finally 的执行顺序",
         "巩固自定义异常类的写法与异常层级设计",
         "回顾 finally 做资源清理、except 精确捕获的工程实践"
       ],
@@ -3627,7 +3441,7 @@ for (const p of DATA.phases) {
   for (const g of p.groups) {
     html += `<div class="group"><div class="group-title">${g.name}</div>`;
     for (const c of g.chapters) {
-      const cmd = c.done ? `复习 ${c.id} ${c.name}` : `讲 ${c.id} ${c.name}`;
+      const cmd = `讲 ${c.id} ${c.name}`;
       const plan = DATA.plans[c.name];
       const hasPlan = plan && (plan.o || plan.m);
       const m = c.mastery || 0;

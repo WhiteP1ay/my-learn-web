@@ -30,7 +30,7 @@
               "mastery": 3,
               "evidence": "能熟练操作 list/dict/tuple/set，用推导式替代 for 循环写出简洁的数据转换代码",
               "strategy": "completed",
-              "note": "类比：JS Array.map/filter → Python 列表推导式；JS Object → Python dict 2026-08-31 状态修复：该章早已学完（mastery 3，复习池 8-13 复习），curriculum 未同步，现标记 completed。待固化项保留在复习池。"
+              "note": "类比：JS Array.map/filter → Python 列表推导式；JS Object → Python dict。2026-08-31 状态修复：该章早已学完（mastery 3），curriculum 未同步，现标记 completed。"
             },
             {
               "id": "py-4",
@@ -95,7 +95,7 @@
               "mastery": 3,
               "evidence": "作业验收通过：@timer(unit='s'/'ms') 可传参计时装饰器两单位输出正确（0.06s/55ms）；@require_role('admin') 双通路验证（user 被拒带消息、admin 放行）；wraps 对照实验确认 __name__/__doc__ 保留。课堂独立完成 max_retry(3) 重试装饰器三测试全绿",
               "strategy": "completed",
-              "note": "已讲授并验收 2026-08-13 mastery 3。课堂坑：函数对象vs调用 greet(name)、try..catch 术语、time 当第三方包、计时 start 放错层导致耗时递增、@wraps 误写 @wraps（装饰器工厂必须传参）、测试数据让目标分支不可达。py-13 异常处理 mastery 虚高需复习"
+              "note": "已讲授并验收 2026-08-13 mastery 3。课堂坑：函数对象vs调用 greet(name)、try..catch 术语、time 当第三方包、计时 start 放错层导致耗时递增、@wraps 误写 @wraps（装饰器工厂必须传参）、测试数据让目标分支不可达。"
             },
             {
               "id": "py-12",
@@ -262,7 +262,7 @@
               "mastery": 3,
               "evidence": "能用 GROUP BY/HAVING 和 COUNT/SUM/AVG/MIN/MAX 做分组统计，理解 HAVING 与 WHERE 的区别",
               "strategy": "comprehensive",
-              "note": "2026-09-17 讲完 GROUP BY + HAVING。2026-09-18 复验：多条件组合题漏掉日期条件（第三次同类），纠正后自纠正确；按用户主张回调为 3（漏条件不属本节考点，且与 db-3/db-5 评分口径保持一致），表达式多改漏改记入 gap，复习时用无提示组合题复验。"
+              "note": "2026-09-17 讲完 GROUP BY + HAVING。2026-09-18 复验：多条件组合题漏掉日期条件（第三次同类），纠正后自纠正确；按用户主张回调为 3（漏条件不属本节考点，且与 db-3/db-5 评分口径保持一致），表达式多改漏改。"
             },
             {
               "id": "db-7",

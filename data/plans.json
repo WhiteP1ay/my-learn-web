@@ -15,7 +15,7 @@
  },
  "Python 基本语法": {
   "o": [
-   "复习 Python 变量、条件、循环与 print/input 基本 I/O 的写法，重点回顾缩进即代码块",
+   "写出 Python 变量、条件、循环与 print/input 基本 I/O，重点是缩进即代码块",
    "对照 TypeScript 语法，梳理 Python 与 JS 在语法层面的关键差异（缩进、冒号、布尔、None vs null 等）",
    "巩固能快速写出正确缩进结构、无大括号的小型脚本的能力"
   ],
@@ -41,7 +41,7 @@
  },
  "函数：参数传递与类型提示入门": {
   "o": [
-   "复习 def 定义函数、参数默认值与 return 的写法",
+   "写出 def 定义函数、参数默认值与 return",
    "巩固位置参数、关键字参数、*args/**kwargs 的调用规则与优先级",
    "回顾类型提示（type hints）的基础写法与 IDE 补全/静态检查价值"
   ],
@@ -68,7 +68,7 @@
  },
  "lambda 表达式与一等函数": {
   "o": [
-   "复习 lambda 表达式语法与常见使用场景（key 排序、filter/map/sorted 回调）",
+   "写出 lambda 表达式，并用于 key 排序、filter/map/sorted 回调",
    "巩固函数作为一等公民：赋值、传参、作为返回值",
    "对照 JS 箭头函数，快速翻译常见模式为 Python lambda"
   ],
@@ -81,7 +81,7 @@
  },
  "类与对象": {
   "o": [
-   "复习 class 定义、__init__ 初始化、实例属性与方法的写法",
+   "写出 class 定义、__init__、实例属性与方法",
    "巩固 self 必须显式传入的含义，与 JS this 的隐式绑定做对比",
    "梳理实例属性与类属性的区别及常见踩坑"
   ],
@@ -94,7 +94,7 @@
  },
  "对象的类型系统": {
   "o": [
-   "复习 type()/isinstance() 判断类型及两者区别",
+   "用 type()/isinstance() 判断类型，并说明两者区别",
    "巩固一切皆对象、type 本身也是对象的认知",
    "对照 JS typeof/instanceof/prototype，理解 Python MRO 多继承查找顺序"
   ],
@@ -159,7 +159,7 @@
  },
  "异常处理：try/except/finally 与自定义异常": {
   "o": [
-   "复习 try/except/else/finally 的完整语义与执行顺序",
+   "写出 try/except/else/finally 的执行顺序",
    "巩固自定义异常类的写法与异常层级设计",
    "回顾 finally 做资源清理、except 精确捕获的工程实践"
   ],
