@@ -21,11 +21,12 @@
     "Linux/运维/安全"
   ],
   "priority": [
-    "Python + 数据库基础",
-    "Python 后端工程",
+    "Java 企业后端 (生产落地主线)",
+    "Spring Boot / Cloud 微服务",
+    "数据库设计/SQL",
+    "Python + 后端基础",
     "AI 应用工程",
-    "生产部署",
-    "Java 企业后端"
+    "生产部署与运维"
   ],
   "preferences": {
     "language": "中文",

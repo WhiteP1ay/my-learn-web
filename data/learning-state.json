@@ -1,16 +1,15 @@
 {
   "current": {
-    "phase": "phase1",
-    "knowledge_point": "fw-s1. 补充：pydantic-settings 与密钥管理",
+    "phase": "phase3",
+    "knowledge_point": "jv-s1. 补充：Maven / Gradle 构建",
     "session": 23,
     "last_session": "2026-09-21",
     "default_duration": "45–60 分钟"
   },
   "upcoming_plan": [
-    "fw-1 FastAPI（首周作业带 pytest）→ fw-s1 配置密钥 → fw-2/3 ORM+迁移 → fw-4 Depends → fw-s2 JWT → fw-5/6/7 → fw-s4 后台任务 → fw-10 Compose → fw-s3 Redis → fw-s5 VPS",
-    "数据库主线余量后置：db-7 CTE → db-8 窗口 → db-10 索引 → db-11 范式 → db-12 JSONB（2026-09-18 用户决定先把后端主线拉起来）",
-    "MongoDB 改 Beanie/Motor，排 FastAPI 之后；数据科学保留，排 Mongo 之后不插队",
-    "db-13/14/15、fw-11 K8s、py-12 元类、ai-3、rag-5、ft-2/ft-3、mw-3 deferred"
+    "【Java生产主线】jv-s1 Maven/Gradle 构建与项目脚手架 → jv-2 Stream与函数式 → jv-3/4 OOP与接口体系 → jv-5 异常 → jv-6 泛型擦除 → jv-7 注解与反射（Spring基石） → jv-8 并发基石",
+    "【Spring Boot企业后端】sb-1 IoC与DI → sb-2 AOP → sb-3 Web/RESTful → sb-4 MyBatis/JPA 数据持久化 → sb-5 Security 认证授权 → sb-6 测试与工程化",
+    "Python/FastAPI 主线作为辅助工具线保留，按需穿插或后置"
   ],
   "blockers": [],
   "parking_lot": [
