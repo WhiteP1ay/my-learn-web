@@ -1,7 +1,7 @@
 {
   "current": {
     "phase": "phase3",
-    "knowledge_point": "jv-s1. 补充：Maven / Gradle 构建",
+    "knowledge_point": "jv-2. Lambda 表达式与 Stream API",
     "session": 23,
     "last_session": "2026-09-21",
     "default_duration": "45–60 分钟"

@@ -913,10 +913,10 @@
             {
               "id": "jv-s1",
               "name": "补充：Maven / Gradle 构建",
-              "mastery": 0,
-              "evidence": "能用 Maven 或 Gradle 跑通一个最小 Spring 项目，理解依赖、生命周期和多模块入口",
+              "mastery": 3,
+              "evidence": "理解 Maven GAV 坐标、依赖 scope、生命周期链与标准目录结构，能对标 package.json",
               "strategy": "fast_track",
-              "note": "2026-09-09 补充。原 Java 语言速通缺构建工具，Spring 六章会空转。"
+              "note": "2026-10-14 掌握：完成 Maven 概念检验并搭建最小 pom.xml 与标准工程骨架"
             },
             {
               "id": "jv-2",
