@@ -32,6 +32,9 @@
     "keep_english_terms": true,
     "use_frontend_analogies": true,
     "require_evidence": true,
-    "skip_frontend_basics": true
+    "skip_frontend_basics": true,
+    "plain_language": "讲课用短句和白话。术语第一次出现就用一句话解释。一次只讲一件事。",
+    "question_format": "复习题、作业、随堂题优先选择题和填空题，一次只出一道。",
+    "code_tasks": "需要写代码时，先搭好环境和可运行骨架，只让学习者写关键部分。"
   }
 }
