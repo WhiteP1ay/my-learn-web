@@ -906,7 +906,7 @@
               "name": "Java 速通：从 TS 到 Java 的语法对比",
               "mastery": 3,
               "evidence": "独立完成 TS 到 Java 语法迁移，掌握包装类/引用比较与 Map/List 容器操作",
-              "strategy": "fast_track",
+              "strategy": "completed",
               "note": "2026-10-14 掌握：已完成随堂测试与 Jv1Exercise.java 词频统计验收",
               "merge_note": "合并了原「Java基础语法」「方法」「容器类型」三个章节"
             },
@@ -915,7 +915,7 @@
               "name": "补充：Maven / Gradle 构建",
               "mastery": 3,
               "evidence": "理解 Maven GAV 坐标、依赖 scope、生命周期链与标准目录结构，能对标 package.json",
-              "strategy": "fast_track",
+              "strategy": "completed",
               "note": "2026-10-14 掌握：完成 Maven 概念检验并搭建最小 pom.xml 与标准工程骨架"
             },
             {
@@ -923,17 +923,17 @@
               "name": "Lambda 表达式与 Stream API",
               "mastery": 3,
               "evidence": "独立写出 Stream 过滤/映射/reduce 管道，理解惰性求值、目标类型推导与 groupingBy 分组映射",
-              "strategy": "fast_track",
+              "strategy": "completed",
               "note": "2026-10-14 掌握：完成 Lambda、惰性求值检验与 orders 电商大单折后总额计算验收",
               "merge_note": "合并了原「Lambda表达式」「Stream API」两个章节"
             },
             {
               "id": "jv-3",
               "name": "类与对象：Java OOP 对比 TS",
-              "mastery": 0,
-              "evidence": "能说出 Java 与 TS 在 class 语法、访问修饰符、final、构造链上的关键差异",
-              "strategy": "fast_track",
-              "note": "合并原「类和对象」「封装继承多态」。只讲差异：default/protected/final/super()构造链",
+              "mastery": 3,
+              "evidence": "掌握 Java 包级私有 default 机制、final 三种作用域，独立完成 TS 类继承迁移与 super() 构造链实现",
+              "strategy": "completed",
+              "note": "2026-10-21 掌握：随堂选择题全对，完成 Jv3Exercise.java 继承体系与 super 构造链实战验收",
               "merge_note": "合并了原「类和对象」「封装继承多态」两个章节"
             },
             {
