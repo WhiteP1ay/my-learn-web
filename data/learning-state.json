@@ -1,7 +1,7 @@
 {
   "current": {
     "phase": "phase3",
-    "knowledge_point": "jv-5. 异常处理",
+    "knowledge_point": "jv-6. 泛型：类型擦除与通配符",
     "session": 25,
     "last_session": "2026-10-27",
     "default_duration": "45–60 分钟"
