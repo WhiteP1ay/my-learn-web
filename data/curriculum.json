@@ -955,10 +955,10 @@
             {
               "id": "jv-6",
               "name": "泛型：类型擦除与通配符",
-              "mastery": 0,
+              "mastery": 3,
               "evidence": "能解释 Java 类型擦除机制，正确使用 ? extends / ? super 通配符",
-              "strategy": "comprehensive",
-              "note": "TS 泛型用户熟悉概念，但 Java 类型擦除和通配符是独特机制"
+              "strategy": "completed",
+              "note": "2026-10-27 掌握：理解类型擦除机制与限制，掌握 PECS 原则（Producer Extends, Consumer Super），独立完成 Jv6Exercise 验收"
             },
             {
               "id": "jv-7",
