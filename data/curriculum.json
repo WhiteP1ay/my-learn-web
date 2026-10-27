@@ -939,10 +939,10 @@
             {
               "id": "jv-4",
               "name": "抽象类与接口",
-              "mastery": 0,
+              "mastery": 3,
               "evidence": "能区分抽象类和接口的使用场景，理解 Java 8+ default 方法和接口多继承",
-              "strategy": "comprehensive",
-              "note": "Java 接口与 TS 接口差异很大——Spring 中到处都是接口编程"
+              "strategy": "completed",
+              "note": "2026-10-27 掌握：理解接口与抽象类场景差异，掌握 default 方法与 @Override 机制，独立完成 Jv4Exercise 支付模型验收"
             },
             {
               "id": "jv-5",
