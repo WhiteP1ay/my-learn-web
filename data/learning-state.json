@@ -1,9 +1,9 @@
 {
   "current": {
     "phase": "phase3",
-    "knowledge_point": "jv-7. 注解与反射",
-    "session": 25,
-    "last_session": "2026-10-27",
+    "knowledge_point": "jv-8. 线程基础与并发",
+    "session": 26,
+    "last_session": "2026-10-28",
     "default_duration": "45–60 分钟"
   },
   "upcoming_plan": [
