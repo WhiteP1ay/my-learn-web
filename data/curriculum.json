@@ -971,10 +971,10 @@
             {
               "id": "jv-8",
               "name": "线程基础与并发",
-              "mastery": 0,
+              "mastery": 3,
               "evidence": "能创建和管理 Java 线程，理解与 JS 单线程事件循环的根本差异",
-              "strategy": "comprehensive",
-              "note": "JS 是单线程事件循环，Java 是真多线程——面试高频考点"
+              "strategy": "completed",
+              "note": "2026-11-03 掌握：理解并发丢数本质（count++ 非原子操作），掌握 synchronized 互斥锁与 AtomicInteger 硬件级 CAS 乐观无锁机制与权衡"
             }
           ]
         },
@@ -987,7 +987,7 @@
               "name": "Spring 核心：IoC 容器与依赖注入",
               "mastery": 0,
               "evidence": "能配置 Bean、使用 @Autowired 注入，理解 Bean 生命周期",
-              "strategy": "comprehensive",
+              "strategy": "next_up",
               "note": "Spring 一切的前提。类比：Vue 3 provide/inject 是最接近的类比"
             },
             {
