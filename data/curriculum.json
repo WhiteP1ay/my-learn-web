@@ -1001,17 +1001,17 @@
             {
               "id": "sb-3",
               "name": "Spring Boot Web 开发",
-              "mastery": 0,
+              "mastery": 3,
               "evidence": "能搭建 REST API，定义 Controller/Service，处理请求参数和响应",
-              "strategy": "next_up",
-              "note": "最实用的一节——直接对应前后端协作"
+              "strategy": "completed",
+              "note": "2026-11-03 掌握：透彻掌握 RESTful 参数三剑客（@PathVariable/@RequestParam/@RequestBody）、@Valid 声明式校验触发机制，以及 @RestControllerAdvice + @ExceptionHandler 全局异常解析（HandlerExceptionResolver）接盘机制。自主总结出 Spring IoC 与 AOP 完整架构心智模型。"
             },
             {
               "id": "sb-4",
               "name": "Spring 数据访问：JDBC 与 ORM (JPA)",
               "mastery": 0,
               "evidence": "能用 Spring Data JPA 完成 CRUD 操作，定义实体关联关系",
-              "strategy": "comprehensive",
+              "strategy": "next_up",
               "note": "类比：Prisma/TypeORM → Spring Data JPA"
             },
             {

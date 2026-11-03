@@ -1,7 +1,7 @@
 {
   "current": {
     "phase": "phase3",
-    "knowledge_point": "sb-3. Spring Boot Web 开发：RESTful API、统一异常处理与数据校验",
+    "knowledge_point": "sb-4. 数据持久化：Spring Data JPA 与 MyBatis",
     "session": 27,
     "last_session": "2026-11-03",
     "default_duration": "45–60 分钟"
