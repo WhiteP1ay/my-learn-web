@@ -1,7 +1,7 @@
 {
   "current": {
     "phase": "phase3",
-    "knowledge_point": "sb-1. Spring 核心：IoC 容器与依赖注入",
+    "knowledge_point": "sb-2. AOP 面向切面编程与事务原理",
     "session": 27,
     "last_session": "2026-11-03",
     "default_duration": "45–60 分钟"

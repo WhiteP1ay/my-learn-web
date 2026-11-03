@@ -985,17 +985,17 @@
             {
               "id": "sb-1",
               "name": "Spring 核心：IoC 容器与依赖注入",
-              "mastery": 0,
+              "mastery": 3,
               "evidence": "能配置 Bean、使用 @Autowired 注入，理解 Bean 生命周期",
-              "strategy": "next_up",
-              "note": "Spring 一切的前提。类比：Vue 3 provide/inject 是最接近的类比"
+              "strategy": "completed",
+              "note": "2026-11-03 掌握：透彻理解 IoC/DI（对比 Vue provide/inject）、@Component 与 @Configuration+@Bean 工厂包装、构造器注入防空指针与不可变优势，以及单例 Bean 必须无状态的底层多线程（堆 vs 线程私有栈）安全本质。"
             },
             {
               "id": "sb-2",
               "name": "Spring AOP 切面编程",
               "mastery": 0,
               "evidence": "能使用 @Transactional/@Around 等注解，理解切面拦截流程",
-              "strategy": "comprehensive",
+              "strategy": "next_up",
               "note": "掌握概念和常用注解即可，不需深入自定义切面 2026-09-09：可与 IoC/代理合并心智，掌握常用注解即可。"
             },
             {
