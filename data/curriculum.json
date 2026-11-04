@@ -1009,17 +1009,17 @@
             {
               "id": "sb-4",
               "name": "Spring 数据访问：JDBC 与 ORM (JPA)",
-              "mastery": 0,
-              "evidence": "能用 Spring Data JPA 完成 CRUD 操作，定义实体关联关系",
-              "strategy": "next_up",
-              "note": "类比：Prisma/TypeORM → Spring Data JPA"
+              "mastery": 3,
+              "evidence": "能用 Spring Data JPA 完成 CRUD 操作，定义实体关联关系与派生查询",
+              "strategy": "completed",
+              "note": "2026-11-04 掌握：彻底理清 JDBC(底层网络驱动) vs JPA(官方规范) vs Hibernate(实现引擎) 依赖链；掌握 @Entity 实体建模、无参构造反射要求与 @Transient 瞬态字段；掌握 JpaRepository 运行时动态代理机制与派生查询（PartTree 启动期 AST 语法解析）；透彻辨析 @ManyToOne 视角法则与 @JoinColumn；理解双向关联导致 Jackson 递归序列化 StackOverflowError 的本质与 DTO 隔离解法，以及 FetchType.LAZY 为何无法阻断 Jackson 遍历的原因；通晓 JPA vs MyBatis 全自动 vs 半自动权衡。"
             },
             {
               "id": "sb-5",
               "name": "Spring Security 认证与授权",
               "mastery": 0,
               "evidence": "能配置 JWT 认证流程，实现基于角色的权限控制",
-              "strategy": "comprehensive",
+              "strategy": "next_up",
               "note": "直接关联 Agent 登录态——跨前后端的刚需知识"
             },
             {

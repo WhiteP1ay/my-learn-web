@@ -1,9 +1,9 @@
 {
   "current": {
     "phase": "phase3",
-    "knowledge_point": "sb-4. 数据持久化：Spring Data JPA 与 MyBatis",
-    "session": 27,
-    "last_session": "2026-11-03",
+    "knowledge_point": "sb-5. Spring Security 认证与授权",
+    "session": 28,
+    "last_session": "2026-11-04",
     "default_duration": "45–60 分钟"
   },
   "upcoming_plan": [
